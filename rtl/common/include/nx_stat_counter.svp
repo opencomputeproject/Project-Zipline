@@ -1,0 +1,22 @@
+/*************************************************************************
+*
+* Copyright © Microsoft Corporation. All rights reserved.
+* Copyright © Broadcom Inc. All rights reserved.
+* Licensed under the MIT License.
+*
+*************************************************************************/
+`ifndef __NX_STAT_COUNTER_SVP
+`define __NX_STAT_COUNTER_SVP
+
+package nx_stat_counter;
+   
+   typedef enum logic [1:0] 
+                {READ=2'd0,
+                 WRITE=2'd1,
+                 READ_CLEAR=2'd2,
+                 COUNT=2'd3} counter_op_e;
+   
+endpackage 
+   
+`endif 
+   

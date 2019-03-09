@@ -1,0 +1,50 @@
+/*************************************************************************
+*
+* Copyright © Microsoft Corporation. All rights reserved.
+* Copyright © Broadcom Inc. All rights reserved.
+* Licensed under the MIT License.
+*
+*************************************************************************/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+`ifndef CRPKG_SVP
+`define CRPKG_SVP
+
+`include "cr_global_params.vh"
+
+package crPKG;
+
+   `include "cr_structs.sv"
+
+   typedef enum logic [1:0] {XP10_SIMPLE=0, 
+                             XP10_PREDEFINED=1, 
+                             XP10_RETROSPECTIVE=2, 
+                             XP10_RESERVED=3} xp10_symbol_encode_e;
+
+   typedef enum logic [2:0] {XP9_SIMPLE=0,
+                             XP9_RETROSPECTIVE=1,
+                             XP9_RESERVED2=2,
+                             XP9_RESERVED3=3,
+                             XP9_RESERVED4=4,
+                             XP9_RESERVED5=5,
+                             XP9_RESERVED6=6,
+                             XP9_RESERVED7=7} xp9_symbol_encode_e;
+                             
+   
+endpackage
+
+`endif   
+
+

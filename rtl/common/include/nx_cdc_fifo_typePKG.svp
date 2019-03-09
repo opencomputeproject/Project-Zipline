@@ -1,0 +1,28 @@
+/*************************************************************************
+*
+* Copyright © Microsoft Corporation. All rights reserved.
+* Copyright © Broadcom Inc. All rights reserved.
+* Licensed under the MIT License.
+*
+*************************************************************************/
+`ifndef __NX_CDC_FIFO_TYPEPKG_SVP
+`define __NX_CDC_FIFO_TYPEPKG_SVP
+package nx_cdc_fifo_typePKG;
+ 
+   
+   
+   
+   
+   
+  typedef enum logic [2:0] {
+                            SYNC=3'd0,
+                            SYNC_1_N=3'd1,
+                            SYNC_M_1=3'd2,
+                            SYNC_M_N=3'd3,
+                            ASYNC=3'd4
+                            } cdc_fifo_type_e;
+   
+endpackage : nx_cdc_fifo_typePKG
+
+`endif	   
+   
