@@ -1,0 +1,1141 @@
+/*************************************************************************
+*
+* Copyright © Microsoft Corporation. All rights reserved.
+* Copyright © Broadcom Inc. All rights reserved.
+* Licensed under the MIT License.
+*
+*************************************************************************/
+`ifndef __CR_XP10_DECOMP_REGSPKG_SVP
+`define __CR_XP10_DECOMP_REGSPKG_SVP
+package cr_xp10_decomp_regsPKG;
+
+
+
+
+typedef enum logic [1:0]
+       {ENET  = 2'h0, 
+	IPV4  = 2'h1, 
+	IPV6  = 2'h2, 
+	MPLS  = 2'h3} pkt_hdr_e;
+
+
+
+typedef enum logic [3:0]
+       {CMD_SIMPLE  = 4'h0, 
+	COMPND_4K   = 4'h5, 
+	COMPND_8K   = 4'h6, 
+	COMPND_RSV  = 4'hf} cmd_compound_cmd_frm_size_e;
+
+
+
+typedef enum logic 
+       {GUID_NOT_PRESENT  = 1'h0, 
+	GUID_PRESENT      = 1'h1} cmd_guid_present_e;
+
+
+
+typedef enum logic 
+       {CRC_NOT_PRESENT  = 1'h0, 
+	CRC_PRESENT      = 1'h1} cmd_frmd_crc_in_e;
+
+
+
+typedef enum logic [6:0]
+       {CCEIP_FRMD_USER_NULL  = 7'hb, 
+	CCEIP_FRMD_USER_PI16  = 7'hc, 
+	CCEIP_FRMD_USER_PI64  = 7'hd, 
+	CCEIP_FRMD_USER_VM    = 7'he, 
+	CCEIP_TYPE_IN_RSV     = 7'h7f} cceip_cmd_frmd_in_type_e;
+
+
+
+typedef enum logic [6:0]
+       {CDDIP_FRMD_INT_APP       = 7'hf, 
+	CDDIP_FRMD_INT_SIP       = 7'h10, 
+	CDDIP_FRMD_INT_LIP       = 7'h11, 
+	CDDIP_FRMD_INT_VM        = 7'h12, 
+	CDDIP_FRMD_INT_VM_SHORT  = 7'h16, 
+	CDDIP_TYPE_IN_RSV        = 7'h7f} cddip_cmd_frmd_in_type_e;
+
+
+
+typedef enum logic [6:0]
+       {CCEIP_FRMD_INT_APP       = 7'hf, 
+	CCEIP_FRMD_INT_SIP       = 7'h10, 
+	CCEIP_FRMD_INT_LIP       = 7'h11, 
+	CCEIP_FRMD_INT_VM        = 7'h12, 
+	CCEIP_FRMD_INT_VM_SHORT  = 7'h16, 
+	CCEIP_TYPE_OUT_RSV       = 7'h7f} cceip_cmd_frmd_out_type_e;
+
+
+
+typedef enum logic [6:0]
+       {CDDIP_FRMD_USER_NULL  = 7'hb, 
+	CDDIP_FRMD_USER_PI16  = 7'hc, 
+	CDDIP_FRMD_USER_PI64  = 7'hd, 
+	CDDIP_FRMD_USER_VM    = 7'he, 
+	CDDIP_TYPE_OUT_RSV    = 7'h7f} cddip_cmd_frmd_out_type_e;
+
+
+
+typedef enum logic 
+       {NOT_GEN  = 1'h0, 
+	GEN      = 1'h1} cmd_frmd_out_crc_e;
+
+
+
+typedef enum logic [1:0]
+       {FRMD_T10_DIX  = 2'h0, 
+	FRMD_CRC64    = 2'h1, 
+	FRMD_CRC64E   = 2'h2, 
+	FRMD_CRC_RSV  = 2'h3} cmd_frmd_out_crc_type_e;
+
+
+
+typedef enum logic [1:0]
+       {NO_CRC         = 2'h0, 
+	CRC_8B_CRC64   = 2'h1, 
+	CRC_8B_CRC64E  = 2'h2, 
+	MD_TYPE_RSV    = 2'h3} cmd_md_type_e;
+
+
+
+typedef enum logic [1:0]
+       {CRC_GEN_VERIFY  = 2'h0, 
+	CRC_RSV1        = 2'h1, 
+	CRC_RSV2        = 2'h2, 
+	CRC_RSV3        = 2'h3} cmd_md_op_e;
+
+
+
+typedef enum logic 
+       {FRMD_MAC_NOP  = 1'h0, 
+	FRMD_MAC_CAL  = 1'h1} cmd_frmd_raw_mac_sel_e;
+
+
+
+typedef enum logic 
+       {CHU_NORMAL  = 1'h0, 
+	CHU_APPEND  = 1'h1} cmd_chu_append_e;
+
+
+
+typedef enum logic [3:0]
+       {WIN_32B  = 4'h0, 
+	WIN_4K   = 4'h1, 
+	WIN_8K   = 4'h2, 
+	WIN_16K  = 4'h3, 
+	WIN_32K  = 4'h4, 
+	WIN_64K  = 4'h5, 
+	RSV_WIN  = 4'hf} cmd_lz77_win_size_e;
+
+
+
+typedef enum logic [1:0]
+       {NO_MATCH  = 2'h0, 
+	CHAR_1    = 2'h1, 
+	CHAR_2    = 2'h2, 
+	RSV_DLY   = 2'h3} cmd_lz77_dly_match_win_e;
+
+
+
+typedef enum logic 
+       {CHAR_3  = 1'h0, 
+	CHAR_4  = 1'h1} cmd_lz77_min_match_len_e;
+
+
+
+typedef enum logic [1:0]
+       {LEN_LZ77_WIN  = 2'h0, 
+	LEN_256B      = 2'h1, 
+	MIN_MTCH_14   = 2'h2, 
+	LEN_64B       = 2'h3} cmd_lz77_max_symb_len_e;
+
+
+
+typedef enum logic [1:0]
+       {NO_PREFIX      = 2'h0, 
+	USER_PREFIX    = 2'h1, 
+	PREDEF_PREFIX  = 2'h2, 
+	PREDET_HUFF    = 2'h3} cmd_xp10_prefix_mode_e;
+
+
+
+typedef enum logic 
+       {CRC32  = 1'h0, 
+	CRC64  = 1'h1} cmd_xp10_crc_mode_e;
+
+
+
+typedef enum logic [1:0]
+       {FRM          = 2'h0, 
+	FRM_LESS_16  = 2'h1, 
+	INF          = 2'h2, 
+	RSV_THRSH    = 2'h3} cmd_chu_comp_thrsh_e;
+
+
+
+typedef enum logic [1:0]
+       {IV_NONE      = 2'h0, 
+	IV_AUX_CMD   = 2'h1, 
+	IV_KEYS      = 2'h2, 
+	IV_AUX_FRMD  = 2'h3} cmd_iv_src_e;
+
+
+
+typedef enum logic [1:0]
+       {IV_SRC  = 2'h0, 
+	IV_RND  = 2'h1, 
+	IV_INC  = 2'h2, 
+	IV_RSV  = 2'h3} cmd_iv_op_e;
+
+
+
+typedef enum logic 
+       {SIMPLE    = 1'h0, 
+	COMPOUND  = 1'h1} rqe_frame_type_e;
+
+
+
+typedef enum logic 
+       {TRACE_OFF  = 1'h0, 
+	TRACE_ON   = 1'h1} rqe_trace_e;
+
+
+
+typedef enum logic [3:0]
+       {RQE_SIMPLE          = 4'h0, 
+	RQE_COMPOUND_4K     = 4'h5, 
+	RQE_COMPOUND_8K     = 4'h6, 
+	RQE_RSV_FRAME_SIZE  = 4'hf} rqe_frame_size_e;
+
+
+
+typedef enum logic [1:0]
+       {DIGEST_64B   = 2'h0, 
+	DIGEST_128B  = 2'h1, 
+	DIGEST_256B  = 2'h2, 
+	DIGEST_0B    = 2'h3} frmd_mac_size_e;
+
+
+
+typedef enum logic [1:0]
+       {REP     = 2'h0, 
+	PASS    = 2'h1, 
+	MODIFY  = 2'h2, 
+	DELETE  = 2'h3} tlv_parse_action_e;
+
+
+
+typedef enum logic 
+       {USER  = 1'h0, 
+	TLVP  = 1'h1} tlvp_corrupt_e;
+
+
+
+typedef enum logic 
+       {DATAPATH_CORRUPT  = 1'h0, 
+	FUNCTIONAL_ERROR  = 1'h1} cmd_type_e;
+
+
+
+typedef enum logic [1:0]
+       {SINGLE_ERR        = 2'h0, 
+	CONTINUOUS_ERROR  = 2'h1, 
+	STOP              = 2'h2, 
+	EOT               = 2'h3} cmd_mode_e;
+
+
+
+typedef enum logic [3:0]
+       {NOP             = 4'h0, 
+	READ            = 4'h1, 
+	WRITE           = 4'h2, 
+	ENABLE          = 4'h3, 
+	DISABLED        = 4'h4, 
+	RESET           = 4'h5, 
+	INITIALIZE      = 4'h6, 
+	INITIALIZE_INC  = 4'h7, 
+	SET_INI_START   = 4'h8, 
+	COMPARE         = 4'h9, 
+	SIM_TMO         = 4'he, 
+	ACK_ERROR       = 4'hf} ia_operation_e;
+
+
+
+typedef enum logic [2:0]
+       {READY  = 3'h0, 
+	BUSY   = 3'h1, 
+	TMO    = 3'h2, 
+	OVR    = 3'h3, 
+	NXM    = 3'h4, 
+	UOP    = 3'h5, 
+	PDN    = 3'h7} ia_status_e;
+
+
+
+typedef enum logic [3:0]
+       {SPRAM        = 4'h0, 
+	SRFRAM       = 4'h1, 
+	REG          = 4'h2, 
+	TCAM         = 4'h3, 
+	MEM_TYPE_4   = 4'h4, 
+	MEM_TYPE_5   = 4'h5, 
+	MEM_TYPE_6   = 4'h6, 
+	MEM_TYPE_7   = 4'h7, 
+	MEM_TYPE_8   = 4'h8, 
+	MEM_TYPE_9   = 4'h9, 
+	MEM_TYPE_10  = 4'ha, 
+	MEM_TYPE_11  = 4'hb, 
+	MEM_TYPE_12  = 4'hc, 
+	MEM_TYPE_13  = 4'hd, 
+	MEM_TYPE_14  = 4'he, 
+	MEM_TYPE_15  = 4'hf} mem_type_e;
+
+
+
+typedef enum logic [1:0]
+       {START       = 2'h0, 
+	END         = 2'h1, 
+	CONTINUOUS  = 2'h2, 
+	OFF         = 2'h3} im_mode_e;
+
+
+
+typedef enum logic [8:0]
+       {REVISION_CONFIG                   = 9'h0, 
+	SPARE_CONFIG                      = 9'h4, 
+	LZ_BYPASS_CONFIG                  = 9'h8, 
+	IGNORE_CRC_CONFIG                 = 9'hc, 
+	LZ_BYTES_DECOMP                   = 9'h10, 
+	LZ_HB_BYTES                       = 9'h14, 
+	LZ_LOCAL_BYTES                    = 9'h18, 
+	LZ_HB_TAIL_PTR                    = 9'h1c, 
+	LZ_HB_HEAD_PTR                    = 9'h20, 
+	LZ_DECOMP_OLIMIT                  = 9'h24, 
+	DECOMP_DP_TLV_PARSE_ACTION_0      = 9'h2c, 
+	DECOMP_DP_TLV_PARSE_ACTION_1      = 9'h30, 
+	LZ77D_OUT_IA_CAPABILITY           = 9'h34, 
+	LZ77D_OUT_IA_STATUS               = 9'h38, 
+	LZ77D_OUT_IA_WDATA_PART0          = 9'h3c, 
+	LZ77D_OUT_IA_WDATA_PART1          = 9'h40, 
+	LZ77D_OUT_IA_WDATA_PART2          = 9'h44, 
+	LZ77D_OUT_IA_CONFIG               = 9'h48, 
+	LZ77D_OUT_IA_RDATA_PART0          = 9'h4c, 
+	LZ77D_OUT_IA_RDATA_PART1          = 9'h50, 
+	LZ77D_OUT_IA_RDATA_PART2          = 9'h54, 
+	LZ77D_OUT_IM_CONFIG               = 9'h58, 
+	LZ77D_OUT_IM_STATUS               = 9'h5c, 
+	LZ77D_OUT_IM_READ_DONE            = 9'h60, 
+	XPD_OUT_IA_CAPABILITY             = 9'h64, 
+	XPD_OUT_IA_STATUS                 = 9'h68, 
+	XPD_OUT_IA_WDATA_PART0            = 9'h6c, 
+	XPD_OUT_IA_WDATA_PART1            = 9'h70, 
+	XPD_OUT_IA_WDATA_PART2            = 9'h74, 
+	XPD_OUT_IA_CONFIG                 = 9'h78, 
+	XPD_OUT_IA_RDATA_PART0            = 9'h7c, 
+	XPD_OUT_IA_RDATA_PART1            = 9'h80, 
+	XPD_OUT_IA_RDATA_PART2            = 9'h84, 
+	XPD_OUT_IM_CONFIG                 = 9'h88, 
+	XPD_OUT_IM_STATUS                 = 9'h8c, 
+	XPD_OUT_IM_READ_DONE              = 9'h90, 
+	HTF_BL_OUT_IA_CAPABILITY          = 9'h94, 
+	HTF_BL_OUT_IA_STATUS              = 9'h98, 
+	HTF_BL_OUT_IA_WDATA_PART0         = 9'h9c, 
+	HTF_BL_OUT_IA_WDATA_PART1         = 9'ha0, 
+	HTF_BL_OUT_IA_WDATA_PART2         = 9'ha4, 
+	HTF_BL_OUT_IA_CONFIG              = 9'ha8, 
+	HTF_BL_OUT_IA_RDATA_PART0         = 9'hac, 
+	HTF_BL_OUT_IA_RDATA_PART1         = 9'hb0, 
+	HTF_BL_OUT_IA_RDATA_PART2         = 9'hb4, 
+	HTF_BL_OUT_IM_CONFIG              = 9'hb8, 
+	HTF_BL_OUT_IM_STATUS              = 9'hbc, 
+	HTF_BL_OUT_IM_READ_DONE           = 9'hc0, 
+	BIMC_MONITOR                      = 9'hc8, 
+	BIMC_MONITOR_MASK                 = 9'hcc, 
+	BIMC_ECC_UNCORRECTABLE_ERROR_CNT  = 9'hd0, 
+	BIMC_ECC_CORRECTABLE_ERROR_CNT    = 9'hd4, 
+	BIMC_PARITY_ERROR_CNT             = 9'hd8, 
+	BIMC_GLOBAL_CONFIG                = 9'hdc, 
+	BIMC_MEMID                        = 9'he0, 
+	BIMC_ECCPAR_DEBUG                 = 9'he4, 
+	BIMC_CMD2                         = 9'he8, 
+	BIMC_CMD1                         = 9'hec, 
+	BIMC_CMD0                         = 9'hf0, 
+	BIMC_RXCMD2                       = 9'hf4, 
+	BIMC_RXCMD1                       = 9'hf8, 
+	BIMC_RXCMD0                       = 9'hfc, 
+	BIMC_RXRSP2                       = 9'h100, 
+	BIMC_RXRSP1                       = 9'h104, 
+	BIMC_RXRSP0                       = 9'h108, 
+	BIMC_POLLRSP2                     = 9'h10c, 
+	BIMC_POLLRSP1                     = 9'h110, 
+	BIMC_POLLRSP0                     = 9'h114, 
+	BIMC_DBGCMD2                      = 9'h118, 
+	BIMC_DBGCMD1                      = 9'h11c, 
+	BIMC_DBGCMD0                      = 9'h120} address_e;
+
+
+
+typedef struct packed {
+    logic [7:0]                    revid;                    
+} revid_t;
+localparam revid_t revid_t_reset 
+     = {8'h0};
+
+
+
+typedef struct packed {
+    logic [31:0]                   spare;                    
+} spare_t;
+localparam spare_t spare_t_reset 
+     = {32'h0};
+
+
+
+typedef struct packed {
+    logic [1:0]                    frmd_int_app;             
+    logic [1:0]                    frmd_user_vm;             
+    logic [1:0]                    frmd_user_pi64;           
+    logic [1:0]                    frmd_user_pi16;           
+    logic [1:0]                    frmd_user_null;           
+    logic [1:0]                    guid;                     
+    logic [1:0]                    cqe;                      
+    logic [1:0]                    stat;                     
+    logic [1:0]                    lz77;                     
+    logic [1:0]                    ftr;                      
+    logic [1:0]                    data_unk;                 
+    logic [1:0]                    pfd;                      
+    logic [1:0]                    phd;                      
+    logic [1:0]                    key;                      
+    logic [1:0]                    cmd;                      
+    logic [1:0]                    rqe;                      
+} decomp_dp_tlv_parse_action_31_0_t;
+localparam decomp_dp_tlv_parse_action_31_0_t decomp_dp_tlv_parse_action_31_0_t_reset 
+     = {2'h0, 
+	2'h1, 
+	2'h1, 
+	2'h1, 
+	2'h1, 
+	2'h1, 
+	2'h1, 
+	2'h1, 
+	2'h2, 
+	2'h1, 
+	2'h2, 
+	2'h3, 
+	2'h3, 
+	2'h1, 
+	2'h0, 
+	2'h0};
+
+
+
+typedef struct packed {
+    logic [1:0]                    unused_4;                 
+    logic [1:0]                    unused_3;                 
+    logic [1:0]                    unused_2;                 
+    logic [1:0]                    unused_1;                 
+    logic [1:0]                    unused_0;                 
+    logic [1:0]                    sch;                      
+    logic [1:0]                    aux_cmd_guid_iv;          
+    logic [1:0]                    aux_cmd_guid;             
+    logic [1:0]                    aux_cmd_iv;               
+    logic [1:0]                    frmd_int_vm_short;        
+    logic [1:0]                    aux_cmd;                  
+    logic [1:0]                    cr_iv;                    
+    logic [1:0]                    data;                     
+    logic [1:0]                    frmd_int_vm;              
+    logic [1:0]                    frmd_int_lip;             
+    logic [1:0]                    frmd_int_sip;             
+} decomp_dp_tlv_parse_action_63_32_t;
+localparam decomp_dp_tlv_parse_action_63_32_t decomp_dp_tlv_parse_action_63_32_t_reset 
+     = {2'h1, 
+	2'h1, 
+	2'h1, 
+	2'h1, 
+	2'h1, 
+	2'h1, 
+	2'h1, 
+	2'h1, 
+	2'h1, 
+	2'h0, 
+	2'h1, 
+	2'h1, 
+	2'h2, 
+	2'h0, 
+	2'h0, 
+	2'h0};
+
+
+
+typedef struct packed {
+    logic                          bypass;                   
+} lz_bypass_t;
+localparam lz_bypass_t lz_bypass_t_reset 
+     = {1'h0};
+
+
+
+typedef struct packed {
+    logic                          ignore_crc;               
+} ignore_crc_t;
+localparam ignore_crc_t ignore_crc_t_reset 
+     = {1'h0};
+
+
+
+typedef struct packed {
+    logic [31:0]                   tdata_hi;                 
+    logic [31:0]                   tdata_lo;                 
+    logic                          eob;                      
+    logic [7:0]                    bytes_vld;                
+    logic [7:0]                    unused1;                  
+    logic                          tid;                      
+    logic [7:0]                    tuser;                    
+    logic [5:0]                    unused0;                  
+} lz77d_out_t;
+localparam lz77d_out_t lz77d_out_t_reset 
+     = {32'h0, 
+	32'h0, 
+	1'h0, 
+	8'h0, 
+	8'h0, 
+	1'h0, 
+	8'h0, 
+	6'h0};
+
+
+
+typedef struct packed {
+    logic [31:0]                   data_hi;                  
+    logic [31:0]                   data_lo;                  
+    logic                          eob;                      
+    logic [30:0]                   unused;                   
+} xpd_out_t;
+localparam xpd_out_t xpd_out_t_reset 
+     = {32'h0, 
+	32'h0, 
+	1'h0, 
+	31'h0};
+
+
+
+typedef struct packed {
+    logic [7:0]                    bl7;                      
+    logic [7:0]                    bl6;                      
+    logic [7:0]                    bl5;                      
+    logic [7:0]                    bl4;                      
+    logic [7:0]                    bl3;                      
+    logic [7:0]                    bl2;                      
+    logic [7:0]                    bl1;                      
+    logic [7:0]                    bl0;                      
+    logic                          eob;                      
+    logic [28:0]                   unused;                   
+    logic                          err;                      
+    logic                          eot;                      
+} htf_bl_out_t;
+localparam htf_bl_out_t htf_bl_out_t_reset 
+     = {8'h0, 
+	8'h0, 
+	8'h0, 
+	8'h0, 
+	8'h0, 
+	8'h0, 
+	8'h0, 
+	8'h0, 
+	1'h0, 
+	29'h0, 
+	1'h0, 
+	1'h0};
+
+
+
+typedef struct packed {
+    logic [16:0]                   bytes_decompressed;       
+} lz_bytes_decomp_t;
+localparam lz_bytes_decomp_t lz_bytes_decomp_t_reset 
+     = {17'h0};
+
+
+
+typedef struct packed {
+    logic [16:0]                   hb_bytes;                 
+} lz_hb_bytes_t;
+localparam lz_hb_bytes_t lz_hb_bytes_t_reset 
+     = {17'h0};
+
+
+
+typedef struct packed {
+    logic [16:0]                   lwr_bytes;                
+} lz_local_bytes_t;
+localparam lz_local_bytes_t lz_local_bytes_t_reset 
+     = {17'h0};
+
+
+
+typedef struct packed {
+    logic [11:0]                   hb_tail_ptr;              
+} lz_hb_tail_ptr_t;
+localparam lz_hb_tail_ptr_t lz_hb_tail_ptr_t_reset 
+     = {12'h0};
+
+
+
+typedef struct packed {
+    logic [11:0]                   hb_head_ptr;              
+} lz_hb_head_ptr_t;
+localparam lz_hb_head_ptr_t lz_hb_head_ptr_t_reset 
+     = {12'h0};
+
+
+
+typedef struct packed {
+    logic [23:0]                   decomp_olimit;            
+} lz_decomp_olimit_t;
+localparam lz_decomp_olimit_t lz_decomp_olimit_t_reset 
+     = {24'h800000};
+
+
+
+typedef struct packed {
+    logic [3:0]                    op;                       
+    logic [8:0]                    addr;                     
+} lz77d_out_ia_config_t;
+localparam lz77d_out_ia_config_t lz77d_out_ia_config_t_reset 
+     = {4'h0, 
+	9'h0};
+
+
+
+typedef struct packed {
+    logic [2:0]                    code;                     
+    logic [4:0]                    datawords;                
+    logic [8:0]                    addr;                     
+} lz77d_out_ia_status_t;
+localparam lz77d_out_ia_status_t lz77d_out_ia_status_t_reset 
+     = {3'h0, 
+	5'h2, 
+	9'h1ff};
+
+
+
+typedef struct packed {
+    logic [3:0]                    mem_type;                 
+    logic                          ack_error;                
+    logic                          sim_tmo;                  
+    logic [3:0]                    reserved_op;              
+    logic                          compare;                  
+    logic                          set_init_start;           
+    logic                          initialize_inc;           
+    logic                          initialize;               
+    logic                          reset;                    
+    logic                          disabled;                 
+    logic                          enable;                   
+    logic                          write;                    
+    logic                          read;                     
+    logic                          nop;                      
+} lz77d_out_ia_capability_t;
+localparam lz77d_out_ia_capability_t lz77d_out_ia_capability_t_reset 
+     = {4'h0, 
+	1'h0, 
+	1'h0, 
+	4'h0, 
+	1'h0, 
+	1'h0, 
+	1'h0, 
+	1'h0, 
+	1'h0, 
+	1'h0, 
+	1'h0, 
+	1'h0, 
+	1'h0, 
+	1'h0};
+
+
+
+typedef struct packed {
+    logic [1:0]                    mode;                     
+    logic [9:0]                    wr_credit_config;         
+} lz77d_out_im_config_t;
+localparam lz77d_out_im_config_t lz77d_out_im_config_t_reset 
+     = {2'h3, 
+	10'h200};
+
+
+
+typedef struct packed {
+    logic                          bank_hi;                  
+    logic                          bank_lo;                  
+    logic                          overflow;                 
+    logic [8:0]                    wr_pointer;               
+} lz77d_out_im_status_t;
+localparam lz77d_out_im_status_t lz77d_out_im_status_t_reset 
+     = {1'h0, 
+	1'h0, 
+	1'h0, 
+	9'h0};
+
+
+
+typedef struct packed {
+    logic                          bank_hi;                  
+    logic                          bank_lo;                  
+} lz77d_out_im_consumed_t;
+localparam lz77d_out_im_consumed_t lz77d_out_im_consumed_t_reset 
+     = {1'h0, 
+	1'h0};
+
+
+
+typedef struct packed {
+    logic [3:0]                    op;                       
+    logic [8:0]                    addr;                     
+} xpd_out_ia_config_t;
+localparam xpd_out_ia_config_t xpd_out_ia_config_t_reset 
+     = {4'h0, 
+	9'h0};
+
+
+
+typedef struct packed {
+    logic [2:0]                    code;                     
+    logic [4:0]                    datawords;                
+    logic [8:0]                    addr;                     
+} xpd_out_ia_status_t;
+localparam xpd_out_ia_status_t xpd_out_ia_status_t_reset 
+     = {3'h0, 
+	5'h2, 
+	9'h1ff};
+
+
+
+typedef struct packed {
+    logic [3:0]                    mem_type;                 
+    logic                          ack_error;                
+    logic                          sim_tmo;                  
+    logic [3:0]                    reserved_op;              
+    logic                          compare;                  
+    logic                          set_init_start;           
+    logic                          initialize_inc;           
+    logic                          initialize;               
+    logic                          reset;                    
+    logic                          disabled;                 
+    logic                          enable;                   
+    logic                          write;                    
+    logic                          read;                     
+    logic                          nop;                      
+} xpd_out_ia_capability_t;
+localparam xpd_out_ia_capability_t xpd_out_ia_capability_t_reset 
+     = {4'h0, 
+	1'h0, 
+	1'h0, 
+	4'h0, 
+	1'h0, 
+	1'h0, 
+	1'h0, 
+	1'h0, 
+	1'h0, 
+	1'h0, 
+	1'h0, 
+	1'h0, 
+	1'h0, 
+	1'h0};
+
+
+
+typedef struct packed {
+    logic [1:0]                    mode;                     
+    logic [9:0]                    wr_credit_config;         
+} xpd_out_im_config_t;
+localparam xpd_out_im_config_t xpd_out_im_config_t_reset 
+     = {2'h3, 
+	10'h200};
+
+
+
+typedef struct packed {
+    logic                          bank_hi;                  
+    logic                          bank_lo;                  
+    logic                          overflow;                 
+    logic [8:0]                    wr_pointer;               
+} xpd_out_im_status_t;
+localparam xpd_out_im_status_t xpd_out_im_status_t_reset 
+     = {1'h0, 
+	1'h0, 
+	1'h0, 
+	9'h0};
+
+
+
+typedef struct packed {
+    logic                          bank_hi;                  
+    logic                          bank_lo;                  
+} xpd_out_im_consumed_t;
+localparam xpd_out_im_consumed_t xpd_out_im_consumed_t_reset 
+     = {1'h0, 
+	1'h0};
+
+
+
+typedef struct packed {
+    logic [3:0]                    op;                       
+    logic [7:0]                    addr;                     
+} htf_bl_out_ia_config_t;
+localparam htf_bl_out_ia_config_t htf_bl_out_ia_config_t_reset 
+     = {4'h0, 
+	8'h0};
+
+
+
+typedef struct packed {
+    logic [2:0]                    code;                     
+    logic [4:0]                    datawords;                
+    logic [7:0]                    addr;                     
+} htf_bl_out_ia_status_t;
+localparam htf_bl_out_ia_status_t htf_bl_out_ia_status_t_reset 
+     = {3'h0, 
+	5'h2, 
+	8'he1};
+
+
+
+typedef struct packed {
+    logic [3:0]                    mem_type;                 
+    logic                          ack_error;                
+    logic                          sim_tmo;                  
+    logic [3:0]                    reserved_op;              
+    logic                          compare;                  
+    logic                          set_init_start;           
+    logic                          initialize_inc;           
+    logic                          initialize;               
+    logic                          reset;                    
+    logic                          disabled;                 
+    logic                          enable;                   
+    logic                          write;                    
+    logic                          read;                     
+    logic                          nop;                      
+} htf_bl_out_ia_capability_t;
+localparam htf_bl_out_ia_capability_t htf_bl_out_ia_capability_t_reset 
+     = {4'h0, 
+	1'h0, 
+	1'h0, 
+	4'h0, 
+	1'h0, 
+	1'h0, 
+	1'h0, 
+	1'h0, 
+	1'h0, 
+	1'h0, 
+	1'h0, 
+	1'h0, 
+	1'h0, 
+	1'h0};
+
+
+
+typedef struct packed {
+    logic [1:0]                    mode;                     
+    logic [7:0]                    wr_credit_config;         
+} htf_bl_out_im_config_t;
+localparam htf_bl_out_im_config_t htf_bl_out_im_config_t_reset 
+     = {2'h3, 
+	8'he2};
+
+
+
+typedef struct packed {
+    logic                          bank_hi;                  
+    logic                          bank_lo;                  
+    logic                          overflow;                 
+    logic [7:0]                    wr_pointer;               
+} htf_bl_out_im_status_t;
+localparam htf_bl_out_im_status_t htf_bl_out_im_status_t_reset 
+     = {1'h0, 
+	1'h0, 
+	1'h0, 
+	8'h0};
+
+
+
+typedef struct packed {
+    logic                          bank_hi;                  
+    logic                          bank_lo;                  
+} htf_bl_out_im_consumed_t;
+localparam htf_bl_out_im_consumed_t htf_bl_out_im_consumed_t_reset 
+     = {1'h0, 
+	1'h0};
+
+
+
+typedef struct packed {
+    logic                          unanswered_read;          
+    logic                          rcv_invalid_opcode;       
+    logic                          bimc_chain_rcv_error;     
+    logic                          reserve;                  
+    logic                          parity_error;             
+    logic                          correctable_ecc_error;    
+    logic                          uncorrectable_ecc_error;  
+} bimc_monitor_t;
+localparam bimc_monitor_t bimc_monitor_t_reset 
+     = {1'h0, 
+	1'h0, 
+	1'h0, 
+	1'h0, 
+	1'h0, 
+	1'h0, 
+	1'h0};
+
+
+
+typedef struct packed {
+    logic                          unanswered_read;          
+    logic                          rcv_invalid_opcode;       
+    logic                          bimc_chain_rcv_error_enable;
+    logic                          reserve;                  
+    logic                          parity_error_enable;      
+    logic                          correctable_ecc_error_enable;
+    logic                          uncorrectable_ecc_error_enable;
+} bimc_monitor_mask_t;
+localparam bimc_monitor_mask_t bimc_monitor_mask_t_reset 
+     = {1'h0, 
+	1'h0, 
+	1'h0, 
+	1'h0, 
+	1'h0, 
+	1'h0, 
+	1'h0};
+
+
+
+typedef struct packed {
+    logic [31:0]                   uncorrectable_ecc;        
+} bimc_ecc_uncorrectable_error_cnt_t;
+localparam bimc_ecc_uncorrectable_error_cnt_t bimc_ecc_uncorrectable_error_cnt_t_reset 
+     = {32'h0};
+
+
+
+typedef struct packed {
+    logic [31:0]                   correctable_ecc;          
+} bimc_ecc_correctable_error_cnt_t;
+localparam bimc_ecc_correctable_error_cnt_t bimc_ecc_correctable_error_cnt_t_reset 
+     = {32'h0};
+
+
+
+typedef struct packed {
+    logic [31:0]                   parity_errors;            
+} bimc_parity_error_cnt_t;
+localparam bimc_parity_error_cnt_t bimc_parity_error_cnt_t_reset 
+     = {32'h0};
+
+
+
+typedef struct packed {
+    logic [25:0]                   poll_ecc_par_timer;       
+    logic                          debug_write_en;           
+    logic                          poll_ecc_par_error;       
+    logic                          mem_wr_init;              
+    logic                          bimc_mem_init_done;       
+    logic                          reserve;                  
+    logic                          soft_reset;               
+} bimc_global_config_t;
+localparam bimc_global_config_t bimc_global_config_t_reset 
+     = {26'h0, 
+	1'h0, 
+	1'h0, 
+	1'h0, 
+	1'h0, 
+	1'h0, 
+	1'h1};
+
+
+
+typedef struct packed {
+    logic [11:0]                   max_memid;                
+} bimc_memid_t;
+localparam bimc_memid_t bimc_memid_t_reset 
+     = {12'h0};
+
+
+
+typedef struct packed {
+    logic                          ack;                      
+    logic [3:0]                    jabber_off;               
+    logic                          sent;                     
+    logic                          send;                     
+    logic [1:0]                    eccpar_disable;           
+    logic [1:0]                    reserve;                  
+    logic [1:0]                    eccpar_corrupt;           
+    logic [3:0]                    memtype;                  
+    logic [11:0]                   memaddr;                  
+} bimc_eccpar_debug_t;
+localparam bimc_eccpar_debug_t bimc_eccpar_debug_t_reset 
+     = {1'h0, 
+	4'h0, 
+	1'h0, 
+	1'h0, 
+	2'h0, 
+	2'h0, 
+	2'h0, 
+	4'h0, 
+	12'h0};
+
+
+
+typedef struct packed {
+    logic                          ack;                      
+    logic                          sent;                     
+    logic                          send;                     
+    logic [7:0]                    opcode;                   
+} bimc_cmd2_t;
+localparam bimc_cmd2_t bimc_cmd2_t_reset 
+     = {1'h0, 
+	1'h0, 
+	1'h0, 
+	8'h0};
+
+
+
+typedef struct packed {
+    logic [3:0]                    memtype;                  
+    logic [11:0]                   mem;                      
+    logic [15:0]                   addr;                     
+} bimc_cmd1_t;
+localparam bimc_cmd1_t bimc_cmd1_t_reset 
+     = {4'h0, 
+	12'h0, 
+	16'h0};
+
+
+
+typedef struct packed {
+    logic [31:0]                   data;                     
+} bimc_cmd0_t;
+localparam bimc_cmd0_t bimc_cmd0_t_reset 
+     = {32'h0};
+
+
+
+typedef struct packed {
+    logic                          ack;                      
+    logic                          rxflag;                   
+    logic [7:0]                    opcode;                   
+} bimc_rxcmd2_t;
+localparam bimc_rxcmd2_t bimc_rxcmd2_t_reset 
+     = {1'h0, 
+	1'h0, 
+	8'h0};
+
+
+
+typedef struct packed {
+    logic [3:0]                    memtype;                  
+    logic [11:0]                   mem;                      
+    logic [15:0]                   addr;                     
+} bimc_rxcmd1_t;
+localparam bimc_rxcmd1_t bimc_rxcmd1_t_reset 
+     = {4'h0, 
+	12'h0, 
+	16'h0};
+
+
+
+typedef struct packed {
+    logic [31:0]                   data;                     
+} bimc_rxcmd0_t;
+localparam bimc_rxcmd0_t bimc_rxcmd0_t_reset 
+     = {32'h0};
+
+
+
+typedef struct packed {
+    logic                          ack;                      
+    logic                          rxflag;                   
+    logic [7:0]                    data;                     
+} bimc_rxrsp2_t;
+localparam bimc_rxrsp2_t bimc_rxrsp2_t_reset 
+     = {1'h0, 
+	1'h0, 
+	8'h0};
+
+
+
+typedef struct packed {
+    logic [31:0]                   data;                     
+} bimc_rxrsp1_t;
+localparam bimc_rxrsp1_t bimc_rxrsp1_t_reset 
+     = {32'h0};
+
+
+
+typedef struct packed {
+    logic [31:0]                   data;                     
+} bimc_rxrsp0_t;
+localparam bimc_rxrsp0_t bimc_rxrsp0_t_reset 
+     = {32'h0};
+
+
+
+typedef struct packed {
+    logic                          ack;                      
+    logic                          rxflag;                   
+    logic [7:0]                    data;                     
+} bimc_pollrsp2_t;
+localparam bimc_pollrsp2_t bimc_pollrsp2_t_reset 
+     = {1'h0, 
+	1'h0, 
+	8'h0};
+
+
+
+typedef struct packed {
+    logic [31:0]                   data;                     
+} bimc_pollrsp1_t;
+localparam bimc_pollrsp1_t bimc_pollrsp1_t_reset 
+     = {32'h0};
+
+
+
+typedef struct packed {
+    logic [31:0]                   data;                     
+} bimc_pollrsp0_t;
+localparam bimc_pollrsp0_t bimc_pollrsp0_t_reset 
+     = {32'h0};
+
+
+
+typedef struct packed {
+    logic                          ack;                      
+    logic                          rxflag;                   
+    logic [7:0]                    opcode;                   
+} bimc_dbgcmd2_t;
+localparam bimc_dbgcmd2_t bimc_dbgcmd2_t_reset 
+     = {1'h0, 
+	1'h0, 
+	8'h0};
+
+
+
+typedef struct packed {
+    logic [3:0]                    memtype;                  
+    logic [11:0]                   mem;                      
+    logic [15:0]                   addr;                     
+} bimc_dbgcmd1_t;
+localparam bimc_dbgcmd1_t bimc_dbgcmd1_t_reset 
+     = {4'h0, 
+	12'h0, 
+	16'h0};
+
+
+
+typedef struct packed {
+    logic [31:0]                   data;                     
+} bimc_dbgcmd0_t;
+localparam bimc_dbgcmd0_t bimc_dbgcmd0_t_reset 
+     = {32'h0};
+endpackage : cr_xp10_decomp_regsPKG
+
+`endif 
