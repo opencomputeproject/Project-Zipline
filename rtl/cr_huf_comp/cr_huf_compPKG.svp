@@ -1,0 +1,517 @@
+/*************************************************************************
+*
+* Copyright © Microsoft Corporation. All rights reserved.
+* Copyright © Broadcom Inc. All rights reserved.
+* Licensed under the MIT License.
+*
+*************************************************************************/
+
+`ifndef __CR_HUF_COMPPKG_SVP
+`define __CR_HUF_COMPPKG_SVP
+`include "cr_global_params.vh"
+`include "cr_structs.sv"
+`include "cr_huf_comp.vh"
+package cr_huf_compPKG;
+
+   
+   import cr_huf_comp_regsPKG::*;
+
+   
+
+
+
+
+
+   
+
+   typedef enum logic [1:0] {
+			     MIDDLE     = 2'b00,
+			     END_BLK    = 2'b01,
+			     END_FRM    = 2'b10,
+			     PASS_THRU  = 2'b11} e_pipe_eob;
+   
+   typedef enum logic [1:0] {
+			     RET        = 2'b00,
+			     PRE        = 2'b01,
+			     SIM        = 2'b10} e_min_enc;
+   
+   typedef enum logic [3:0] {
+                             SM_IDLE       = 4'd0,
+                             SM_FRM_IDL    = 4'd1,
+                             SM_CMD        = 4'd2,
+                             SM_FTR        = 4'd3,
+                             SM_LZ77       = 4'd4,
+                             SM_DATA       = 4'd5,
+                             SM_OTHR       = 4'd6,
+			     SM_PHD        = 4'd7,
+			     SM_PHD_2      = 4'd8} e_sm_state;
+     
+   typedef enum logic [3:0] {
+                             SA_IDLE             = 4'd0,
+                             SA_FRM_IDL          = 4'd1,
+                             SA_DF_HDR           = 4'd2,
+                             SA_XP_HDR           = 4'd3,
+                             SA_LZ77_END         = 4'd4,
+                             SA_LZ77             = 4'd5,
+                             SA_DATA             = 4'd6,
+                             SA_OTHR             = 4'd7,
+			     SA_SHRT_TBL_ST      = 4'd8,
+			     SA_SHRT_TBL_STCL    = 4'd9,
+			     SA_LONG_TBL_ST      = 4'd10,
+			     SA_LONG_TBL_STCL    = 4'd11,
+			     SA_RAW              = 4'd12,
+			     SA_PFD              = 4'd13} e_sa_state;
+
+   
+   typedef enum logic [2:0] {
+                             XP9_SIM          = 3'b000,
+			     XP9_RET          = 3'b001} e_xp9_encode;
+
+   
+   typedef enum logic [2:0] {
+                             XP10_SIM         = 3'b000,
+			     XP10_PRE         = 3'b001,
+			     XP10_RET         = 3'b010}  e_xp10_encode;
+
+   
+   typedef enum 	  {ST_IDLE,
+                          RDY_TO_SA,
+			  TBL_RDY_TO_SA,
+                          START_STCL} e_st_state;
+
+   
+   typedef enum 	  {SINGLE_BLOCK,
+			  MULTI_BLOCK} e_ism_trigger;
+   
+
+
+
+   
+
+
+   typedef struct packed {
+      logic [`N_MAX_ENCODE_WIDTH-1:0] 			ret_code;
+      logic [$clog2(`N_MAX_ENCODE_WIDTH)-1:0] 		ret_code_size;
+      logic [`N_MAX_ENCODE_WIDTH-1:0] 			pre_code;
+      logic [$clog2(`N_MAX_ENCODE_WIDTH)-1:0] 		pre_code_size;
+   } s_lut_sa_rd_data_intf;
+  
+   
+   typedef struct packed {
+      logic 	                             wr;
+      logic [3:0] 			     vld;
+      logic [`CREOLE_HC_SHORT_DAT_WIDTH-1:0] shrt0;
+      logic [`CREOLE_HC_SHORT_DAT_WIDTH-1:0] shrt1;
+      logic [`CREOLE_HC_SHORT_DAT_WIDTH-1:0] shrt2;
+      logic [`CREOLE_HC_SHORT_DAT_WIDTH-1:0] shrt3;
+      logic [`CREOLE_HC_SEQID_WIDTH-1:0]     seq_id;
+      e_pipe_eob                             eob;
+   } s_sm_sc_shrt_intf;
+
+   
+   typedef struct packed {
+      logic rdy;
+   } s_sc_sm_shrt_intf;
+
+   
+   typedef struct packed {
+      logic 	                            wr;
+      logic 				    vld;
+      logic [`CREOLE_HC_LONG_DAT_WIDTH-1:0] long;
+      logic [`CREOLE_HC_SEQID_WIDTH-1:0]    seq_id;
+      e_pipe_eob                            eob;
+   } s_sm_sc_long_intf;
+
+   
+   typedef struct packed {
+      logic rdy;
+   } s_sq_sm_intf;   
+
+   
+   typedef struct packed {
+      logic                           	    wr;
+      logic                                 tlast;
+      logic 				    eob;
+      logic                                 eot;
+      logic                                 sot;
+      logic [2:0] 			    byte_vld;
+      logic [`CREOLE_HC_SEQID_WIDTH-1:0]    seq_id;
+      logic [`AXI_S_DP_DWIDTH-1:0]          data;
+   } s_sm_sq_intf;
+   
+   
+   typedef struct packed {
+      logic rd;
+   } s_sa_sq_intf; 
+  
+   
+   typedef struct packed {
+      logic                           	    aempty;
+      logic                           	    empty;
+      logic                                 tlast;
+      logic 				    eob;
+      logic                                 eot;
+      logic                                 sot;
+      logic [2:0] 			    byte_vld;
+      logic [`CREOLE_HC_SEQID_WIDTH-1:0]    seq_id;
+      logic [`AXI_S_DP_DWIDTH-1:0]          data;
+   } s_sq_sa_intf;
+
+   
+   typedef struct packed {
+      logic                           	    vld;
+      logic                           	    vld_crc;
+      logic [`CREOLE_HC_SEQID_WIDTH-1:0]    seq_id;
+   } s_sm_seq_id_wr_intf;
+   
+   
+   typedef struct packed {
+      logic [`N_SHRT_SYM_WIDTH-1:0]         shrt;                     
+      logic [`N_LONG_SYM_WIDTH-1:0] 	    long;                     
+      logic 				    long_vld ;                                       
+      logic [`N_EXTRA_BITS_WIDTH-1:0] 	    ofs_xtr_bits;         
+      logic [`N_EXTRA_BITS_LEN_WIDTH-1:0]   ofs_xtr_bits_len;
+      logic [`N_EXTRA_BITS_WIDTH-1:0] 	    len_xtr_bits;          
+      logic [`N_EXTRA_BITS_LEN_WIDTH-1:0]   len_xtr_bits_len;
+      logic 				    map_error_long;
+      logic 				    map_error_shrt;
+   } s_symbol_map_intf;
+
+   
+   
+   typedef struct packed {
+      logic 	                          wr;
+      logic [`CREOLE_HC_SEQID_WIDTH-1:0]  mem_id;
+      logic [`CREOLE_HC_PHT_ADDR_WIDTH-1:0]	  addr;
+      logic [`CREOLE_HC_PHT_WIDTH-1:0] 	  data;
+   } s_sm_predet_mem_intf;
+
+   
+   typedef struct packed {
+      logic 	                          vld;
+      logic [`CREOLE_HC_SEQID_WIDTH-1:0]  seq_id;
+   } s_sa_sm_intf;
+    
+   
+   typedef struct packed {
+      logic rdy;
+   } s_sc_sm_long_intf;
+   
+   
+     typedef struct packed {
+	logic [`CREOLE_HC_SHORT_DAT_WIDTH-1:0] short0;
+	logic [`CREOLE_HC_SHORT_DAT_WIDTH-1:0] short1;
+	logic [`CREOLE_HC_SHORT_DAT_WIDTH-1:0] short2;
+	logic [`CREOLE_HC_SHORT_DAT_WIDTH-1:0] short3;
+	logic [`CREOLE_HC_SHORT_CNT_WIDTH-1:0] cnt0;
+	logic [`CREOLE_HC_SHORT_CNT_WIDTH-1:0] cnt1;
+	logic [`CREOLE_HC_SHORT_CNT_WIDTH-1:0] cnt2;
+	logic [`CREOLE_HC_SHORT_CNT_WIDTH-1:0] cnt3;
+	logic [`CREOLE_HC_SEQID_WIDTH-1:0]     seq_id;
+	e_pipe_eob                             eob;
+     } s_sc_is_short_intf;
+
+   
+     typedef struct packed {
+	logic [`CREOLE_HC_LONG_DAT_WIDTH-1:0]  long;
+	logic [`CREOLE_HC_SEQID_WIDTH-1:0]     seq_id;
+	logic [`CREOLE_HC_LONG_CNT_WIDTH-1:0] cnt;
+	e_pipe_eob                             eob;
+     } s_sc_is_long_intf;
+
+   
+     typedef struct packed {
+	logic [`CREOLE_HC_SHORT_DAT_WIDTH-1:0] sym_lo;
+	logic [`CREOLE_HC_SHORT_DAT_WIDTH-1:0] sym_hi;
+	logic [`CREOLE_HC_SHORT_DAT_WIDTH-1:0] sym_unique;
+	logic [`CREOLE_HC_SHORT_NUM_MAX_SYM_USED-1:0][`CREOLE_HC_SHORT_FREQ_WIDTH-1:0] sort_freq;
+	logic [`CREOLE_HC_SHORT_NUM_MAX_SYM_USED-1:0][`CREOLE_HC_SHORT_DAT_WIDTH-1:0] sort_freq_sym;
+	logic [`CREOLE_HC_SEQID_WIDTH-1:0]    seq_id;
+	e_pipe_eob                            eob;
+     } s_is_ht_short_intf;
+
+   
+     typedef struct packed {
+	logic [`CREOLE_HC_LONG_DAT_WIDTH-1:0] sym_lo;
+	logic [`CREOLE_HC_LONG_DAT_WIDTH-1:0] sym_hi;
+	logic [`CREOLE_HC_LONG_DAT_WIDTH-1:0] sym_unique;
+	logic [`CREOLE_HC_LONG_NUM_MAX_SYM_USED-1:0][`CREOLE_HC_LONG_FREQ_WIDTH-1:0] sort_freq;
+	logic [`CREOLE_HC_LONG_NUM_MAX_SYM_USED-1:0][`CREOLE_HC_LONG_DAT_WIDTH-1:0] sort_freq_sym;
+	logic [`CREOLE_HC_SEQID_WIDTH-1:0] seq_id;
+	e_pipe_eob                            eob;
+     } s_is_ht_long_intf;
+
+   
+     typedef struct packed {
+	logic [`CREOLE_HC_SHORT_DAT_WIDTH-1:0] sym_lo;
+	logic [`CREOLE_HC_SHORT_DAT_WIDTH-1:0] sym_hi;
+	logic [(`CREOLE_HC_SHORT_FREQ_WIDTH * 2)-1:0] sym_freq;
+	logic [`CREOLE_HC_SHORT_NUM_MAX_SYM_USED-1:0][`CREOLE_HC_SYM_CODELENGTH-1:0] sym_dpth;
+	logic                                 zero_symbols;
+	logic 				      build_error;
+	logic [`CREOLE_HC_SEQID_WIDTH-1:0]    seq_id;
+	e_pipe_eob                            eob;
+     } s_ht_hw_short_intf;
+
+   
+     typedef struct packed {
+	logic                                 sym_freq_rd;
+	logic [`CREOLE_HC_SEQID_WIDTH-1:0]    seq_id;
+	logic [`CREOLE_HC_SHORT_SYM_ADDR_WIDTH-2:0]sym_freq_addr;
+        logic                              rd_done; 
+     } s_hw_ht_short_intf;
+
+   
+     typedef struct packed {
+        logic [`CREOLE_HC_LONG_DAT_WIDTH-1:0] sym_lo;
+	logic [`CREOLE_HC_LONG_DAT_WIDTH-1:0] sym_hi;
+	logic [(`CREOLE_HC_LONG_FREQ_WIDTH * 2)-1:0] sym_freq;
+	logic [`CREOLE_HC_LONG_DAT_WIDTH-1:0] sym_unique;
+	logic [`CREOLE_HC_LONG_NUM_MAX_SYM_USED-1:0][`CREOLE_HC_SYM_CODELENGTH-1:0] sym_dpth;
+	logic 				      zero_symbols;
+	logic 				      build_error;
+	logic [`CREOLE_HC_SEQID_WIDTH-1:0]    seq_id;
+	e_pipe_eob                            eob;
+     } s_ht_hw_long_intf;
+
+   
+     typedef struct packed {
+        logic                                 sym_freq_rd;
+	logic [`CREOLE_HC_SEQID_WIDTH-1:0]    seq_id;
+	logic [`CREOLE_HC_LONG_SYM_ADDR_WIDTH-2:0]sym_freq_addr;
+        logic                              rd_done;
+     } s_hw_ht_long_intf;
+
+   
+     typedef struct packed {
+	logic                              seq_id_val;
+        logic [`CREOLE_HC_SEQID_WIDTH-1:0] seq_id;
+	logic 				   abort;
+     } s_hw_short_hw_long_intf;
+
+       
+     typedef struct packed {
+	logic                              seq_id_val;
+	logic [`CREOLE_HC_SEQID_WIDTH-1:0] seq_id;
+	logic [1:0][`CREOLE_HC_SYM_CODELENGTH-1:0] codes;
+	logic 				   last;
+	logic [`CREOLE_HC_SHORT_DAT_WIDTH-1:0] sym_high;
+	logic 				   build_error;
+     } s_hw_long_hw_short_intf;
+
+   
+     typedef struct packed {
+	logic [`MAX_SHORT_ST_ENTRIES_USED-1:0]          val;
+	logic [`MAX_SHORT_ST_ENTRIES_USED-1:0][`CREOLE_HC_ST_SYMB_WIDTH-1:0] symbol;
+	logic [`MAX_SHORT_ST_ENTRIES_USED-1:0][7:0] 	extra;
+	logic [`MAX_SHORT_ST_ENTRIES_USED-1:0][3:0] 	extra_length;
+	logic [`CREOLE_HC_SHORT_DAT_WIDTH-1:0]          last_ptr;
+	logic [`CREOLE_HC_SMALL_TABLE_XTR_BIT_SIZE:0]   extra_size;
+	logic [`CREOLE_HC_SEQID_WIDTH-1:0]              seq_id;
+	logic [`CREOLE_HC_HLIT_WIDTH-1:0]               hlit;
+	logic [`CREOLE_HC_HDIST_WIDTH-1:0]              hdist;
+	logic                                           deflate;
+	e_pipe_eob                                      eob;
+	logic 				                build_error;
+     } s_short_hw_st_intf;
+
+   
+     typedef struct packed {
+	logic [`MAX_LONG_ST_ENTRIES_USED-1:0]      val;
+	logic [`MAX_LONG_ST_ENTRIES_USED-1:0][`CREOLE_HC_ST_SYMB_WIDTH-1:0] symbol;
+	logic [`MAX_LONG_ST_ENTRIES_USED-1:0][7:0] extra;
+	logic [`MAX_LONG_ST_ENTRIES_USED-1:0][3:0] extra_length;
+	logic [`CREOLE_HC_LONG_DAT_WIDTH-1:0]      last_ptr;
+	logic [`CREOLE_HC_SMALL_TABLE_XTR_BIT_SIZE:0] extra_size;
+	logic [`CREOLE_HC_SEQID_WIDTH-1:0]         seq_id;
+	logic [`CREOLE_HC_HLIT_WIDTH-1:0]          hlit;
+	logic [`CREOLE_HC_HDIST_WIDTH-1:0]         hdist;
+	logic                                      deflate;
+	e_pipe_eob                                 eob;
+	logic 				           build_error;
+     } s_long_hw_st_intf;
+
+   
+     typedef struct packed {
+        logic [8:0]   addr;
+	logic [1:0]   wr_val;
+	logic [127:0] wr_data;
+	logic         wr_done;
+	logic 	      sizes_val;
+	logic [19:0]  ret_size;
+	logic [19:0]  pre_size;
+	logic [19:0]  sim_size;
+	logic [`CREOLE_HC_SEQID_WIDTH-1:0] seq_id;
+     } s_hw_lut_intf;
+
+   
+     typedef struct packed {
+	logic [`CREOLE_HC_SEQID_WIDTH-1:0]    seq_id;
+	logic [`CREOLE_HC_PHT_ADDR_WIDTH-1:0] addr;
+	logic                                 rd;
+     } s_hw_ph_intf;
+
+   
+     typedef struct packed {
+	logic [`CREOLE_HC_PHT_WIDTH-1:0]   dpth;
+     } s_ph_hw_intf;
+
+   
+     typedef struct packed {
+	logic 	                                   wr_type;
+	logic [`CREOLE_HC_HDR_WIDTH-1:0] 	   wr_data;
+	logic [`CREOLE_HC_ST_ADDR_WIDTH-1:0] 	   wr_addr;
+	logic                                      wr_done;
+	logic 					   sizes_val;
+	logic [`CREOLE_HC_SEQID_WIDTH-1:0] 	   seq_id;
+	logic [`CREOLE_HC_STCL_MAX_BITS_WIDTH-1:0] stcl_size;
+	logic [`CREOLE_HC_ST_MAX_BITS_WIDTH-1:0]   st_size;
+	logic [`CREOLE_HC_HLIT_WIDTH-1:0]          hlit;
+	logic [`CREOLE_HC_HDIST_WIDTH-1:0]         hdist;
+	logic [`CREOLE_HC_HCLEN_WIDTH-1:0] 	   hclen;
+     } s_st_lut_intf;
+
+   
+     typedef struct packed {
+	logic [`CREOLE_HC_SEQID_WIDTH-1:0] size_seq_id;
+	e_pipe_eob                         eob;
+	logic 				   build_error;
+     } s_st_sa_intf;
+
+   
+     typedef struct packed {
+	logic [`CREOLE_HC_SEQID_WIDTH-1:0] seq_id;
+     } s_sa_st_intf;
+
+   
+     typedef struct packed {
+	logic [`CREOLE_HC_HLIT_WIDTH-1:0]           hlit;
+	logic [`CREOLE_HC_HDIST_WIDTH-1:0] 	    hdist;
+	logic [`CREOLE_HC_HCLEN_WIDTH-1:0] 	    hclen;
+	logic [`CREOLE_HC_SYMB_MAX_BITS_WIDTH-1:0]  ret_size;
+	logic [`CREOLE_HC_SYMB_MAX_BITS_WIDTH-1:0]  pre_size;
+	logic [`CREOLE_HC_SYMB_MAX_BITS_WIDTH-1:0]  sim_size;
+	logic [`CREOLE_HC_STCL_MAX_BITS_WIDTH-1:0]  ret_stcl_size;
+	logic [`CREOLE_HC_ST_MAX_BITS_WIDTH-1:0]    ret_st_size;
+	logic [`CREOLE_HC_HDR_WIDTH-1:0] 	    ret_st_stcl_rd_data;
+	s_lut_sa_rd_data_intf                       rd_data0;
+	s_lut_sa_rd_data_intf                       rd_data1;
+	s_lut_sa_rd_data_intf                       rd_data2;
+	s_lut_sa_rd_data_intf                       rd_data3;
+     } s_lut_sa_intf;
+
+   
+     typedef struct packed {
+	logic 	                                    ret_stcl_rd;
+	logic [`CREOLE_HC_STCL_ADDR_WIDTH-1:0] 	    ret_stcl_addr;
+	logic 					    ret_st_rd;
+	logic [`CREOLE_HC_ST_ADDR_WIDTH-1:0] 	    ret_st_addr;
+	logic 					    data_rd;
+	logic [`CREOLE_HC_SHORT_SYM_ADDR_WIDTH-1:0] data_addr0;
+	logic [`CREOLE_HC_SHORT_SYM_ADDR_WIDTH-1:0] data_addr1;
+	logic [`CREOLE_HC_SHORT_SYM_ADDR_WIDTH-1:0] data_addr2;
+	logic [`CREOLE_HC_SHORT_SYM_ADDR_WIDTH-1:0] data_addr3;
+	logic [`CREOLE_HC_SEQID_WIDTH-1:0] 	    seq_id;
+	logic 					    ret_ack;
+     } s_sa_lut_intf;
+
+   
+   typedef struct packed {
+      logic 	                                        eob;
+      logic                                             eot;
+      logic [`CREOLE_HC_MAX_SHORT_PER_XFER-1:0] 	framing;
+      logic [`CREOLE_HC_SHORT_DAT_WIDTH-1:0] 		shrt_0;
+      logic [`CREOLE_HC_SHORT_DAT_WIDTH-1:0] 		shrt_1;
+      logic [`CREOLE_HC_SHORT_DAT_WIDTH-1:0] 		shrt_2;
+      logic [`CREOLE_HC_SHORT_DAT_WIDTH-1:0] 		shrt_3;
+      logic [$clog2(`CREOLE_HC_MAX_SHORT_PER_XFER)-1:0] ptr_idx;
+      logic 						ptr_en;
+      s_symbol_map_intf                                 mux_symbol_map_intf;
+   } s_symbol_holding_fifo_intf;
+   
+   
+   typedef struct packed {
+      logic [0:`CREOLE_HC_MAX_SHORT_PER_XFER-1][`N_MAX_ENCODE_WIDTH-1:0]         shrt_arr;
+      logic [0:`CREOLE_HC_MAX_SHORT_PER_XFER-1][$clog2(`N_MAX_ENCODE_WIDTH)-1:0] shrt_size_arr; 	    
+      logic [`N_MAX_ENCODE_WIDTH-1:0] 			long;
+      logic [$clog2(`N_MAX_ENCODE_WIDTH)-1:0] 		long_size;
+      logic [`N_EXTRA_BITS_WIDTH-1:0] 			extr_len;
+      logic [`N_EXTRA_BITS_LEN_WIDTH-1:0] 		extr_len_size;
+      logic [`N_EXTRA_BITS_WIDTH-1:0] 			extr_ofs;
+      logic [`N_EXTRA_BITS_LEN_WIDTH-1:0] 		extr_ofs_size;
+      logic [$clog2(`CREOLE_HC_MAX_SHORT_PER_XFER)-1:0] ptr_idx;
+      logic 						ptr_en;
+   } s_enc_func_in_intf;
+
+   
+   typedef struct packed {
+      s_lut_sa_rd_data_intf      rd_data3;
+      s_lut_sa_rd_data_intf      rd_data2;
+      s_lut_sa_rd_data_intf      rd_data1;
+      s_lut_sa_rd_data_intf      rd_data0;
+   } s_lut_shrt_rd_data_intf;
+   
+   
+   typedef struct packed {
+      s_lut_sa_rd_data_intf      rd_data0;
+   } s_lut_long_rd_data_intf;
+
+   
+   typedef struct packed {
+             logic                                val;
+             logic [`CREOLE_HC_ST_SYMB_WIDTH-1:0] symbol;
+             logic [7:0]                          extra;
+             logic [3:0]                          extra_length;
+                      } s_st_sym_buf_intf;
+  
+   
+   typedef struct packed 
+        {logic [`CREOLE_HC_SHORT_DAT_WIDTH-1:0] sym;
+        logic [9:0]           bl; 
+        } s_simple_bl_range;
+
+   localparam s_simple_bl_range  [1:0][5:0][3:0] simple_bl_table  = 
+	'{'{
+	'{'{sym:10'd287,bl:10'd8} ,'{sym:10'd279,bl:10'd7},'{sym:10'd255,bl:10'd9} ,'{sym:10'd143,bl:10'd8}},   
+        '{'{sym:10'd1023,bl:10'd0} ,'{sym:10'd1023,bl:10'd0},'{sym:10'd511,bl:10'd9} ,'{sym:10'd511,bl:10'd9}},   
+	'{'{sym:10'd1023,bl:10'd0},'{sym:10'd1023,bl:10'd0},'{sym:10'd527,bl:10'd10},'{sym:10'd495,bl:10'd9}},   
+	'{'{sym:10'd1023,bl:10'd0},'{sym:10'd1023,bl:10'd0},'{sym:10'd543,bl:10'd10},'{sym:10'd479,bl:10'd9}},   
+	'{'{sym:10'd1023,bl:10'd0},'{sym:10'd1023,bl:10'd0},'{sym:10'd575,bl:10'd10},'{sym:10'd447,bl:10'd9}},   
+	'{'{sym:10'd1023,bl:10'd0},'{sym:10'd1023,bl:10'd0},'{sym:10'd703,bl:10'd10},'{sym:10'd319,bl:10'd9}}    
+	},
+        '{
+	'{'{sym:10'd1023,bl:10'd0} ,'{sym:10'd1023,bl:10'd0},'{sym:10'd1023,bl:10'd0} ,'{sym:10'd31,bl:10'd5}},   
+	'{'{sym:10'd1023,bl:10'd0} ,'{sym:10'd1023,bl:10'd0},'{sym:10'd243,bl:10'd8} ,'{sym:10'd11,bl:10'd7}},    
+	'{'{sym:10'd1023,bl:10'd0} ,'{sym:10'd1023,bl:10'd0},'{sym:10'd244,bl:10'd8} ,'{sym:10'd10,bl:10'd7}},    
+	'{'{sym:10'd1023,bl:10'd0} ,'{sym:10'd1023,bl:10'd0},'{sym:10'd245,bl:10'd8} ,'{sym:10'd9,bl:10'd7}},     
+	'{'{sym:10'd1023,bl:10'd0} ,'{sym:10'd1023,bl:10'd0},'{sym:10'd247,bl:10'd8} ,'{sym:10'd7,bl:10'd7}},     
+	'{'{sym:10'd1023,bl:10'd0} ,'{sym:10'd1023,bl:10'd0},'{sym:10'd255,bl:10'd8} ,'{sym:10'd255,bl:10'd8}}    
+	}};
+
+   
+   typedef struct packed 
+        {logic [`CREOLE_HC_SHORT_DAT_WIDTH-1:0] table_size; 
+        logic [`CREOLE_HC_SHORT_DAT_WIDTH-1:0] used;
+        } s_max_sym_table;
+
+   localparam s_max_sym_table [1:0][5:0] max_sym_table_array     =            
+        '{'{
+            '{10'd286,10'd286}, 
+	    '{10'd512,10'd512}, 
+	    '{10'd528,10'd528}, 
+	    '{10'd544,10'd544}, 
+	    '{10'd576,10'd576}, 
+	    '{10'd704,10'd576}  
+         },
+         '{
+            '{10'd30,10'd30},  
+	    '{10'd244,10'd244},
+	    '{10'd245,10'd245},
+	    '{10'd246,10'd246},
+	    '{10'd248,10'd248},
+	    '{10'd256,10'd248} 
+         }};
+       
+endpackage : cr_huf_compPKG
+
+`endif 
