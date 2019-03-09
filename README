@@ -1,0 +1,25 @@
+# *************************************************************************
+#
+# Copyright © Microsoft Corporation. All rights reserved.
+# Copyright © Broadcom Inc. All rights reserved.
+# Licensed under the MIT License.
+#
+# *************************************************************************
+
+
+ 
+# This README file contains information to build the RTL design of an XP10 Huffman Encoder.
+
+# Edit the file ./build.setup for VCS environment settings
+
+# Then source the file as follows
+source build.setup
+
+# Go to either the huff run directory 
+cd dv/huff/run
+
+# To compile the RTL into a simv executable 
+# There is no testbench included as part of this release
+make compile_rtl
+
+
