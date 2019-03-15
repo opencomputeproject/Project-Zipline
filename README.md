@@ -12,7 +12,7 @@ Future releases will include additional RTL, an RTL test harness and an XP10 SW 
 Project Zipline is open-sourced under the MIT License, see the LICENSE file.
 
 ## Specifications
-The following Project Zipline specifications can be found at <https://www.opencompute.org/contributions>
+The following Project Zipline specifications have been included under the “specs” directory in this repo.
 
 * Project_XP10_Compression_Specification
 * Project_Zipline_Huffman_Encoder_Micro_Architecture_Specification
@@ -36,5 +36,5 @@ Compile the RTL into a simv executable:
 **`make compile_rtl`**
   
 Notes:
-1. RTL developed and simulated using Synopsys� VCS-MX 2017.03-SP1 toolchain.
+1. RTL developed and simulated using Synopsys® VCS-MX 2017.03-SP1 toolchain.
 2. No testbench is included for this release.
