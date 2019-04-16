@@ -21,7 +21,7 @@ The following Project Zipline specifications have been included under the “spe
 
 Instructions for building the RTL design of the Project Zipline Huffman Encoder.
 
-Edit the file **./build.setup** for VCS environment settings
+Edit the file **./build.setup** for VCS environment settings.
 
 Then source the file as follows:
 
