@@ -1,0 +1,57 @@
+# *************************************************************************
+#
+# Copyright © Microsoft Corporation. All rights reserved.
+# Copyright © Broadcom Inc. All rights reserved.
+# Licensed under the MIT License.
+#
+# *************************************************************************
+
+This is the directory to store all the test files. 
+
+Below is a list of tests and their descriptions.
+1. kme_key_type_0
+   Test of Key Type 0
+   aux_cmd type: AUX_CMD
+
+2. kme_key_type_1
+   Test of Key Type 1
+   Aux_cmd type: AUX_CMD_GUID_IV
+   
+3. kme_key_type_2
+   Test of Key Type 2
+   Aux_cmd type: AUX_CMD_GUID_IV
+
+4. kme_key_type_3
+   Test of Key Type 3
+   Aux_cmd type: AUX_CMD_GUID_IV
+
+5. kme_key_type_4
+   Test of Key Type 4
+   Aux_cmd type: AUX_CMD_GUID_IV
+
+6. kme_key_type_5
+   Test of Key Type 5
+   Aux_cmd type: AUX_CMD_GUID_IV
+   
+7. kme_key_type_6
+   Test of Key Type 6
+   Aux_cmd type: AUX_CMD_GUID_IV
+
+Tests 8-11 illustrate the use of all the other AUX_CMDs and the GUID
+TLV.  The same Key Type is used for all tests.
+
+8. kme_source_guid_present
+   Test of Key Type 6 with GUID delivered via GUID TLV
+   Aux_cmd type: AUX_CMD_IV
+
+9. kme_aux_cmd_guid_only
+   Test of Key Type 6 with GUID delivered via AUX_CMD
+   Aux_cmd type: AUX_CMD_GUID
+
+10. kme_aux_cmd_iv_only  
+    Test of Key Type 6 with no GUID provided by AUX_CMD or GUID TLV 
+    Aux_cmd type: AUX_CMD_IV
+ 
+11. kme_aux_cmd_no_guid_or_iv
+    Test of Key Type 6 with no GUID or IV provided by AUX_CMD
+    Aux_cmd type: AUX_CMD

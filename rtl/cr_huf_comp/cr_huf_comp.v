@@ -1,7 +1,7 @@
 /*************************************************************************
 *
-* Copyright Â© Microsoft Corporation. All rights reserved.
-* Copyright Â© Broadcom Inc. All rights reserved.
+* Copyright © Microsoft Corporation. All rights reserved.
+* Copyright © Broadcom Inc. All rights reserved.
 * Licensed under the MIT License.
 *
 *************************************************************************/
@@ -17,9 +17,10 @@
 
 
 
+
 `include "cr_huf_comp.vh"
 `include "ccx_std.vh"
-`include "cr_xp10_decomp.vh"
+
 
 module cr_huf_comp
 #(parameter 
@@ -45,9 +46,7 @@ module cr_huf_comp
    
   import cr_huf_compPKG::*;
   import cr_huf_comp_regsPKG::*;
-  import cr_xp10_decompPKG::*;
-  import cr_xp10_decomp_regsPKG::*;
-
+  
   
   
   input         clk;

@@ -1,7 +1,7 @@
 /*************************************************************************
 *
-* Copyright Â© Microsoft Corporation. All rights reserved.
-* Copyright Â© Broadcom Inc. All rights reserved.
+* Copyright © Microsoft Corporation. All rights reserved.
+* Copyright © Broadcom Inc. All rights reserved.
 * Licensed under the MIT License.
 *
 *************************************************************************/
@@ -20,7 +20,7 @@
 
 
 
-`include "messages_v2.vh"
+`include "messages.vh"
 `include "ccx_std.vh"
 module nx_event_counter_array
   #(parameter 

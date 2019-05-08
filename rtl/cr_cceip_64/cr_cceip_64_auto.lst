@@ -1,0 +1,28 @@
+/*************************************************************************
+*
+* Copyright © Microsoft Corporation. All rights reserved.
+* Copyright © Broadcom Inc. All rights reserved.
+* Licensed under the MIT License.
+*
+*************************************************************************/
+-y ../cr_crcgc
+-y ../cr_prefix
+-y ../cr_prefix_attach
+-y ../cr_isf
+-y ../cr_osf
+-y ../cr_cg
+-y ../cr_huf_comp
+-y ../cr_lz77_comp
+-y ../cr_xp10_decomp
+-y ../cr_cceip_64_support
+-y ../common/nx_library
+-y ../common/cr_tlvp
+-y ../common
+-y ../common/cr_tlv_monitor
+-y ../cr_cceip_64_sa
+-y ../cr_su
+-y .
+
+
+
+

@@ -1,0 +1,808 @@
+<!--
+/*************************************************************************
+*
+* Copyright © Microsoft Corporation. All rights reserved.
+* Copyright © Broadcom Inc. All rights reserved.
+* Licensed under the MIT License.
+*
+*************************************************************************/
+
+!-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=iso-8859-1">
+  <meta name="generator" content="Adobe GoLive 5">
+  <title>CR_ISF</title>
+</head>
+
+<body>
+
+<p>Generated on Thu Feb  7 06:22:37 2019</p>
+<H1><a ID="Regs_Registers">CR_ISF Regs Registers</a></H1>
+<table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="10%">Offset<br>(byte space)</th><th align="center" width="8%">Flags</th><th align="center" width="22%">Register Name </th><th align="center" width="60%">Description</th></tr>
+  <tr><td align="center">0x0</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_ISF_revision_config" >CR_ISF_revision_config</A></td><td>&nbsp;Revision read only register<br></td></tr>
+  <tr><td align="center">0x4</td><td valign="top"> acc=RW</td><td>&nbsp;<A HREF="#CR_ISF_spare_config" >CR_ISF_spare_config</A></td><td>&nbsp;Spare configuration register<br></td></tr>
+  <tr><td align="center">0xc</td><td valign="top"> acc=CFG</td><td>&nbsp;<A HREF="#CR_ISF_ISF_TLV_Parse_Action_0" >CR_ISF_ISF_TLV_Parse_Action_0</A></td><td>&nbsp;TLV Parse Action 0<br></td></tr>
+  <tr><td align="center">0x10</td><td valign="top"> acc=CFG</td><td>&nbsp;<A HREF="#CR_ISF_ISF_TLV_Parse_Action_1" >CR_ISF_ISF_TLV_Parse_Action_1</A></td><td>&nbsp;TLV Parse Action 1<br></td></tr>
+  <tr><td align="center">0x14</td><td valign="top"> acc=CFG</td><td>&nbsp;<A HREF="#CR_ISF_ctl_config" >CR_ISF_ctl_config</A></td><td>&nbsp;ISF Control configuration register<br></td></tr>
+  <tr><td align="center">0x18</td><td valign="top"> acc=CFG</td><td>&nbsp;<A HREF="#CR_ISF_system_stall_limit_config" >CR_ISF_system_stall_limit_config</A></td><td>&nbsp;System Stall Interrupt Limit configuration register<br></td></tr>
+  <tr><td align="center">0x1c</td><td valign="top"> acc=CFG</td><td>&nbsp;<A HREF="#CR_ISF_debug_ctl_config" >CR_ISF_debug_ctl_config</A></td><td>&nbsp;ISF Debug Control configuration register<br></td></tr>
+  <tr><td align="center">0x20</td><td valign="top"> acc=CFG</td><td>&nbsp;<A HREF="#CR_ISF_debug_ss_ctl_config" >CR_ISF_debug_ss_ctl_config</A></td><td>&nbsp;ISF Debug Single Step Control configuration register<br></td></tr>
+  <tr><td align="center">0x24</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_ISF_debug_stat" >CR_ISF_debug_stat</A></td><td>&nbsp;ISF Debug Status register<br></td></tr>
+  <tr><td align="center">0x28</td><td valign="top"> acc=CFG</td><td>&nbsp;<A HREF="#CR_ISF_debug_trig_tlv_config" >CR_ISF_debug_trig_tlv_config</A></td><td>&nbsp;ISF Debug Trigger TLV register<br></td></tr>
+  <tr><td align="center">0x2c</td><td valign="top"> acc=CFG</td><td>&nbsp;<A HREF="#CR_ISF_debug_trig_match_lo_config" >CR_ISF_debug_trig_match_lo_config</A></td><td>&nbsp;ISF Debug Trigger Match Low register<br></td></tr>
+  <tr><td align="center">0x30</td><td valign="top"> acc=CFG</td><td>&nbsp;<A HREF="#CR_ISF_debug_trig_match_hi_config" >CR_ISF_debug_trig_match_hi_config</A></td><td>&nbsp;ISF Debug Trigger Match High register<br></td></tr>
+  <tr><td align="center">0x34</td><td valign="top"> acc=CFG</td><td>&nbsp;<A HREF="#CR_ISF_debug_trig_mask_lo_config" >CR_ISF_debug_trig_mask_lo_config</A></td><td>&nbsp;ISF Debug Trigger Mask Low register<br></td></tr>
+  <tr><td align="center">0x38</td><td valign="top"> acc=CFG</td><td>&nbsp;<A HREF="#CR_ISF_debug_trig_mask_hi_config" >CR_ISF_debug_trig_mask_hi_config</A></td><td>&nbsp;ISF Debug Trigger Mask High register<br></td></tr>
+  <tr><td align="center">0x3c</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_ISF_debug_trig_cap_lo" >CR_ISF_debug_trig_cap_lo</A></td><td>&nbsp;ISF Debug Trigger Capture Low register<br></td></tr>
+  <tr><td align="center">0x40</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_ISF_debug_trig_cap_hi" >CR_ISF_debug_trig_cap_hi</A></td><td>&nbsp;ISF Debug Trigger Capture High register<br></td></tr>
+  <tr><td align="center">0x44</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_ISF_debug_ss_cap_sb" >CR_ISF_debug_ss_cap_sb</A></td><td>&nbsp;ISF Debug Single Step Capture Sideband register<br></td></tr>
+  <tr><td align="center">0x48</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_ISF_debug_ss_cap_lo" >CR_ISF_debug_ss_cap_lo</A></td><td>&nbsp;ISF Debug Single Step Capture Low register<br></td></tr>
+  <tr><td align="center">0x4c</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_ISF_debug_ss_cap_hi" >CR_ISF_debug_ss_cap_hi</A></td><td>&nbsp;ISF Debug Single Step Capture High register<br></td></tr>
+  <tr><td align="center">0x50</td><td valign="top"> acc=CFG</td><td>&nbsp;<A HREF="#CR_ISF_trace_ctl_en_config" >CR_ISF_trace_ctl_en_config</A></td><td>&nbsp;ISF Trace Enable configuration register<br></td></tr>
+  <tr><td align="center">0x54</td><td valign="top"> acc=CFG</td><td>&nbsp;<A HREF="#CR_ISF_trace_ctl_limits_config" >CR_ISF_trace_ctl_limits_config</A></td><td>&nbsp;ISF Trace Limits configuration register<br></td></tr>
+  <tr><td align="center">0x58</td><td valign="top"> acc=CFG</td><td>&nbsp;<A HREF="#CR_ISF_AUX_CMD_ev_match_val_0_comp_config" >CR_ISF_AUX_CMD_ev_match_val_0_comp_config</A></td><td>&nbsp;AUX CMD Compression Control Event Match Value #0<br></td></tr>
+  <tr><td align="center">0x5c</td><td valign="top"> acc=CFG</td><td>&nbsp;<A HREF="#CR_ISF_AUX_CMD_ev_match_val_0_crypto_config" >CR_ISF_AUX_CMD_ev_match_val_0_crypto_config</A></td><td>&nbsp;AUX CMD Crypto Control Event Match Value #0<br></td></tr>
+  <tr><td align="center">0x60</td><td valign="top"> acc=CFG</td><td>&nbsp;<A HREF="#CR_ISF_AUX_CMD_ev_mask_val_0_comp_config" >CR_ISF_AUX_CMD_ev_mask_val_0_comp_config</A></td><td>&nbsp;AUX CMD Compression Control Event Match Match #0<br></td></tr>
+  <tr><td align="center">0x64</td><td valign="top"> acc=CFG</td><td>&nbsp;<A HREF="#CR_ISF_AUX_CMD_ev_mask_val_0_crypto_config" >CR_ISF_AUX_CMD_ev_mask_val_0_crypto_config</A></td><td>&nbsp;AUX CMD Crypto Control Event Match Mask #0<br></td></tr>
+  <tr><td align="center">0x68</td><td valign="top"> acc=CFG</td><td>&nbsp;<A HREF="#CR_ISF_AUX_CMD_ev_match_val_1_comp_config" >CR_ISF_AUX_CMD_ev_match_val_1_comp_config</A></td><td>&nbsp;AUX CMD Compression Control Event Match Value #1<br></td></tr>
+  <tr><td align="center">0x6c</td><td valign="top"> acc=CFG</td><td>&nbsp;<A HREF="#CR_ISF_AUX_CMD_ev_match_val_1_crypto_config" >CR_ISF_AUX_CMD_ev_match_val_1_crypto_config</A></td><td>&nbsp;AUX CMD Crypto Control Event Match Value #1<br></td></tr>
+  <tr><td align="center">0x70</td><td valign="top"> acc=CFG</td><td>&nbsp;<A HREF="#CR_ISF_AUX_CMD_ev_mask_val_1_comp_config" >CR_ISF_AUX_CMD_ev_mask_val_1_comp_config</A></td><td>&nbsp;AUX CMD Compression Control Event Match Match #1<br></td></tr>
+  <tr><td align="center">0x74</td><td valign="top"> acc=CFG</td><td>&nbsp;<A HREF="#CR_ISF_AUX_CMD_ev_mask_val_1_crypto_config" >CR_ISF_AUX_CMD_ev_mask_val_1_crypto_config</A></td><td>&nbsp;AUX CMD Crypto Control Event Match Mask #1<br></td></tr>
+  <tr><td align="center">0x78</td><td valign="top"> acc=CFG</td><td>&nbsp;<A HREF="#CR_ISF_AUX_CMD_ev_match_val_2_comp_config" >CR_ISF_AUX_CMD_ev_match_val_2_comp_config</A></td><td>&nbsp;AUX CMD Compression Control Event Match Value #2<br></td></tr>
+  <tr><td align="center">0x7c</td><td valign="top"> acc=CFG</td><td>&nbsp;<A HREF="#CR_ISF_AUX_CMD_ev_match_val_2_crypto_config" >CR_ISF_AUX_CMD_ev_match_val_2_crypto_config</A></td><td>&nbsp;AUX CMD Crypto Control Event Match Value #2<br></td></tr>
+  <tr><td align="center">0x80</td><td valign="top"> acc=CFG</td><td>&nbsp;<A HREF="#CR_ISF_AUX_CMD_ev_mask_val_2_comp_config" >CR_ISF_AUX_CMD_ev_mask_val_2_comp_config</A></td><td>&nbsp;AUX CMD Compression Control Event Match Match #2<br></td></tr>
+  <tr><td align="center">0x84</td><td valign="top"> acc=CFG</td><td>&nbsp;<A HREF="#CR_ISF_AUX_CMD_ev_mask_val_2_crypto_config" >CR_ISF_AUX_CMD_ev_mask_val_2_crypto_config</A></td><td>&nbsp;AUX CMD Crypto Control Event Match Mask #2<br></td></tr>
+  <tr><td align="center">0x88</td><td valign="top"> acc=CFG</td><td>&nbsp;<A HREF="#CR_ISF_AUX_CMD_ev_match_val_3_comp_config" >CR_ISF_AUX_CMD_ev_match_val_3_comp_config</A></td><td>&nbsp;AUX CMD Compression Control Event Match Value #3<br></td></tr>
+  <tr><td align="center">0x8c</td><td valign="top"> acc=CFG</td><td>&nbsp;<A HREF="#CR_ISF_AUX_CMD_ev_match_val_3_crypto_config" >CR_ISF_AUX_CMD_ev_match_val_3_crypto_config</A></td><td>&nbsp;AUX CMD Crypto Control Event Match Value #3<br></td></tr>
+  <tr><td align="center">0x90</td><td valign="top"> acc=CFG</td><td>&nbsp;<A HREF="#CR_ISF_AUX_CMD_ev_mask_val_3_comp_config" >CR_ISF_AUX_CMD_ev_mask_val_3_comp_config</A></td><td>&nbsp;AUX CMD Compression Control Event Match Match #3<br></td></tr>
+  <tr><td align="center">0x94</td><td valign="top"> acc=CFG</td><td>&nbsp;<A HREF="#CR_ISF_AUX_CMD_ev_mask_val_3_crypto_config" >CR_ISF_AUX_CMD_ev_mask_val_3_crypto_config</A></td><td>&nbsp;AUX CMD Crypto Control Event Match Mask #3<br></td></tr>
+  <tr><td align="center">0x98</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_ISF_isf_fifo_ia_capability" >CR_ISF_isf_fifo_ia_capability</A></td><td>&nbsp;ISF_FIFO Indirect Access Capability Register<br></td></tr>
+  <tr><td align="center">0x9c</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_ISF_isf_fifo_ia_status" >CR_ISF_isf_fifo_ia_status</A></td><td>&nbsp;ISF_FIFO Indirect Access Status Register<br></td></tr>
+  <tr><td align="center">0xa0</td><td valign="top"> acc=CFG</td><td>&nbsp;<A HREF="#CR_ISF_isf_fifo_ia_wdata_part0" >CR_ISF_isf_fifo_ia_wdata_part0</A></td><td>&nbsp;ISF_FIFO Indirect Access Write Data Register (ISF_FIFO_Part0_t)<br></td></tr>
+  <tr><td align="center">0xa4</td><td valign="top"> acc=CFG</td><td>&nbsp;<A HREF="#CR_ISF_isf_fifo_ia_wdata_part1" >CR_ISF_isf_fifo_ia_wdata_part1</A></td><td>&nbsp;ISF_FIFO Indirect Access Write Data Register (ISF_FIFO_Part1_t)<br></td></tr>
+  <tr><td align="center">0xa8</td><td valign="top"> acc=CFG</td><td>&nbsp;<A HREF="#CR_ISF_isf_fifo_ia_wdata_part2" >CR_ISF_isf_fifo_ia_wdata_part2</A></td><td>&nbsp;ISF_FIFO Indirect Access Write Data Register (ISF_FIFO_Part2_t)<br></td></tr>
+  <tr><td align="center">0xac</td><td valign="top"> acc=CFG</td><td>&nbsp;<A HREF="#CR_ISF_isf_fifo_ia_config" >CR_ISF_isf_fifo_ia_config</A></td><td>&nbsp;ISF_FIFO Indirect Access Config Register<br></td></tr>
+  <tr><td align="center">0xb0</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_ISF_isf_fifo_ia_rdata_part0" >CR_ISF_isf_fifo_ia_rdata_part0</A></td><td>&nbsp;ISF_FIFO Indirect Access Read Data Register (ISF_FIFO_Part0_t)<br></td></tr>
+  <tr><td align="center">0xb4</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_ISF_isf_fifo_ia_rdata_part1" >CR_ISF_isf_fifo_ia_rdata_part1</A></td><td>&nbsp;ISF_FIFO Indirect Access Read Data Register (ISF_FIFO_Part1_t)<br></td></tr>
+  <tr><td align="center">0xb8</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_ISF_isf_fifo_ia_rdata_part2" >CR_ISF_isf_fifo_ia_rdata_part2</A></td><td>&nbsp;ISF_FIFO Indirect Access Read Data Register (ISF_FIFO_Part2_t)<br></td></tr>
+  <tr><td align="center">0xc0</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_ISF_isf_fifo_fifo_status_0" >CR_ISF_isf_fifo_fifo_status_0</A></td><td>&nbsp;ISF_FIFO FIFO Status Register 0<br></td></tr>
+  <tr><td align="center">0xc4</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_ISF_isf_fifo_fifo_status_1" >CR_ISF_isf_fifo_fifo_status_1</A></td><td>&nbsp;ISF_FIFO FIFO Status Register 1<br></td></tr>
+  <tr><td align="center">0xc8</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_ISF_ib_agg_data_bytes_0_count_part0_a" >CR_ISF_ib_agg_data_bytes_0_count_part0_a</A></td><td>&nbsp;Inbound Aggregate Data Bytes Counter<br></td></tr>
+  <tr><td align="center">0xcc</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_ISF_ib_agg_data_bytes_0_count_part1_a" >CR_ISF_ib_agg_data_bytes_0_count_part1_a</A></td><td>&nbsp;Inbound Aggregate Data Bytes Counter<br></td></tr>
+  <tr><td align="center">0xd0</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_ISF_ib_agg_data_bytes_global_read" >CR_ISF_ib_agg_data_bytes_global_read</A></td><td>&nbsp;Inbound Aggregate Data Bytes Counter<br></td></tr>
+  <tr><td align="center">0xd4</td><td valign="top"> acc=CFG</td><td>&nbsp;<A HREF="#CR_ISF_ib_agg_data_bytes_global_config" >CR_ISF_ib_agg_data_bytes_global_config</A></td><td>&nbsp;Inbound Aggregate Data Bytes Counter<br></td></tr>
+</table>
+<p>Flag legend: acc=access</p><p></p>
+<p>
+  <b><a ID="CR_ISF_revision_config">CR_ISF_revision_config - Revision read only register</a></b><br>
+  Offset (byte space) = 32'h0<br>
+  Verilog Macro Address = `CR_ISF_REVISION_CONFIG<br>
+  Reset Value = 32'bxxxxxxxx_xxxxxxxx_xxxxxxxx_00000000<br>
+  Access = RO (32-bit only)<br>
+</p>
+<table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:08</td><td valign="top"></td><td align="left" valign="top">&nbsp;Reserved</td><td align="left">Reserved bits must be written with 0.  A read returns an unknown value.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">07:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;revid</td><td align="left">Revision control register.<br>Connect to TIE cells in order to change<br>via 1 layer metal spin.<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_ISF Regs Table</A></p>
+<p>
+  <b><a ID="CR_ISF_spare_config">CR_ISF_spare_config - Spare configuration register</a></b><br>
+  Offset (byte space) = 32'h4<br>
+  Verilog Macro Address = `CR_ISF_SPARE_CONFIG<br>
+  Reset Value = 32'h0000_0000<br>
+  Access = RW (32-bit only)<br>
+</p>
+<table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;spare</td><td align="left">Spare control register<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_ISF Regs Table</A></p>
+<p>
+  <b><a ID="CR_ISF_ISF_TLV_Parse_Action_0">CR_ISF_ISF_TLV_Parse_Action_0 - TLV Parse Action 0</a></b><br>
+  Offset (byte space) = 32'hc<br>
+  Verilog Macro Address = `CR_ISF_ISF_TLV_PARSE_ACTION_0<br>
+  Reset Value = 32'haaaa_aaaa<br>
+  Access = CFG (32-bit only)<br>
+</p>
+<table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:30</td><td valign="top"></td><td align="left" valign="top">&nbsp;FRMD_INT_APP</td><td align="left">FRMD_INT_APP Action.<br>0 = <i>REP</i><br>replicate tlv, write tlv to both fifo's<br>1 = <i>PASS</i><br>passthrough tlv, write tlv to passthrough fifo only<br>2 = <i>MODIFY</i><br>modify tlv, write tlv to user_rx fifo only<br>3 = <i>DELETE</i><br>delete tlv, write tlv to user_rx fifo only, order number not incremented, user should not write this tlv back to the user_tx interface<br>Reset value is <i>MODIFY</i>.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">29:28</td><td valign="top"></td><td align="left" valign="top">&nbsp;FRMD_USER_VM</td><td align="left">FRMD_USER_VM Action.<br>0 = <i>REP</i><br>replicate tlv, write tlv to both fifo's<br>1 = <i>PASS</i><br>passthrough tlv, write tlv to passthrough fifo only<br>2 = <i>MODIFY</i><br>modify tlv, write tlv to user_rx fifo only<br>3 = <i>DELETE</i><br>delete tlv, write tlv to user_rx fifo only, order number not incremented, user should not write this tlv back to the user_tx interface<br>Reset value is <i>MODIFY</i>.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">27:26</td><td valign="top"></td><td align="left" valign="top">&nbsp;FRMD_USER_PI64</td><td align="left">FRMD_USER_PI64 Action.<br>0 = <i>REP</i><br>replicate tlv, write tlv to both fifo's<br>1 = <i>PASS</i><br>passthrough tlv, write tlv to passthrough fifo only<br>2 = <i>MODIFY</i><br>modify tlv, write tlv to user_rx fifo only<br>3 = <i>DELETE</i><br>delete tlv, write tlv to user_rx fifo only, order number not incremented, user should not write this tlv back to the user_tx interface<br>Reset value is <i>MODIFY</i>.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">25:24</td><td valign="top"></td><td align="left" valign="top">&nbsp;FRMD_USER_PI16</td><td align="left">FRMD_USER_PI16 Action.<br>0 = <i>REP</i><br>replicate tlv, write tlv to both fifo's<br>1 = <i>PASS</i><br>passthrough tlv, write tlv to passthrough fifo only<br>2 = <i>MODIFY</i><br>modify tlv, write tlv to user_rx fifo only<br>3 = <i>DELETE</i><br>delete tlv, write tlv to user_rx fifo only, order number not incremented, user should not write this tlv back to the user_tx interface<br>Reset value is <i>MODIFY</i>.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">23:22</td><td valign="top"></td><td align="left" valign="top">&nbsp;FRMD_USER_NULL</td><td align="left">FRMD_USER_NULL Action.<br>0 = <i>REP</i><br>replicate tlv, write tlv to both fifo's<br>1 = <i>PASS</i><br>passthrough tlv, write tlv to passthrough fifo only<br>2 = <i>MODIFY</i><br>modify tlv, write tlv to user_rx fifo only<br>3 = <i>DELETE</i><br>delete tlv, write tlv to user_rx fifo only, order number not incremented, user should not write this tlv back to the user_tx interface<br>Reset value is <i>MODIFY</i>.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">21:20</td><td valign="top"></td><td align="left" valign="top">&nbsp;GUID</td><td align="left">GUID Action.<br>0 = <i>REP</i><br>replicate tlv, write tlv to both fifo's<br>1 = <i>PASS</i><br>passthrough tlv, write tlv to passthrough fifo only<br>2 = <i>MODIFY</i><br>modify tlv, write tlv to user_rx fifo only<br>3 = <i>DELETE</i><br>delete tlv, write tlv to user_rx fifo only, order number not incremented, user should not write this tlv back to the user_tx interface<br>Reset value is <i>MODIFY</i>.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">19:18</td><td valign="top"></td><td align="left" valign="top">&nbsp;CQE</td><td align="left">CQE Action.<br>0 = <i>REP</i><br>replicate tlv, write tlv to both fifo's<br>1 = <i>PASS</i><br>passthrough tlv, write tlv to passthrough fifo only<br>2 = <i>MODIFY</i><br>modify tlv, write tlv to user_rx fifo only<br>3 = <i>DELETE</i><br>delete tlv, write tlv to user_rx fifo only, order number not incremented, user should not write this tlv back to the user_tx interface<br>Reset value is <i>MODIFY</i>.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">17:16</td><td valign="top"></td><td align="left" valign="top">&nbsp;STAT</td><td align="left">STAT Action.<br>0 = <i>REP</i><br>replicate tlv, write tlv to both fifo's<br>1 = <i>PASS</i><br>passthrough tlv, write tlv to passthrough fifo only<br>2 = <i>MODIFY</i><br>modify tlv, write tlv to user_rx fifo only<br>3 = <i>DELETE</i><br>delete tlv, write tlv to user_rx fifo only, order number not incremented, user should not write this tlv back to the user_tx interface<br>Reset value is <i>MODIFY</i>.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">15:14</td><td valign="top"></td><td align="left" valign="top">&nbsp;LZ77</td><td align="left">LZ77 Action.<br>0 = <i>REP</i><br>replicate tlv, write tlv to both fifo's<br>1 = <i>PASS</i><br>passthrough tlv, write tlv to passthrough fifo only<br>2 = <i>MODIFY</i><br>modify tlv, write tlv to user_rx fifo only<br>3 = <i>DELETE</i><br>delete tlv, write tlv to user_rx fifo only, order number not incremented, user should not write this tlv back to the user_tx interface<br>Reset value is <i>MODIFY</i>.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">13:12</td><td valign="top"></td><td align="left" valign="top">&nbsp;FTR</td><td align="left">FTR Action.<br>0 = <i>REP</i><br>replicate tlv, write tlv to both fifo's<br>1 = <i>PASS</i><br>passthrough tlv, write tlv to passthrough fifo only<br>2 = <i>MODIFY</i><br>modify tlv, write tlv to user_rx fifo only<br>3 = <i>DELETE</i><br>delete tlv, write tlv to user_rx fifo only, order number not incremented, user should not write this tlv back to the user_tx interface<br>Reset value is <i>MODIFY</i>.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">11:10</td><td valign="top"></td><td align="left" valign="top">&nbsp;DATA_UNK</td><td align="left">DATA_UNK Action.<br>0 = <i>REP</i><br>replicate tlv, write tlv to both fifo's<br>1 = <i>PASS</i><br>passthrough tlv, write tlv to passthrough fifo only<br>2 = <i>MODIFY</i><br>modify tlv, write tlv to user_rx fifo only<br>3 = <i>DELETE</i><br>delete tlv, write tlv to user_rx fifo only, order number not incremented, user should not write this tlv back to the user_tx interface<br>Reset value is <i>MODIFY</i>.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">09:08</td><td valign="top"></td><td align="left" valign="top">&nbsp;PFD</td><td align="left">PFD Action.<br>0 = <i>REP</i><br>replicate tlv, write tlv to both fifo's<br>1 = <i>PASS</i><br>passthrough tlv, write tlv to passthrough fifo only<br>2 = <i>MODIFY</i><br>modify tlv, write tlv to user_rx fifo only<br>3 = <i>DELETE</i><br>delete tlv, write tlv to user_rx fifo only, order number not incremented, user should not write this tlv back to the user_tx interface<br>Reset value is <i>MODIFY</i>.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">07:06</td><td valign="top"></td><td align="left" valign="top">&nbsp;PHD</td><td align="left">PHD Action.<br>0 = <i>REP</i><br>replicate tlv, write tlv to both fifo's<br>1 = <i>PASS</i><br>passthrough tlv, write tlv to passthrough fifo only<br>2 = <i>MODIFY</i><br>modify tlv, write tlv to user_rx fifo only<br>3 = <i>DELETE</i><br>delete tlv, write tlv to user_rx fifo only, order number not incremented, user should not write this tlv back to the user_tx interface<br>Reset value is <i>MODIFY</i>.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">05:04</td><td valign="top"></td><td align="left" valign="top">&nbsp;KEY</td><td align="left">KEY Action.<br>0 = <i>REP</i><br>replicate tlv, write tlv to both fifo's<br>1 = <i>PASS</i><br>passthrough tlv, write tlv to passthrough fifo only<br>2 = <i>MODIFY</i><br>modify tlv, write tlv to user_rx fifo only<br>3 = <i>DELETE</i><br>delete tlv, write tlv to user_rx fifo only, order number not incremented, user should not write this tlv back to the user_tx interface<br>Reset value is <i>MODIFY</i>.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">03:02</td><td valign="top"></td><td align="left" valign="top">&nbsp;CMD</td><td align="left">CMD Action.<br>0 = <i>REP</i><br>replicate tlv, write tlv to both fifo's<br>1 = <i>PASS</i><br>passthrough tlv, write tlv to passthrough fifo only<br>2 = <i>MODIFY</i><br>modify tlv, write tlv to user_rx fifo only<br>3 = <i>DELETE</i><br>delete tlv, write tlv to user_rx fifo only, order number not incremented, user should not write this tlv back to the user_tx interface<br>Reset value is <i>MODIFY</i>.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">01:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;RQE</td><td align="left">RQE Action.<br>0 = <i>REP</i><br>replicate tlv, write tlv to both fifo's<br>1 = <i>PASS</i><br>passthrough tlv, write tlv to passthrough fifo only<br>2 = <i>MODIFY</i><br>modify tlv, write tlv to user_rx fifo only<br>3 = <i>DELETE</i><br>delete tlv, write tlv to user_rx fifo only, order number not incremented, user should not write this tlv back to the user_tx interface<br>Reset value is <i>MODIFY</i>.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_ISF Regs Table</A></p>
+<p>
+  <b><a ID="CR_ISF_ISF_TLV_Parse_Action_1">CR_ISF_ISF_TLV_Parse_Action_1 - TLV Parse Action 1</a></b><br>
+  Offset (byte space) = 32'h10<br>
+  Verilog Macro Address = `CR_ISF_ISF_TLV_PARSE_ACTION_1<br>
+  Reset Value = 32'haaaa_aaaa<br>
+  Access = CFG (32-bit only)<br>
+</p>
+<table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:30</td><td valign="top"></td><td align="left" valign="top">&nbsp;unused_4</td><td align="left">unused_4 Action.<br>0 = <i>REP</i><br>replicate tlv, write tlv to both fifo's<br>1 = <i>PASS</i><br>passthrough tlv, write tlv to passthrough fifo only<br>2 = <i>MODIFY</i><br>modify tlv, write tlv to user_rx fifo only<br>3 = <i>DELETE</i><br>delete tlv, write tlv to user_rx fifo only, order number not incremented, user should not write this tlv back to the user_tx interface<br>Reset value is <i>MODIFY</i>.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">29:28</td><td valign="top"></td><td align="left" valign="top">&nbsp;unused_3</td><td align="left">unused_3 Action.<br>0 = <i>REP</i><br>replicate tlv, write tlv to both fifo's<br>1 = <i>PASS</i><br>passthrough tlv, write tlv to passthrough fifo only<br>2 = <i>MODIFY</i><br>modify tlv, write tlv to user_rx fifo only<br>3 = <i>DELETE</i><br>delete tlv, write tlv to user_rx fifo only, order number not incremented, user should not write this tlv back to the user_tx interface<br>Reset value is <i>MODIFY</i>.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">27:26</td><td valign="top"></td><td align="left" valign="top">&nbsp;unused_2</td><td align="left">unused_2 Action.<br>0 = <i>REP</i><br>replicate tlv, write tlv to both fifo's<br>1 = <i>PASS</i><br>passthrough tlv, write tlv to passthrough fifo only<br>2 = <i>MODIFY</i><br>modify tlv, write tlv to user_rx fifo only<br>3 = <i>DELETE</i><br>delete tlv, write tlv to user_rx fifo only, order number not incremented, user should not write this tlv back to the user_tx interface<br>Reset value is <i>MODIFY</i>.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">25:24</td><td valign="top"></td><td align="left" valign="top">&nbsp;unused_1</td><td align="left">unused_1 Action.<br>0 = <i>REP</i><br>replicate tlv, write tlv to both fifo's<br>1 = <i>PASS</i><br>passthrough tlv, write tlv to passthrough fifo only<br>2 = <i>MODIFY</i><br>modify tlv, write tlv to user_rx fifo only<br>3 = <i>DELETE</i><br>delete tlv, write tlv to user_rx fifo only, order number not incremented, user should not write this tlv back to the user_tx interface<br>Reset value is <i>MODIFY</i>.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">23:22</td><td valign="top"></td><td align="left" valign="top">&nbsp;unused_0</td><td align="left">unused_0 Action.<br>0 = <i>REP</i><br>replicate tlv, write tlv to both fifo's<br>1 = <i>PASS</i><br>passthrough tlv, write tlv to passthrough fifo only<br>2 = <i>MODIFY</i><br>modify tlv, write tlv to user_rx fifo only<br>3 = <i>DELETE</i><br>delete tlv, write tlv to user_rx fifo only, order number not incremented, user should not write this tlv back to the user_tx interface<br>Reset value is <i>MODIFY</i>.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">21:20</td><td valign="top"></td><td align="left" valign="top">&nbsp;SCH</td><td align="left">SCH Action.<br>0 = <i>REP</i><br>replicate tlv, write tlv to both fifo's<br>1 = <i>PASS</i><br>passthrough tlv, write tlv to passthrough fifo only<br>2 = <i>MODIFY</i><br>modify tlv, write tlv to user_rx fifo only<br>3 = <i>DELETE</i><br>delete tlv, write tlv to user_rx fifo only, order number not incremented, user should not write this tlv back to the user_tx interface<br>Reset value is <i>MODIFY</i>.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">19:18</td><td valign="top"></td><td align="left" valign="top">&nbsp;AUX_CMD_GUID_IV</td><td align="left">AUX_CMD_GUID_IV Action.<br>0 = <i>REP</i><br>replicate tlv, write tlv to both fifo's<br>1 = <i>PASS</i><br>passthrough tlv, write tlv to passthrough fifo only<br>2 = <i>MODIFY</i><br>modify tlv, write tlv to user_rx fifo only<br>3 = <i>DELETE</i><br>delete tlv, write tlv to user_rx fifo only, order number not incremented, user should not write this tlv back to the user_tx interface<br>Reset value is <i>MODIFY</i>.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">17:16</td><td valign="top"></td><td align="left" valign="top">&nbsp;AUX_CMD_GUID</td><td align="left">AUX_CMD_GUID Action.<br>0 = <i>REP</i><br>replicate tlv, write tlv to both fifo's<br>1 = <i>PASS</i><br>passthrough tlv, write tlv to passthrough fifo only<br>2 = <i>MODIFY</i><br>modify tlv, write tlv to user_rx fifo only<br>3 = <i>DELETE</i><br>delete tlv, write tlv to user_rx fifo only, order number not incremented, user should not write this tlv back to the user_tx interface<br>Reset value is <i>MODIFY</i>.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">15:14</td><td valign="top"></td><td align="left" valign="top">&nbsp;AUX_CMD_IV</td><td align="left">AUX_CMD_IV Action.<br>0 = <i>REP</i><br>replicate tlv, write tlv to both fifo's<br>1 = <i>PASS</i><br>passthrough tlv, write tlv to passthrough fifo only<br>2 = <i>MODIFY</i><br>modify tlv, write tlv to user_rx fifo only<br>3 = <i>DELETE</i><br>delete tlv, write tlv to user_rx fifo only, order number not incremented, user should not write this tlv back to the user_tx interface<br>Reset value is <i>MODIFY</i>.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">13:12</td><td valign="top"></td><td align="left" valign="top">&nbsp;FRMD_INT_VM_SHORT</td><td align="left">FRMD_INT_VM_SHORT Action.<br>0 = <i>REP</i><br>replicate tlv, write tlv to both fifo's<br>1 = <i>PASS</i><br>passthrough tlv, write tlv to passthrough fifo only<br>2 = <i>MODIFY</i><br>modify tlv, write tlv to user_rx fifo only<br>3 = <i>DELETE</i><br>delete tlv, write tlv to user_rx fifo only, order number not incremented, user should not write this tlv back to the user_tx interface<br>Reset value is <i>MODIFY</i>.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">11:10</td><td valign="top"></td><td align="left" valign="top">&nbsp;AUX_CMD</td><td align="left">AUX_CMD Action.<br>0 = <i>REP</i><br>replicate tlv, write tlv to both fifo's<br>1 = <i>PASS</i><br>passthrough tlv, write tlv to passthrough fifo only<br>2 = <i>MODIFY</i><br>modify tlv, write tlv to user_rx fifo only<br>3 = <i>DELETE</i><br>delete tlv, write tlv to user_rx fifo only, order number not incremented, user should not write this tlv back to the user_tx interface<br>Reset value is <i>MODIFY</i>.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">09:08</td><td valign="top"></td><td align="left" valign="top">&nbsp;CR_IV</td><td align="left">CR_IV Action.<br>0 = <i>REP</i><br>replicate tlv, write tlv to both fifo's<br>1 = <i>PASS</i><br>passthrough tlv, write tlv to passthrough fifo only<br>2 = <i>MODIFY</i><br>modify tlv, write tlv to user_rx fifo only<br>3 = <i>DELETE</i><br>delete tlv, write tlv to user_rx fifo only, order number not incremented, user should not write this tlv back to the user_tx interface<br>Reset value is <i>MODIFY</i>.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">07:06</td><td valign="top"></td><td align="left" valign="top">&nbsp;DATA</td><td align="left">DATA Action.<br>0 = <i>REP</i><br>replicate tlv, write tlv to both fifo's<br>1 = <i>PASS</i><br>passthrough tlv, write tlv to passthrough fifo only<br>2 = <i>MODIFY</i><br>modify tlv, write tlv to user_rx fifo only<br>3 = <i>DELETE</i><br>delete tlv, write tlv to user_rx fifo only, order number not incremented, user should not write this tlv back to the user_tx interface<br>Reset value is <i>MODIFY</i>.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">05:04</td><td valign="top"></td><td align="left" valign="top">&nbsp;FRMD_INT_VM</td><td align="left">FRMD_INT_VM Action.<br>0 = <i>REP</i><br>replicate tlv, write tlv to both fifo's<br>1 = <i>PASS</i><br>passthrough tlv, write tlv to passthrough fifo only<br>2 = <i>MODIFY</i><br>modify tlv, write tlv to user_rx fifo only<br>3 = <i>DELETE</i><br>delete tlv, write tlv to user_rx fifo only, order number not incremented, user should not write this tlv back to the user_tx interface<br>Reset value is <i>MODIFY</i>.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">03:02</td><td valign="top"></td><td align="left" valign="top">&nbsp;FRMD_INT_LIP</td><td align="left">FRMD_INT_LIP Action.<br>0 = <i>REP</i><br>replicate tlv, write tlv to both fifo's<br>1 = <i>PASS</i><br>passthrough tlv, write tlv to passthrough fifo only<br>2 = <i>MODIFY</i><br>modify tlv, write tlv to user_rx fifo only<br>3 = <i>DELETE</i><br>delete tlv, write tlv to user_rx fifo only, order number not incremented, user should not write this tlv back to the user_tx interface<br>Reset value is <i>MODIFY</i>.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">01:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;FRMD_INT_SIP</td><td align="left">FRMD_INT_SIP Action.<br>0 = <i>REP</i><br>replicate tlv, write tlv to both fifo's<br>1 = <i>PASS</i><br>passthrough tlv, write tlv to passthrough fifo only<br>2 = <i>MODIFY</i><br>modify tlv, write tlv to user_rx fifo only<br>3 = <i>DELETE</i><br>delete tlv, write tlv to user_rx fifo only, order number not incremented, user should not write this tlv back to the user_tx interface<br>Reset value is <i>MODIFY</i>.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_ISF Regs Table</A></p>
+<p>
+  <b><a ID="CR_ISF_ctl_config">CR_ISF_ctl_config - ISF Control configuration register</a></b><br>
+  Offset (byte space) = 32'h14<br>
+  Verilog Macro Address = `CR_ISF_CTL_CONFIG<br>
+  Reset Value = 32'bxxxxxxxx_xxxxxxxx_0000xxx0_xx000000<br>
+  Access = CFG (32-bit only)<br>
+</p>
+The ISF Control register is used to provide various control<br>functions<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:16</td><td valign="top"></td><td align="left" valign="top">&nbsp;Reserved</td><td align="left">Reserved bits must be written with 0.  A read returns an unknown value.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">15</td><td valign="top"></td><td align="left" valign="top">&nbsp;aux_cmd_match3_en</td><td align="left">Enable AUX_CMD Match 3 Event<br>Enables the AUX_CMD event matching values #3<br>0 = DISABLED<br>1 = ENABLED<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">14</td><td valign="top"></td><td align="left" valign="top">&nbsp;aux_cmd_match2_en</td><td align="left">Enable AUX_CMD Match 2 Event<br>Enables the AUX_CMD event matching values #2<br>0 = DISABLED<br>1 = ENABLED<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">13</td><td valign="top"></td><td align="left" valign="top">&nbsp;aux_cmd_match1_en</td><td align="left">Enable AUX_CMD Match 1 Event<br>Enables the AUX_CMD event matching values #1<br>0 = DISABLED<br>1 = ENABLED<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">12</td><td valign="top"></td><td align="left" valign="top">&nbsp;aux_cmd_match0_en</td><td align="left">Enable AUX_CMD Match 0 Event<br>Enables the AUX_CMD event matching values #0<br>0 = DISABLED<br>1 = ENABLED<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">11:09</td><td valign="top"></td><td align="left" valign="top">&nbsp;Reserved</td><td align="left">Reserved bits must be written with 0.  A read returns an unknown value.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">08</td><td valign="top"></td><td align="left" valign="top">&nbsp;sys_stall_en</td><td align="left">Enable the system stall interrupt counter<br>0 = DISABLED<br>1 = ENABLED<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">07:06</td><td valign="top"></td><td align="left" valign="top">&nbsp;Reserved</td><td align="left">Reserved bits must be written with 0.  A read returns an unknown value.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">05:03</td><td valign="top"></td><td align="left" valign="top">&nbsp;use_wmark_sel</td><td align="left">Use Watermark that controls the fill level of the ISF FIFO that asserts backpressure.<br>Settings are relative to the max level (N), which is 1K<br>0 = N-8<br>0 = N-16<br>0 = N-24<br>0 = N-32<br>0 = N-40<br>0 = N-48<br>0 = N-56<br>0 = N-64<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">02:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;req_wmark_sel</td><td align="left">Request watermark that controls the fill level of the ISF FIFO that de-asserts backpressure.<br>Settings are relative to the max level (N), which is 1K<br>0 = N-8<br>0 = N-16<br>0 = N-24<br>0 = N-32<br>0 = N-40<br>0 = N-48<br>0 = N-56<br>0 = N-64<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_ISF Regs Table</A></p>
+<p>
+  <b><a ID="CR_ISF_system_stall_limit_config">CR_ISF_system_stall_limit_config - System Stall Interrupt Limit configuration register</a></b><br>
+  Offset (byte space) = 32'h18<br>
+  Verilog Macro Address = `CR_ISF_SYSTEM_STALL_LIMIT_CONFIG<br>
+  Reset Value = 32'h0000_0000<br>
+  Access = CFG (32-bit only)<br>
+</p>
+The System Stall Limit register provides the number of consecutive<br>stall cycles that must be present on the ISF outbound AXI interface to create<br>a system stall interrupt.<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;limit</td><td align="left">Number of consecutive stall cycles, in clocks, that cause a system stall interrupt<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_ISF Regs Table</A></p>
+<p>
+  <b><a ID="CR_ISF_debug_ctl_config">CR_ISF_debug_ctl_config - ISF Debug Control configuration register</a></b><br>
+  Offset (byte space) = 32'h1c<br>
+  Verilog Macro Address = `CR_ISF_DEBUG_CTL_CONFIG<br>
+  Reset Value = 32'b0xx0x000_00000000_xx000000_00000000<br>
+  Access = CFG (32-bit only)<br>
+</p>
+The Debug Control register is used to provide the controls<br>for the various debug features that are available in the ISF.<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31</td><td valign="top"></td><td align="left" valign="top">&nbsp;force_ib_bp</td><td align="left">This bit is used to backpressure the ISF inbound AXI interface<br>0 = Not forcing backpressure<br>1 = Force backpressure<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">30:29</td><td valign="top"></td><td align="left" valign="top">&nbsp;Reserved</td><td align="left">Reserved bits must be written with 0.  A read returns an unknown value.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">28</td><td valign="top"></td><td align="left" valign="top">&nbsp;force_sw_access</td><td align="left">This bit is used to disable the pipeline access to the Debug FIFO<br>0 = Pipeline access is enabled<br>1 = Pipeline access is disabled<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">27</td><td valign="top"></td><td align="left" valign="top">&nbsp;Reserved</td><td align="left">Reserved bit must be written with 0.  A read returns an unknown value.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">26:16</td><td valign="top"></td><td align="left" valign="top">&nbsp;dbg_fifo_depth</td><td align="left">Debug FIFO Depth<br>After SW loads the Debug FIFO, this value represent the number of<br>locations written. It is loaded into the Debug FIFO pipeline access logic<br>whenever the load_dbg_values field is 1 to mimic the state of the logic<br>after an equivalent number of pipeline writes.<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">15:14</td><td valign="top"></td><td align="left" valign="top">&nbsp;Reserved</td><td align="left">Reserved bits must be written with 0.  A read returns an unknown value.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">13:04</td><td valign="top"></td><td align="left" valign="top">&nbsp;dbg_wr_pointer</td><td align="left">Debug FIFO write pointer<br>After SW loads the Debug FIFO, this value represent the next location<br>that would be written via a pipeline write. It is loaded into the<br>Debug FIFO pipeline access logic whenever the load_dbg_values field is 1<br>to mimic the state of the logic after an equivalent number of pipeline<br>writes.<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">03</td><td valign="top"></td><td align="left" valign="top">&nbsp;load_dbg_values</td><td align="left">0 = Do not load debug values<br>1 = Load debug value<br>Load the dbg_fifo_depth and dbg_wr_point values from this register into the<br>pipeline access logic of the Debug FIFO.  This has to be done whenever SW<br>loads the Debug FIFO so that the the internal pipeline access logic is<br>initialized with a depth and write pointer as if the writes had been done<br>via the pipeline.<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">02:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;debug_mode</td><td align="left">0 = NORMAL<br>Mode used for normal operation when not debugging. Debug FIFO<br>is read and written via the pipeline.<br>1 = RW_DISABLE<br>This mode blocks both the pipeline reads and writes of the<br>Debug FIFO to allow SW to read and write it.<br>2 = RD_DISABLE<br>This mode blocks only the pipeline read of the<br>Debug FIFO. The FIFO is loaded via the normal pipeline path.<br>This mode is used to allow SW to inspect the pipeline<br>data written into the Debug FIFO.<br>3 = SINGLE_STEP<br>This mode is used to allow SW to perform single step reads of the<br>Debug FIFO data loaded via the pipeline. The read data is sent<br>out of the ISF through the normal pipeline path. Each read<br>is done via a write to the ISF Debug Single Step Control register.<br>4 = TRIG_FREEZE<br>This mode is used to enable the ISF breakpoint logic. The pipeline reads<br>of the Debug FIFO are stopped when the the programmable breakpoint is hit.<br>Prior to hitting the breakpoint, the Debug FIFO is read and written via<br>the pipeline.<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_ISF Regs Table</A></p>
+<p>
+  <b><a ID="CR_ISF_debug_ss_ctl_config">CR_ISF_debug_ss_ctl_config - ISF Debug Single Step Control configuration register</a></b><br>
+  Offset (byte space) = 32'h20<br>
+  Verilog Macro Address = `CR_ISF_DEBUG_SS_CTL_CONFIG<br>
+  Reset Value = 32'bxxxxxxxx_xxxxxxxx_xxxxxxxx_xxxxxxx0<br>
+  Access = CFG (32-bit only)<br>
+</p>
+The Debug Single Step Control register provides the single step<br>read control when the debug_mode in the<br>Debug Control register is configured to SINGLE_STEP mode. Each write<br>of this register results in a single_step read of the Pre-TLVP and<br>Debug FIFOs if the TLVP FIFOs are not full. The value written is a<br>don't care and is only used as a read-back value.<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:01</td><td valign="top"></td><td align="left" valign="top">&nbsp;Reserved</td><td align="left">Reserved bits must be written with 0.  A read returns an unknown value.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">00</td><td valign="top"></td><td align="left" valign="top">&nbsp;Dummy</td><td align="left">Unused field which is a don't care.<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_ISF Regs Table</A></p>
+<p>
+  <b><a ID="CR_ISF_debug_stat">CR_ISF_debug_stat - ISF Debug Status register</a></b><br>
+  Offset (byte space) = 32'h24<br>
+  Verilog Macro Address = `CR_ISF_DEBUG_STAT<br>
+  Reset Value = 32'bxxxxxxxx_xxxxxxxx_xxxxxxxx_xxxxxx00<br>
+  Access = RO (32-bit only)<br>
+</p>
+The Debug Status register provides status<br>for the various debug features that are available in the ISF.<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:02</td><td valign="top"></td><td align="left" valign="top">&nbsp;Reserved</td><td align="left">Reserved bits must be written with 0.  A read returns an unknown value.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">01</td><td valign="top"></td><td align="left" valign="top">&nbsp;ss_rd_ok</td><td align="left">This is a status bit that is used to determine if the single step<br>read requested by a write to the ISF Debug Single Step Control register<br>actually occurred. It will only be blocked if the FIFOs in the TLVP<br>were full when the request was made.<br>0 = Single-step read of the Pre-TLVP and Debug FIFOs was blocked<br>1 = Single-step read of Pre-TLVP abd Debug FIFOs occurred<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">00</td><td valign="top"></td><td align="left" valign="top">&nbsp;trigger_hit</td><td align="left">Trigger Freeze logic breakpoint hit bit.<br>0 = Breakpoint not hit<br>1 = Breakpoint hit and ISF is stalled<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_ISF Regs Table</A></p>
+<p>
+  <b><a ID="CR_ISF_debug_trig_tlv_config">CR_ISF_debug_trig_tlv_config - ISF Debug Trigger TLV register</a></b><br>
+  Offset (byte space) = 32'h28<br>
+  Verilog Macro Address = `CR_ISF_DEBUG_TRIG_TLV_CONFIG<br>
+  Reset Value = 32'bxxx00000_00000000_00000000_00000000<br>
+  Access = CFG (32-bit only)<br>
+</p>
+The Debug Trigger TLV register provides the TLV Type and TLV word<br>number that is part of the trigger used by the ISF Trigger Freeze logic.<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:29</td><td valign="top"></td><td align="left" valign="top">&nbsp;Reserved</td><td align="left">Reserved bits must be written with 0.  A read returns an unknown value.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">28:08</td><td valign="top"></td><td align="left" valign="top">&nbsp;tlv_word_num</td><td align="left">This is the TLV 64-bit word number to match on.  The first word of the<br>TLV is Word 0.<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">07:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;tlv_type</td><td align="left">This is the "type" field from Word 0 of every TLV to match on.<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_ISF Regs Table</A></p>
+<p>
+  <b><a ID="CR_ISF_debug_trig_match_lo_config">CR_ISF_debug_trig_match_lo_config - ISF Debug Trigger Match Low register</a></b><br>
+  Offset (byte space) = 32'h2c<br>
+  Verilog Macro Address = `CR_ISF_DEBUG_TRIG_MATCH_LO_CONFIG<br>
+  Reset Value = 32'h0000_0000<br>
+  Access = CFG (32-bit only)<br>
+</p>
+The Debug Trigger Match Low register provides bits [31:0] of<br>the 64-bit data match value used by the ISF Trigger Freeze logic<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;match_val</td><td align="left">Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_ISF Regs Table</A></p>
+<p>
+  <b><a ID="CR_ISF_debug_trig_match_hi_config">CR_ISF_debug_trig_match_hi_config - ISF Debug Trigger Match High register</a></b><br>
+  Offset (byte space) = 32'h30<br>
+  Verilog Macro Address = `CR_ISF_DEBUG_TRIG_MATCH_HI_CONFIG<br>
+  Reset Value = 32'h0000_0000<br>
+  Access = CFG (32-bit only)<br>
+</p>
+The Debug Trigger Match High register provides bits [63:32] of<br>the 64-bit data match value used by the ISF Trigger Freeze logic<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;match_val</td><td align="left">Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_ISF Regs Table</A></p>
+<p>
+  <b><a ID="CR_ISF_debug_trig_mask_lo_config">CR_ISF_debug_trig_mask_lo_config - ISF Debug Trigger Mask Low register</a></b><br>
+  Offset (byte space) = 32'h34<br>
+  Verilog Macro Address = `CR_ISF_DEBUG_TRIG_MASK_LO_CONFIG<br>
+  Reset Value = 32'h0000_0000<br>
+  Access = CFG (32-bit only)<br>
+</p>
+The Debug Trigger Mask Low register provides bits [31:0] of<br>the 64-bit data mask value used by the ISF Trigger Freeze logic<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;mask_val</td><td align="left">Per-bit description of how the mask works:<br>0 = MASK<br>Match any value of the asociated bit of the match value register<br>1 = NO_MASK<br>Match only the value of the asociated bit of the match value register<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_ISF Regs Table</A></p>
+<p>
+  <b><a ID="CR_ISF_debug_trig_mask_hi_config">CR_ISF_debug_trig_mask_hi_config - ISF Debug Trigger Mask High register</a></b><br>
+  Offset (byte space) = 32'h38<br>
+  Verilog Macro Address = `CR_ISF_DEBUG_TRIG_MASK_HI_CONFIG<br>
+  Reset Value = 32'h0000_0000<br>
+  Access = CFG (32-bit only)<br>
+</p>
+The Debug Trigger Mask High register provides bits [63:32] of<br>the 64-bit data mask value used by the ISF Trigger Freeze logic<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;mask_val</td><td align="left">Per-bit description of how the mask works:<br>0 = MASK<br>Match any value of the asociated bit of the match value register<br>1 = NO_MASK<br>Match only the value of the asociated bit of the match value register<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_ISF Regs Table</A></p>
+<p>
+  <b><a ID="CR_ISF_debug_trig_cap_lo">CR_ISF_debug_trig_cap_lo - ISF Debug Trigger Capture Low register</a></b><br>
+  Offset (byte space) = 32'h3c<br>
+  Verilog Macro Address = `CR_ISF_DEBUG_TRIG_CAP_LO<br>
+  Reset Value = 32'h0000_0000<br>
+  Access = RO (32-bit only)<br>
+</p>
+The Debug Trigger Capture Low register provides bits [31:0] of<br>the 64-bit trigger hit data that caused the ISF Trigger<br>Freeze logic to stop reading data out of the Pre-TLVP FIFO.<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;trig_val</td><td align="left">Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_ISF Regs Table</A></p>
+<p>
+  <b><a ID="CR_ISF_debug_trig_cap_hi">CR_ISF_debug_trig_cap_hi - ISF Debug Trigger Capture High register</a></b><br>
+  Offset (byte space) = 32'h40<br>
+  Verilog Macro Address = `CR_ISF_DEBUG_TRIG_CAP_HI<br>
+  Reset Value = 32'h0000_0000<br>
+  Access = RO (32-bit only)<br>
+</p>
+The Debug Trigger Capture High register provides bits [63:32] of<br>the 64-bit trigger hit data that caused the ISF Trigger<br>Freeze logic to stop reading data out of the Pre-TLVP FIFO.<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;trig_val</td><td align="left">Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_ISF Regs Table</A></p>
+<p>
+  <b><a ID="CR_ISF_debug_ss_cap_sb">CR_ISF_debug_ss_cap_sb - ISF Debug Single Step Capture Sideband register</a></b><br>
+  Offset (byte space) = 32'h44<br>
+  Verilog Macro Address = `CR_ISF_DEBUG_SS_CAP_SB<br>
+  Reset Value = 32'bxxxxxxxx_xxxxxxxx_xxxxxxxx_00000000<br>
+  Access = RO (32-bit only)<br>
+</p>
+The Debug Single Capture Sideband register provides the<br>AXI sideband signals read from the Pre-TLVP FIFO during a<br>single step read.<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:28</td><td valign="top"></td><td align="left" valign="top">&nbsp;Reserved</td><td align="left">Reserved bits must be written with 0.  A read returns an unknown value.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">27:26</td><td valign="top"></td><td align="left" valign="top">&nbsp;spare1</td><td align="left">&nbsp;</td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">25</td><td valign="top"></td><td align="left" valign="top">&nbsp;tlast</td><td align="left">&nbsp;</td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">24:17</td><td valign="top"></td><td align="left" valign="top">&nbsp;tstrb</td><td align="left">&nbsp;</td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">16:09</td><td valign="top"></td><td align="left" valign="top">&nbsp;spare0</td><td align="left">&nbsp;</td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">08</td><td valign="top"></td><td align="left" valign="top">&nbsp;tid</td><td align="left">&nbsp;</td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">07:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;tuser</td><td align="left">Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_ISF Regs Table</A></p>
+<p>
+  <b><a ID="CR_ISF_debug_ss_cap_lo">CR_ISF_debug_ss_cap_lo - ISF Debug Single Step Capture Low register</a></b><br>
+  Offset (byte space) = 32'h48<br>
+  Verilog Macro Address = `CR_ISF_DEBUG_SS_CAP_LO<br>
+  Reset Value = 32'h0000_0000<br>
+  Access = RO (32-bit only)<br>
+</p>
+The Debug Single Capture Low register provides bits [31:0] of<br>the 64-bit AXI data read from the Pre-TLVP FIFO during a<br>single step read.<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;ss_rd_val</td><td align="left">Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_ISF Regs Table</A></p>
+<p>
+  <b><a ID="CR_ISF_debug_ss_cap_hi">CR_ISF_debug_ss_cap_hi - ISF Debug Single Step Capture High register</a></b><br>
+  Offset (byte space) = 32'h4c<br>
+  Verilog Macro Address = `CR_ISF_DEBUG_SS_CAP_HI<br>
+  Reset Value = 32'h0000_0000<br>
+  Access = RO (32-bit only)<br>
+</p>
+The Debug Single Capture High register provides bits [63:32] of<br>the 64-bit AXI data read from the Pre-TLVP FIFO during a<br>single step read.<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;ss_rd_val</td><td align="left">Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_ISF Regs Table</A></p>
+<p>
+  <b><a ID="CR_ISF_trace_ctl_en_config">CR_ISF_trace_ctl_en_config - ISF Trace Enable configuration register</a></b><br>
+  Offset (byte space) = 32'h50<br>
+  Verilog Macro Address = `CR_ISF_TRACE_CTL_EN_CONFIG<br>
+  Reset Value = 32'bxxxxxxxx_xxxxxxxx_xxxxxxxx_xxxxxxx0<br>
+  Access = CFG (32-bit only)<br>
+</p>
+The Trace Control register is used to provide the controls<br>for the various per-command tracing features that are available in the ISF.<br>Tracing refers to enabling event counting in the Statistics Accumulator.<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:01</td><td valign="top"></td><td align="left" valign="top">&nbsp;Reserved</td><td align="left">Reserved bits must be written with 0.  A read returns an unknown value.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">00</td><td valign="top"></td><td align="left" valign="top">&nbsp;sch_hndl_rng_match_en</td><td align="left">This is the Scheduler Handle Range Match Enable bit that is used to<br>enable schedule handle filtering for tracing.<br>0 =  scheduler handle filtering disabled.<br>Tracing is only enabled for commands with the trace bit in the RQE set to a 1.<br>1 =  scheduler handle filtering filtering enabled<br>Tracing is enabled for either commands with the trace bit in the RQE set to a 1<br>or commands with the value of the RQE scheduler_handle field<br>matching the value of the range limits configured by sch_hndl_lo_limit and<br>sch_hndl_hi_limit.<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_ISF Regs Table</A></p>
+<p>
+  <b><a ID="CR_ISF_trace_ctl_limits_config">CR_ISF_trace_ctl_limits_config - ISF Trace Limits configuration register</a></b><br>
+  Offset (byte space) = 32'h54<br>
+  Verilog Macro Address = `CR_ISF_TRACE_CTL_LIMITS_CONFIG<br>
+  Reset Value = 32'hffff_0000<br>
+  Access = CFG (32-bit only)<br>
+</p>
+<table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:16</td><td valign="top"></td><td align="left" valign="top">&nbsp;sch_hndl_hi_limit</td><td align="left">This is the scheduler handle upper limit for trace filtering. Only commands with<br>scheduler handle values equal to or less than this value are eligible<br>for tracing.<br>Reset value is <i>65535</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">15:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;sch_hndl_lo_limit</td><td align="left">This is the queue_group lower limit for trace filtering. Only commands with<br>scheduler handle values equal to or exceeding this value are eligible<br>for tracing.<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_ISF Regs Table</A></p>
+<p>
+  <b><a ID="CR_ISF_AUX_CMD_ev_match_val_0_comp_config">CR_ISF_AUX_CMD_ev_match_val_0_comp_config - AUX CMD Compression Control Event Match Value #0</a></b><br>
+  Offset (byte space) = 32'h58<br>
+  Verilog Macro Address = `CR_ISF_AUX_CMD_EV_MATCH_VAL_0_COMP_CONFIG<br>
+  Reset Value = 32'h0000_0000<br>
+  Access = CFG (32-bit only)<br>
+</p>
+The AUX CMD Compression Control Event Match Value #0 register<br>provides the comp_ctl (compression control) value of<br>the AUX_CMD to match on to create a statistic event.<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;comp_ctl</td><td align="left">Compression Control value of the AUX_CMD to match on<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_ISF Regs Table</A></p>
+<p>
+  <b><a ID="CR_ISF_AUX_CMD_ev_match_val_0_crypto_config">CR_ISF_AUX_CMD_ev_match_val_0_crypto_config - AUX CMD Crypto Control Event Match Value #0</a></b><br>
+  Offset (byte space) = 32'h5c<br>
+  Verilog Macro Address = `CR_ISF_AUX_CMD_EV_MATCH_VAL_0_CRYPTO_CONFIG<br>
+  Reset Value = 32'h0000_0000<br>
+  Access = CFG (32-bit only)<br>
+</p>
+The AUX CMD Crypto Control Event Match Value #0 register<br>provides the crypto_ctl (crypto control) value of<br>the AUX_CMD to match on to create a statistic event.<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;crypto_ctl</td><td align="left">Crypto Control value of the AUX_CMD to match on<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_ISF Regs Table</A></p>
+<p>
+  <b><a ID="CR_ISF_AUX_CMD_ev_mask_val_0_comp_config">CR_ISF_AUX_CMD_ev_mask_val_0_comp_config - AUX CMD Compression Control Event Match Match #0</a></b><br>
+  Offset (byte space) = 32'h60<br>
+  Verilog Macro Address = `CR_ISF_AUX_CMD_EV_MASK_VAL_0_COMP_CONFIG<br>
+  Reset Value = 32'h0000_0000<br>
+  Access = CFG (32-bit only)<br>
+</p>
+The AUX CMD Compression Control Event Match Mask #0 register<br>provides a mask value for the comp_ctl (compression control)<br>match value of the AUX_CMD.<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;comp_ctl</td><td align="left">Compression Control mask value<br>Per-bit description of how the mask works:<br>0 = MASK<br>Match any value of the asociated bit of the match value register<br>1 = NO_MASK<br>Match only the value of the asociated bit of the match value register<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_ISF Regs Table</A></p>
+<p>
+  <b><a ID="CR_ISF_AUX_CMD_ev_mask_val_0_crypto_config">CR_ISF_AUX_CMD_ev_mask_val_0_crypto_config - AUX CMD Crypto Control Event Match Mask #0</a></b><br>
+  Offset (byte space) = 32'h64<br>
+  Verilog Macro Address = `CR_ISF_AUX_CMD_EV_MASK_VAL_0_CRYPTO_CONFIG<br>
+  Reset Value = 32'h0000_0000<br>
+  Access = CFG (32-bit only)<br>
+</p>
+The AUX CMD Crypto Control Event Match Mask #0 register<br>provides a mask value for the crypto_ctl (crypto control)<br>match value of the AUX_CMD.<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;crypto_ctl</td><td align="left">Crypto Control mask value<br>Per-bit description of how the mask works:<br>0 = MASK<br>Match any value of the asociated bit of the match value register<br>1 = NO_MASK<br>Match only the value of the asociated bit of the match value register<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_ISF Regs Table</A></p>
+<p>
+  <b><a ID="CR_ISF_AUX_CMD_ev_match_val_1_comp_config">CR_ISF_AUX_CMD_ev_match_val_1_comp_config - AUX CMD Compression Control Event Match Value #1</a></b><br>
+  Offset (byte space) = 32'h68<br>
+  Verilog Macro Address = `CR_ISF_AUX_CMD_EV_MATCH_VAL_1_COMP_CONFIG<br>
+  Reset Value = 32'h0000_0000<br>
+  Access = CFG (32-bit only)<br>
+</p>
+The AUX CMD Compression Control Event Match Value #1 register<br>provides the comp_ctl (compression control) value of<br>the AUX_CMD to match on to create a statistic event.<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;comp_ctl</td><td align="left">Compression Control value of the AUX_CMD to match on<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_ISF Regs Table</A></p>
+<p>
+  <b><a ID="CR_ISF_AUX_CMD_ev_match_val_1_crypto_config">CR_ISF_AUX_CMD_ev_match_val_1_crypto_config - AUX CMD Crypto Control Event Match Value #1</a></b><br>
+  Offset (byte space) = 32'h6c<br>
+  Verilog Macro Address = `CR_ISF_AUX_CMD_EV_MATCH_VAL_1_CRYPTO_CONFIG<br>
+  Reset Value = 32'h0000_0000<br>
+  Access = CFG (32-bit only)<br>
+</p>
+The AUX CMD Crypto Control Event Match Value #1 register<br>provides the crypto_ctl (crypto control) value of<br>the AUX_CMD to match on to create a statistic event.<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;crypto_ctl</td><td align="left">Crypto Control value of the AUX_CMD to match on<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_ISF Regs Table</A></p>
+<p>
+  <b><a ID="CR_ISF_AUX_CMD_ev_mask_val_1_comp_config">CR_ISF_AUX_CMD_ev_mask_val_1_comp_config - AUX CMD Compression Control Event Match Match #1</a></b><br>
+  Offset (byte space) = 32'h70<br>
+  Verilog Macro Address = `CR_ISF_AUX_CMD_EV_MASK_VAL_1_COMP_CONFIG<br>
+  Reset Value = 32'h0000_0000<br>
+  Access = CFG (32-bit only)<br>
+</p>
+The AUX CMD Compression Control Event Match Mask #1 register<br>provides a mask value for the comp_ctl (compression control)<br>match value of the AUX_CMD.<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;comp_ctl</td><td align="left">Compression Control mask value<br>Per-bit description of how the mask works:<br>0 = MASK<br>Match any value of the asociated bit of the match value register<br>1 = NO_MASK<br>Match only the value of the asociated bit of the match value register<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_ISF Regs Table</A></p>
+<p>
+  <b><a ID="CR_ISF_AUX_CMD_ev_mask_val_1_crypto_config">CR_ISF_AUX_CMD_ev_mask_val_1_crypto_config - AUX CMD Crypto Control Event Match Mask #1</a></b><br>
+  Offset (byte space) = 32'h74<br>
+  Verilog Macro Address = `CR_ISF_AUX_CMD_EV_MASK_VAL_1_CRYPTO_CONFIG<br>
+  Reset Value = 32'h0000_0000<br>
+  Access = CFG (32-bit only)<br>
+</p>
+The AUX CMD Crypto Control Event Match Mask #1 register<br>provides a mask value for the crypto_ctl (crypto control)<br>match value of the AUX_CMD.<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;crypto_ctl</td><td align="left">Crypto Control mask value<br>Per-bit description of how the mask works:<br>0 = MASK<br>Match any value of the asociated bit of the match value register<br>1 = NO_MASK<br>Match only the value of the asociated bit of the match value register<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_ISF Regs Table</A></p>
+<p>
+  <b><a ID="CR_ISF_AUX_CMD_ev_match_val_2_comp_config">CR_ISF_AUX_CMD_ev_match_val_2_comp_config - AUX CMD Compression Control Event Match Value #2</a></b><br>
+  Offset (byte space) = 32'h78<br>
+  Verilog Macro Address = `CR_ISF_AUX_CMD_EV_MATCH_VAL_2_COMP_CONFIG<br>
+  Reset Value = 32'h0000_0000<br>
+  Access = CFG (32-bit only)<br>
+</p>
+The AUX CMD Compression Control Event Match Value #2 register<br>provides the comp_ctl (compression control) value of<br>the AUX_CMD to match on to create a statistic event.<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;comp_ctl</td><td align="left">Compression Control value of the AUX_CMD to match on<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_ISF Regs Table</A></p>
+<p>
+  <b><a ID="CR_ISF_AUX_CMD_ev_match_val_2_crypto_config">CR_ISF_AUX_CMD_ev_match_val_2_crypto_config - AUX CMD Crypto Control Event Match Value #2</a></b><br>
+  Offset (byte space) = 32'h7c<br>
+  Verilog Macro Address = `CR_ISF_AUX_CMD_EV_MATCH_VAL_2_CRYPTO_CONFIG<br>
+  Reset Value = 32'h0000_0000<br>
+  Access = CFG (32-bit only)<br>
+</p>
+The AUX CMD Crypto Control Event Match Value #2 register<br>provides the crypto_ctl (crypto control) value of<br>the AUX_CMD to match on to create a statistic event.<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;crypto_ctl</td><td align="left">Crypto Control value of the AUX_CMD to match on<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_ISF Regs Table</A></p>
+<p>
+  <b><a ID="CR_ISF_AUX_CMD_ev_mask_val_2_comp_config">CR_ISF_AUX_CMD_ev_mask_val_2_comp_config - AUX CMD Compression Control Event Match Match #2</a></b><br>
+  Offset (byte space) = 32'h80<br>
+  Verilog Macro Address = `CR_ISF_AUX_CMD_EV_MASK_VAL_2_COMP_CONFIG<br>
+  Reset Value = 32'h0000_0000<br>
+  Access = CFG (32-bit only)<br>
+</p>
+The AUX CMD Compression Control Event Match Mask #2 register<br>provides a mask value for the comp_ctl (compression control)<br>match value of the AUX_CMD.<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;comp_ctl</td><td align="left">Compression Control mask value<br>Per-bit description of how the mask works:<br>0 = MASK<br>Match any value of the asociated bit of the match value register<br>1 = NO_MASK<br>Match only the value of the asociated bit of the match value register<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_ISF Regs Table</A></p>
+<p>
+  <b><a ID="CR_ISF_AUX_CMD_ev_mask_val_2_crypto_config">CR_ISF_AUX_CMD_ev_mask_val_2_crypto_config - AUX CMD Crypto Control Event Match Mask #2</a></b><br>
+  Offset (byte space) = 32'h84<br>
+  Verilog Macro Address = `CR_ISF_AUX_CMD_EV_MASK_VAL_2_CRYPTO_CONFIG<br>
+  Reset Value = 32'h0000_0000<br>
+  Access = CFG (32-bit only)<br>
+</p>
+The AUX CMD Crypto Control Event Match Mask #2 register<br>provides a mask value for the crypto_ctl (crypto control)<br>match value of the AUX_CMD.<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;crypto_ctl</td><td align="left">Crypto Control mask value<br>Per-bit description of how the mask works:<br>0 = MASK<br>Match any value of the asociated bit of the match value register<br>1 = NO_MASK<br>Match only the value of the asociated bit of the match value register<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_ISF Regs Table</A></p>
+<p>
+  <b><a ID="CR_ISF_AUX_CMD_ev_match_val_3_comp_config">CR_ISF_AUX_CMD_ev_match_val_3_comp_config - AUX CMD Compression Control Event Match Value #3</a></b><br>
+  Offset (byte space) = 32'h88<br>
+  Verilog Macro Address = `CR_ISF_AUX_CMD_EV_MATCH_VAL_3_COMP_CONFIG<br>
+  Reset Value = 32'h0000_0000<br>
+  Access = CFG (32-bit only)<br>
+</p>
+The AUX CMD Compression Control Event Match Value #3 register<br>provides the comp_ctl (compression control) value of<br>the AUX_CMD to match on to create a statistic event.<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;comp_ctl</td><td align="left">Compression Control value of the AUX_CMD to match on<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_ISF Regs Table</A></p>
+<p>
+  <b><a ID="CR_ISF_AUX_CMD_ev_match_val_3_crypto_config">CR_ISF_AUX_CMD_ev_match_val_3_crypto_config - AUX CMD Crypto Control Event Match Value #3</a></b><br>
+  Offset (byte space) = 32'h8c<br>
+  Verilog Macro Address = `CR_ISF_AUX_CMD_EV_MATCH_VAL_3_CRYPTO_CONFIG<br>
+  Reset Value = 32'h0000_0000<br>
+  Access = CFG (32-bit only)<br>
+</p>
+The AUX CMD Crypto Control Event Match Value #3 register<br>provides the crypto_ctl (crypto control) value of<br>the AUX_CMD to match on to create a statistic event.<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;crypto_ctl</td><td align="left">Crypto Control value of the AUX_CMD to match on<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_ISF Regs Table</A></p>
+<p>
+  <b><a ID="CR_ISF_AUX_CMD_ev_mask_val_3_comp_config">CR_ISF_AUX_CMD_ev_mask_val_3_comp_config - AUX CMD Compression Control Event Match Match #3</a></b><br>
+  Offset (byte space) = 32'h90<br>
+  Verilog Macro Address = `CR_ISF_AUX_CMD_EV_MASK_VAL_3_COMP_CONFIG<br>
+  Reset Value = 32'h0000_0000<br>
+  Access = CFG (32-bit only)<br>
+</p>
+The AUX CMD Compression Control Event Match Mask #3 register<br>provides a mask value for the comp_ctl (compression control)<br>match value of the AUX_CMD.<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;comp_ctl</td><td align="left">Compression Control mask value<br>Per-bit description of how the mask works:<br>0 = MASK<br>Match any value of the asociated bit of the match value register<br>1 = NO_MASK<br>Match only the value of the asociated bit of the match value register<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_ISF Regs Table</A></p>
+<p>
+  <b><a ID="CR_ISF_AUX_CMD_ev_mask_val_3_crypto_config">CR_ISF_AUX_CMD_ev_mask_val_3_crypto_config - AUX CMD Crypto Control Event Match Mask #3</a></b><br>
+  Offset (byte space) = 32'h94<br>
+  Verilog Macro Address = `CR_ISF_AUX_CMD_EV_MASK_VAL_3_CRYPTO_CONFIG<br>
+  Reset Value = 32'h0000_0000<br>
+  Access = CFG (32-bit only)<br>
+</p>
+The AUX CMD Crypto Control Event Match Mask #3 register<br>provides a mask value for the crypto_ctl (crypto control)<br>match value of the AUX_CMD.<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;crypto_ctl</td><td align="left">Crypto Control mask value<br>Per-bit description of how the mask works:<br>0 = MASK<br>Match any value of the asociated bit of the match value register<br>1 = NO_MASK<br>Match only the value of the asociated bit of the match value register<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_ISF Regs Table</A></p>
+<p>
+  <b><a ID="CR_ISF_isf_fifo_ia_capability">CR_ISF_isf_fifo_ia_capability - ISF_FIFO Indirect Access Capability Register</a></b><br>
+  Offset (byte space) = 32'h98<br>
+  Verilog Macro Address = `CR_ISF_ISF_FIFO_IA_CAPABILITY<br>
+  Reset Value = 32'hxxxx_xxxx<br>
+  Access = RO (32-bit only)<br>
+</p>
+The ISF_FIFO indirect access capability register is used to give<br>the status of all the indirect access operation capabilites<br>that can be handled;<br>Refer to ISF_FIFO Config register for descriptions of the indirect<br>access operations.<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:28</td><td valign="top"></td><td align="left" valign="top">&nbsp;mem_type</td><td align="left">MEM_TYPE<br>0 = <i>SPRAM</i><br>SPRAM memory<br>1 = <i>SRFRAM</i><br>SRFRAM memory<br>2 = <i>REG</i><br>REG memory<br>3 = <i>TCAM</i><br>TCAM memory<br>4 = <i>MEM_TYPE_4</i><br>Reserved memory type<br>5 = <i>MEM_TYPE_5</i><br>Reserved memory type<br>6 = <i>MEM_TYPE_6</i><br>Reserved memory type<br>7 = <i>MEM_TYPE_7</i><br>Reserved memory type<br>8 = <i>MEM_TYPE_8</i><br>Reserved memory type<br>9 = <i>MEM_TYPE_9</i><br>Reserved memory type<br>10 = <i>MEM_TYPE_10</i><br>Reserved memory type<br>11 = <i>MEM_TYPE_11</i><br>Reserved memory type<br>12 = <i>MEM_TYPE_12</i><br>Reserved memory type<br>13 = <i>MEM_TYPE_13</i><br>Reserved memory type<br>14 = <i>MEM_TYPE_14</i><br>Reserved memory type<br>15 = <i>MEM_TYPE_15</i><br>Reserved memory type<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">27:16</td><td valign="top"></td><td align="left" valign="top">&nbsp;Reserved</td><td align="left">Reserved bits must be written with 0.  A read returns an unknown value.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">15</td><td valign="top"></td><td align="left" valign="top">&nbsp;ack_error</td><td align="left">1 = ack_error operation is supported; 0 = ack_error operation is NOT supported;<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">14</td><td valign="top"></td><td align="left" valign="top">&nbsp;sim_tmo</td><td align="left">1 = sim_tmo operation is supported; 0 = sim_tmo operation is NOT supported;<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">13:10</td><td valign="top"></td><td align="left" valign="top">&nbsp;reserved_op</td><td align="left">reserved_op are reserved bits that don't map to any operations supported<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">09</td><td valign="top"></td><td align="left" valign="top">&nbsp;compare</td><td align="left">1 = compare operation is supported; 0 = compare operation is NOT supported;<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">08</td><td valign="top"></td><td align="left" valign="top">&nbsp;set_init_start</td><td align="left">1 = set_init_start operation is supported; 0 = set_init_start operation is NOT supported;<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">07</td><td valign="top"></td><td align="left" valign="top">&nbsp;initialize_inc</td><td align="left">1 = initialize_inc operation is supported; 0 = initialize_inc operation is NOT supported;<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">06</td><td valign="top"></td><td align="left" valign="top">&nbsp;initialize</td><td align="left">1 = initialze operation is supported; 0 = initialize operation is NOT supported;<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">05</td><td valign="top"></td><td align="left" valign="top">&nbsp;reset</td><td align="left">1 = reset operation is supported; 0 = reset operation is NOT supported;<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">04</td><td valign="top"></td><td align="left" valign="top">&nbsp;disabled</td><td align="left">1 = disabled operation is supported; 0 = disabled operation is NOT supported;<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">03</td><td valign="top"></td><td align="left" valign="top">&nbsp;enable</td><td align="left">1 = enable operation is supported; 0 = enable operation is NOT supported;<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">02</td><td valign="top"></td><td align="left" valign="top">&nbsp;write</td><td align="left">1 = write operation is supported; 0 = write operation is NOT supported;<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">01</td><td valign="top"></td><td align="left" valign="top">&nbsp;read</td><td align="left">1 = read operation is supported; 0 = read operation is NOT supported;<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">00</td><td valign="top"></td><td align="left" valign="top">&nbsp;nop</td><td align="left">1 = nop operation is supported; 0 = nop operation is NOT supported;<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_ISF Regs Table</A></p>
+<p>
+  <b><a ID="CR_ISF_isf_fifo_ia_status">CR_ISF_isf_fifo_ia_status - ISF_FIFO Indirect Access Status Register</a></b><br>
+  Offset (byte space) = 32'h9c<br>
+  Verilog Macro Address = `CR_ISF_ISF_FIFO_IA_STATUS<br>
+  Reset Value = 32'b00000010_xxxxxxxx_xxxxxx11_11111111<br>
+  Access = RO (32-bit only)<br>
+</p>
+The ISF_FIFO indirect access status register is used to provide<br>information about ISF_FIFO indirect accesses.<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:29</td><td valign="top"> acc=RO</td><td align="left" valign="top">&nbsp;code</td><td align="left">FIELD ACCESS: RO<br><br>Indicates the status of the indirect access. Commands should only be<br>issued when this status indicates READY. Errors are signalled with<br>a status that is not READY and not BUSY. Errors must be acknowledged<br>before any other commands will be accepted.<br>0 = <i>READY</i><br>Ready for access.<br>1 = <i>BUSY</i><br>Busy with current command.<br>2 = <i>TMO</i><br>Timed out on current command.<br>3 = <i>OVR</i><br>Command overrun, command issued when machine not ready.<br>4 = <i>NXM</i><br>Command attempted access to illegal offset.<br>5 = <i>UOP</i><br>Unsupported opcode. Command opcode is not supported.<br>7 = <i>PDN</i><br>Memory is in power-down state.<br>Reset value is <i>READY</i>.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">28:24</td><td valign="top"> acc=RO</td><td align="left" valign="top">&nbsp;datawords</td><td align="left">FIELD ACCESS: RO<br><br>Indicates the number of registers in the indirect access data<br>register array minus one.<br>Reset value is <i>2</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">23:10</td><td valign="top"></td><td align="left" valign="top">&nbsp;Reserved</td><td align="left">Reserved bits must be written with 0.  A read returns an unknown value.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">09:00</td><td valign="top"> acc=RO</td><td align="left" valign="top">&nbsp;addr</td><td align="left">FIELD ACCESS: RO<br><br>While the access controller is in the init state then this will<br>read zero (representing a memory with a single entry) which is how<br>the memory will behave. After an enable command is issued and the<br>controller enters the ready state then this will be 1023<br>indicating a memory with 1024 entries.<br>Reset value is <i>1023</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p>Flag legend: acc=access</p><p></p>
+<p><A HREF="#Regs_Registers">Return to CR_ISF Regs Table</A></p>
+<p>
+  <b><a ID="CR_ISF_isf_fifo_ia_wdata_part0">CR_ISF_isf_fifo_ia_wdata_part0 - ISF_FIFO Indirect Access Write Data Register (ISF_FIFO_Part0_t)</a></b><br>
+  Offset (byte space) = 32'ha0<br>
+  Verilog Macro Address = `CR_ISF_ISF_FIFO_IA_WDATA_PART0<br>
+  Reset Value = 32'h0000_0000<br>
+  Access = CFG (32-bit only)<br>
+</p>
+AXI tdata bits 31:0<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;tdata_lo</td><td align="left">Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_ISF Regs Table</A></p>
+<p>
+  <b><a ID="CR_ISF_isf_fifo_ia_wdata_part1">CR_ISF_isf_fifo_ia_wdata_part1 - ISF_FIFO Indirect Access Write Data Register (ISF_FIFO_Part1_t)</a></b><br>
+  Offset (byte space) = 32'ha4<br>
+  Verilog Macro Address = `CR_ISF_ISF_FIFO_IA_WDATA_PART1<br>
+  Reset Value = 32'h0000_0000<br>
+  Access = CFG (32-bit only)<br>
+</p>
+AXI tdata bits 63:32<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;tdata_hi</td><td align="left">Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_ISF Regs Table</A></p>
+<p>
+  <b><a ID="CR_ISF_isf_fifo_ia_wdata_part2">CR_ISF_isf_fifo_ia_wdata_part2 - ISF_FIFO Indirect Access Write Data Register (ISF_FIFO_Part2_t)</a></b><br>
+  Offset (byte space) = 32'ha8<br>
+  Verilog Macro Address = `CR_ISF_ISF_FIFO_IA_WDATA_PART2<br>
+  Reset Value = 32'bxxxxxxxx_xxxxxxxx_xxxxxxxx_xxxxxxx0<br>
+  Access = CFG (32-bit only)<br>
+</p>
+AXI Sideband Signals<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:21</td><td valign="top"></td><td align="left" valign="top">&nbsp;Reserved</td><td align="left">Reserved bits must be written with 0.  A read returns an unknown value.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">20</td><td valign="top"></td><td align="left" valign="top">&nbsp;tid</td><td align="left">&nbsp;</td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">19:12</td><td valign="top"></td><td align="left" valign="top">&nbsp;tstrb</td><td align="left">&nbsp;</td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">11:04</td><td valign="top"></td><td align="left" valign="top">&nbsp;tuser</td><td align="left">&nbsp;</td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">03:01</td><td valign="top"></td><td align="left" valign="top">&nbsp;spare</td><td align="left">&nbsp;</td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">00</td><td valign="top"></td><td align="left" valign="top">&nbsp;tlast</td><td align="left">Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_ISF Regs Table</A></p>
+<p>
+  <b><a ID="CR_ISF_isf_fifo_ia_config">CR_ISF_isf_fifo_ia_config - ISF_FIFO Indirect Access Config Register</a></b><br>
+  Offset (byte space) = 32'hac<br>
+  Verilog Macro Address = `CR_ISF_ISF_FIFO_IA_CONFIG<br>
+  Reset Value = 32'b0000xxxx_xxxxxxxx_xxxxxx00_00000000<br>
+  Access = CFG (32-bit only)<br>
+</p>
+The ISF_FIFO indirect access config register is used to initiate<br>read/write accesses to the ISF_FIFO table. The data to be written<br>is provided via the ISF_FIFO_IA_WData register(s). Read<br>data is returned via the ISF_FIFO_IA_RData register(s).<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:28</td><td valign="top"></td><td align="left" valign="top">&nbsp;op</td><td align="left">The operation requested of the table.<br>0 = <i>NOP</i><br>Do nothing.<br>1 = <i>READ</i><br>Read Table.<br>2 = <i>WRITE</i><br>Write Table.<br>3 = <i>ENABLE</i><br>The memory intializes in a low power state. It needs to be taken<br>out of this state before reads and writes are enabled. Execute this<br>operation to exit the power-down state.<br>Note that when in this state the underlying table "appears" as a<br>single entry table to the hardware and the software. As a convenience<br>this single entry can be written directly via the write data registers<br>without the need to effect the config/status command/response<br>access protocol. As such any writes to those registers while the memory<br>is disabled are reflected directly to the hardware.<br>4 = <i>DISABLED</i><br>To put the memory back into its power-down state execute this.<br>The state of the memory can be examined by reading the status<br>register which returns with an addr field of zero when the<br>memory is disabled. Note that in the disabled mode, the table<br>behaves exactly as if it has a single entry.<br>5 = <i>RESET</i><br>Reset each table entry to that defined by the RDB definition. This<br>command requires only a single register write.<br>6 = <i>INITIALIZE</i><br>Init each table entry to the value provided by the write data<br>register(s) from a start entry up to a maximum entry number provided<br>in the addr field of the indirect access configuration register. Use<br>a SET_INIT_START command to define the starting entry.<br>7 = <i>INITIALIZE_INC</i><br>Similar to initialize but increment the write data for each<br>successive entry.<br>This command increments some N least significant bits of the<br>table entry. N may be zero in which case this command behaves the<br>same as the INITIALIZE command.<br>In the general case N may be determined by setting the write data<br>to all ones and commanding INITIALIZE_INC with an addr field of 1.<br>N is the number of bits that are zero in entry 1.<br>8 = <i>SET_INI_START</i><br>Set the start point for an initialization to the addr field of<br>the indirect access configuration register. To initialize a table<br>from entry A to entry B, first issue SET_INIT_START with a<br>command address of A, then issue INITIALIZE with a command address<br>of B.<br>9 = <i>COMPARE</i><br>TCAM ONLY. Compare Operation.<br>14 = <i>SIM_TMO</i><br>Simulate a timeout condition for software testing.<br>15 = <i>ACK_ERROR</i><br>Acknowledge and clear error conditions.<br>Reset value is <i>NOP</i>.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">27:10</td><td valign="top"></td><td align="left" valign="top">&nbsp;Reserved</td><td align="left">Reserved bits must be written with 0.  A read returns an unknown value.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">09:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;addr</td><td align="left">Indicates the address of the entry to be read or written. The<br>ISF_FIFO table has 1024 entries.<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_ISF Regs Table</A></p>
+<p>
+  <b><a ID="CR_ISF_isf_fifo_ia_rdata_part0">CR_ISF_isf_fifo_ia_rdata_part0 - ISF_FIFO Indirect Access Read Data Register (ISF_FIFO_Part0_t)</a></b><br>
+  Offset (byte space) = 32'hb0<br>
+  Verilog Macro Address = `CR_ISF_ISF_FIFO_IA_RDATA_PART0<br>
+  Reset Value = 32'h0000_0000<br>
+  Access = RO (32-bit only)<br>
+</p>
+AXI tdata bits 31:0<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;tdata_lo</td><td align="left">Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_ISF Regs Table</A></p>
+<p>
+  <b><a ID="CR_ISF_isf_fifo_ia_rdata_part1">CR_ISF_isf_fifo_ia_rdata_part1 - ISF_FIFO Indirect Access Read Data Register (ISF_FIFO_Part1_t)</a></b><br>
+  Offset (byte space) = 32'hb4<br>
+  Verilog Macro Address = `CR_ISF_ISF_FIFO_IA_RDATA_PART1<br>
+  Reset Value = 32'h0000_0000<br>
+  Access = RO (32-bit only)<br>
+</p>
+AXI tdata bits 63:32<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;tdata_hi</td><td align="left">Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_ISF Regs Table</A></p>
+<p>
+  <b><a ID="CR_ISF_isf_fifo_ia_rdata_part2">CR_ISF_isf_fifo_ia_rdata_part2 - ISF_FIFO Indirect Access Read Data Register (ISF_FIFO_Part2_t)</a></b><br>
+  Offset (byte space) = 32'hb8<br>
+  Verilog Macro Address = `CR_ISF_ISF_FIFO_IA_RDATA_PART2<br>
+  Reset Value = 32'bxxxxxxxx_xxxxxxxx_xxxxxxxx_xxxxxxx0<br>
+  Access = RO (32-bit only)<br>
+</p>
+AXI Sideband Signals<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:21</td><td valign="top"></td><td align="left" valign="top">&nbsp;Reserved</td><td align="left">Reserved bits must be written with 0.  A read returns an unknown value.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">20</td><td valign="top"></td><td align="left" valign="top">&nbsp;tid</td><td align="left">&nbsp;</td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">19:12</td><td valign="top"></td><td align="left" valign="top">&nbsp;tstrb</td><td align="left">&nbsp;</td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">11:04</td><td valign="top"></td><td align="left" valign="top">&nbsp;tuser</td><td align="left">&nbsp;</td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">03:01</td><td valign="top"></td><td align="left" valign="top">&nbsp;spare</td><td align="left">&nbsp;</td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">00</td><td valign="top"></td><td align="left" valign="top">&nbsp;tlast</td><td align="left">Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_ISF Regs Table</A></p>
+<p>
+  <b><a ID="CR_ISF_isf_fifo_fifo_status_0">CR_ISF_isf_fifo_fifo_status_0 - ISF_FIFO FIFO Status Register 0</a></b><br>
+  Offset (byte space) = 32'hc0<br>
+  Verilog Macro Address = `CR_ISF_ISF_FIFO_FIFO_STATUS_0<br>
+  Reset Value = 32'b0000xx00_00000000_xxxxxx00_00000000<br>
+  Access = RO (32-bit only)<br>
+</p>
+<table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31</td><td valign="top"></td><td align="left" valign="top">&nbsp;overflow</td><td align="left">The FIFO has overflowed due to a write attemp while full. This is considered<br>a fatal hardware error. The hardware bit will be cleared after the read.<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">30</td><td valign="top"></td><td align="left" valign="top">&nbsp;underflow</td><td align="left">The FIFO has underflowed due to a read attemp while empty. This is considered<br>a fatal hardware error. The hardware bit will be cleared after the read.<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">29</td><td valign="top"></td><td align="left" valign="top">&nbsp;full</td><td align="left">The FIFO is currently full.<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">28</td><td valign="top"></td><td align="left" valign="top">&nbsp;empty</td><td align="left">The FIFO is currently empty.<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">27:26</td><td valign="top"></td><td align="left" valign="top">&nbsp;Reserved</td><td align="left">Reserved bits must be written with 0.  A read returns an unknown value.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">25:16</td><td valign="top"> acc=RO</td><td align="left" valign="top">&nbsp;wr_pointer</td><td align="left">FIELD ACCESS: RO<br><br>Indicates the last location written by hardware.<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">15:10</td><td valign="top"></td><td align="left" valign="top">&nbsp;Reserved</td><td align="left">Reserved bits must be written with 0.  A read returns an unknown value.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">09:00</td><td valign="top"> acc=RO</td><td align="left" valign="top">&nbsp;rd_pointer</td><td align="left">FIELD ACCESS: RO<br><br>Indicates the last location read by hardware.<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p>Flag legend: acc=access</p><p></p>
+<p><A HREF="#Regs_Registers">Return to CR_ISF Regs Table</A></p>
+<p>
+  <b><a ID="CR_ISF_isf_fifo_fifo_status_1">CR_ISF_isf_fifo_fifo_status_1 - ISF_FIFO FIFO Status Register 1</a></b><br>
+  Offset (byte space) = 32'hc4<br>
+  Verilog Macro Address = `CR_ISF_ISF_FIFO_FIFO_STATUS_1<br>
+  Reset Value = 32'bxxxxxxxx_xxxxxxxx_xxxxx000_00000000<br>
+  Access = RO (32-bit only)<br>
+</p>
+<table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:11</td><td valign="top"></td><td align="left" valign="top">&nbsp;Reserved</td><td align="left">Reserved bits must be written with 0.  A read returns an unknown value.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">10:00</td><td valign="top"> acc=RO</td><td align="left" valign="top">&nbsp;depth</td><td align="left">FIELD ACCESS: RO<br><br>Indicates the current number of valid entries in the FIFO.<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p>Flag legend: acc=access</p><p></p>
+<p><A HREF="#Regs_Registers">Return to CR_ISF Regs Table</A></p>
+<p>
+  <b><a ID="CR_ISF_ib_agg_data_bytes_0_count_part0_a">CR_ISF_ib_agg_data_bytes_0_count_part0_a - Inbound Aggregate Data Bytes Counter</a></b><br>
+  Offset (byte space) = 32'hc8<br>
+  Verilog Macro Address = `CR_ISF_IB_AGG_DATA_BYTES_0_COUNT_PART0_A<br>
+  Reset Value = 32'h0000_0000<br>
+  Access = RO (32-bit only)<br>
+</p>
+Indexed by 1<br>This register consists of the single field:<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;count_part0</td><td align="left">Current count value. This is a read-only field. When read the<br>counter is automatically cleared. The count value saturates at<br>its maximum positive value.<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_ISF Regs Table</A></p>
+<p>
+  <b><a ID="CR_ISF_ib_agg_data_bytes_0_count_part1_a">CR_ISF_ib_agg_data_bytes_0_count_part1_a - Inbound Aggregate Data Bytes Counter</a></b><br>
+  Offset (byte space) = 32'hcc<br>
+  Verilog Macro Address = `CR_ISF_IB_AGG_DATA_BYTES_0_COUNT_PART1_A<br>
+  Reset Value = 32'bxxxxxxxx_xxxxxx00_00000000_00000000<br>
+  Access = RO (32-bit only)<br>
+</p>
+Indexed by 1<br>This register consists of the single field:<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:18</td><td valign="top"></td><td align="left" valign="top">&nbsp;Reserved</td><td align="left">Reserved bits must be written with 0.  A read returns an unknown value.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">17:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;count_part1</td><td align="left">Current count value. This is a read-only field. When read the<br>counter is automatically cleared. The count value saturates at<br>its maximum positive value.<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_ISF Regs Table</A></p>
+<p>
+  <b><a ID="CR_ISF_ib_agg_data_bytes_global_read">CR_ISF_ib_agg_data_bytes_global_read - Inbound Aggregate Data Bytes Counter</a></b><br>
+  Offset (byte space) = 32'hd0<br>
+  Verilog Macro Address = `CR_ISF_IB_AGG_DATA_BYTES_GLOBAL_READ<br>
+  Reset Value = 32'bxxxxxxxx_xxxxxxxx_xxxxxxxx_xxxxxxx0<br>
+  Access = RO (32-bit only)<br>
+</p>
+If the Global_Config read_mode bit is set to 1,<br>then a read from this register will trigger a<br>gang read of all counters.<br>This register just has to be read to cause the counters<br>to be read and the values stored in the count_partX<br>registers above for later read by software.<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:01</td><td valign="top"></td><td align="left" valign="top">&nbsp;Reserved</td><td align="left">Reserved bits must be written with 0.  A read returns an unknown value.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">00</td><td valign="top"></td><td align="left" valign="top">&nbsp;read_strobe</td><td align="left">This is just a dummy value.<br>All that is importatnt is that this register be read<br>to latch the counter values.<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_ISF Regs Table</A></p>
+<p>
+  <b><a ID="CR_ISF_ib_agg_data_bytes_global_config">CR_ISF_ib_agg_data_bytes_global_config - Inbound Aggregate Data Bytes Counter</a></b><br>
+  Offset (byte space) = 32'hd4<br>
+  Verilog Macro Address = `CR_ISF_IB_AGG_DATA_BYTES_GLOBAL_CONFIG<br>
+  Reset Value = 32'bxxxxxxxx_xxxxxxxx_xxxxxxxx_xxxxxxx0<br>
+  Access = CFG (32-bit only)<br>
+</p>
+Configure the counters as individual clear-on-read<br>or gang clear-on-read. If gang clear-on-read, all<br>counter values are registered for software to read<br>later.<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:01</td><td valign="top"></td><td align="left" valign="top">&nbsp;Reserved</td><td align="left">Reserved bits must be written with 0.  A read returns an unknown value.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">00</td><td valign="top"></td><td align="left" valign="top">&nbsp;read_mode</td><td align="left">1 - Counters are in gang read mode<br>0 - Counters are in single, clear-on-read mode<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_ISF Regs Table</A></p>
+</body>
+</html>

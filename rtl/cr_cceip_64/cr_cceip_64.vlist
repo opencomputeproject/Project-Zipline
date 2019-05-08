@@ -1,0 +1,53 @@
+/*************************************************************************
+*
+* Copyright © Microsoft Corporation. All rights reserved.
+* Copyright © Broadcom Inc. All rights reserved.
+* Licensed under the MIT License.
+*
+*************************************************************************/
++define+ENA_BIMC+
+
++libext+.v
++libext+.sv
++incdir+$RTL_ROOT/common/include
++incdir+$RTL_ROOT/cr_cceip_64
++incdir+$RTL_ROOT/common/nx_library
++incdir+$RTL_ROOT/common/axi
++incdir+$RTL_ROOT/cr_isf
++incdir+$RTL_ROOT/cr_osf
++incdir+$RTL_ROOT/cr_cg
++incdir+$RTL_ROOT/cr_crcgc
++incdir+$RTL_ROOT/cr_prefix
++incdir+$RTL_ROOT/cr_prefix_attach
++incdir+$RTL_ROOT/cr_lz77_comp
++incdir+$RTL_ROOT/cr_huf_comp
++incdir+$RTL_ROOT/cr_xp10_decomp
++incdir+$RTL_ROOT/cr_cceip_64_support
++incdir+$RTL_ROOT/cr_cceip_64_sa
++incdir+$RTL_ROOT/cr_su
++incdir+$RTL_ROOT/mem_wrappers/bimc_master/top
+
+-y $RTL_ROOT/common
+-y $RTL_ROOT/common/nx_library
+-y $RTL_ROOT/common/cr_tlvp
+-y $RTL_ROOT/common/cr_tlvp_apps
+-y $RTL_ROOT/common/cr_crc
+-y $RTL_ROOT/common/axi
+-y $RTL_ROOT/common/cr_adler
+-y $RTL_ROOT/common/cr_crc16t
+-y $RTL_ROOT/common/fifo
+-y $RTL_ROOT/cr_isf
+-y $RTL_ROOT/cr_osf
+-y $RTL_ROOT/cr_cg
+-y $RTL_ROOT/cr_crcgc
+-y $RTL_ROOT/cr_prefix
+-y $RTL_ROOT/cr_prefix_attach
+-y $RTL_ROOT/cr_huf_comp
+-y $RTL_ROOT/cr_xp10_decomp
+-y $RTL_ROOT/cr_cceip_64_support
+-y $RTL_ROOT/cr_cceip_64_sa
+-y $RTL_ROOT/cr_su
+-y $RTL_ROOT/mem_wrappers/bimc_master/top
+-y $RTL_ROOT/cr_lz77_comp
+
+$RTL_ROOT/cr_cceip_64/cr_cceip_64.v

@@ -1,0 +1,710 @@
+<!--
+/*************************************************************************
+*
+* Copyright © Microsoft Corporation. All rights reserved.
+* Copyright © Broadcom Inc. All rights reserved.
+* Licensed under the MIT License.
+*
+*************************************************************************/
+
+
+!-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=iso-8859-1">
+  <meta name="generator" content="Adobe GoLive 5">
+  <title>CR_CCEIP_64_SUPPORT</title>
+</head>
+
+<body>
+
+<p>Generated on Wed Apr 10 06:11:03 2019</p>
+<H1><a ID="Regs_Registers">CR_CCEIP_64_SUPPORT Regs Registers</a></H1>
+<table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="10%">Offset<br>(byte space)</th><th align="center" width="8%">Flags</th><th align="center" width="22%">Register Name </th><th align="center" width="60%">Description</th></tr>
+  <tr><td align="center">0x0</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_CCEIP_64_SUPPORT_blkid_revid_config" >CR_CCEIP_64_SUPPORT_blkid_revid_config</A></td><td>&nbsp;Block ID and Revision ID read only register<br></td></tr>
+  <tr><td align="center">0x4</td><td valign="top"> acc=RW</td><td>&nbsp;<A HREF="#CR_CCEIP_64_SUPPORT_spare_config" >CR_CCEIP_64_SUPPORT_spare_config</A></td><td>&nbsp;Spare configuration register<br></td></tr>
+  <tr><td align="center">0x8</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_CCEIP_64_SUPPORT_im_available" >CR_CCEIP_64_SUPPORT_im_available</A></td><td>&nbsp;Interface Monitor Status register<br></td></tr>
+  <tr><td align="center">0xc</td><td valign="top"> acc=RW</td><td>&nbsp;<A HREF="#CR_CCEIP_64_SUPPORT_im_consumed" >CR_CCEIP_64_SUPPORT_im_consumed</A></td><td>&nbsp;Interface Monitor Clear register<br></td></tr>
+  <tr><td align="center">0x10</td><td valign="top"> acc=RW</td><td>&nbsp;<A HREF="#CR_CCEIP_64_SUPPORT_soft_rst" >CR_CCEIP_64_SUPPORT_soft_rst</A></td><td>&nbsp;Soft Reset register<br></td></tr>
+  <tr><td align="center">0x14</td><td valign="top"> acc=RW</td><td>&nbsp;<A HREF="#CR_CCEIP_64_SUPPORT_ctl" >CR_CCEIP_64_SUPPORT_ctl</A></td><td>&nbsp;Support Block Control register<br></td></tr>
+  <tr><td align="center">0x18</td><td valign="top"> acc=RW</td><td>&nbsp;<A HREF="#CR_CCEIP_64_SUPPORT_df_mux_ctrl" >CR_CCEIP_64_SUPPORT_df_mux_ctrl</A></td><td>&nbsp;Data Flow Mux Control register<br></td></tr>
+  <tr><td align="center">0x1c</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_CCEIP_64_SUPPORT_pipe_stat" >CR_CCEIP_64_SUPPORT_pipe_stat</A></td><td>&nbsp;Pipeline Status register<br></td></tr>
+  <tr><td align="center">0x24</td><td valign="top"> acc=RW</td><td>&nbsp;<A HREF="#CR_CCEIP_64_SUPPORT_CCEIP_INT0_Int_Raw_Status" >CR_CCEIP_64_SUPPORT_CCEIP_INT0_Int_Raw_Status</A></td><td>&nbsp;Interrupt Event Raw Status Register<br></td></tr>
+  <tr><td align="center">0x28</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_CCEIP_64_SUPPORT_CCEIP_INT0_Int_Masked_Status" >CR_CCEIP_64_SUPPORT_CCEIP_INT0_Int_Masked_Status</A></td><td>&nbsp;Interrupt Event Masked Status Register<br></td></tr>
+  <tr><td align="center">0x2c</td><td valign="top"> acc=RW</td><td>&nbsp;<A HREF="#CR_CCEIP_64_SUPPORT_CCEIP_INT0_Int_Mask_Config" >CR_CCEIP_64_SUPPORT_CCEIP_INT0_Int_Mask_Config</A></td><td>&nbsp;Interrupt Event Mask Configuration Register<br></td></tr>
+  <tr><td align="center">0x34</td><td valign="top"> acc=RW</td><td>&nbsp;<A HREF="#CR_CCEIP_64_SUPPORT_CCEIP_INT1_Int_Raw_Status" >CR_CCEIP_64_SUPPORT_CCEIP_INT1_Int_Raw_Status</A></td><td>&nbsp;Interrupt Event Raw Status Register<br></td></tr>
+  <tr><td align="center">0x38</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_CCEIP_64_SUPPORT_CCEIP_INT1_Int_Masked_Status" >CR_CCEIP_64_SUPPORT_CCEIP_INT1_Int_Masked_Status</A></td><td>&nbsp;Interrupt Event Masked Status Register<br></td></tr>
+  <tr><td align="center">0x3c</td><td valign="top"> acc=RW</td><td>&nbsp;<A HREF="#CR_CCEIP_64_SUPPORT_CCEIP_INT1_Int_Mask_Config" >CR_CCEIP_64_SUPPORT_CCEIP_INT1_Int_Mask_Config</A></td><td>&nbsp;Interrupt Event Mask Configuration Register<br></td></tr>
+  <tr><td align="center">0x44</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_CCEIP_64_SUPPORT_BIMC_MONITOR" >CR_CCEIP_64_SUPPORT_BIMC_MONITOR</A></td><td>&nbsp;Interrupt Event Register (Function Deprecated)<br></td></tr>
+  <tr><td align="center">0x48</td><td valign="top"> acc=CFG</td><td>&nbsp;<A HREF="#CR_CCEIP_64_SUPPORT_BIMC_MONITOR_MASK" >CR_CCEIP_64_SUPPORT_BIMC_MONITOR_MASK</A></td><td>&nbsp;BIMC Interrupt Mask Register (Function Deprecated)<br></td></tr>
+  <tr><td align="center">0x4c</td><td valign="top"> acc=RW</td><td>&nbsp;<A HREF="#CR_CCEIP_64_SUPPORT_BIMC_ECC_UNCORRECTABLE_ERROR_CNT" >CR_CCEIP_64_SUPPORT_BIMC_ECC_UNCORRECTABLE_ERROR_CNT</A></td><td>&nbsp;Counter logging the number of polling events reporting an uncorrectable ECC error. (Function Deprecated)<br></td></tr>
+  <tr><td align="center">0x50</td><td valign="top"> acc=RW</td><td>&nbsp;<A HREF="#CR_CCEIP_64_SUPPORT_BIMC_ECC_CORRECTABLE_ERROR_CNT" >CR_CCEIP_64_SUPPORT_BIMC_ECC_CORRECTABLE_ERROR_CNT</A></td><td>&nbsp;Counter logging the number of polling events reporting a correctable ECC error. (Function Deprecated)<br></td></tr>
+  <tr><td align="center">0x54</td><td valign="top"> acc=RW</td><td>&nbsp;<A HREF="#CR_CCEIP_64_SUPPORT_BIMC_PARITY_ERROR_CNT" >CR_CCEIP_64_SUPPORT_BIMC_PARITY_ERROR_CNT</A></td><td>&nbsp;Counter logging the number of polling events reporting a parity error. (Function Deprecated)<br></td></tr>
+  <tr><td align="center">0x58</td><td valign="top"> acc=RW</td><td>&nbsp;<A HREF="#CR_CCEIP_64_SUPPORT_BIMC_GLOBAL_CONFIG" >CR_CCEIP_64_SUPPORT_BIMC_GLOBAL_CONFIG</A></td><td>&nbsp;Main configuration register for BIMC Master. Reset, ECC polling, Timer, and mem init (Function Deprecated)<br></td></tr>
+  <tr><td align="center">0x5c</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_CCEIP_64_SUPPORT_BIMC_MEMID" >CR_CCEIP_64_SUPPORT_BIMC_MEMID</A></td><td>&nbsp;Reports the last/max memid on the BIMC memory chain. Value is typically equivalent to the number of memories. (Function Deprecated)<br></td></tr>
+  <tr><td align="center">0x60</td><td valign="top"> acc=RW</td><td>&nbsp;<A HREF="#CR_CCEIP_64_SUPPORT_BIMC_ECCPAR_DEBUG" >CR_CCEIP_64_SUPPORT_BIMC_ECCPAR_DEBUG</A></td><td>&nbsp;Control data integrity errors (Function Deprecated)<br></td></tr>
+  <tr><td align="center">0x64</td><td valign="top"> acc=RW</td><td>&nbsp;<A HREF="#CR_CCEIP_64_SUPPORT_BIMC_CMD2" >CR_CCEIP_64_SUPPORT_BIMC_CMD2</A></td><td>&nbsp;Transmit command to memories on the BIMC memory chain. (Function Deprecated)<br></td></tr>
+  <tr><td align="center">0x68</td><td valign="top"> acc=CFG</td><td>&nbsp;<A HREF="#CR_CCEIP_64_SUPPORT_BIMC_CMD1" >CR_CCEIP_64_SUPPORT_BIMC_CMD1</A></td><td>&nbsp;Transmit command to memories on the BIMC memory chain. (Function Deprecated)<br></td></tr>
+  <tr><td align="center">0x6c</td><td valign="top"> acc=CFG</td><td>&nbsp;<A HREF="#CR_CCEIP_64_SUPPORT_BIMC_CMD0" >CR_CCEIP_64_SUPPORT_BIMC_CMD0</A></td><td>&nbsp;Transmit command to memories on the BIMC memory chain. (Function Deprecated)<br></td></tr>
+  <tr><td align="center">0x70</td><td valign="top"> acc=RW</td><td>&nbsp;<A HREF="#CR_CCEIP_64_SUPPORT_BIMC_RXCMD2" >CR_CCEIP_64_SUPPORT_BIMC_RXCMD2</A></td><td>&nbsp;Command received from the BIMC memory chain. (Function Deprecated)<br></td></tr>
+  <tr><td align="center">0x74</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_CCEIP_64_SUPPORT_BIMC_RXCMD1" >CR_CCEIP_64_SUPPORT_BIMC_RXCMD1</A></td><td>&nbsp;Command received from the BIMC memory chain. (Function Deprecated)<br></td></tr>
+  <tr><td align="center">0x78</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_CCEIP_64_SUPPORT_BIMC_RXCMD0" >CR_CCEIP_64_SUPPORT_BIMC_RXCMD0</A></td><td>&nbsp;Command received from the BIMC memory chain. (Function Deprecated)<br></td></tr>
+  <tr><td align="center">0x7c</td><td valign="top"> acc=RW</td><td>&nbsp;<A HREF="#CR_CCEIP_64_SUPPORT_BIMC_RXRSP2" >CR_CCEIP_64_SUPPORT_BIMC_RXRSP2</A></td><td>&nbsp;Response [71:64] received from the BIMC memory chain. (Function Deprecated)<br></td></tr>
+  <tr><td align="center">0x80</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_CCEIP_64_SUPPORT_BIMC_RXRSP1" >CR_CCEIP_64_SUPPORT_BIMC_RXRSP1</A></td><td>&nbsp;Response [63:32] received from the BIMC memory chain. (Function Deprecated)<br></td></tr>
+  <tr><td align="center">0x84</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_CCEIP_64_SUPPORT_BIMC_RXRSP0" >CR_CCEIP_64_SUPPORT_BIMC_RXRSP0</A></td><td>&nbsp;Response [31:0] received from the BIMC memory chain. (Function Deprecated)<br></td></tr>
+  <tr><td align="center">0x88</td><td valign="top"> acc=RW</td><td>&nbsp;<A HREF="#CR_CCEIP_64_SUPPORT_BIMC_POLLRSP2" >CR_CCEIP_64_SUPPORT_BIMC_POLLRSP2</A></td><td>&nbsp;ECC/parity error polling response [71:64] received from the BIMC memory chain. (Function Deprecated)<br></td></tr>
+  <tr><td align="center">0x8c</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_CCEIP_64_SUPPORT_BIMC_POLLRSP1" >CR_CCEIP_64_SUPPORT_BIMC_POLLRSP1</A></td><td>&nbsp;ECC/parity error polling response [63:32] received from the BIMC memory chain. (Function Deprecated)<br></td></tr>
+  <tr><td align="center">0x90</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_CCEIP_64_SUPPORT_BIMC_POLLRSP0" >CR_CCEIP_64_SUPPORT_BIMC_POLLRSP0</A></td><td>&nbsp;ECC/parity polling response [31:0] received from the BIMC memory chain. (Function Deprecated)<br></td></tr>
+  <tr><td align="center">0x94</td><td valign="top"> acc=RW</td><td>&nbsp;<A HREF="#CR_CCEIP_64_SUPPORT_BIMC_DBGCMD2" >CR_CCEIP_64_SUPPORT_BIMC_DBGCMD2</A></td><td>&nbsp;Non-response command received from the BIMC memory chain. ex. write cmd, unanswered autopoll (Function Deprecated)<br></td></tr>
+  <tr><td align="center">0x98</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_CCEIP_64_SUPPORT_BIMC_DBGCMD1" >CR_CCEIP_64_SUPPORT_BIMC_DBGCMD1</A></td><td>&nbsp;Non-response command received from the BIMC memory chain. ex. write cmd, unanswered autopoll (Function Deprecated)<br></td></tr>
+  <tr><td align="center">0x9c</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_CCEIP_64_SUPPORT_BIMC_DBGCMD0" >CR_CCEIP_64_SUPPORT_BIMC_DBGCMD0</A></td><td>&nbsp;Non-response command received from the BIMC memory chain. ex. write cmd, unanswered autopoll (Function Deprecated)<br></td></tr>
+</table>
+<p>Flag legend: acc=access</p><p></p>
+<p>
+  <b><a ID="CR_CCEIP_64_SUPPORT_blkid_revid_config">CR_CCEIP_64_SUPPORT_blkid_revid_config - Block ID and Revision ID read only register</a></b><br>
+  Offset (byte space) = 32'h0<br>
+  Verilog Macro Address = `CR_CCEIP_64_SUPPORT_BLKID_REVID_CONFIG<br>
+  Reset Value = 32'hce64_0000<br>
+  Access = RO (32-bit only)<br>
+</p>
+<table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:16</td><td valign="top"></td><td align="left" valign="top">&nbsp;blkid</td><td align="left">Block ID for CCEIP 64 = 0xCE64h<br>Reset value is <i>0xce64</i>.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">15:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;revid</td><td align="left">Revision control register.<br>Connect to TIE cells in order to change<br>via 1 layer metal spin.<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_CCEIP_64_SUPPORT Regs Table</A></p>
+<p>
+  <b><a ID="CR_CCEIP_64_SUPPORT_spare_config">CR_CCEIP_64_SUPPORT_spare_config - Spare configuration register</a></b><br>
+  Offset (byte space) = 32'h4<br>
+  Verilog Macro Address = `CR_CCEIP_64_SUPPORT_SPARE_CONFIG<br>
+  Reset Value = 32'h0000_0000<br>
+  Access = RW (32-bit only)<br>
+</p>
+<table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;spare</td><td align="left">Spare control register<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_CCEIP_64_SUPPORT Regs Table</A></p>
+<p>
+  <b><a ID="CR_CCEIP_64_SUPPORT_im_available">CR_CCEIP_64_SUPPORT_im_available - Interface Monitor Status register</a></b><br>
+  Offset (byte space) = 32'h8<br>
+  Verilog Macro Address = `CR_CCEIP_64_SUPPORT_IM_AVAILABLE<br>
+  Reset Value = 32'bxxxxxxxx_xxxxxx00_00000000_00000000<br>
+  Access = RO (32-bit only)<br>
+</p>
+This regster will allow software to read status for all of the<br>Interface Monitor blocks.<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:18</td><td valign="top"></td><td align="left" valign="top">&nbsp;Reserved</td><td align="left">Reserved bits must be written with 0.  A read returns an unknown value.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">17</td><td valign="top"></td><td align="left" valign="top">&nbsp;he_sh_bl_bank_hi</td><td align="left">Huffman Encoder Short Path Bit Length upper bank is ready to be read<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">16</td><td valign="top"></td><td align="left" valign="top">&nbsp;he_sh_bl_bank_lo</td><td align="left">Huffman Encoder Short Path Bit Length lower bank is ready to be read<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">15</td><td valign="top"></td><td align="left" valign="top">&nbsp;he_lng_bl_bank_hi</td><td align="left">Huffman Encoder Long Path Bit Length upper bank is ready to be read<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">14</td><td valign="top"></td><td align="left" valign="top">&nbsp;he_lng_bl_bank_lo</td><td align="left">Huffman Encoder Long Path Bit Length lower bank is ready to be read<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">13</td><td valign="top"></td><td align="left" valign="top">&nbsp;he_st_sh_bl_bank_hi</td><td align="left">Huffman Encoder Short Path Symbol table Bit Length upper bank is ready to be read<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">12</td><td valign="top"></td><td align="left" valign="top">&nbsp;he_st_sh_bl_bank_lo</td><td align="left">Huffman Encoder Short Path Symbol table Bit Length lower bank is ready to be read<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">11</td><td valign="top"></td><td align="left" valign="top">&nbsp;he_st_lng_bl_bank_hi</td><td align="left">Huffman Encoder Long Path Symbol table Bit Length upper bank is ready to be read<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">10</td><td valign="top"></td><td align="left" valign="top">&nbsp;he_st_lng_bl_bank_lo</td><td align="left">Huffman Encoder Long Path Symbol table Bit Length lower bank is ready to be read<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">09</td><td valign="top"></td><td align="left" valign="top">&nbsp;htf_bl_bank_hi</td><td align="left">Huffman Table Formatter Bit Length upper bank is ready to be read<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">08</td><td valign="top"></td><td align="left" valign="top">&nbsp;htf_bl_bank_lo</td><td align="left">Huffman Table Formatter Bit Length lower bank is ready to be read<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">07</td><td valign="top"></td><td align="left" valign="top">&nbsp;lz77_comp_bank_hi</td><td align="left">LZ77 Comp upper bank is ready to be read<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">06</td><td valign="top"></td><td align="left" valign="top">&nbsp;lz77_comp_bank_lo</td><td align="left">LZ77 Comp lower bank is ready to be read<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">05</td><td valign="top"></td><td align="left" valign="top">&nbsp;xp10_comp_bank_hi</td><td align="left">XP10 Comp upper bank is ready to be read<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">04</td><td valign="top"></td><td align="left" valign="top">&nbsp;xp10_comp_bank_lo</td><td align="left">XP10 Comp lower bank is ready to be read<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">03</td><td valign="top"></td><td align="left" valign="top">&nbsp;lz77_decomp_bank_hi</td><td align="left">LZ77 Decomp upper bank is ready to be read<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">02</td><td valign="top"></td><td align="left" valign="top">&nbsp;lz77_decomp_bank_lo</td><td align="left">LZ77 Decomp lower bank is ready to be read<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">01</td><td valign="top"></td><td align="left" valign="top">&nbsp;xp10_decomp_bank_hi</td><td align="left">XP10 Decomp upper bank is ready to be read<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">00</td><td valign="top"></td><td align="left" valign="top">&nbsp;xp10_decomp_bank_lo</td><td align="left">XP10 Decomp lower bank is ready to be read<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_CCEIP_64_SUPPORT Regs Table</A></p>
+<p>
+  <b><a ID="CR_CCEIP_64_SUPPORT_im_consumed">CR_CCEIP_64_SUPPORT_im_consumed - Interface Monitor Clear register</a></b><br>
+  Offset (byte space) = 32'hc<br>
+  Verilog Macro Address = `CR_CCEIP_64_SUPPORT_IM_CONSUMED<br>
+  Reset Value = 32'bxxxxxxxx_xxxxxx00_00000000_00000000<br>
+  Access = RW (32-bit only)<br>
+</p>
+This regster will allow software to clear the read status<br>status for all of the Interface Monitor blocks. Software<br>must write a 1 to clear the status. A read of this register<br>will always return all 0s.<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:18</td><td valign="top"></td><td align="left" valign="top">&nbsp;Reserved</td><td align="left">Reserved bits must be written with 0.  A read returns an unknown value.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">17</td><td valign="top"></td><td align="left" valign="top">&nbsp;he_sh_bl_bank_hi</td><td align="left">Clear read status of Huffman Encoder Short Path Bit Length upper bank<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">16</td><td valign="top"></td><td align="left" valign="top">&nbsp;he_sh_bl_bank_lo</td><td align="left">Clear read status of Huffman Encoder Short Path Bit Length lower bank<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">15</td><td valign="top"></td><td align="left" valign="top">&nbsp;he_lng_bl_bank_hi</td><td align="left">Clear read status of Huffman Encoder Long Path Bit Length upper bank<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">14</td><td valign="top"></td><td align="left" valign="top">&nbsp;he_lng_bl_bank_lo</td><td align="left">Clear read status of Huffman Encoder Long Path Bit Length lower bank<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">13</td><td valign="top"></td><td align="left" valign="top">&nbsp;he_st_sh_bl_bank_hi</td><td align="left">Clear read status of Huffman Encoder Short Path Symbol table Bit Length upper bank<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">12</td><td valign="top"></td><td align="left" valign="top">&nbsp;he_st_sh_bl_bank_lo</td><td align="left">Clear read status of Huffman Encoder Short Path Symbol table Bit Length lower bank<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">11</td><td valign="top"></td><td align="left" valign="top">&nbsp;he_st_lng_bl_bank_hi</td><td align="left">Clear read status of Huffman Encoder Long Path Symbol table Bit Length upper bank<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">10</td><td valign="top"></td><td align="left" valign="top">&nbsp;he_st_lng_bl_bank_lo</td><td align="left">Clear read status of Huffman Encoder Long Path Symbol table Bit Length lower bank<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">09</td><td valign="top"></td><td align="left" valign="top">&nbsp;htf_bl_bank_hi</td><td align="left">Clear read status of Huffman Table Formatter Bit Length upper bank<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">08</td><td valign="top"></td><td align="left" valign="top">&nbsp;htf_bl_bank_lo</td><td align="left">Clear read status of Huffman Table Formatter Bit Length lower bank<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">07</td><td valign="top"></td><td align="left" valign="top">&nbsp;lz77_comp_bank_hi</td><td align="left">Clear read status of LZ77 Comp upper bank<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">06</td><td valign="top"></td><td align="left" valign="top">&nbsp;lz77_comp_bank_lo</td><td align="left">Clear read status of LZ77 Comp lower bank<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">05</td><td valign="top"></td><td align="left" valign="top">&nbsp;xp10_comp_bank_hi</td><td align="left">Clear read status of XP10 Comp upper bank<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">04</td><td valign="top"></td><td align="left" valign="top">&nbsp;xp10_comp_bank_lo</td><td align="left">Clear read status of XP10 Comp lower bank<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">03</td><td valign="top"></td><td align="left" valign="top">&nbsp;lz77_decomp_bank_hi</td><td align="left">Clear read status of LZ77 Decomp upper bank<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">02</td><td valign="top"></td><td align="left" valign="top">&nbsp;lz77_decomp_bank_lo</td><td align="left">Clear read status of LZ77 Decomp lower bank<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">01</td><td valign="top"></td><td align="left" valign="top">&nbsp;xp10_decomp_bank_hi</td><td align="left">Clear read status of XP10 Decomp upper bank<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">00</td><td valign="top"></td><td align="left" valign="top">&nbsp;xp10_decomp_bank_lo</td><td align="left">Clear read status of XP10 Decomp lower bank<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_CCEIP_64_SUPPORT Regs Table</A></p>
+<p>
+  <b><a ID="CR_CCEIP_64_SUPPORT_soft_rst">CR_CCEIP_64_SUPPORT_soft_rst - Soft Reset register</a></b><br>
+  Offset (byte space) = 32'h10<br>
+  Verilog Macro Address = `CR_CCEIP_64_SUPPORT_SOFT_RST<br>
+  Reset Value = 32'bxxxxxxxx_xxxxxxxx_xxxxxxxx_xxxxxxx0<br>
+  Access = RW (32-bit only)<br>
+</p>
+This is the Soft Reset register which is used to reset the entire CCEIP pipeline<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:01</td><td valign="top"></td><td align="left" valign="top">&nbsp;Reserved</td><td align="left">Reserved bits must be written with 0.  A read returns an unknown value.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">00</td><td valign="top"></td><td align="left" valign="top">&nbsp;soft_rst</td><td align="left">Soft reset<br>0: Soft reset not active<br>1: Soft reset active<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_CCEIP_64_SUPPORT Regs Table</A></p>
+<p>
+  <b><a ID="CR_CCEIP_64_SUPPORT_ctl">CR_CCEIP_64_SUPPORT_ctl - Support Block Control register</a></b><br>
+  Offset (byte space) = 32'h14<br>
+  Verilog Macro Address = `CR_CCEIP_64_SUPPORT_CTL<br>
+  Reset Value = 32'bxxxxxxxx_xxxxxxxx_xxxxxxxx_xxxxxxx1<br>
+  Access = RW (32-bit only)<br>
+</p>
+This is the Support Block Control register which is used<br>to provide various control functions<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:01</td><td valign="top"></td><td align="left" valign="top">&nbsp;Reserved</td><td align="left">Reserved bits must be written with 0.  A read returns an unknown value.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">00</td><td valign="top"></td><td align="left" valign="top">&nbsp;tlast_protocol_chk_en</td><td align="left">THIS FEATURE IS NO LONGER SUPPORTED AND THIS FIELD HAS NO AFFECT ON THE OPERATION OF THE CCEIP<br>Enable the TLAST protocol checking feature in the ISF and TLV Parsers<br>0 = DISABLED<br>1 = ENABLED<br>Reset value is <i>1</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_CCEIP_64_SUPPORT Regs Table</A></p>
+<p>
+  <b><a ID="CR_CCEIP_64_SUPPORT_df_mux_ctrl">CR_CCEIP_64_SUPPORT_df_mux_ctrl - Data Flow Mux Control register</a></b><br>
+  Offset (byte space) = 32'h18<br>
+  Verilog Macro Address = `CR_CCEIP_64_SUPPORT_DF_MUX_CTRL<br>
+  Reset Value = 32'bxxxxxxxx_xxxxxxxx_xxxxxxxx_xxxxxxx0<br>
+  Access = RW (32-bit only)<br>
+</p>
+This is the data flow mux control register which contains the<br>Data Flow Mux select<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:01</td><td valign="top"></td><td align="left" valign="top">&nbsp;Reserved</td><td align="left">Reserved bits must be written with 0.  A read returns an unknown value.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">00</td><td valign="top"></td><td align="left" valign="top">&nbsp;df_mux_sel</td><td align="left">Data Flow Mux Select<br>0: CRC Checker #1 (CCEIP Normal Compression Output Path)<br>1: CRC Generator #0 (Decompression Output Path for debug)<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_CCEIP_64_SUPPORT Regs Table</A></p>
+<p>
+  <b><a ID="CR_CCEIP_64_SUPPORT_pipe_stat">CR_CCEIP_64_SUPPORT_pipe_stat - Pipeline Status register</a></b><br>
+  Offset (byte space) = 32'h1c<br>
+  Verilog Macro Address = `CR_CCEIP_64_SUPPORT_PIPE_STAT<br>
+  Reset Value = 32'bxxxxxxxx_00000000_00000000_xxxxx000<br>
+  Access = RO (32-bit only)<br>
+</p>
+This is the Pipeline Status regster which contains various status bits<br>and fields that can be used to monitor the activity of the<br>CCEIP pipeline.<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:24</td><td valign="top"></td><td align="left" valign="top">&nbsp;Reserved</td><td align="left">Reserved bits must be written with 0.  A read returns an unknown value.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">23:16</td><td valign="top"></td><td align="left" valign="top">&nbsp;isf_cmds</td><td align="left">The ISF COMMANDS field contains the number of commands in<br>flight in the ISF. This is the count used by the ISF BUSY bit<br>below.<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">15:08</td><td valign="top"></td><td align="left" valign="top">&nbsp;pipe_cmds</td><td align="left">The PIPELINE COMMANDS field contains the number of<br>commands in flight in the entire pipeline. This is the count<br>used by the DATA BUSY bit below.<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">07:03</td><td valign="top"></td><td align="left" valign="top">&nbsp;Reserved</td><td align="left">Reserved bits must be written with 0.  A read returns an unknown value.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">02</td><td valign="top"></td><td align="left" valign="top">&nbsp;isf_busy</td><td align="left">The ISF BUSY bit tracks active commands in the ISF. It is an<br>indication of when traffic has stopped being received from the system.<br>To accommodate multiple commands in flight, the the number of<br>outstanding commands are counted, and this bit remains set until all<br>outstanding commands have exited the ISF.  The count is incremented<br>when a RQE TLV arrives at the ISF and decremented when a CQE TLV exits<br>the ISF.<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">01</td><td valign="top"></td><td align="left" valign="top">&nbsp;comp_busy</td><td align="left">The COMPLETION BUSY bit keeps track of outstanding CQE TLVs in the<br>pipeline. To accommodate multiple CQE TLVs in flight, the number of<br>outstanding ones are counted, and this bit remains set until all of the<br>CQEs have exited the OSF. The count is incremented when a CQE TLV is<br>received at the ISF and decremented when a CQE TLV exits the OSF.<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">00</td><td valign="top"></td><td align="left" valign="top">&nbsp;data_busy</td><td align="left">The DATA BUSY bit is set when any module in the pipeline is busy processing a<br>simple or compound command.  To accommodate multiple commands in<br>flight, the number of outstanding commands are counted<br>and this bit remains set until all outstanding commands have<br>exited the OSF. The count is incremented when a RQE TLV<br>arrives at the ISF and decremented when a CQE TLV exits the OSF.<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_CCEIP_64_SUPPORT Regs Table</A></p>
+<p>
+  <b><a ID="CR_CCEIP_64_SUPPORT_CCEIP_INT0_Int_Raw_Status">CR_CCEIP_64_SUPPORT_CCEIP_INT0_Int_Raw_Status - Interrupt Event Raw Status Register</a></b><br>
+  Offset (byte space) = 32'h24<br>
+  Verilog Macro Address = `CR_CCEIP_64_SUPPORT_CCEIP_INT0_INT_RAW_STATUS<br>
+  Reset Value = 32'bxxxxxxxx_00000000_00000000_00000000<br>
+  Access = RW (32-bit only)<br>
+</p>
+Raw interrupt status, these bits are write 1 to clear<br>Use this register to clear any interrupts<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:24</td><td valign="top"></td><td align="left" valign="top">&nbsp;Reserved</td><td align="left">Reserved bits must be written with 0.  A read returns an unknown value.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">23</td><td valign="top"></td><td align="left" valign="top">&nbsp;cceip_bimc_int</td><td align="left">CCEIP Top BIMC interrupt<br>Includes RAMS from ISF, OSF, SU, and Prefix Attach<br>SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">22</td><td valign="top"></td><td align="left" valign="top">&nbsp;su_ecc_err</td><td align="left">Scheduler Update  uncorrectable RAM ECC error<br>SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">21</td><td valign="top"></td><td align="left" valign="top">&nbsp;cg_tlvp_err</td><td align="left">Completion Generator TLV Parser error<br>SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">20</td><td valign="top"></td><td align="left" valign="top">&nbsp;crcc1_tlvp_err</td><td align="left">CRC Checker 1 TLV Parser error<br>SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">19</td><td valign="top"></td><td align="left" valign="top">&nbsp;crcc0_tlvp_err</td><td align="left">CRC Checker 0 TLV Parser error<br>SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">18</td><td valign="top"></td><td align="left" valign="top">&nbsp;crcg0_tlvp_err</td><td align="left">CRC Generator 0 TLV Parser error<br>SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">17</td><td valign="top"></td><td align="left" valign="top">&nbsp;crcgc0_tlvp_err</td><td align="left">CRC Generator/Checker 0 TLV Parser error<br>SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">16</td><td valign="top"></td><td align="left" valign="top">&nbsp;unused8</td><td align="left">SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">15</td><td valign="top"></td><td align="left" valign="top">&nbsp;unused7</td><td align="left">SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">14</td><td valign="top"></td><td align="left" valign="top">&nbsp;unused6</td><td align="left">SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">13</td><td valign="top"></td><td align="left" valign="top">&nbsp;unused5</td><td align="left">SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">12</td><td valign="top"></td><td align="left" valign="top">&nbsp;unused4</td><td align="left">SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">11</td><td valign="top"></td><td align="left" valign="top">&nbsp;unused3</td><td align="left">SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">10</td><td valign="top"></td><td align="left" valign="top">&nbsp;unused2</td><td align="left">SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">09</td><td valign="top"></td><td align="left" valign="top">&nbsp;unused1</td><td align="left">SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">08</td><td valign="top"></td><td align="left" valign="top">&nbsp;unused0</td><td align="left">SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">07</td><td valign="top"></td><td align="left" valign="top">&nbsp;pref_atch_tlvp_err</td><td align="left">Prefix Attach TLV Parser error<br>SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">06</td><td valign="top"></td><td align="left" valign="top">&nbsp;osf_tlvp_err</td><td align="left">OSF TLV Parser error<br>SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">05</td><td valign="top"></td><td align="left" valign="top">&nbsp;osf_ecc_err</td><td align="left">OSF uncorrectable RAM ECC error<br>SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">04</td><td valign="top"></td><td align="left" valign="top">&nbsp;isf_sys_stall</td><td align="left">ISF System Stall<br>An ISF system stall occurs when the ISF outbound<br>AXI interface is being stalled for a programmable number of<br>consecutive clock cycles. The number of clocks is set<br>in the ISF System Stall Interrupt Limit Control register<br>SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">03</td><td valign="top"></td><td align="left" valign="top">&nbsp;isf_ovfl</td><td align="left">ISF FIFO Overflow<br>SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">02</td><td valign="top"></td><td align="left" valign="top">&nbsp;isf_prot_err</td><td align="left">ISF Protocol Error<br>An ISF protocol error occurs whenever the ISF detects an out of order<br>sequence of TLVs for a command.<br>SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">01</td><td valign="top"></td><td align="left" valign="top">&nbsp;isf_tlvp_err</td><td align="left">ISF TLV Parser error<br>SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">00</td><td valign="top"></td><td align="left" valign="top">&nbsp;isf_ecc_err</td><td align="left">ISF uncorrectable RAM ECC error<br>SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_CCEIP_64_SUPPORT Regs Table</A></p>
+<p>
+  <b><a ID="CR_CCEIP_64_SUPPORT_CCEIP_INT0_Int_Masked_Status">CR_CCEIP_64_SUPPORT_CCEIP_INT0_Int_Masked_Status - Interrupt Event Masked Status Register</a></b><br>
+  Offset (byte space) = 32'h28<br>
+  Verilog Macro Address = `CR_CCEIP_64_SUPPORT_CCEIP_INT0_INT_MASKED_STATUS<br>
+  Reset Value = 32'bxxxxxxxx_00000000_00000000_00000000<br>
+  Access = RO (32-bit only)<br>
+</p>
+Masked Status Interrupt, read only register;<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:24</td><td valign="top"></td><td align="left" valign="top">&nbsp;Reserved</td><td align="left">Reserved bits must be written with 0.  A read returns an unknown value.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">23</td><td valign="top"></td><td align="left" valign="top">&nbsp;cceip_bimc_int</td><td align="left">CCEIP Top BIMC interrupt<br>Includes RAMS from ISF, OSF, SU, and Prefix Attach<br>SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">22</td><td valign="top"></td><td align="left" valign="top">&nbsp;su_ecc_err</td><td align="left">Scheduler Update  uncorrectable RAM ECC error<br>SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">21</td><td valign="top"></td><td align="left" valign="top">&nbsp;cg_tlvp_err</td><td align="left">Completion Generator TLV Parser error<br>SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">20</td><td valign="top"></td><td align="left" valign="top">&nbsp;crcc1_tlvp_err</td><td align="left">CRC Checker 1 TLV Parser error<br>SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">19</td><td valign="top"></td><td align="left" valign="top">&nbsp;crcc0_tlvp_err</td><td align="left">CRC Checker 0 TLV Parser error<br>SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">18</td><td valign="top"></td><td align="left" valign="top">&nbsp;crcg0_tlvp_err</td><td align="left">CRC Generator 0 TLV Parser error<br>SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">17</td><td valign="top"></td><td align="left" valign="top">&nbsp;crcgc0_tlvp_err</td><td align="left">CRC Generator/Checker 0 TLV Parser error<br>SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">16</td><td valign="top"></td><td align="left" valign="top">&nbsp;unused8</td><td align="left">SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">15</td><td valign="top"></td><td align="left" valign="top">&nbsp;unused7</td><td align="left">SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">14</td><td valign="top"></td><td align="left" valign="top">&nbsp;unused6</td><td align="left">SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">13</td><td valign="top"></td><td align="left" valign="top">&nbsp;unused5</td><td align="left">SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">12</td><td valign="top"></td><td align="left" valign="top">&nbsp;unused4</td><td align="left">SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">11</td><td valign="top"></td><td align="left" valign="top">&nbsp;unused3</td><td align="left">SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">10</td><td valign="top"></td><td align="left" valign="top">&nbsp;unused2</td><td align="left">SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">09</td><td valign="top"></td><td align="left" valign="top">&nbsp;unused1</td><td align="left">SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">08</td><td valign="top"></td><td align="left" valign="top">&nbsp;unused0</td><td align="left">SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">07</td><td valign="top"></td><td align="left" valign="top">&nbsp;pref_atch_tlvp_err</td><td align="left">Prefix Attach TLV Parser error<br>SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">06</td><td valign="top"></td><td align="left" valign="top">&nbsp;osf_tlvp_err</td><td align="left">OSF TLV Parser error<br>SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">05</td><td valign="top"></td><td align="left" valign="top">&nbsp;osf_ecc_err</td><td align="left">OSF uncorrectable RAM ECC error<br>SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">04</td><td valign="top"></td><td align="left" valign="top">&nbsp;isf_sys_stall</td><td align="left">ISF System Stall<br>An ISF system stall occurs when the ISF outbound<br>AXI interface is being stalled for a programmable number of<br>consecutive clock cycles. The number of clocks is set<br>in the ISF System Stall Interrupt Limit Control register<br>SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">03</td><td valign="top"></td><td align="left" valign="top">&nbsp;isf_ovfl</td><td align="left">ISF FIFO Overflow<br>SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">02</td><td valign="top"></td><td align="left" valign="top">&nbsp;isf_prot_err</td><td align="left">ISF Protocol Error<br>An ISF protocol error occurs whenever the ISF detects an out of order<br>sequence of TLVs for a command.<br>SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">01</td><td valign="top"></td><td align="left" valign="top">&nbsp;isf_tlvp_err</td><td align="left">ISF TLV Parser error<br>SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">00</td><td valign="top"></td><td align="left" valign="top">&nbsp;isf_ecc_err</td><td align="left">ISF uncorrectable RAM ECC error<br>SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_CCEIP_64_SUPPORT Regs Table</A></p>
+<p>
+  <b><a ID="CR_CCEIP_64_SUPPORT_CCEIP_INT0_Int_Mask_Config">CR_CCEIP_64_SUPPORT_CCEIP_INT0_Int_Mask_Config - Interrupt Event Mask Configuration Register</a></b><br>
+  Offset (byte space) = 32'h2c<br>
+  Verilog Macro Address = `CR_CCEIP_64_SUPPORT_CCEIP_INT0_INT_MASK_CONFIG<br>
+  Reset Value = 32'bxxxxxxxx_00000000_00000000_00000000<br>
+  Access = RW (32-bit only)<br>
+</p>
+Interrupt mask config register; this is a read-write register<br>A value of 0 will prevent interrupts from occuring<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:24</td><td valign="top"></td><td align="left" valign="top">&nbsp;Reserved</td><td align="left">Reserved bits must be written with 0.  A read returns an unknown value.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">23</td><td valign="top"></td><td align="left" valign="top">&nbsp;cceip_bimc_int</td><td align="left">CCEIP Top BIMC interrupt<br>Includes RAMS from ISF, OSF, SU, and Prefix Attach<br>SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">22</td><td valign="top"></td><td align="left" valign="top">&nbsp;su_ecc_err</td><td align="left">Scheduler Update  uncorrectable RAM ECC error<br>SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">21</td><td valign="top"></td><td align="left" valign="top">&nbsp;cg_tlvp_err</td><td align="left">Completion Generator TLV Parser error<br>SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">20</td><td valign="top"></td><td align="left" valign="top">&nbsp;crcc1_tlvp_err</td><td align="left">CRC Checker 1 TLV Parser error<br>SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">19</td><td valign="top"></td><td align="left" valign="top">&nbsp;crcc0_tlvp_err</td><td align="left">CRC Checker 0 TLV Parser error<br>SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">18</td><td valign="top"></td><td align="left" valign="top">&nbsp;crcg0_tlvp_err</td><td align="left">CRC Generator 0 TLV Parser error<br>SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">17</td><td valign="top"></td><td align="left" valign="top">&nbsp;crcgc0_tlvp_err</td><td align="left">CRC Generator/Checker 0 TLV Parser error<br>SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">16</td><td valign="top"></td><td align="left" valign="top">&nbsp;unused8</td><td align="left">SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">15</td><td valign="top"></td><td align="left" valign="top">&nbsp;unused7</td><td align="left">SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">14</td><td valign="top"></td><td align="left" valign="top">&nbsp;unused6</td><td align="left">SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">13</td><td valign="top"></td><td align="left" valign="top">&nbsp;unused5</td><td align="left">SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">12</td><td valign="top"></td><td align="left" valign="top">&nbsp;unused4</td><td align="left">SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">11</td><td valign="top"></td><td align="left" valign="top">&nbsp;unused3</td><td align="left">SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">10</td><td valign="top"></td><td align="left" valign="top">&nbsp;unused2</td><td align="left">SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">09</td><td valign="top"></td><td align="left" valign="top">&nbsp;unused1</td><td align="left">SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">08</td><td valign="top"></td><td align="left" valign="top">&nbsp;unused0</td><td align="left">SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">07</td><td valign="top"></td><td align="left" valign="top">&nbsp;pref_atch_tlvp_err</td><td align="left">Prefix Attach TLV Parser error<br>SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">06</td><td valign="top"></td><td align="left" valign="top">&nbsp;osf_tlvp_err</td><td align="left">OSF TLV Parser error<br>SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">05</td><td valign="top"></td><td align="left" valign="top">&nbsp;osf_ecc_err</td><td align="left">OSF uncorrectable RAM ECC error<br>SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">04</td><td valign="top"></td><td align="left" valign="top">&nbsp;isf_sys_stall</td><td align="left">ISF System Stall<br>An ISF system stall occurs when the ISF outbound<br>AXI interface is being stalled for a programmable number of<br>consecutive clock cycles. The number of clocks is set<br>in the ISF System Stall Interrupt Limit Control register<br>SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">03</td><td valign="top"></td><td align="left" valign="top">&nbsp;isf_ovfl</td><td align="left">ISF FIFO Overflow<br>SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">02</td><td valign="top"></td><td align="left" valign="top">&nbsp;isf_prot_err</td><td align="left">ISF Protocol Error<br>An ISF protocol error occurs whenever the ISF detects an out of order<br>sequence of TLVs for a command.<br>SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">01</td><td valign="top"></td><td align="left" valign="top">&nbsp;isf_tlvp_err</td><td align="left">ISF TLV Parser error<br>SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">00</td><td valign="top"></td><td align="left" valign="top">&nbsp;isf_ecc_err</td><td align="left">ISF uncorrectable RAM ECC error<br>SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_CCEIP_64_SUPPORT Regs Table</A></p>
+<p>
+  <b><a ID="CR_CCEIP_64_SUPPORT_CCEIP_INT1_Int_Raw_Status">CR_CCEIP_64_SUPPORT_CCEIP_INT1_Int_Raw_Status - Interrupt Event Raw Status Register</a></b><br>
+  Offset (byte space) = 32'h34<br>
+  Verilog Macro Address = `CR_CCEIP_64_SUPPORT_CCEIP_INT1_INT_RAW_STATUS<br>
+  Reset Value = 32'bxxxxxxxx_xxxxxxxx_xxxxxx00_00000000<br>
+  Access = RW (32-bit only)<br>
+</p>
+Raw interrupt status, these bits are write 1 to clear<br>Use this register to clear any interrupts<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:10</td><td valign="top"></td><td align="left" valign="top">&nbsp;Reserved</td><td align="left">Reserved bits must be written with 0.  A read returns an unknown value.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">09</td><td valign="top"></td><td align="left" valign="top">&nbsp;xp10_decomp_tlvp_err</td><td align="left">XP10 Decompressor TLV Parser error<br>SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">08</td><td valign="top"></td><td align="left" valign="top">&nbsp;xp10_decomp_ecc_err</td><td align="left">XP10 Decompressor uncorrectable RAM ECC error<br>SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">07</td><td valign="top"></td><td align="left" valign="top">&nbsp;xp10_decomp_bimc_int</td><td align="left">XP10 Decompressor BIMC interrupt<br>SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">06</td><td valign="top"></td><td align="left" valign="top">&nbsp;huf_comp_tlvp_err</td><td align="left">Huffman Compressor TLV Parser error<br>SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">05</td><td valign="top"></td><td align="left" valign="top">&nbsp;huf_comp_ecc_err</td><td align="left">Huffman Compressor uncorrectable RAM ECC error<br>SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">04</td><td valign="top"></td><td align="left" valign="top">&nbsp;huf_comp_bimc_int</td><td align="left">Huffman Compressor BIMC interrupt<br>SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">03</td><td valign="top"></td><td align="left" valign="top">&nbsp;lz77_comp_tlvp_err</td><td align="left">LZ77 Compressor TLV Parser error<br>SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">02</td><td valign="top"></td><td align="left" valign="top">&nbsp;prefix_tlvp_err</td><td align="left">Prefix TLV Parser error<br>SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">01</td><td valign="top"></td><td align="left" valign="top">&nbsp;prefix_ecc_err</td><td align="left">Prefix uncorrectable RAM ECC error<br>SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">00</td><td valign="top"></td><td align="left" valign="top">&nbsp;prefix_bimc_int</td><td align="left">Prefix BIMC interrupt<br>SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_CCEIP_64_SUPPORT Regs Table</A></p>
+<p>
+  <b><a ID="CR_CCEIP_64_SUPPORT_CCEIP_INT1_Int_Masked_Status">CR_CCEIP_64_SUPPORT_CCEIP_INT1_Int_Masked_Status - Interrupt Event Masked Status Register</a></b><br>
+  Offset (byte space) = 32'h38<br>
+  Verilog Macro Address = `CR_CCEIP_64_SUPPORT_CCEIP_INT1_INT_MASKED_STATUS<br>
+  Reset Value = 32'bxxxxxxxx_xxxxxxxx_xxxxxx00_00000000<br>
+  Access = RO (32-bit only)<br>
+</p>
+Masked Status Interrupt, read only register;<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:10</td><td valign="top"></td><td align="left" valign="top">&nbsp;Reserved</td><td align="left">Reserved bits must be written with 0.  A read returns an unknown value.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">09</td><td valign="top"></td><td align="left" valign="top">&nbsp;xp10_decomp_tlvp_err</td><td align="left">XP10 Decompressor TLV Parser error<br>SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">08</td><td valign="top"></td><td align="left" valign="top">&nbsp;xp10_decomp_ecc_err</td><td align="left">XP10 Decompressor uncorrectable RAM ECC error<br>SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">07</td><td valign="top"></td><td align="left" valign="top">&nbsp;xp10_decomp_bimc_int</td><td align="left">XP10 Decompressor BIMC interrupt<br>SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">06</td><td valign="top"></td><td align="left" valign="top">&nbsp;huf_comp_tlvp_err</td><td align="left">Huffman Compressor TLV Parser error<br>SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">05</td><td valign="top"></td><td align="left" valign="top">&nbsp;huf_comp_ecc_err</td><td align="left">Huffman Compressor uncorrectable RAM ECC error<br>SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">04</td><td valign="top"></td><td align="left" valign="top">&nbsp;huf_comp_bimc_int</td><td align="left">Huffman Compressor BIMC interrupt<br>SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">03</td><td valign="top"></td><td align="left" valign="top">&nbsp;lz77_comp_tlvp_err</td><td align="left">LZ77 Compressor TLV Parser error<br>SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">02</td><td valign="top"></td><td align="left" valign="top">&nbsp;prefix_tlvp_err</td><td align="left">Prefix TLV Parser error<br>SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">01</td><td valign="top"></td><td align="left" valign="top">&nbsp;prefix_ecc_err</td><td align="left">Prefix uncorrectable RAM ECC error<br>SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">00</td><td valign="top"></td><td align="left" valign="top">&nbsp;prefix_bimc_int</td><td align="left">Prefix BIMC interrupt<br>SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_CCEIP_64_SUPPORT Regs Table</A></p>
+<p>
+  <b><a ID="CR_CCEIP_64_SUPPORT_CCEIP_INT1_Int_Mask_Config">CR_CCEIP_64_SUPPORT_CCEIP_INT1_Int_Mask_Config - Interrupt Event Mask Configuration Register</a></b><br>
+  Offset (byte space) = 32'h3c<br>
+  Verilog Macro Address = `CR_CCEIP_64_SUPPORT_CCEIP_INT1_INT_MASK_CONFIG<br>
+  Reset Value = 32'bxxxxxxxx_xxxxxxxx_xxxxxx00_00000000<br>
+  Access = RW (32-bit only)<br>
+</p>
+Interrupt mask config register; this is a read-write register<br>A value of 0 will prevent interrupts from occuring<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:10</td><td valign="top"></td><td align="left" valign="top">&nbsp;Reserved</td><td align="left">Reserved bits must be written with 0.  A read returns an unknown value.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">09</td><td valign="top"></td><td align="left" valign="top">&nbsp;xp10_decomp_tlvp_err</td><td align="left">XP10 Decompressor TLV Parser error<br>SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">08</td><td valign="top"></td><td align="left" valign="top">&nbsp;xp10_decomp_ecc_err</td><td align="left">XP10 Decompressor uncorrectable RAM ECC error<br>SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">07</td><td valign="top"></td><td align="left" valign="top">&nbsp;xp10_decomp_bimc_int</td><td align="left">XP10 Decompressor BIMC interrupt<br>SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">06</td><td valign="top"></td><td align="left" valign="top">&nbsp;huf_comp_tlvp_err</td><td align="left">Huffman Compressor TLV Parser error<br>SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">05</td><td valign="top"></td><td align="left" valign="top">&nbsp;huf_comp_ecc_err</td><td align="left">Huffman Compressor uncorrectable RAM ECC error<br>SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">04</td><td valign="top"></td><td align="left" valign="top">&nbsp;huf_comp_bimc_int</td><td align="left">Huffman Compressor BIMC interrupt<br>SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">03</td><td valign="top"></td><td align="left" valign="top">&nbsp;lz77_comp_tlvp_err</td><td align="left">LZ77 Compressor TLV Parser error<br>SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">02</td><td valign="top"></td><td align="left" valign="top">&nbsp;prefix_tlvp_err</td><td align="left">Prefix TLV Parser error<br>SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">01</td><td valign="top"></td><td align="left" valign="top">&nbsp;prefix_ecc_err</td><td align="left">Prefix uncorrectable RAM ECC error<br>SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">00</td><td valign="top"></td><td align="left" valign="top">&nbsp;prefix_bimc_int</td><td align="left">Prefix BIMC interrupt<br>SW initialization value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_CCEIP_64_SUPPORT Regs Table</A></p>
+<p>
+  <b><a ID="CR_CCEIP_64_SUPPORT_BIMC_MONITOR">CR_CCEIP_64_SUPPORT_BIMC_MONITOR - Interrupt Event Register (Function Deprecated)</a></b><br>
+  Offset (byte space) = 32'h44<br>
+  Verilog Macro Address = `CR_CCEIP_64_SUPPORT_BIMC_MONITOR<br>
+  Reset Value = 32'bxxxxxxxx_xxxxxxxx_xxxxxxxx_x0000000<br>
+  Access = RO (32-bit only)<br>
+</p>
+<table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:07</td><td valign="top"></td><td align="left" valign="top">&nbsp;Reserved</td><td align="left">Reserved bits must be written with 0.  A read returns an unknown value.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">06</td><td valign="top"></td><td align="left" valign="top">&nbsp;unanswered_read</td><td align="left">Read command returned without response by any memories. Read<br>BIMC_RXCMD's to analyze what read_reg command went unanswered. RO<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">05</td><td valign="top"></td><td align="left" valign="top">&nbsp;rcv_invalid_opcode</td><td align="left">Opcode in received response frame is illegal. Corruption, or<br>slave operation error. Read BIMC_RXCMD's. RO<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">04</td><td valign="top"></td><td align="left" valign="top">&nbsp;bimc_chain_rcv_error</td><td align="left">Unrecognized BIMC chain command/data received. RO<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">03</td><td valign="top"></td><td align="left" valign="top">&nbsp;reserve</td><td align="left">Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">02</td><td valign="top"></td><td align="left" valign="top">&nbsp;parity_error</td><td align="left">Parity Error event occured. RO<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">01</td><td valign="top"></td><td align="left" valign="top">&nbsp;correctable_ecc_error</td><td align="left">Correctable ECC event occured. RO<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">00</td><td valign="top"></td><td align="left" valign="top">&nbsp;uncorrectable_ecc_error</td><td align="left">Uncorrectable ECC event occured. RO<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_CCEIP_64_SUPPORT Regs Table</A></p>
+<p>
+  <b><a ID="CR_CCEIP_64_SUPPORT_BIMC_MONITOR_MASK">CR_CCEIP_64_SUPPORT_BIMC_MONITOR_MASK - BIMC Interrupt Mask Register (Function Deprecated)</a></b><br>
+  Offset (byte space) = 32'h48<br>
+  Verilog Macro Address = `CR_CCEIP_64_SUPPORT_BIMC_MONITOR_MASK<br>
+  Reset Value = 32'bxxxxxxxx_xxxxxxxx_xxxxxxxx_x0000000<br>
+  Access = CFG (32-bit only)<br>
+</p>
+<table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:07</td><td valign="top"></td><td align="left" valign="top">&nbsp;Reserved</td><td align="left">Reserved bits must be written with 0.  A read returns an unknown value.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">06</td><td valign="top"></td><td align="left" valign="top">&nbsp;unanswered_read</td><td align="left">Mask/Clear notification of unanswered read requests. 1=mask event. cfg<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">05</td><td valign="top"></td><td align="left" valign="top">&nbsp;rcv_invalid_opcode</td><td align="left">Mask/Clear illegal response frame Opcode interrupts. 1=mask event. cfg<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">04</td><td valign="top"></td><td align="left" valign="top">&nbsp;bimc_chain_rcv_error_enable</td><td align="left">Mask/Clear unrecognized BIMC chain command/data received. Deassert<br>after 1st complete frame sent following bimc_global_confic.soft_reset deassertion. cfg<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">03</td><td valign="top"></td><td align="left" valign="top">&nbsp;reserve</td><td align="left">Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">02</td><td valign="top"></td><td align="left" valign="top">&nbsp;parity_error_enable</td><td align="left">Mask/Clear for Parity error event and count. 1=mask event. cfg<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">01</td><td valign="top"></td><td align="left" valign="top">&nbsp;correctable_ecc_error_enable</td><td align="left">Mask/Clear for Correctable ECC event and count. 1=mask event. cfg<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">00</td><td valign="top"></td><td align="left" valign="top">&nbsp;uncorrectable_ecc_error_enable</td><td align="left">Mask/Clear for Uncorrectable ECC event and count. 1=mask event. cfg<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_CCEIP_64_SUPPORT Regs Table</A></p>
+<p>
+  <b><a ID="CR_CCEIP_64_SUPPORT_BIMC_ECC_UNCORRECTABLE_ERROR_CNT">CR_CCEIP_64_SUPPORT_BIMC_ECC_UNCORRECTABLE_ERROR_CNT - Counter logging the number of polling events reporting an uncorrectable ECC error. (Function Deprecated)</a></b><br>
+  Offset (byte space) = 32'h4c<br>
+  Verilog Macro Address = `CR_CCEIP_64_SUPPORT_BIMC_ECC_UNCORRECTABLE_ERROR_CNT<br>
+  Reset Value = 32'h0000_0000<br>
+  Access = RW (32-bit only)<br>
+</p>
+<table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;uncorrectable_ecc</td><td align="left">Number of polling events reporting a new uncorrectable ECC error event.<br>counter, clear on read<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_CCEIP_64_SUPPORT Regs Table</A></p>
+<p>
+  <b><a ID="CR_CCEIP_64_SUPPORT_BIMC_ECC_CORRECTABLE_ERROR_CNT">CR_CCEIP_64_SUPPORT_BIMC_ECC_CORRECTABLE_ERROR_CNT - Counter logging the number of polling events reporting a correctable ECC error. (Function Deprecated)</a></b><br>
+  Offset (byte space) = 32'h50<br>
+  Verilog Macro Address = `CR_CCEIP_64_SUPPORT_BIMC_ECC_CORRECTABLE_ERROR_CNT<br>
+  Reset Value = 32'h0000_0000<br>
+  Access = RW (32-bit only)<br>
+</p>
+<table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;correctable_ecc</td><td align="left">Number of polling events reporting a new correctable ECC error event.<br>counter, clear on read<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_CCEIP_64_SUPPORT Regs Table</A></p>
+<p>
+  <b><a ID="CR_CCEIP_64_SUPPORT_BIMC_PARITY_ERROR_CNT">CR_CCEIP_64_SUPPORT_BIMC_PARITY_ERROR_CNT - Counter logging the number of polling events reporting a parity error. (Function Deprecated)</a></b><br>
+  Offset (byte space) = 32'h54<br>
+  Verilog Macro Address = `CR_CCEIP_64_SUPPORT_BIMC_PARITY_ERROR_CNT<br>
+  Reset Value = 32'h0000_0000<br>
+  Access = RW (32-bit only)<br>
+</p>
+<table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;parity_errors</td><td align="left">Number of polling events reporting a new parity error event.<br>counter, clear on read<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_CCEIP_64_SUPPORT Regs Table</A></p>
+<p>
+  <b><a ID="CR_CCEIP_64_SUPPORT_BIMC_GLOBAL_CONFIG">CR_CCEIP_64_SUPPORT_BIMC_GLOBAL_CONFIG - Main configuration register for BIMC Master. Reset, ECC polling, Timer, and mem init (Function Deprecated)</a></b><br>
+  Offset (byte space) = 32'h58<br>
+  Verilog Macro Address = `CR_CCEIP_64_SUPPORT_BIMC_GLOBAL_CONFIG<br>
+  Reset Value = 32'h0000_0001<br>
+  Access = RW (32-bit only)<br>
+</p>
+<table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:06</td><td valign="top"></td><td align="left" valign="top">&nbsp;poll_ecc_par_timer</td><td align="left">Polling period for ECC/Parity error. Units is in increments of 40ns clock cycles.<br>Max of 1.34sec due to 26 bits. Never set value to be less than length of 4 BIMC<br>frames 2x(2x73) or other commands may not get serviced. rw<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">05</td><td valign="top"></td><td align="left" valign="top">&nbsp;debug_write_en</td><td align="left">When this bit is set bimc_error_detection_cnt can be written. rw<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">04</td><td valign="top"></td><td align="left" valign="top">&nbsp;poll_ecc_par_error</td><td align="left">Writing this bit to a logic 1 will turn on timer based ECC/Parity error polling<br>of the chain of BIMC memory slaves. BIMC_INTERRUPT asserts if error identified. rw<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">03</td><td valign="top"></td><td align="left" valign="top">&nbsp;mem_wr_init</td><td align="left">Write 1 to start the memory content initialization process for internal memories<br>that have this memory wrapper feature. rw<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">02</td><td valign="top"></td><td align="left" valign="top">&nbsp;bimc_mem_init_done</td><td align="left">This bit is set at the conclusion of memory ID assignment which starts after<br>reset deassertion. rw<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">01</td><td valign="top"></td><td align="left" valign="top">&nbsp;reserve</td><td align="left">Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">00</td><td valign="top"></td><td align="left" valign="top">&nbsp;soft_reset</td><td align="left">Software sets this active high to instigate reset to the BIMC chain slaves.<br>User must write zero to deassert the reset. Clear BIMC_MEM_INIT_DONE bit when<br>deasserting reset. rw<br>Reset value is <i>1</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_CCEIP_64_SUPPORT Regs Table</A></p>
+<p>
+  <b><a ID="CR_CCEIP_64_SUPPORT_BIMC_MEMID">CR_CCEIP_64_SUPPORT_BIMC_MEMID - Reports the last/max memid on the BIMC memory chain. Value is typically equivalent to the number of memories. (Function Deprecated)</a></b><br>
+  Offset (byte space) = 32'h5c<br>
+  Verilog Macro Address = `CR_CCEIP_64_SUPPORT_BIMC_MEMID<br>
+  Reset Value = 32'bxxxxxxxx_xxxxxxxx_xxxx0000_00000000<br>
+  Access = RO (32-bit only)<br>
+</p>
+<table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:12</td><td valign="top"></td><td align="left" valign="top">&nbsp;Reserved</td><td align="left">Reserved bits must be written with 0.  A read returns an unknown value.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">11:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;max_memid</td><td align="left">Reports the last/max memid on the BIMC memory chain. Value is typically equivalent<br>to the number of memories. ro<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_CCEIP_64_SUPPORT Regs Table</A></p>
+<p>
+  <b><a ID="CR_CCEIP_64_SUPPORT_BIMC_ECCPAR_DEBUG">CR_CCEIP_64_SUPPORT_BIMC_ECCPAR_DEBUG - Control data integrity errors (Function Deprecated)</a></b><br>
+  Offset (byte space) = 32'h60<br>
+  Verilog Macro Address = `CR_CCEIP_64_SUPPORT_BIMC_ECCPAR_DEBUG<br>
+  Reset Value = 32'bxxx00000_00000000_00000000_00000000<br>
+  Access = RW (32-bit only)<br>
+</p>
+<table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:29</td><td valign="top"></td><td align="left" valign="top">&nbsp;Reserved</td><td align="left">Reserved bits must be written with 0.  A read returns an unknown value.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">28</td><td valign="top"></td><td align="left" valign="top">&nbsp;ack</td><td align="left">Write 1 then 0 to clear sent ack bit23 indicating transmission of ECCPAR_DEBUG contents to the memories.<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">27:24</td><td valign="top"></td><td align="left" valign="top">&nbsp;jabber_off</td><td align="left">Disable ECC or Parity error reporting of selected memory(s). Separate bits<br>for disabling for port c,b,a. Bit[1]=disable write side, Bit[0]=disable read side.<br>Memories with single disable use Bit[0]. rw<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">23</td><td valign="top"></td><td align="left" valign="top">&nbsp;sent</td><td align="left">Write 1 to clear ack indicating transmission of CMD0/1/2 contents to the memories.<br>Use this to check that SEND has taken place. w1tc<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">22</td><td valign="top"></td><td align="left" valign="top">&nbsp;send</td><td align="left">Write 1 to initiate command transmission to the memories. Otherwise zero this<br>field if writing other fields. rw<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">21:20</td><td valign="top"></td><td align="left" valign="top">&nbsp;eccpar_disable</td><td align="left">Disable ECC or Parity of selected memory. Two bits to allow for separate write/read<br>disable. Bit[1]=disable write side, Bit[0]=disable read side. Memories with single<br>disable use Bit[0]. rw<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">19:18</td><td valign="top"></td><td align="left" valign="top">&nbsp;reserve</td><td align="left">Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">17:16</td><td valign="top"></td><td align="left" valign="top">&nbsp;eccpar_corrupt</td><td align="left">cfg. 'b01:1-bit write side corrupt. 'b10:1-bit read side corrupt. 'b11:2-bit read side corrupt.<br>ENCODINGS<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">15:12</td><td valign="top"></td><td align="left" valign="top">&nbsp;memtype</td><td align="left">Memory type to force data integrity error. rw<br>ENCODINGS<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">11:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;memaddr</td><td align="left">Memory id to execute the forced data integrity error. rw<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_CCEIP_64_SUPPORT Regs Table</A></p>
+<p>
+  <b><a ID="CR_CCEIP_64_SUPPORT_BIMC_CMD2">CR_CCEIP_64_SUPPORT_BIMC_CMD2 - Transmit command to memories on the BIMC memory chain. (Function Deprecated)</a></b><br>
+  Offset (byte space) = 32'h64<br>
+  Verilog Macro Address = `CR_CCEIP_64_SUPPORT_BIMC_CMD2<br>
+  Reset Value = 32'bxxxxxxxx_xxxxxxxx_xxxxx000_00000000<br>
+  Access = RW (32-bit only)<br>
+</p>
+<table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:11</td><td valign="top"></td><td align="left" valign="top">&nbsp;Reserved</td><td align="left">Reserved bits must be written with 0.  A read returns an unknown value.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">10</td><td valign="top"></td><td align="left" valign="top">&nbsp;ack</td><td align="left">Write high then low to clear Sent Ack in bit9.<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">09</td><td valign="top"></td><td align="left" valign="top">&nbsp;sent</td><td align="left">Ack indicating transmission of CMD0/1/2 contents to<br>the memories. Use this to check that SEND has taken place. ro<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">08</td><td valign="top"></td><td align="left" valign="top">&nbsp;send</td><td align="left">Write 1 to initiate command transmission of CMD0/1/2 contents to the<br>memories. Otherwise zero this field if writing other fields. rw<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">07:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;opcode</td><td align="left">OpCode field instruction for memory. rw<br>ENCODINGS<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_CCEIP_64_SUPPORT Regs Table</A></p>
+<p>
+  <b><a ID="CR_CCEIP_64_SUPPORT_BIMC_CMD1">CR_CCEIP_64_SUPPORT_BIMC_CMD1 - Transmit command to memories on the BIMC memory chain. (Function Deprecated)</a></b><br>
+  Offset (byte space) = 32'h68<br>
+  Verilog Macro Address = `CR_CCEIP_64_SUPPORT_BIMC_CMD1<br>
+  Reset Value = 32'h0000_0000<br>
+  Access = CFG (32-bit only)<br>
+</p>
+<table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:28</td><td valign="top"></td><td align="left" valign="top">&nbsp;memtype</td><td align="left">Indicate memory type the command is targetted at. cfg<br>ENCODINGS<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">27:16</td><td valign="top"></td><td align="left" valign="top">&nbsp;mem</td><td align="left">Memory number to target. Value is typically greater than 0. rw<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">15:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;addr</td><td align="left">Data field to transmit. rw<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_CCEIP_64_SUPPORT Regs Table</A></p>
+<p>
+  <b><a ID="CR_CCEIP_64_SUPPORT_BIMC_CMD0">CR_CCEIP_64_SUPPORT_BIMC_CMD0 - Transmit command to memories on the BIMC memory chain. (Function Deprecated)</a></b><br>
+  Offset (byte space) = 32'h6c<br>
+  Verilog Macro Address = `CR_CCEIP_64_SUPPORT_BIMC_CMD0<br>
+  Reset Value = 32'h0000_0000<br>
+  Access = CFG (32-bit only)<br>
+</p>
+<table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;data</td><td align="left">Data field to transmit along BIMC memory chain. rw<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_CCEIP_64_SUPPORT Regs Table</A></p>
+<p>
+  <b><a ID="CR_CCEIP_64_SUPPORT_BIMC_RXCMD2">CR_CCEIP_64_SUPPORT_BIMC_RXCMD2 - Command received from the BIMC memory chain. (Function Deprecated)</a></b><br>
+  Offset (byte space) = 32'h70<br>
+  Verilog Macro Address = `CR_CCEIP_64_SUPPORT_BIMC_RXCMD2<br>
+  Reset Value = 32'bxxxxxxxx_xxxxxxxx_xxxxxxx0_00000000<br>
+  Access = RW (32-bit only)<br>
+</p>
+<table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:10</td><td valign="top"></td><td align="left" valign="top">&nbsp;Reserved</td><td align="left">Reserved bits must be written with 0.  A read returns an unknown value.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">09</td><td valign="top"></td><td align="left" valign="top">&nbsp;ack</td><td align="left">Set to 1 to acknowledge rxcmd reg has been read.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">08</td><td valign="top"></td><td align="left" valign="top">&nbsp;rxflag</td><td align="left">Indicates register content is valid.<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">07:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;opcode</td><td align="left">OpCode field instruction for memory. ro<br>ENCODINGS<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_CCEIP_64_SUPPORT Regs Table</A></p>
+<p>
+  <b><a ID="CR_CCEIP_64_SUPPORT_BIMC_RXCMD1">CR_CCEIP_64_SUPPORT_BIMC_RXCMD1 - Command received from the BIMC memory chain. (Function Deprecated)</a></b><br>
+  Offset (byte space) = 32'h74<br>
+  Verilog Macro Address = `CR_CCEIP_64_SUPPORT_BIMC_RXCMD1<br>
+  Reset Value = 32'h0000_0000<br>
+  Access = RO (32-bit only)<br>
+</p>
+<table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:28</td><td valign="top"></td><td align="left" valign="top">&nbsp;memtype</td><td align="left">Memory type. ro<br>ENCODINGS =><br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">27:16</td><td valign="top"></td><td align="left" valign="top">&nbsp;mem</td><td align="left">Memory number. Value is typically greater than 0. ro<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">15:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;addr</td><td align="left">Data field transmitted/returned. ro<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_CCEIP_64_SUPPORT Regs Table</A></p>
+<p>
+  <b><a ID="CR_CCEIP_64_SUPPORT_BIMC_RXCMD0">CR_CCEIP_64_SUPPORT_BIMC_RXCMD0 - Command received from the BIMC memory chain. (Function Deprecated)</a></b><br>
+  Offset (byte space) = 32'h78<br>
+  Verilog Macro Address = `CR_CCEIP_64_SUPPORT_BIMC_RXCMD0<br>
+  Reset Value = 32'h0000_0000<br>
+  Access = RO (32-bit only)<br>
+</p>
+<table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;DATA</td><td align="left">Data field received from BIMC memory chain<br>Type: ro<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_CCEIP_64_SUPPORT Regs Table</A></p>
+<p>
+  <b><a ID="CR_CCEIP_64_SUPPORT_BIMC_RXRSP2">CR_CCEIP_64_SUPPORT_BIMC_RXRSP2 - Response [71:64] received from the BIMC memory chain. (Function Deprecated)</a></b><br>
+  Offset (byte space) = 32'h7c<br>
+  Verilog Macro Address = `CR_CCEIP_64_SUPPORT_BIMC_RXRSP2<br>
+  Reset Value = 32'bxxxxxxxx_xxxxxxxx_xxxxxxx0_00000000<br>
+  Access = RW (32-bit only)<br>
+</p>
+<table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:10</td><td valign="top"></td><td align="left" valign="top">&nbsp;Reserved</td><td align="left">Reserved bits must be written with 0.  A read returns an unknown value.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">09</td><td valign="top"></td><td align="left" valign="top">&nbsp;ack</td><td align="left">Set to 1 to acknowledge rxrsp reg has been read.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">08</td><td valign="top"></td><td align="left" valign="top">&nbsp;rxflag</td><td align="left">Indicates register content is valid.<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">07:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;data</td><td align="left">Data field [71:64] received from BIMC memory chain. ro<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_CCEIP_64_SUPPORT Regs Table</A></p>
+<p>
+  <b><a ID="CR_CCEIP_64_SUPPORT_BIMC_RXRSP1">CR_CCEIP_64_SUPPORT_BIMC_RXRSP1 - Response [63:32] received from the BIMC memory chain. (Function Deprecated)</a></b><br>
+  Offset (byte space) = 32'h80<br>
+  Verilog Macro Address = `CR_CCEIP_64_SUPPORT_BIMC_RXRSP1<br>
+  Reset Value = 32'h0000_0000<br>
+  Access = RO (32-bit only)<br>
+</p>
+<table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;data</td><td align="left">Data field [63:32] received from BIMC memory chain. ro<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_CCEIP_64_SUPPORT Regs Table</A></p>
+<p>
+  <b><a ID="CR_CCEIP_64_SUPPORT_BIMC_RXRSP0">CR_CCEIP_64_SUPPORT_BIMC_RXRSP0 - Response [31:0] received from the BIMC memory chain. (Function Deprecated)</a></b><br>
+  Offset (byte space) = 32'h84<br>
+  Verilog Macro Address = `CR_CCEIP_64_SUPPORT_BIMC_RXRSP0<br>
+  Reset Value = 32'h0000_0000<br>
+  Access = RO (32-bit only)<br>
+</p>
+<table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;data</td><td align="left">Data field [31:0] received from BIMC memory chain. ro<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_CCEIP_64_SUPPORT Regs Table</A></p>
+<p>
+  <b><a ID="CR_CCEIP_64_SUPPORT_BIMC_POLLRSP2">CR_CCEIP_64_SUPPORT_BIMC_POLLRSP2 - ECC/parity error polling response [71:64] received from the BIMC memory chain. (Function Deprecated)</a></b><br>
+  Offset (byte space) = 32'h88<br>
+  Verilog Macro Address = `CR_CCEIP_64_SUPPORT_BIMC_POLLRSP2<br>
+  Reset Value = 32'bxxxxxxxx_xxxxxxxx_xxxxxxx0_00000000<br>
+  Access = RW (32-bit only)<br>
+</p>
+<table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:10</td><td valign="top"></td><td align="left" valign="top">&nbsp;Reserved</td><td align="left">Reserved bits must be written with 0.  A read returns an unknown value.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">09</td><td valign="top"></td><td align="left" valign="top">&nbsp;ack</td><td align="left">Set to 1 to acknowledge pollrsp reg has been read.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">08</td><td valign="top"></td><td align="left" valign="top">&nbsp;rxflag</td><td align="left">Indicates register content is valid.<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">07:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;data</td><td align="left">Data field [71:64] received from BIMC memory chain. ro<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_CCEIP_64_SUPPORT Regs Table</A></p>
+<p>
+  <b><a ID="CR_CCEIP_64_SUPPORT_BIMC_POLLRSP1">CR_CCEIP_64_SUPPORT_BIMC_POLLRSP1 - ECC/parity error polling response [63:32] received from the BIMC memory chain. (Function Deprecated)</a></b><br>
+  Offset (byte space) = 32'h8c<br>
+  Verilog Macro Address = `CR_CCEIP_64_SUPPORT_BIMC_POLLRSP1<br>
+  Reset Value = 32'h0000_0000<br>
+  Access = RO (32-bit only)<br>
+</p>
+<table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;data</td><td align="left">Data field [63:32] received from BIMC memory chain. ro<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_CCEIP_64_SUPPORT Regs Table</A></p>
+<p>
+  <b><a ID="CR_CCEIP_64_SUPPORT_BIMC_POLLRSP0">CR_CCEIP_64_SUPPORT_BIMC_POLLRSP0 - ECC/parity polling response [31:0] received from the BIMC memory chain. (Function Deprecated)</a></b><br>
+  Offset (byte space) = 32'h90<br>
+  Verilog Macro Address = `CR_CCEIP_64_SUPPORT_BIMC_POLLRSP0<br>
+  Reset Value = 32'h0000_0000<br>
+  Access = RO (32-bit only)<br>
+</p>
+<table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;data</td><td align="left">Data field [31:0] received from BIMC memory chain. ro<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_CCEIP_64_SUPPORT Regs Table</A></p>
+<p>
+  <b><a ID="CR_CCEIP_64_SUPPORT_BIMC_DBGCMD2">CR_CCEIP_64_SUPPORT_BIMC_DBGCMD2 - Non-response command received from the BIMC memory chain. ex. write cmd, unanswered autopoll (Function Deprecated)</a></b><br>
+  Offset (byte space) = 32'h94<br>
+  Verilog Macro Address = `CR_CCEIP_64_SUPPORT_BIMC_DBGCMD2<br>
+  Reset Value = 32'bxxxxxxxx_xxxxxxxx_xxxxxxx0_00000000<br>
+  Access = RW (32-bit only)<br>
+</p>
+<table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:10</td><td valign="top"></td><td align="left" valign="top">&nbsp;Reserved</td><td align="left">Reserved bits must be written with 0.  A read returns an unknown value.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">09</td><td valign="top"></td><td align="left" valign="top">&nbsp;ack</td><td align="left">Set to 1 to acknowledge dbgcmd reg has been read.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">08</td><td valign="top"></td><td align="left" valign="top">&nbsp;rxflag</td><td align="left">Indicates register content is valid.<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">07:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;opcode</td><td align="left">OpCode field instruction (should match transmitted value). ro<br>ENCODINGS<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_CCEIP_64_SUPPORT Regs Table</A></p>
+<p>
+  <b><a ID="CR_CCEIP_64_SUPPORT_BIMC_DBGCMD1">CR_CCEIP_64_SUPPORT_BIMC_DBGCMD1 - Non-response command received from the BIMC memory chain. ex. write cmd, unanswered autopoll (Function Deprecated)</a></b><br>
+  Offset (byte space) = 32'h98<br>
+  Verilog Macro Address = `CR_CCEIP_64_SUPPORT_BIMC_DBGCMD1<br>
+  Reset Value = 32'h0000_0000<br>
+  Access = RO (32-bit only)<br>
+</p>
+<table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:28</td><td valign="top"></td><td align="left" valign="top">&nbsp;memtype</td><td align="left">Memory-type field. ro<br>ENCODINGS =><br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">27:16</td><td valign="top"></td><td align="left" valign="top">&nbsp;mem</td><td align="left">Memory number to target. Value is typically greater than 0. ro<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">15:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;addr</td><td align="left">Data field to transmit. ro<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_CCEIP_64_SUPPORT Regs Table</A></p>
+<p>
+  <b><a ID="CR_CCEIP_64_SUPPORT_BIMC_DBGCMD0">CR_CCEIP_64_SUPPORT_BIMC_DBGCMD0 - Non-response command received from the BIMC memory chain. ex. write cmd, unanswered autopoll (Function Deprecated)</a></b><br>
+  Offset (byte space) = 32'h9c<br>
+  Verilog Macro Address = `CR_CCEIP_64_SUPPORT_BIMC_DBGCMD0<br>
+  Reset Value = 32'h0000_0000<br>
+  Access = RO (32-bit only)<br>
+</p>
+<table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;data</td><td align="left">Data field received from BIMC memory chain or<br>data field to transmit depending on context. ro<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_CCEIP_64_SUPPORT Regs Table</A></p>
+</body>
+</html>

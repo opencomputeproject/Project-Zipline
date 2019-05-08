@@ -1,0 +1,85 @@
+/*************************************************************************
+*
+* Copyright © Microsoft Corporation. All rights reserved.
+* Copyright © Broadcom Inc. All rights reserved.
+* Licensed under the MIT License.
+*
+*************************************************************************/
+
+`ifndef __CR_CGPKG_SVP
+`define __CR_CGPKG_SVP
+`include "cr_global_params.vh"
+`include "cr_cg.vh"
+package cr_cgPKG;
+
+   
+   import cr_cg_regsPKG::*;
+
+   
+  typedef enum logic [2:0] 
+               {
+                CG_SEL_FGEN      = 3'h0,
+                CG_SEL_STATS_W0  = 3'h1,
+                CG_SEL_STATS_W1  = 3'h2,
+                CG_SEL_STATS_W2  = 3'h3,
+                CG_SEL_CQE_W0    = 3'h4,
+                CG_SEL_CQE_W1    = 3'h5
+                }
+               cg_tlv_mod_out_sel_e; 
+  
+  typedef enum logic [3:0] 
+               {
+                CG_UXFR_IDLE          = 4'h0,
+                CG_UXFR_RQE_W0        = 4'h1,
+                CG_UXFR_CMD_W0        = 4'h2,
+                CG_UXFR_CMD_W1        = 4'h3,
+                CG_UXFR_FIRST_FTR_W0  = 4'h4,
+                CG_UXFR_FTR_W0        = 4'h5,
+                CG_UXFR_FTR           = 4'h6,
+                CG_UXFR_FTR_DONE      = 4'h7,
+                CG_UXFR_CQE_W0        = 4'h8,
+                CG_UXFR_WAIT          = 4'h9
+                }
+               cg_user_xfr_st_e; 
+
+
+  typedef enum logic [4:0] 
+               {
+                CG_TGEN_IDLE          = 5'h0,
+                CG_GGEN_W0            = 5'h1,
+                CG_GGEN_W1            = 5'h2,
+                CG_GGEN_W2            = 5'h3,
+                CG_GGEN_W3            = 5'h4,
+                CG_FGEN_INT_W0        = 5'h5,
+                CG_FGEN_INT_W1        = 5'h6,
+                CG_FGEN_X2EMAC        = 5'h7,
+                CG_FGEN_EMAC_0        = 5'h8,
+                CG_FGEN_EMAC_1        = 5'h9,
+                CG_FGEN_EMAC_2        = 5'ha,
+                CG_FGEN_EMAC2IV       = 5'hb,
+                CG_FGEN_IV_0          = 5'hc,
+                CG_FGEN_X2RMAC        = 5'hd,
+                CG_FGEN_RMAC_0        = 5'he,
+                CG_FGEN_RMAC_1        = 5'hf,
+                CG_FGEN_RMAC_2        = 5'h10,
+                CG_FGEN_USER_PI16_W0  = 5'h11,
+                CG_FGEN_USER_PI64_W0  = 5'h12,
+                CG_FGEN_USER_VM_W0    = 5'h13,
+                CG_FGEN_USER_VM_W1    = 5'h14,
+                CG_FGEN_USER_VM_W2    = 5'h15,
+                CG_SGEN_W0            = 5'h16,
+                CG_SGEN_W1            = 5'h17,
+                CG_SGEN_W2            = 5'h18,
+                CG_CGEN_W0            = 5'h19,
+                CG_FIRST_FRMD         = 5'h1a,
+                CG_FGEN_INT_LAST      = 5'h1b,
+                CG_END_FRMD           = 5'h1c
+                }
+               cg_tgen_st_e; 
+
+
+
+   
+endpackage : cr_cgPKG
+
+`endif 

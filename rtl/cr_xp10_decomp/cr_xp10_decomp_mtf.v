@@ -1,7 +1,7 @@
 /*************************************************************************
 *
-* Copyright Â© Microsoft Corporation. All rights reserved.
-* Copyright Â© Broadcom Inc. All rights reserved.
+* Copyright © Microsoft Corporation. All rights reserved.
+* Copyright © Broadcom Inc. All rights reserved.
 * Licensed under the MIT License.
 *
 *************************************************************************/
@@ -89,7 +89,7 @@ module cr_xp10_decomp_mtf (
    logic [3:0][15:0] `DECLARE_RESET_FLOP(mtf_cache_data, '0);
    logic             `DECLARE_RESET_FLOP(mtf_cache_format, 0);
    logic             `DECLARE_RESET_FLOP(mtf_cache_ptr_last, 0);
-   huff_error_e    `DECLARE_RESET_FLOP(errcode, NO_ERRORS);
+   zipline_error_e    `DECLARE_RESET_FLOP(errcode, NO_ERRORS);
 
    logic             pipe_src_valid;
    lz_symbol_bus_t   pipe_src_data;
@@ -125,8 +125,8 @@ module cr_xp10_decomp_mtf (
 
             
             if ((r_errcode != NO_ERRORS) && 
-                (huff_error_e'(v_data_bits[`BIT_VEC($bits(huff_error_e))]) == NO_ERRORS)) begin
-               v_data_bits[`BIT_VEC($bits(huff_error_e))] = r_errcode;
+                (zipline_error_e'(v_data_bits[`BIT_VEC($bits(zipline_error_e))]) == NO_ERRORS)) begin
+               v_data_bits[`BIT_VEC($bits(zipline_error_e))] = r_errcode;
                {pipe_src_data.data3,
                 pipe_src_data.data2,
                 pipe_src_data.data1,

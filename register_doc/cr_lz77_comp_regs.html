@@ -1,0 +1,355 @@
+<!--
+/*************************************************************************
+*
+* Copyright © Microsoft Corporation. All rights reserved.
+* Copyright © Broadcom Inc. All rights reserved.
+* Licensed under the MIT License.
+*
+*************************************************************************/
+
+
+!-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=iso-8859-1">
+  <meta name="generator" content="Adobe GoLive 5">
+  <title>CR_LZ77_COMP</title>
+</head>
+
+<body>
+
+<p>Generated on Wed Aug 15 06:10:36 2018</p>
+<H1><a ID="Regs_Registers">CR_LZ77_COMP Regs Registers</a></H1>
+<table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="10%">Offset<br>(byte space)</th><th align="center" width="8%">Flags</th><th align="center" width="22%">Register Name </th><th align="center" width="60%">Description</th></tr>
+  <tr><td align="center">0x0</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_LZ77_COMP_revid" >CR_LZ77_COMP_revid</A></td><td>&nbsp;Revision read only register<br></td></tr>
+  <tr><td align="center">0x4</td><td valign="top"> acc=RW</td><td>&nbsp;<A HREF="#CR_LZ77_COMP_spare" >CR_LZ77_COMP_spare</A></td><td>&nbsp;Spare configuration register<br></td></tr>
+  <tr><td align="center">0x8</td><td valign="top"> acc=CFG</td><td>&nbsp;<A HREF="#CR_LZ77_COMP_tlv_parse_action_15_0" >CR_LZ77_COMP_tlv_parse_action_15_0</A></td><td>&nbsp;TLV Parser Action for TLV types 0 to 15<br></td></tr>
+  <tr><td align="center">0xc</td><td valign="top"> acc=CFG</td><td>&nbsp;<A HREF="#CR_LZ77_COMP_tlv_parse_action_31_16" >CR_LZ77_COMP_tlv_parse_action_31_16</A></td><td>&nbsp;TLV Parser Action for TLV types 16 to 31<br></td></tr>
+  <tr><td align="center">0x10</td><td valign="top"> acc=CFG</td><td>&nbsp;<A HREF="#CR_LZ77_COMP_compression_cfg" >CR_LZ77_COMP_compression_cfg</A></td><td>&nbsp;LZ77 compressor configuration<br></td></tr>
+  <tr><td align="center">0x14</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_LZ77_COMP_lz77_comp_debug_status" >CR_LZ77_COMP_lz77_comp_debug_status</A></td><td>&nbsp;LZ77 debug info<br></td></tr>
+  <tr><td align="center">0x18</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_LZ77_COMP_out_ia_capability" >CR_LZ77_COMP_out_ia_capability</A></td><td>&nbsp;OUT Indirect Access Capability Register<br></td></tr>
+  <tr><td align="center">0x1c</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_LZ77_COMP_out_ia_status" >CR_LZ77_COMP_out_ia_status</A></td><td>&nbsp;OUT Indirect Access Status Register<br></td></tr>
+  <tr><td align="center">0x20</td><td valign="top"> acc=CFG</td><td>&nbsp;<A HREF="#CR_LZ77_COMP_out_ia_wdata_part0" >CR_LZ77_COMP_out_ia_wdata_part0</A></td><td>&nbsp;OUT Indirect Access Write Data Register (OUT_Part0_t)<br></td></tr>
+  <tr><td align="center">0x24</td><td valign="top"> acc=CFG</td><td>&nbsp;<A HREF="#CR_LZ77_COMP_out_ia_wdata_part1" >CR_LZ77_COMP_out_ia_wdata_part1</A></td><td>&nbsp;OUT Indirect Access Write Data Register (OUT_Part1_t)<br></td></tr>
+  <tr><td align="center">0x28</td><td valign="top"> acc=CFG</td><td>&nbsp;<A HREF="#CR_LZ77_COMP_out_ia_wdata_part2" >CR_LZ77_COMP_out_ia_wdata_part2</A></td><td>&nbsp;OUT Indirect Access Write Data Register (OUT_Part2_t)<br></td></tr>
+  <tr><td align="center">0x2c</td><td valign="top"> acc=CFG</td><td>&nbsp;<A HREF="#CR_LZ77_COMP_out_ia_config" >CR_LZ77_COMP_out_ia_config</A></td><td>&nbsp;OUT Indirect Access Config Register<br></td></tr>
+  <tr><td align="center">0x30</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_LZ77_COMP_out_ia_rdata_part0" >CR_LZ77_COMP_out_ia_rdata_part0</A></td><td>&nbsp;OUT Indirect Access Read Data Register (OUT_Part0_t)<br></td></tr>
+  <tr><td align="center">0x34</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_LZ77_COMP_out_ia_rdata_part1" >CR_LZ77_COMP_out_ia_rdata_part1</A></td><td>&nbsp;OUT Indirect Access Read Data Register (OUT_Part1_t)<br></td></tr>
+  <tr><td align="center">0x38</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_LZ77_COMP_out_ia_rdata_part2" >CR_LZ77_COMP_out_ia_rdata_part2</A></td><td>&nbsp;OUT Indirect Access Read Data Register (OUT_Part2_t)<br></td></tr>
+  <tr><td align="center">0x3c</td><td valign="top"> acc=CFG</td><td>&nbsp;<A HREF="#CR_LZ77_COMP_out_im_config" >CR_LZ77_COMP_out_im_config</A></td><td>&nbsp;OUT Interface Monitor Configuration Register<br></td></tr>
+  <tr><td align="center">0x40</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_LZ77_COMP_out_im_status" >CR_LZ77_COMP_out_im_status</A></td><td>&nbsp;OUT Interface Monitor Status Register<br></td></tr>
+  <tr><td align="center">0x44</td><td valign="top"> acc=RW</td><td>&nbsp;<A HREF="#CR_LZ77_COMP_out_im_read_done" >CR_LZ77_COMP_out_im_read_done</A></td><td>&nbsp;OUT Interface Monitor Read Done<br></td></tr>
+  <tr><td align="center">0x48</td><td valign="top"> acc=CFG</td><td>&nbsp;<A HREF="#CR_LZ77_COMP_power_credit_burst" >CR_LZ77_COMP_power_credit_burst</A></td><td>&nbsp;LZ77 power credit burst<br></td></tr>
+</table>
+<p>Flag legend: acc=access</p><p></p>
+<p>
+  <b><a ID="CR_LZ77_COMP_revid">CR_LZ77_COMP_revid - Revision read only register</a></b><br>
+  Offset (byte space) = 32'h0<br>
+  Verilog Macro Address = `CR_LZ77_COMP_REVID<br>
+  Reset Value = 32'bxxxxxxxx_xxxxxxxx_xxxxxxxx_00000000<br>
+  Access = RO (32-bit only)<br>
+</p>
+<table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:08</td><td valign="top"></td><td align="left" valign="top">&nbsp;Reserved</td><td align="left">Reserved bits must be written with 0.  A read returns an unknown value.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">07:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;revid</td><td align="left">Revision control register.<br>Connect to TIE cells in order to change<br>via 1 layer metal spin.<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_LZ77_COMP Regs Table</A></p>
+<p>
+  <b><a ID="CR_LZ77_COMP_spare">CR_LZ77_COMP_spare - Spare configuration register</a></b><br>
+  Offset (byte space) = 32'h4<br>
+  Verilog Macro Address = `CR_LZ77_COMP_SPARE<br>
+  Reset Value = 32'h0000_0000<br>
+  Access = RW (32-bit only)<br>
+</p>
+<table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;spare</td><td align="left">Spare control register<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_LZ77_COMP Regs Table</A></p>
+<p>
+  <b><a ID="CR_LZ77_COMP_tlv_parse_action_15_0">CR_LZ77_COMP_tlv_parse_action_15_0 - TLV Parser Action for TLV types 0 to 15</a></b><br>
+  Offset (byte space) = 32'h8<br>
+  Verilog Macro Address = `CR_LZ77_COMP_TLV_PARSE_ACTION_15_0<br>
+  Reset Value = 32'h5555_6851<br>
+  Access = CFG (32-bit only)<br>
+</p>
+<table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:30</td><td valign="top"></td><td align="left" valign="top">&nbsp;type15_action</td><td align="left">type number 15 action<br>0 = <i>REP</i><br>replicate tlv, write tlv to both fifo's<br>1 = <i>PASS</i><br>passthrough tlv, write tlv to passthrough fifo only<br>2 = <i>MODIFY</i><br>modify tlv, write tlv to user_rx fifo only<br>3 = <i>DELETE</i><br>delete tlv, write tlv to user_rx fifo only, order number not incremented, user should not write this tlv back to the user_tx interface<br>Reset value is <i>PASS</i>.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">29:28</td><td valign="top"></td><td align="left" valign="top">&nbsp;type14_action</td><td align="left">type number 14 action<br>0 = <i>REP</i><br>replicate tlv, write tlv to both fifo's<br>1 = <i>PASS</i><br>passthrough tlv, write tlv to passthrough fifo only<br>2 = <i>MODIFY</i><br>modify tlv, write tlv to user_rx fifo only<br>3 = <i>DELETE</i><br>delete tlv, write tlv to user_rx fifo only, order number not incremented, user should not write this tlv back to the user_tx interface<br>Reset value is <i>PASS</i>.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">27:26</td><td valign="top"></td><td align="left" valign="top">&nbsp;type13_action</td><td align="left">type number 13 action<br>0 = <i>REP</i><br>replicate tlv, write tlv to both fifo's<br>1 = <i>PASS</i><br>passthrough tlv, write tlv to passthrough fifo only<br>2 = <i>MODIFY</i><br>modify tlv, write tlv to user_rx fifo only<br>3 = <i>DELETE</i><br>delete tlv, write tlv to user_rx fifo only, order number not incremented, user should not write this tlv back to the user_tx interface<br>Reset value is <i>PASS</i>.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">25:24</td><td valign="top"></td><td align="left" valign="top">&nbsp;type12_action</td><td align="left">type number 12 action<br>0 = <i>REP</i><br>replicate tlv, write tlv to both fifo's<br>1 = <i>PASS</i><br>passthrough tlv, write tlv to passthrough fifo only<br>2 = <i>MODIFY</i><br>modify tlv, write tlv to user_rx fifo only<br>3 = <i>DELETE</i><br>delete tlv, write tlv to user_rx fifo only, order number not incremented, user should not write this tlv back to the user_tx interface<br>Reset value is <i>PASS</i>.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">23:22</td><td valign="top"></td><td align="left" valign="top">&nbsp;type11_action</td><td align="left">type number 11 action<br>0 = <i>REP</i><br>replicate tlv, write tlv to both fifo's<br>1 = <i>PASS</i><br>passthrough tlv, write tlv to passthrough fifo only<br>2 = <i>MODIFY</i><br>modify tlv, write tlv to user_rx fifo only<br>3 = <i>DELETE</i><br>delete tlv, write tlv to user_rx fifo only, order number not incremented, user should not write this tlv back to the user_tx interface<br>Reset value is <i>PASS</i>.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">21:20</td><td valign="top"></td><td align="left" valign="top">&nbsp;type10_action</td><td align="left">type number 10 action<br>0 = <i>REP</i><br>replicate tlv, write tlv to both fifo's<br>1 = <i>PASS</i><br>passthrough tlv, write tlv to passthrough fifo only<br>2 = <i>MODIFY</i><br>modify tlv, write tlv to user_rx fifo only<br>3 = <i>DELETE</i><br>delete tlv, write tlv to user_rx fifo only, order number not incremented, user should not write this tlv back to the user_tx interface<br>Reset value is <i>PASS</i>.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">19:18</td><td valign="top"></td><td align="left" valign="top">&nbsp;type9_action</td><td align="left">type number 9 action<br>0 = <i>REP</i><br>replicate tlv, write tlv to both fifo's<br>1 = <i>PASS</i><br>passthrough tlv, write tlv to passthrough fifo only<br>2 = <i>MODIFY</i><br>modify tlv, write tlv to user_rx fifo only<br>3 = <i>DELETE</i><br>delete tlv, write tlv to user_rx fifo only, order number not incremented, user should not write this tlv back to the user_tx interface<br>Reset value is <i>PASS</i>.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">17:16</td><td valign="top"></td><td align="left" valign="top">&nbsp;type8_action</td><td align="left">type number 8 action<br>0 = <i>REP</i><br>replicate tlv, write tlv to both fifo's<br>1 = <i>PASS</i><br>passthrough tlv, write tlv to passthrough fifo only<br>2 = <i>MODIFY</i><br>modify tlv, write tlv to user_rx fifo only<br>3 = <i>DELETE</i><br>delete tlv, write tlv to user_rx fifo only, order number not incremented, user should not write this tlv back to the user_tx interface<br>Reset value is <i>PASS</i>.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">15:14</td><td valign="top"></td><td align="left" valign="top">&nbsp;type7_action</td><td align="left">type number 7 action<br>0 = <i>REP</i><br>replicate tlv, write tlv to both fifo's<br>1 = <i>PASS</i><br>passthrough tlv, write tlv to passthrough fifo only<br>2 = <i>MODIFY</i><br>modify tlv, write tlv to user_rx fifo only<br>3 = <i>DELETE</i><br>delete tlv, write tlv to user_rx fifo only, order number not incremented, user should not write this tlv back to the user_tx interface<br>Reset value is <i>PASS</i>.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">13:12</td><td valign="top"></td><td align="left" valign="top">&nbsp;type6_action</td><td align="left">type number 6 action<br>0 = <i>REP</i><br>replicate tlv, write tlv to both fifo's<br>1 = <i>PASS</i><br>passthrough tlv, write tlv to passthrough fifo only<br>2 = <i>MODIFY</i><br>modify tlv, write tlv to user_rx fifo only<br>3 = <i>DELETE</i><br>delete tlv, write tlv to user_rx fifo only, order number not incremented, user should not write this tlv back to the user_tx interface<br>Reset value is <i>MODIFY</i>.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">11:10</td><td valign="top"></td><td align="left" valign="top">&nbsp;type5_action</td><td align="left">type number 5 action<br>0 = <i>REP</i><br>replicate tlv, write tlv to both fifo's<br>1 = <i>PASS</i><br>passthrough tlv, write tlv to passthrough fifo only<br>2 = <i>MODIFY</i><br>modify tlv, write tlv to user_rx fifo only<br>3 = <i>DELETE</i><br>delete tlv, write tlv to user_rx fifo only, order number not incremented, user should not write this tlv back to the user_tx interface<br>Reset value is <i>MODIFY</i>.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">09:08</td><td valign="top"></td><td align="left" valign="top">&nbsp;type4_action</td><td align="left">type number 4 action<br>0 = <i>REP</i><br>replicate tlv, write tlv to both fifo's<br>1 = <i>PASS</i><br>passthrough tlv, write tlv to passthrough fifo only<br>2 = <i>MODIFY</i><br>modify tlv, write tlv to user_rx fifo only<br>3 = <i>DELETE</i><br>delete tlv, write tlv to user_rx fifo only, order number not incremented, user should not write this tlv back to the user_tx interface<br>Reset value is <i>REP</i>.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">07:06</td><td valign="top"></td><td align="left" valign="top">&nbsp;type3_action</td><td align="left">type number 3 action<br>0 = <i>REP</i><br>replicate tlv, write tlv to both fifo's<br>1 = <i>PASS</i><br>passthrough tlv, write tlv to passthrough fifo only<br>2 = <i>MODIFY</i><br>modify tlv, write tlv to user_rx fifo only<br>3 = <i>DELETE</i><br>delete tlv, write tlv to user_rx fifo only, order number not incremented, user should not write this tlv back to the user_tx interface<br>Reset value is <i>PASS</i>.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">05:04</td><td valign="top"></td><td align="left" valign="top">&nbsp;type2_action</td><td align="left">type number 2 action<br>0 = <i>REP</i><br>replicate tlv, write tlv to both fifo's<br>1 = <i>PASS</i><br>passthrough tlv, write tlv to passthrough fifo only<br>2 = <i>MODIFY</i><br>modify tlv, write tlv to user_rx fifo only<br>3 = <i>DELETE</i><br>delete tlv, write tlv to user_rx fifo only, order number not incremented, user should not write this tlv back to the user_tx interface<br>Reset value is <i>PASS</i>.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">03:02</td><td valign="top"></td><td align="left" valign="top">&nbsp;type1_action</td><td align="left">type number 1 action<br>0 = <i>REP</i><br>replicate tlv, write tlv to both fifo's<br>1 = <i>PASS</i><br>passthrough tlv, write tlv to passthrough fifo only<br>2 = <i>MODIFY</i><br>modify tlv, write tlv to user_rx fifo only<br>3 = <i>DELETE</i><br>delete tlv, write tlv to user_rx fifo only, order number not incremented, user should not write this tlv back to the user_tx interface<br>Reset value is <i>REP</i>.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">01:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;type0_action</td><td align="left">type number 0 action<br>0 = <i>REP</i><br>replicate tlv, write tlv to both fifo's<br>1 = <i>PASS</i><br>passthrough tlv, write tlv to passthrough fifo only<br>2 = <i>MODIFY</i><br>modify tlv, write tlv to user_rx fifo only<br>3 = <i>DELETE</i><br>delete tlv, write tlv to user_rx fifo only, order number not incremented, user should not write this tlv back to the user_tx interface<br>Reset value is <i>PASS</i>.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_LZ77_COMP Regs Table</A></p>
+<p>
+  <b><a ID="CR_LZ77_COMP_tlv_parse_action_31_16">CR_LZ77_COMP_tlv_parse_action_31_16 - TLV Parser Action for TLV types 16 to 31</a></b><br>
+  Offset (byte space) = 32'hc<br>
+  Verilog Macro Address = `CR_LZ77_COMP_TLV_PARSE_ACTION_31_16<br>
+  Reset Value = 32'h5555_5595<br>
+  Access = CFG (32-bit only)<br>
+</p>
+<table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:30</td><td valign="top"></td><td align="left" valign="top">&nbsp;type31_action</td><td align="left">type number 31 action<br>0 = <i>REP</i><br>replicate tlv, write tlv to both fifo's<br>1 = <i>PASS</i><br>passthrough tlv, write tlv to passthrough fifo only<br>2 = <i>MODIFY</i><br>modify tlv, write tlv to user_rx fifo only<br>3 = <i>DELETE</i><br>delete tlv, write tlv to user_rx fifo only, order number not incremented, user should not write this tlv back to the user_tx interface<br>Reset value is <i>PASS</i>.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">29:28</td><td valign="top"></td><td align="left" valign="top">&nbsp;type30_action</td><td align="left">type number 30 action<br>0 = <i>REP</i><br>replicate tlv, write tlv to both fifo's<br>1 = <i>PASS</i><br>passthrough tlv, write tlv to passthrough fifo only<br>2 = <i>MODIFY</i><br>modify tlv, write tlv to user_rx fifo only<br>3 = <i>DELETE</i><br>delete tlv, write tlv to user_rx fifo only, order number not incremented, user should not write this tlv back to the user_tx interface<br>Reset value is <i>PASS</i>.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">27:26</td><td valign="top"></td><td align="left" valign="top">&nbsp;type29_action</td><td align="left">type number 29 action<br>0 = <i>REP</i><br>replicate tlv, write tlv to both fifo's<br>1 = <i>PASS</i><br>passthrough tlv, write tlv to passthrough fifo only<br>2 = <i>MODIFY</i><br>modify tlv, write tlv to user_rx fifo only<br>3 = <i>DELETE</i><br>delete tlv, write tlv to user_rx fifo only, order number not incremented, user should not write this tlv back to the user_tx interface<br>Reset value is <i>PASS</i>.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">25:24</td><td valign="top"></td><td align="left" valign="top">&nbsp;type28_action</td><td align="left">type number 28 action<br>0 = <i>REP</i><br>replicate tlv, write tlv to both fifo's<br>1 = <i>PASS</i><br>passthrough tlv, write tlv to passthrough fifo only<br>2 = <i>MODIFY</i><br>modify tlv, write tlv to user_rx fifo only<br>3 = <i>DELETE</i><br>delete tlv, write tlv to user_rx fifo only, order number not incremented, user should not write this tlv back to the user_tx interface<br>Reset value is <i>PASS</i>.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">23:22</td><td valign="top"></td><td align="left" valign="top">&nbsp;type27_action</td><td align="left">type number 27 action<br>0 = <i>REP</i><br>replicate tlv, write tlv to both fifo's<br>1 = <i>PASS</i><br>passthrough tlv, write tlv to passthrough fifo only<br>2 = <i>MODIFY</i><br>modify tlv, write tlv to user_rx fifo only<br>3 = <i>DELETE</i><br>delete tlv, write tlv to user_rx fifo only, order number not incremented, user should not write this tlv back to the user_tx interface<br>Reset value is <i>PASS</i>.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">21:20</td><td valign="top"></td><td align="left" valign="top">&nbsp;type26_action</td><td align="left">type number 26 action<br>0 = <i>REP</i><br>replicate tlv, write tlv to both fifo's<br>1 = <i>PASS</i><br>passthrough tlv, write tlv to passthrough fifo only<br>2 = <i>MODIFY</i><br>modify tlv, write tlv to user_rx fifo only<br>3 = <i>DELETE</i><br>delete tlv, write tlv to user_rx fifo only, order number not incremented, user should not write this tlv back to the user_tx interface<br>Reset value is <i>PASS</i>.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">19:18</td><td valign="top"></td><td align="left" valign="top">&nbsp;type25_action</td><td align="left">type number 25 action<br>0 = <i>REP</i><br>replicate tlv, write tlv to both fifo's<br>1 = <i>PASS</i><br>passthrough tlv, write tlv to passthrough fifo only<br>2 = <i>MODIFY</i><br>modify tlv, write tlv to user_rx fifo only<br>3 = <i>DELETE</i><br>delete tlv, write tlv to user_rx fifo only, order number not incremented, user should not write this tlv back to the user_tx interface<br>Reset value is <i>PASS</i>.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">17:16</td><td valign="top"></td><td align="left" valign="top">&nbsp;type24_action</td><td align="left">type number 24 action<br>0 = <i>REP</i><br>replicate tlv, write tlv to both fifo's<br>1 = <i>PASS</i><br>passthrough tlv, write tlv to passthrough fifo only<br>2 = <i>MODIFY</i><br>modify tlv, write tlv to user_rx fifo only<br>3 = <i>DELETE</i><br>delete tlv, write tlv to user_rx fifo only, order number not incremented, user should not write this tlv back to the user_tx interface<br>Reset value is <i>PASS</i>.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">15:14</td><td valign="top"></td><td align="left" valign="top">&nbsp;type23_action</td><td align="left">type number 23 action<br>0 = <i>REP</i><br>replicate tlv, write tlv to both fifo's<br>1 = <i>PASS</i><br>passthrough tlv, write tlv to passthrough fifo only<br>2 = <i>MODIFY</i><br>modify tlv, write tlv to user_rx fifo only<br>3 = <i>DELETE</i><br>delete tlv, write tlv to user_rx fifo only, order number not incremented, user should not write this tlv back to the user_tx interface<br>Reset value is <i>PASS</i>.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">13:12</td><td valign="top"></td><td align="left" valign="top">&nbsp;type22_action</td><td align="left">type number22 action<br>0 = <i>REP</i><br>replicate tlv, write tlv to both fifo's<br>1 = <i>PASS</i><br>passthrough tlv, write tlv to passthrough fifo only<br>2 = <i>MODIFY</i><br>modify tlv, write tlv to user_rx fifo only<br>3 = <i>DELETE</i><br>delete tlv, write tlv to user_rx fifo only, order number not incremented, user should not write this tlv back to the user_tx interface<br>Reset value is <i>PASS</i>.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">11:10</td><td valign="top"></td><td align="left" valign="top">&nbsp;typ21_action</td><td align="left">type number 21 action<br>0 = <i>REP</i><br>replicate tlv, write tlv to both fifo's<br>1 = <i>PASS</i><br>passthrough tlv, write tlv to passthrough fifo only<br>2 = <i>MODIFY</i><br>modify tlv, write tlv to user_rx fifo only<br>3 = <i>DELETE</i><br>delete tlv, write tlv to user_rx fifo only, order number not incremented, user should not write this tlv back to the user_tx interface<br>Reset value is <i>PASS</i>.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">09:08</td><td valign="top"></td><td align="left" valign="top">&nbsp;type20_action</td><td align="left">type number 20 action<br>0 = <i>REP</i><br>replicate tlv, write tlv to both fifo's<br>1 = <i>PASS</i><br>passthrough tlv, write tlv to passthrough fifo only<br>2 = <i>MODIFY</i><br>modify tlv, write tlv to user_rx fifo only<br>3 = <i>DELETE</i><br>delete tlv, write tlv to user_rx fifo only, order number not incremented, user should not write this tlv back to the user_tx interface<br>Reset value is <i>PASS</i>.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">07:06</td><td valign="top"></td><td align="left" valign="top">&nbsp;type19_action</td><td align="left">type number 19 action<br>0 = <i>REP</i><br>replicate tlv, write tlv to both fifo's<br>1 = <i>PASS</i><br>passthrough tlv, write tlv to passthrough fifo only<br>2 = <i>MODIFY</i><br>modify tlv, write tlv to user_rx fifo only<br>3 = <i>DELETE</i><br>delete tlv, write tlv to user_rx fifo only, order number not incremented, user should not write this tlv back to the user_tx interface<br>Reset value is <i>MODIFY</i>.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">05:04</td><td valign="top"></td><td align="left" valign="top">&nbsp;type18_action</td><td align="left">type number 18 action<br>0 = <i>REP</i><br>replicate tlv, write tlv to both fifo's<br>1 = <i>PASS</i><br>passthrough tlv, write tlv to passthrough fifo only<br>2 = <i>MODIFY</i><br>modify tlv, write tlv to user_rx fifo only<br>3 = <i>DELETE</i><br>delete tlv, write tlv to user_rx fifo only, order number not incremented, user should not write this tlv back to the user_tx interface<br>Reset value is <i>PASS</i>.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">03:02</td><td valign="top"></td><td align="left" valign="top">&nbsp;type17_action</td><td align="left">type number 17 action<br>0 = <i>REP</i><br>replicate tlv, write tlv to both fifo's<br>1 = <i>PASS</i><br>passthrough tlv, write tlv to passthrough fifo only<br>2 = <i>MODIFY</i><br>modify tlv, write tlv to user_rx fifo only<br>3 = <i>DELETE</i><br>delete tlv, write tlv to user_rx fifo only, order number not incremented, user should not write this tlv back to the user_tx interface<br>Reset value is <i>PASS</i>.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">01:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;type16_action</td><td align="left">type number 16 action<br>0 = <i>REP</i><br>replicate tlv, write tlv to both fifo's<br>1 = <i>PASS</i><br>passthrough tlv, write tlv to passthrough fifo only<br>2 = <i>MODIFY</i><br>modify tlv, write tlv to user_rx fifo only<br>3 = <i>DELETE</i><br>delete tlv, write tlv to user_rx fifo only, order number not incremented, user should not write this tlv back to the user_tx interface<br>Reset value is <i>PASS</i>.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_LZ77_COMP Regs Table</A></p>
+<p>
+  <b><a ID="CR_LZ77_COMP_compression_cfg">CR_LZ77_COMP_compression_cfg - LZ77 compressor configuration</a></b><br>
+  Offset (byte space) = 32'h10<br>
+  Verilog Macro Address = `CR_LZ77_COMP_COMPRESSION_CFG<br>
+  Reset Value = 32'bxxxxxxxx_xxxxxx10_00000000_00000001<br>
+  Access = CFG (32-bit only)<br>
+</p>
+<table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:18</td><td valign="top"></td><td align="left" valign="top">&nbsp;Reserved</td><td align="left">Reserved bits must be written with 0.  A read returns an unknown value.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">17:01</td><td valign="top"></td><td align="left" valign="top">&nbsp;power_credit_per_clock</td><td align="left">Typically set to the number of active history buffer elements worth<br>of dynamic power tha tcan be sustanined indefinitely..<br>Reset value is <i>65536</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">00</td><td valign="top"></td><td align="left" valign="top">&nbsp;mtf_en</td><td align="left">Enable the Move-To-Front feature.  Allows the compression logic the<br>option to replace the offset of a match with an index pointing to an<br>entry on the mtf stack which carries the same offset value.<br>Reset value is <i>1</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_LZ77_COMP Regs Table</A></p>
+<p>
+  <b><a ID="CR_LZ77_COMP_lz77_comp_debug_status">CR_LZ77_COMP_lz77_comp_debug_status - LZ77 debug info</a></b><br>
+  Offset (byte space) = 32'h14<br>
+  Verilog Macro Address = `CR_LZ77_COMP_LZ77_COMP_DEBUG_STATUS<br>
+  Reset Value = 32'bxxxxxxxx_xxxxxxxx_x0000000_00000000<br>
+  Access = RO (32-bit only)<br>
+</p>
+<table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:15</td><td valign="top"></td><td align="left" valign="top">&nbsp;Reserved</td><td align="left">Reserved bits must be written with 0.  A read returns an unknown value.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">14</td><td valign="top"></td><td align="left" valign="top">&nbsp;live_throttle_active</td><td align="left">Set to 1 if the current frame has been clock-throttled.<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">13</td><td valign="top"></td><td align="left" valign="top">&nbsp;sticky_throttle_active</td><td align="left">Transitions to 1 when a frame has been clock-throttled. Stays<br>set until the register is read.<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">12:11</td><td valign="top"></td><td align="left" valign="top">&nbsp;lz77_max_symb_len</td><td align="left">Current maximum match length set via command tlv<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">10</td><td valign="top"></td><td align="left" valign="top">&nbsp;lz77_min_match_len</td><td align="left">Current minimum match length set via command tlv<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">09:08</td><td valign="top"></td><td align="left" valign="top">&nbsp;lz77_dly_match_win</td><td align="left">Current delay match window set via command tlv<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">07:04</td><td valign="top"></td><td align="left" valign="top">&nbsp;lz77_win_size</td><td align="left">Current window size set via command tlv<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">03:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;comp_mode</td><td align="left">Current compression mode set via command tlv<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_LZ77_COMP Regs Table</A></p>
+<p>
+  <b><a ID="CR_LZ77_COMP_out_ia_capability">CR_LZ77_COMP_out_ia_capability - OUT Indirect Access Capability Register</a></b><br>
+  Offset (byte space) = 32'h18<br>
+  Verilog Macro Address = `CR_LZ77_COMP_OUT_IA_CAPABILITY<br>
+  Reset Value = 32'hxxxx_xxxx<br>
+  Access = RO (32-bit only)<br>
+</p>
+The OUT indirect access capability register is used to give<br>the status of all the indirect access operation capabilites<br>that can be handled;<br>Refer to OUT Config register for descriptions of the indirect<br>access operations.<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:28</td><td valign="top"></td><td align="left" valign="top">&nbsp;mem_type</td><td align="left">MEM_TYPE<br>0 = <i>SPRAM</i><br>SPRAM memory<br>1 = <i>SRFRAM</i><br>SRFRAM memory<br>2 = <i>REG</i><br>REG memory<br>3 = <i>TCAM</i><br>TCAM memory<br>4 = <i>MEM_TYPE_4</i><br>Reserved memory type<br>5 = <i>MEM_TYPE_5</i><br>Reserved memory type<br>6 = <i>MEM_TYPE_6</i><br>Reserved memory type<br>7 = <i>MEM_TYPE_7</i><br>Reserved memory type<br>8 = <i>MEM_TYPE_8</i><br>Reserved memory type<br>9 = <i>MEM_TYPE_9</i><br>Reserved memory type<br>10 = <i>MEM_TYPE_10</i><br>Reserved memory type<br>11 = <i>MEM_TYPE_11</i><br>Reserved memory type<br>12 = <i>MEM_TYPE_12</i><br>Reserved memory type<br>13 = <i>MEM_TYPE_13</i><br>Reserved memory type<br>14 = <i>MEM_TYPE_14</i><br>Reserved memory type<br>15 = <i>MEM_TYPE_15</i><br>Reserved memory type<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">27:16</td><td valign="top"></td><td align="left" valign="top">&nbsp;Reserved</td><td align="left">Reserved bits must be written with 0.  A read returns an unknown value.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">15</td><td valign="top"></td><td align="left" valign="top">&nbsp;ack_error</td><td align="left">1 = ack_error operation is supported; 0 = ack_error operation is NOT supported;<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">14</td><td valign="top"></td><td align="left" valign="top">&nbsp;sim_tmo</td><td align="left">1 = sim_tmo operation is supported; 0 = sim_tmo operation is NOT supported;<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">13:10</td><td valign="top"></td><td align="left" valign="top">&nbsp;reserved_op</td><td align="left">reserved_op are reserved bits that don't map to any operations supported<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">09</td><td valign="top"></td><td align="left" valign="top">&nbsp;compare</td><td align="left">1 = compare operation is supported; 0 = compare operation is NOT supported;<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">08</td><td valign="top"></td><td align="left" valign="top">&nbsp;set_init_start</td><td align="left">1 = set_init_start operation is supported; 0 = set_init_start operation is NOT supported;<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">07</td><td valign="top"></td><td align="left" valign="top">&nbsp;initialize_inc</td><td align="left">1 = initialize_inc operation is supported; 0 = initialize_inc operation is NOT supported;<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">06</td><td valign="top"></td><td align="left" valign="top">&nbsp;initialize</td><td align="left">1 = initialze operation is supported; 0 = initialize operation is NOT supported;<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">05</td><td valign="top"></td><td align="left" valign="top">&nbsp;reset</td><td align="left">1 = reset operation is supported; 0 = reset operation is NOT supported;<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">04</td><td valign="top"></td><td align="left" valign="top">&nbsp;disabled</td><td align="left">1 = disabled operation is supported; 0 = disabled operation is NOT supported;<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">03</td><td valign="top"></td><td align="left" valign="top">&nbsp;enable</td><td align="left">1 = enable operation is supported; 0 = enable operation is NOT supported;<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">02</td><td valign="top"></td><td align="left" valign="top">&nbsp;write</td><td align="left">1 = write operation is supported; 0 = write operation is NOT supported;<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">01</td><td valign="top"></td><td align="left" valign="top">&nbsp;read</td><td align="left">1 = read operation is supported; 0 = read operation is NOT supported;<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">00</td><td valign="top"></td><td align="left" valign="top">&nbsp;nop</td><td align="left">1 = nop operation is supported; 0 = nop operation is NOT supported;<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_LZ77_COMP Regs Table</A></p>
+<p>
+  <b><a ID="CR_LZ77_COMP_out_ia_status">CR_LZ77_COMP_out_ia_status - OUT Indirect Access Status Register</a></b><br>
+  Offset (byte space) = 32'h1c<br>
+  Verilog Macro Address = `CR_LZ77_COMP_OUT_IA_STATUS<br>
+  Reset Value = 32'b00000010_xxxxxxxx_xxxxxxx1_11111111<br>
+  Access = RO (32-bit only)<br>
+</p>
+The OUT indirect access status register is used to provide<br>information about OUT indirect accesses.<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:29</td><td valign="top"> acc=RO</td><td align="left" valign="top">&nbsp;code</td><td align="left">FIELD ACCESS: RO<br><br>Indicates the status of the indirect access. Commands should only be<br>issued when this status indicates READY. Errors are signalled with<br>a status that is not READY and not BUSY. Errors must be acknowledged<br>before any other commands will be accepted.<br>0 = <i>READY</i><br>Ready for access.<br>1 = <i>BUSY</i><br>Busy with current command.<br>2 = <i>TMO</i><br>Timed out on current command.<br>3 = <i>OVR</i><br>Command overrun, command issued when machine not ready.<br>4 = <i>NXM</i><br>Command attempted access to illegal offset.<br>5 = <i>UOP</i><br>Unsupported opcode. Command opcode is not supported.<br>7 = <i>PDN</i><br>Memory is in power-down state.<br>Reset value is <i>READY</i>.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">28:24</td><td valign="top"> acc=RO</td><td align="left" valign="top">&nbsp;datawords</td><td align="left">FIELD ACCESS: RO<br><br>Indicates the number of registers in the indirect access data<br>register array minus one.<br>Reset value is <i>2</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">23:09</td><td valign="top"></td><td align="left" valign="top">&nbsp;Reserved</td><td align="left">Reserved bits must be written with 0.  A read returns an unknown value.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">08:00</td><td valign="top"> acc=RO</td><td align="left" valign="top">&nbsp;addr</td><td align="left">FIELD ACCESS: RO<br><br>While the access controller is in the init state then this will<br>read zero (representing a memory with a single entry) which is how<br>the memory will behave. After an enable command is issued and the<br>controller enters the ready state then this will be 511<br>indicating a memory with 512 entries.<br>Reset value is <i>511</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p>Flag legend: acc=access</p><p></p>
+<p><A HREF="#Regs_Registers">Return to CR_LZ77_COMP Regs Table</A></p>
+<p>
+  <b><a ID="CR_LZ77_COMP_out_ia_wdata_part0">CR_LZ77_COMP_out_ia_wdata_part0 - OUT Indirect Access Write Data Register (OUT_Part0_t)</a></b><br>
+  Offset (byte space) = 32'h20<br>
+  Verilog Macro Address = `CR_LZ77_COMP_OUT_IA_WDATA_PART0<br>
+  Reset Value = 32'bxxxxxxxx_xxxxxxxx_xxxxxxxx_xx000000<br>
+  Access = CFG (32-bit only)<br>
+</p>
+Interface monitor descriptor<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31</td><td valign="top"></td><td align="left" valign="top">&nbsp;eob</td><td align="left">&nbsp;</td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">30:23</td><td valign="top"></td><td align="left" valign="top">&nbsp;bytes_vld</td><td align="left">&nbsp;</td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">22:15</td><td valign="top"></td><td align="left" valign="top">&nbsp;unused1</td><td align="left">&nbsp;</td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">14</td><td valign="top"></td><td align="left" valign="top">&nbsp;tid</td><td align="left">&nbsp;</td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">13:06</td><td valign="top"></td><td align="left" valign="top">&nbsp;tuser</td><td align="left">&nbsp;</td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">05:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;unused0</td><td align="left">Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_LZ77_COMP Regs Table</A></p>
+<p>
+  <b><a ID="CR_LZ77_COMP_out_ia_wdata_part1">CR_LZ77_COMP_out_ia_wdata_part1 - OUT Indirect Access Write Data Register (OUT_Part1_t)</a></b><br>
+  Offset (byte space) = 32'h24<br>
+  Verilog Macro Address = `CR_LZ77_COMP_OUT_IA_WDATA_PART1<br>
+  Reset Value = 32'h0000_0000<br>
+  Access = CFG (32-bit only)<br>
+</p>
+AXI tdata bits 31:0<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;tdata_lo</td><td align="left">Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_LZ77_COMP Regs Table</A></p>
+<p>
+  <b><a ID="CR_LZ77_COMP_out_ia_wdata_part2">CR_LZ77_COMP_out_ia_wdata_part2 - OUT Indirect Access Write Data Register (OUT_Part2_t)</a></b><br>
+  Offset (byte space) = 32'h28<br>
+  Verilog Macro Address = `CR_LZ77_COMP_OUT_IA_WDATA_PART2<br>
+  Reset Value = 32'h0000_0000<br>
+  Access = CFG (32-bit only)<br>
+</p>
+AXI tdata bits 63:32<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;tdata_hi</td><td align="left">Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_LZ77_COMP Regs Table</A></p>
+<p>
+  <b><a ID="CR_LZ77_COMP_out_ia_config">CR_LZ77_COMP_out_ia_config - OUT Indirect Access Config Register</a></b><br>
+  Offset (byte space) = 32'h2c<br>
+  Verilog Macro Address = `CR_LZ77_COMP_OUT_IA_CONFIG<br>
+  Reset Value = 32'b0000xxxx_xxxxxxxx_xxxxxxx0_00000000<br>
+  Access = CFG (32-bit only)<br>
+</p>
+The OUT indirect access config register is used to initiate<br>read/write accesses to the OUT table. The data to be written<br>is provided via the OUT_IA_WData register(s). Read<br>data is returned via the OUT_IA_RData register(s).<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:28</td><td valign="top"></td><td align="left" valign="top">&nbsp;op</td><td align="left">The operation requested of the table.<br>0 = <i>NOP</i><br>Do nothing.<br>1 = <i>READ</i><br>Read Table.<br>2 = <i>WRITE</i><br>Write Table.<br>3 = <i>ENABLE</i><br>The memory intializes in a low power state. It needs to be taken<br>out of this state before reads and writes are enabled. Execute this<br>operation to exit the power-down state.<br>Note that when in this state the underlying table "appears" as a<br>single entry table to the hardware and the software. As a convenience<br>this single entry can be written directly via the write data registers<br>without the need to effect the config/status command/response<br>access protocol. As such any writes to those registers while the memory<br>is disabled are reflected directly to the hardware.<br>4 = <i>DISABLED</i><br>To put the memory back into its power-down state execute this.<br>The state of the memory can be examined by reading the status<br>register which returns with an addr field of zero when the<br>memory is disabled. Note that in the disabled mode, the table<br>behaves exactly as if it has a single entry.<br>5 = <i>RESET</i><br>Reset each table entry to that defined by the RDB definition. This<br>command requires only a single register write.<br>6 = <i>INITIALIZE</i><br>Init each table entry to the value provided by the write data<br>register(s) from a start entry up to a maximum entry number provided<br>in the addr field of the indirect access configuration register. Use<br>a SET_INIT_START command to define the starting entry.<br>7 = <i>INITIALIZE_INC</i><br>Similar to initialize but increment the write data for each<br>successive entry.<br>This command increments some N least significant bits of the<br>table entry. N may be zero in which case this command behaves the<br>same as the INITIALIZE command.<br>In the general case N may be determined by setting the write data<br>to all ones and commanding INITIALIZE_INC with an addr field of 1.<br>N is the number of bits that are zero in entry 1.<br>8 = <i>SET_INI_START</i><br>Set the start point for an initialization to the addr field of<br>the indirect access configuration register. To initialize a table<br>from entry A to entry B, first issue SET_INIT_START with a<br>command address of A, then issue INITIALIZE with a command address<br>of B.<br>9 = <i>COMPARE</i><br>TCAM ONLY. Compare Operation.<br>14 = <i>SIM_TMO</i><br>Simulate a timeout condition for software testing.<br>15 = <i>ACK_ERROR</i><br>Acknowledge and clear error conditions.<br>Reset value is <i>NOP</i>.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">27:09</td><td valign="top"></td><td align="left" valign="top">&nbsp;Reserved</td><td align="left">Reserved bits must be written with 0.  A read returns an unknown value.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">08:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;addr</td><td align="left">Indicates the address of the entry to be read or written. The<br>OUT table has 512 entries.<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_LZ77_COMP Regs Table</A></p>
+<p>
+  <b><a ID="CR_LZ77_COMP_out_ia_rdata_part0">CR_LZ77_COMP_out_ia_rdata_part0 - OUT Indirect Access Read Data Register (OUT_Part0_t)</a></b><br>
+  Offset (byte space) = 32'h30<br>
+  Verilog Macro Address = `CR_LZ77_COMP_OUT_IA_RDATA_PART0<br>
+  Reset Value = 32'bxxxxxxxx_xxxxxxxx_xxxxxxxx_xx000000<br>
+  Access = RO (32-bit only)<br>
+</p>
+Interface monitor descriptor<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31</td><td valign="top"></td><td align="left" valign="top">&nbsp;eob</td><td align="left">&nbsp;</td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">30:23</td><td valign="top"></td><td align="left" valign="top">&nbsp;bytes_vld</td><td align="left">&nbsp;</td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">22:15</td><td valign="top"></td><td align="left" valign="top">&nbsp;unused1</td><td align="left">&nbsp;</td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">14</td><td valign="top"></td><td align="left" valign="top">&nbsp;tid</td><td align="left">&nbsp;</td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">13:06</td><td valign="top"></td><td align="left" valign="top">&nbsp;tuser</td><td align="left">&nbsp;</td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">05:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;unused0</td><td align="left">Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_LZ77_COMP Regs Table</A></p>
+<p>
+  <b><a ID="CR_LZ77_COMP_out_ia_rdata_part1">CR_LZ77_COMP_out_ia_rdata_part1 - OUT Indirect Access Read Data Register (OUT_Part1_t)</a></b><br>
+  Offset (byte space) = 32'h34<br>
+  Verilog Macro Address = `CR_LZ77_COMP_OUT_IA_RDATA_PART1<br>
+  Reset Value = 32'h0000_0000<br>
+  Access = RO (32-bit only)<br>
+</p>
+AXI tdata bits 31:0<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;tdata_lo</td><td align="left">Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_LZ77_COMP Regs Table</A></p>
+<p>
+  <b><a ID="CR_LZ77_COMP_out_ia_rdata_part2">CR_LZ77_COMP_out_ia_rdata_part2 - OUT Indirect Access Read Data Register (OUT_Part2_t)</a></b><br>
+  Offset (byte space) = 32'h38<br>
+  Verilog Macro Address = `CR_LZ77_COMP_OUT_IA_RDATA_PART2<br>
+  Reset Value = 32'h0000_0000<br>
+  Access = RO (32-bit only)<br>
+</p>
+AXI tdata bits 63:32<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;tdata_hi</td><td align="left">Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_LZ77_COMP Regs Table</A></p>
+<p>
+  <b><a ID="CR_LZ77_COMP_out_im_config">CR_LZ77_COMP_out_im_config - OUT Interface Monitor Configuration Register</a></b><br>
+  Offset (byte space) = 32'h3c<br>
+  Verilog Macro Address = `CR_LZ77_COMP_OUT_IM_CONFIG<br>
+  Reset Value = 32'b11xxxxxx_xxxxxxxx_xxxxxx10_00000000<br>
+  Access = CFG (32-bit only)<br>
+</p>
+<table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:30</td><td valign="top"></td><td align="left" valign="top">&nbsp;mode</td><td align="left">Used to configure the interface mode operation<br>0 = <i>START</i><br>Capture the first burst of transaction.<br>1 = <i>END</i><br>Capture the last burst of transaction.<br>2 = <i>CONTINUOUS</i><br>Capture all transactions, software will have control of<br>half of monitor buffer for reading, hardware will have<br>control of the other half for writing. Back pressure<br>will be applied to hardware to prevent overflow.<br>3 = <i>OFF</i><br>Monitor mode is disabled<br>Can also be used to reset all registers, allows retrigger<br>operation in START and END modes.<br>Reset value is <i>OFF</i>.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">29:10</td><td valign="top"></td><td align="left" valign="top">&nbsp;Reserved</td><td align="left">Reserved bits must be written with 0.  A read returns an unknown value.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">09:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;wr_credit_config</td><td align="left">Configures the amount of credit available for hardware<br>writes.<br>Reset value is <i>512</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_LZ77_COMP Regs Table</A></p>
+<p>
+  <b><a ID="CR_LZ77_COMP_out_im_status">CR_LZ77_COMP_out_im_status - OUT Interface Monitor Status Register</a></b><br>
+  Offset (byte space) = 32'h40<br>
+  Verilog Macro Address = `CR_LZ77_COMP_OUT_IM_STATUS<br>
+  Reset Value = 32'b000xxxxx_xxxxxxxx_xxxxxxx0_00000000<br>
+  Access = RO (32-bit only)<br>
+</p>
+<table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31</td><td valign="top"></td><td align="left" valign="top">&nbsp;bank_hi</td><td align="left">In CONTINUOUS mode, a 1 indicates that the upper bank of<br>the monitor memory is ready to be read by software.<br>This bit will remain asserted until the consumed<br>register is written.<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">30</td><td valign="top"></td><td align="left" valign="top">&nbsp;bank_lo</td><td align="left">In CONTINUOUS mode, a 1 indicates that the lower bank of<br>the monitor memory is ready to be read by software.<br>This bit will remain asserted until the consumed<br>register is written.<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">29</td><td valign="top"></td><td align="left" valign="top">&nbsp;overflow</td><td align="left">This status bit should never be set. Hardware should<br>never overwrite the monitor without first read by software<br>except in END mode. This bit is not set in END mode.<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">28:09</td><td valign="top"></td><td align="left" valign="top">&nbsp;Reserved</td><td align="left">Reserved bits must be written with 0.  A read returns an unknown value.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">08:00</td><td valign="top"> acc=RO</td><td align="left" valign="top">&nbsp;wr_pointer</td><td align="left">FIELD ACCESS: RO<br><br>Indicates the last location written by harware.<br>Useful in END mode to determine the last location written<br>by hardware.<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p>Flag legend: acc=access</p><p></p>
+<p><A HREF="#Regs_Registers">Return to CR_LZ77_COMP Regs Table</A></p>
+<p>
+  <b><a ID="CR_LZ77_COMP_out_im_read_done">CR_LZ77_COMP_out_im_read_done - OUT Interface Monitor Read Done</a></b><br>
+  Offset (byte space) = 32'h44<br>
+  Verilog Macro Address = `CR_LZ77_COMP_OUT_IM_READ_DONE<br>
+  Reset Value = 32'b00xxxxxx_xxxxxxxx_xxxxxxxx_xxxxxxxx<br>
+  Access = RW (32-bit only)<br>
+</p>
+<table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31</td><td valign="top"></td><td align="left" valign="top">&nbsp;bank_hi</td><td align="left">In CONTINUOUS mode, a write to this register will free<br>up the upper half of the monitor memory after being read by<br>software. Note, the register will always return a value<br>of 0.<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">30</td><td valign="top"></td><td align="left" valign="top">&nbsp;bank_lo</td><td align="left">In CONTINUOUS mode, a write to this register will free<br>up the lower half of the monitor memory after being read by<br>software. Note, the register will always return a value<br>of 0.<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">29:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;Reserved</td><td align="left">Reserved bits must be written with 0.  A read returns an unknown value.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_LZ77_COMP Regs Table</A></p>
+<p>
+  <b><a ID="CR_LZ77_COMP_power_credit_burst">CR_LZ77_COMP_power_credit_burst - LZ77 power credit burst</a></b><br>
+  Offset (byte space) = 32'h48<br>
+  Verilog Macro Address = `CR_LZ77_COMP_POWER_CREDIT_BURST<br>
+  Reset Value = 32'h0000_0000<br>
+  Access = CFG (32-bit only)<br>
+</p>
+<table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;power_credit_burst</td><td align="left">Maximum number of power credits that can be "banked" for future use<br>within a single command.<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_LZ77_COMP Regs Table</A></p>
+</body>
+</html>

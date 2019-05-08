@@ -1,11 +1,10 @@
 /*************************************************************************
 *
-* Copyright Â© Microsoft Corporation. All rights reserved.
-* Copyright Â© Broadcom Inc. All rights reserved.
+* Copyright © Microsoft Corporation. All rights reserved.
+* Copyright © Broadcom Inc. All rights reserved.
 * Licensed under the MIT License.
 *
 *************************************************************************/
-
 `include "ccx_std.vh"
 `include "cr_xp10_decomp.vh"
 

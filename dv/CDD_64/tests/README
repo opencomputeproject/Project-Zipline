@@ -1,0 +1,47 @@
+# *************************************************************************
+#
+# Copyright © Microsoft Corporation. All rights reserved.
+# Copyright © Broadcom Inc. All rights reserved.
+# Licensed under the MIT License. 
+# 
+# *************************************************************************
+
+Below is a list of CDDIP tests and their descriptions.
+1.  cfh_4k
+    XP10 decompression test using a compound command with 3 frames
+    that decompress to 4K each
+
+2.  cfh_8k
+    XP10 decompression test using a compound command with 3 frames  
+    that deocmpress to 8 eachK
+
+3.  gzip
+    Single frame GZIP decompression test
+
+4.  smoke
+    SIngle frame CDDIP smoke test
+
+5.  xp10
+    Single frame XP10 decompression test 
+
+6.  xp10_prefix
+    Single frame XP10 decompression test using a prefix selected by the 
+    Prefix Attach engine
+
+7.  xp10_prefix_w_huffman
+    Single frame XP10 decompression test with both a prefix and pre-determined 
+    Huffman data selected by the Prefix Attach engine
+   
+8.  xp10_user_prefix
+    Single frame XP10 decompression test illustrating the use of USER_PREFIX mode
+
+9.  xp9
+    Single frame XP9 decompression test
+
+10. zlib
+    Single frame ZLIB decompression test
+
+To run all of the tests from a script:
+cd creole/dv/CDD_64/run
+regress (runs all of the tests)
+

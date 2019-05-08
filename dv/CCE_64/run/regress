@@ -1,0 +1,114 @@
+#!/bin/sh 
+
+# *************************************************************************
+#
+# Copyright © Microsoft Corporation. All rights reserved.
+# Copyright © Broadcom Inc. All rights reserved.
+# Licensed under the MIT License.
+#
+# *************************************************************************
+
+
+
+make clean;
+make build_simv
+if [ "$?" -ne "0" ]; then
+    echo "Testbench Compile Failed!"
+    exit 1
+fi
+
+testname=cfh_4k;
+seed=1;
+make run_simv TESTNAME=$testname SEED=$seed;
+if grep "FAILED!" $seed."$testname"_sv.log; then
+    
+    exit 1
+fi
+
+
+testname=cfh_8k;
+seed=1;
+make run_simv TESTNAME=$testname SEED=$seed;
+if grep "FAILED!" $seed."$testname"_sv.log; then
+    
+    exit 1
+fi
+
+testname=gzip;
+seed=1;
+make run_simv TESTNAME=$testname SEED=$seed;
+if grep "FAILED!" $seed."$testname"_sv.log; then
+    
+    exit 1
+fi
+
+testname=smoke;
+seed=1;
+make run_simv TESTNAME=$testname SEED=$seed;
+if grep "FAILED!" $seed."$testname"_sv.log; then
+    
+    exit 1
+fi
+
+testname=smoke_pi16;
+seed=1;
+make run_simv TESTNAME=$testname SEED=$seed;
+if grep "FAILED!" $seed."$testname"_sv.log; then
+    
+    exit 1
+fi
+
+testname=xp10;
+seed=1;
+make run_simv TESTNAME=$testname SEED=$seed;
+if grep "FAILED!" $seed."$testname"_sv.log; then
+    
+    exit 1
+fi
+
+testname=xp10_prefix;
+seed=1;
+make run_simv TESTNAME=$testname SEED=$seed;
+if grep "FAILED!" $seed."$testname"_sv.log; then
+    
+    exit 1
+fi
+
+
+testname=xp10_prefix_w_huffman;
+seed=1;
+make run_simv TESTNAME=$testname SEED=$seed;
+if grep "FAILED!" $seed."$testname"_sv.log; then
+    
+    exit 1
+fi
+
+testname=xp10_user_prefix;
+seed=1;
+make run_simv TESTNAME=$testname SEED=$seed;
+if grep "FAILED!" $seed."$testname"_sv.log; then
+    
+    exit 1
+fi
+
+testname=xp9;
+seed=1;
+make run_simv TESTNAME=$testname SEED=$seed;
+if grep "FAILED!" $seed."$testname"_sv.log; then
+    
+    exit 1
+fi
+
+testname=zlib;
+seed=1;
+make run_simv TESTNAME=$testname SEED=$seed;
+if grep "FAILED!" $seed."$testname"_sv.log; then
+    
+    exit 1
+fi
+
+
+
+
+echo "All Tests Passed!"   
+	

@@ -1,10 +1,10 @@
-/*************************************************************************
-*
-* Copyright Â© Microsoft Corporation. All rights reserved.
-* Copyright Â© Broadcom Inc. All rights reserved.
-* Licensed under the MIT License.
-*
-*************************************************************************/
+// *************************************************************************
+//
+// Copyright © Microsoft Corporation. All rights reserved.
+// Copyright © Broadcom Inc. All rights reserved.
+// Licensed under the MIT License.
+//
+// *************************************************************************
 
 typedef enum logic [1:0] {
 	ENET=0,
@@ -159,6 +159,26 @@ typedef enum logic [1:0] {
 	RSV_THRSH=3
 } cmd_chu_comp_thrsh_e;
 
+typedef enum logic [0:0] {
+	NO_CIPHER=0,
+	CIPHER=1
+} cmd_cipher_mode_e;
+
+typedef enum logic [3:0] {
+	AUTH_NULL=0,
+	SHA2=1,
+	HMAC_SHA2=2,
+	AUTH_RSVD=15
+} cmd_auth_op_e;
+
+typedef enum logic [3:0] {
+	CPH_NULL=0,
+	AES_GCM=1,
+	AES_XTS_XEX=2,
+	AES_GMAC=3,
+	CPH_RSVD=15
+} cmd_cipher_op_e;
+
 typedef enum logic [1:0] {
 	IV_NONE=0,
 	IV_AUX_CMD=1,
@@ -172,6 +192,16 @@ typedef enum logic [1:0] {
 	IV_INC=2,
 	IV_RSV=3
 } cmd_iv_op_e;
+
+typedef enum logic [0:0] {
+	NO_PAD=0,
+	PAD_16B=1
+} cmd_cipher_pad_e;
+
+typedef enum logic [0:0] {
+	DGST_256=0,
+	DGST_64=1
+} cmd_digest_size_e;
 
 typedef enum logic [0:0] {
 	SIMPLE=0,
@@ -259,7 +289,52 @@ typedef enum logic [1:0] {
 	EOT=3
 } cmd_mode_e;
 
+typedef enum logic [5:0] {
+	NO_AUX_KEY=0,
+	AUX_KEY_ONLY=1,
+	DEK256=2,
+	DEK512=3,
+	DAK=4,
+	DEK256_DAK=5,
+	DEK512_DAK=6,
+	ENC_DEK256=7,
+	ENC_DEK512=8,
+	ENC_DAK=9,
+	ENC_DEK256_DAK=10,
+	ENC_DEK512_DAK=11,
+	ENC_DEK256_DAK_COMB=12,
+	ENC_DEK512_DAK_COMB=13,
+	KEY_TYPE_RSV=63
+} aux_key_type_e;
+
+typedef enum logic [0:0] {
+	NOOP=0,
+	KDF=1
+} aux_key_op_e;
+
+typedef enum logic [1:0] {
+	KDF_MODE_GUID=0,
+	KDF_MODE_RGUID=1,
+	KDF_MODE_COMB_GUID=2,
+	KDF_MODE_COMB_RGUID=3
+} aux_kdf_mode_e;
+
 typedef enum logic [9:0] {
+	CKMIC_IV_MISMATCH_FRAME=0,
+	CKMIC_ENGINE_ID_MISMATCH_FRAME=1,
+	CKMIC_SEQ_ID_MISMATCH_FRAME=2,
+	CKMIC_HMAC_SHA256_TAG_FAIL_FRAME=3,
+	CKMIC_SHA256_TAG_FAIL_FRAME=4,
+	CKMIC_GMAC_TAG_FAIL_FRAME=5,
+	CKMIC_GCM_TAG_FAIL_FRAME=6,
+	CKMIC_AUTH_NOP_FRAME=7,
+	CKMIC_AUTH_HMAC_SHA256_FRAME=8,
+	CKMIC_AUTH_SHA256_FRAME=9,
+	CKMIC_AUTH_AES_GMAC_FRAME=10,
+	CKMIC_CIPH_NOP_FRAME=11,
+	CKMIC_CIPH_AES_XEX_FRAME=12,
+	CKMIC_CIPH_AES_XTS_FRAME=13,
+	CKMIC_CIPH_AES_GCM_FRAME=14,
 	CRCG0_RAW_CHSUM_GOOD_TOTAL=64,
 	CRCG0_RAW_CHSUM_ERROR_TOTAL=65,
 	CRCG0_CRC64E_CHSUM_GOOD_TOTAL=66,
@@ -373,10 +448,40 @@ typedef enum logic [9:0] {
 	LZ77D_FRM_IN_TOTAL=402,
 	LZ77D_FRM_OUT_TOTAL=403,
 	LZ77D_STALL_TOTAL=404,
+	DECRYPT_IV_MISMATCH_FRAME=448,
+	DECRYPT_ENGINE_ID_MISMATCH_FRAME=449,
+	DECRYPT_SEQ_ID_MISMATCH_FRAME=450,
+	DECRYPT_HMAC_SHA256_TAG_FAIL_FRAME=451,
+	DECRYPT_SHA256_TAG_FAIL_FRAME=452,
+	DECRYPT_GMAC_TAG_FAIL_FRAME=453,
+	DECRYPT_GCM_TAG_FAIL_FRAME=454,
+	DECRYPT_AUTH_NOP_FRAME=455,
+	DECRYPT_AUTH_HMAC_SHA256_FRAME=456,
+	DECRYPT_AUTH_SHA256_FRAME=457,
+	DECRYPT_AUTH_AES_GMAC_FRAME=458,
+	DECRYPT_CIPH_NOP_FRAME=459,
+	DECRYPT_CIPH_AES_XEX_FRAME=460,
+	DECRYPT_CIPH_AES_XTS_FRAME=461,
+	DECRYPT_CIPH_AES_GCM_FRAME=462,
 	OSF_DATA_INPUT_STALL_TOTAL=512,
 	OSF_CG_INPUT_STALL_TOTAL=513,
 	OSF_OUTPUT_BACKPRESSURE_TOTAL=514,
 	OSF_OUTPUT_STALL_TOTAL=515,
+	ENCRYPT_IV_MISMATCH_FRAME=576,
+	ENCRYPT_ENGINE_ID_MISMATCH_FRAME=577,
+	ENCRYPT_SEQ_ID_MISMATCH_FRAME=578,
+	ENCRYPT_HMAC_SHA256_TAG_FAIL_FRAME=579,
+	ENCRYPT_SHA256_TAG_FAIL_FRAME=580,
+	ENCRYPT_GMAC_TAG_FAIL_FRAME=581,
+	ENCRYPT_GCM_TAG_FAIL_FRAME=582,
+	ENCRYPT_AUTH_NOP_FRAME=583,
+	ENCRYPT_AUTH_HMAC_SHA256_FRAME=584,
+	ENCRYPT_AUTH_SHA256_FRAME=585,
+	ENCRYPT_AUTH_AES_GMAC_FRAME=586,
+	ENCRYPT_CIPH_NOP_FRAME=587,
+	ENCRYPT_CIPH_AES_XEX_FRAME=588,
+	ENCRYPT_CIPH_AES_XTS_FRAME=589,
+	ENCRYPT_CIPH_AES_GCM_FRAME=590,
 	SHORT_MAP_ERR_TOTAL=640,
 	LONG_MAP_ERR_TOTAL=641,
 	XP9_BLK_COMP_TOTAL=642,
@@ -429,6 +534,7 @@ typedef enum logic [9:0] {
 	BYTE_5_TOTAL=689,
 	BYTE_6_TOTAL=690,
 	BYTE_7_TOTAL=691,
+	ENCRYPT_STALL_TOTAL=692,
 	LZ77_STALL_TOTAL=693,
 	LZ77C_eof_FRAME=704,
 	LZ77C_bypass_FRAME=705,

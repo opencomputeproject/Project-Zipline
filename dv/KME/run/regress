@@ -1,0 +1,111 @@
+#!/bin/sh 
+# *************************************************************************
+#
+# Copyright © Microsoft Corporation. All rights reserved.
+# Copyright © Broadcom Inc. All rights reserved.
+# Licensed under the MIT License.
+#
+# *************************************************************************
+
+
+make clean;
+make build_simv
+if [ "$?" -ne "0" ]; then
+    echo "Testbench Compile Failed!"
+    exit 1
+fi
+
+testname=kme_key_type_0;
+seed=1;
+make run_simv TESTNAME=$testname SEED=$seed;
+if grep "FAILED!" $seed."$testname"_sv.log; then
+    
+    exit 1
+fi
+
+
+testname=kme_key_type_1;
+seed=1;
+make run_simv TESTNAME=$testname SEED=$seed;
+if grep "FAILED!" $seed."$testname"_sv.log; then
+    
+    exit 1
+fi
+
+testname=kme_key_type_2
+seed=1
+make run_simv TESTNAME=$testname SEED=$seed;
+if grep "FAILED!" $seed."$testname"_sv.log; then
+    
+    exit 1
+fi
+
+testname=kme_key_type_3
+seed=1
+make run_simv TESTNAME=$testname  SEED=$seed;
+if grep "FAILED!" $seed."$testname"_sv.log; then
+    
+     exit 1
+fi
+
+testname=kme_key_type_4
+seed=1
+make run_simv TESTNAME=$testname SEED=$seed;
+if grep "FAILED!" $seed."$testname"_sv.log; then
+    
+     exit 1
+fi
+
+testname=kme_key_type_5
+seed=1
+make run_simv TESTNAME=$testname SEED=$seed; 
+if grep "FAILED!" $seed."$testname"_sv.log; then
+    
+     exit 1
+fi
+
+testname=kme_key_type_6
+seed=1
+make run_simv TESTNAME=$testname SEED=$seed; 
+if grep "FAILED!" $seed."$testname"_sv.log; then
+    
+     exit 1
+fi
+
+testname=kme_source_guid_present
+seed=1
+make run_simv TESTNAME=$testname SEED=$seed; 
+if grep "FAILED!" $seed."$testname"_sv.log; then
+    
+     exit 1
+fi
+
+testname=kme_aux_cmd_guid_only
+seed=1
+make run_simv TESTNAME=$testname SEED=$seed; 
+if grep "FAILED!" $seed."$testname"_sv.log; then
+    
+     exit 1
+fi
+
+
+testname=kme_aux_cmd_iv_only
+seed=1
+make run_simv TESTNAME=$testname SEED=$seed; 
+if grep "FAILED!" $seed."$testname"_sv.log; then
+    
+    exit 1
+fi
+
+testname=kme_aux_cmd_no_guid_or_iv
+seed=1
+make run_simv TESTNAME=$testname SEED=$seed; 
+if grep "FAILED!" $seed."$testname"_sv.log; then
+    
+    exit 1
+fi
+
+
+
+echo "All Tests Passed!"   
+	

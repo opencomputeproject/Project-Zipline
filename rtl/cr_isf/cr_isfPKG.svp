@@ -1,0 +1,121 @@
+/*************************************************************************
+*
+* Copyright © Microsoft Corporation. All rights reserved.
+* Copyright © Broadcom Inc. All rights reserved.
+* Licensed under the MIT License.
+*
+*************************************************************************/
+
+`ifndef __CR_ISFPKG_SVP
+`define __CR_ISFPKG_SVP
+`include "cr_global_params.vh"
+`include "cr_isf.vh"
+package cr_isfPKG;
+
+   
+   import cr_isf_regsPKG::*;
+
+   
+
+  typedef enum logic [4:0] 
+               {
+                ISF_SEL_LIVE            = 5'h0,
+                ISF_SEL_CMD_W1          = 5'h1,
+                ISF_SEL_CMD_W2          = 5'h2,
+                ISF_SEL_PREFIX_SOT      = 5'h3,
+                ISF_SEL_PREFIX_DATA     = 5'h4,
+                ISF_SEL_PREFIX_EOT      = 5'h5,
+                ISF_SEL_DATA_ADJ_W0     = 5'h6,
+                ISF_SEL_FOOTER          = 5'h7,
+                ISF_SEL_CQE_W0          = 5'h8,
+                ISF_SEL_CQE_W1          = 5'h9,
+                ISF_SEL_DATA            = 5'ha,
+                ISF_SEL_PREFIX_ERR_PAD  = 5'hb,
+                ISF_SEL_PREFIX_ERR_EOT  = 5'hc,
+                ISF_SEL_DATA_ERR_W0     = 5'hd,
+                ISF_SEL_DATA_ERR_EOT    = 5'he,
+                ISF_SEL_FRMD_W0         = 5'hf,
+                ISF_SEL_USER_VM         = 5'h10
+                }
+               tlv_mod_out_sel_e; 
+  
+  typedef enum logic [3:0] 
+               {
+                FGEN_IDLE  = 4'h0,
+                FGEN_W0    = 4'h1,
+                FGEN_W1    = 4'h2,
+                FGEN_W2    = 4'h3,
+                FGEN_W3    = 4'h4,
+                FGEN_W4    = 4'h5,
+                FGEN_W5    = 4'h6,
+                FGEN_W6    = 4'h7,
+                FGEN_W7    = 4'h8,
+                FGEN_W8    = 4'h9,
+                FGEN_W9    = 4'ha, 
+                FGEN_W10   = 4'hb,
+                FGEN_W11   = 4'hc,
+                FGEN_W12   = 4'hd,
+                FGEN_W13   = 4'he
+                }
+               isf_fgen_st_e; 
+
+  typedef enum logic [4:0] 
+               {
+                UXFR_IDLE            = 5'h0,
+                UXFR_RQE_W0          = 5'h1,
+                UXFR_CMD_SOT         = 5'h2,
+                UXFR_CMD             = 5'h3,
+                UXFR_FRMD_SOT        = 5'h4,
+                UXFR_FRMD            = 5'h5,
+                UXFR_DATA_SOT        = 5'h6,
+                UXFR_DATA            = 5'h7,
+                UXFR_POST_DATA_RD    = 5'h8,
+                UXFR_RD_CQE_WAIT     = 5'h9,
+                UXFR_RD_CQE_W1       = 5'ha,
+                UXFR_WAIT_FOOTER     = 5'hb,
+                UXFR_CQE_W1          = 5'hc,
+                UXFR_PREFIX          = 5'hd,
+                UXFR_DATA_ADJ_W0     = 5'he, 
+                UXFR_PREFIX_LEN_ERR  = 5'hf,
+                UXFR_DATA_ERR_W0     = 5'h10,
+                UXFR_DATA_ERR_EOT    = 5'h11,
+                UXFR_BYP             = 5'h12,
+                UXFR_PROT_ERR        = 5'h13
+                }
+               isf_user_xfr_st_e; 
+
+  typedef enum logic 
+               {
+                SYS_STALL_IDLE   = 1'b0,
+                SYS_STALL_CNT    = 1'b1
+                }
+                sys_stall_st_e;
+
+  typedef enum logic [1:0]
+               {
+                ISF_IB_PAR_IDLE       = 2'b00,
+                ISF_IB_RQE_PAR_FOUND  = 2'b01,
+                ISF_IB_CQE_PAR_FOUND  = 2'b10,
+                ISF_IB_CMD_PAR_FOUND  = 2'b11
+                }
+                isf_ib_par_st_e;
+
+  typedef enum logic 
+               {
+                ISF_OB_PAR_IDLE       = 1'b0,
+                ISF_OB_CQE_PAR_FOUND  = 1'b1
+                }
+                isf_ob_par_st_e;
+
+  typedef enum logic [1:0]
+               {
+                ISF_TF_IDLE  = 2'b00,
+                ISF_TF_CNT   = 2'b01,
+                ISF_TF_HIT   = 2'b10
+                }
+                isf_trig_frz_st_e;
+
+                                                 
+endpackage : cr_isfPKG
+
+`endif 

@@ -1,0 +1,75 @@
+/*************************************************************************
+*
+* Copyright © Microsoft Corporation. All rights reserved.
+* Copyright © Broadcom Inc. All rights reserved.
+* Licensed under the MIT License.
+*
+*************************************************************************/
++define+ENA_BIMC+
++libext+.v
++libext+.sv
++libext+.svp
++libext+.vh
++incdir+../../rtl/common/include
++incdir+../../rtl/cr_kme
++incdir+../../rtl/common/nx_library
++incdir+../../rtl/mem_wrappers/bimc_master/top
++incdir+../../rtl/common/fifo
++incdir+../../rtl/common/cr_tlvp
++incdir+../../rtl/common/axi
+
+-y ../../rtl/common
+-y ../../rtl/common/nx_library
+-y ../../rtl/common/fifo
+-y ../../rtl/mem_wrappers/bimc_master/top
+
+../../rtl/cr_kme/cr_kme.v
+../../rtl/cr_kme/cr_kme_core.v
+../../rtl/cr_kme/cr_kme_core_glue.v
+../../rtl/cr_kme/cr_kme_regfile.v
+../../rtl/cr_kme/cr_kme_int_handler.v
+../../rtl/cr_kme/cr_kme_drbg_reggen.v
+../../rtl/cr_cceip_64_sa/cr_sa_counter.v
+../../rtl/cr_kme/cr_kme_regs.sv
+
+../../rtl/cr_kme/cr_kme_fifo.v
+../../rtl/cr_kme/cr_kme_ram_fifo.v
+../../rtl/cr_kme/cr_kme_ckv_pipeline.v
+../../rtl/cr_kme/cr_kme_guid_stitcher.v
+../../rtl/cr_kme/cr_kme_tlv_parser.v
+../../rtl/cr_kme/cr_kme_kim_drng_reader.v
+../../rtl/cr_kme/cr_kme_ckv_reader.v
+../../rtl/cr_kme/cr_kme_kop_assigner.v
+../../rtl/cr_kme/cr_kme_regfile_glue.v
+../../rtl/cr_kme/cr_kme_key_tlv_compare_split.v
+
+../../rtl/cr_kme/cr_kme_key_tlv_rsm.v
+
+../../rtl/cr_kme/cr_kme_kop.v
+../../rtl/cr_kme/cr_kme_kop_tlv_inspector.v
+../../rtl/cr_kme/cr_kme_kop_upsizer_x2.v
+../../rtl/cr_kme/cr_kme_kop_gcm.v
+../../rtl/cr_kme/cr_kme_kop_kdf.v
+../../rtl/cr_kme/cr_kme_kop_kdf_keyfilter.v
+../../rtl/cr_kme/cr_kme_kop_kdf_merger.v
+../../rtl/cr_kme/cr_kme_hmac_sha256_stub.v
+../../rtl/cr_kme/cr_kme_kop_kdf_stream_gen.v
+../../rtl/cr_kme/cr_kme_kop_kdf_stream_pipe.v
+../../rtl/cr_kme/cr_kme_kop_keybuilder.v
+
+../../rtl/cr_kme/cr_kme_drng.v
+../../rtl/cr_kme/cr_kme_aes_256_drng.v
+
+
+../../rtl/common/cr_tlvp/cr_axi4s_mstr.v
+../../rtl/common/cr_tlvp/cr_axi4s2_slv.v
+../../rtl/common/cr_tlvp/cr_tlvp2_rsm.v
+../../rtl/common/cr_tlvp/cr_tlvp2_rsm_core.v
+../../rtl/common/fifo/cr_fifo_wrap1.v
+../../rtl/common/fifo/cr_fifo_wrap2.v
+../../rtl/common/axi/axi_reg_slice_defs.vh
+../../rtl/common/axi/axi_channel_reg_slice.v
+
+../../rtl/AesSecI/AesSecIStub.v
+
+../../rtl/common/cr_crc/cr_crc.v

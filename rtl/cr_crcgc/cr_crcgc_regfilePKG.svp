@@ -1,0 +1,480 @@
+/*************************************************************************
+*
+* Copyright © Microsoft Corporation. All rights reserved.
+* Copyright © Broadcom Inc. All rights reserved.
+* Licensed under the MIT License.
+*
+*************************************************************************/
+`ifndef __CR_CRCGC_REGFILEPKG_SVP
+`define __CR_CRCGC_REGFILEPKG_SVP
+package cr_crcgc_regfilePKG;
+
+
+
+
+typedef enum logic [1:0]
+       {ENET  = 2'h0, 
+	IPV4  = 2'h1, 
+	IPV6  = 2'h2, 
+	MPLS  = 2'h3} pkt_hdr_e;
+
+
+
+typedef enum logic [3:0]
+       {CMD_SIMPLE  = 4'h0, 
+	COMPND_4K   = 4'h5, 
+	COMPND_8K   = 4'h6, 
+	COMPND_RSV  = 4'hf} cmd_compound_cmd_frm_size_e;
+
+
+
+typedef enum logic 
+       {GUID_NOT_PRESENT  = 1'h0, 
+	GUID_PRESENT      = 1'h1} cmd_guid_present_e;
+
+
+
+typedef enum logic 
+       {CRC_NOT_PRESENT  = 1'h0, 
+	CRC_PRESENT      = 1'h1} cmd_frmd_crc_in_e;
+
+
+
+typedef enum logic [6:0]
+       {CCEIP_FRMD_USER_NULL  = 7'hb, 
+	CCEIP_FRMD_USER_PI16  = 7'hc, 
+	CCEIP_FRMD_USER_PI64  = 7'hd, 
+	CCEIP_FRMD_USER_VM    = 7'he, 
+	CCEIP_TYPE_IN_RSV     = 7'h7f} cceip_cmd_frmd_in_type_e;
+
+
+
+typedef enum logic [6:0]
+       {CDDIP_FRMD_INT_APP       = 7'hf, 
+	CDDIP_FRMD_INT_SIP       = 7'h10, 
+	CDDIP_FRMD_INT_LIP       = 7'h11, 
+	CDDIP_FRMD_INT_VM        = 7'h12, 
+	CDDIP_FRMD_INT_VM_SHORT  = 7'h16, 
+	CDDIP_TYPE_IN_RSV        = 7'h7f} cddip_cmd_frmd_in_type_e;
+
+
+
+typedef enum logic [6:0]
+       {CCEIP_FRMD_INT_APP       = 7'hf, 
+	CCEIP_FRMD_INT_SIP       = 7'h10, 
+	CCEIP_FRMD_INT_LIP       = 7'h11, 
+	CCEIP_FRMD_INT_VM        = 7'h12, 
+	CCEIP_FRMD_INT_VM_SHORT  = 7'h16, 
+	CCEIP_TYPE_OUT_RSV       = 7'h7f} cceip_cmd_frmd_out_type_e;
+
+
+
+typedef enum logic [6:0]
+       {CDDIP_FRMD_USER_NULL  = 7'hb, 
+	CDDIP_FRMD_USER_PI16  = 7'hc, 
+	CDDIP_FRMD_USER_PI64  = 7'hd, 
+	CDDIP_FRMD_USER_VM    = 7'he, 
+	CDDIP_TYPE_OUT_RSV    = 7'h7f} cddip_cmd_frmd_out_type_e;
+
+
+
+typedef enum logic 
+       {NOT_GEN  = 1'h0, 
+	GEN      = 1'h1} cmd_frmd_out_crc_e;
+
+
+
+typedef enum logic [1:0]
+       {FRMD_T10_DIX  = 2'h0, 
+	FRMD_CRC64    = 2'h1, 
+	FRMD_CRC64E   = 2'h2, 
+	FRMD_CRC_RSV  = 2'h3} cmd_frmd_out_crc_type_e;
+
+
+
+typedef enum logic [1:0]
+       {NO_CRC         = 2'h0, 
+	CRC_8B_CRC64   = 2'h1, 
+	CRC_8B_CRC64E  = 2'h2, 
+	MD_TYPE_RSV    = 2'h3} cmd_md_type_e;
+
+
+
+typedef enum logic [1:0]
+       {CRC_GEN_VERIFY  = 2'h0, 
+	CRC_RSV1        = 2'h1, 
+	CRC_RSV2        = 2'h2, 
+	CRC_RSV3        = 2'h3} cmd_md_op_e;
+
+
+
+typedef enum logic 
+       {FRMD_MAC_NOP  = 1'h0, 
+	FRMD_MAC_CAL  = 1'h1} cmd_frmd_raw_mac_sel_e;
+
+
+
+typedef enum logic 
+       {CHU_NORMAL  = 1'h0, 
+	CHU_APPEND  = 1'h1} cmd_chu_append_e;
+
+
+
+typedef enum logic [3:0]
+       {NONE      = 4'h0, 
+	ZLIB      = 4'h1, 
+	GZIP      = 4'h2, 
+	XP9       = 4'h3, 
+	XP10      = 4'h4, 
+	CHU4K     = 4'h5, 
+	CHU8K     = 4'h6, 
+	RSV_MODE  = 4'hf} cmd_comp_mode_e;
+
+
+
+typedef enum logic [3:0]
+       {WIN_32B  = 4'h0, 
+	WIN_4K   = 4'h1, 
+	WIN_8K   = 4'h2, 
+	WIN_16K  = 4'h3, 
+	WIN_32K  = 4'h4, 
+	WIN_64K  = 4'h5, 
+	RSV_WIN  = 4'hf} cmd_lz77_win_size_e;
+
+
+
+typedef enum logic [1:0]
+       {NO_MATCH  = 2'h0, 
+	CHAR_1    = 2'h1, 
+	CHAR_2    = 2'h2, 
+	RSV_DLY   = 2'h3} cmd_lz77_dly_match_win_e;
+
+
+
+typedef enum logic 
+       {CHAR_3  = 1'h0, 
+	CHAR_4  = 1'h1} cmd_lz77_min_match_len_e;
+
+
+
+typedef enum logic [1:0]
+       {LEN_LZ77_WIN  = 2'h0, 
+	LEN_256B      = 2'h1, 
+	MIN_MTCH_14   = 2'h2, 
+	LEN_64B       = 2'h3} cmd_lz77_max_symb_len_e;
+
+
+
+typedef enum logic [1:0]
+       {NO_PREFIX      = 2'h0, 
+	USER_PREFIX    = 2'h1, 
+	PREDEF_PREFIX  = 2'h2, 
+	PREDET_HUFF    = 2'h3} cmd_xp10_prefix_mode_e;
+
+
+
+typedef enum logic 
+       {CRC32  = 1'h0, 
+	CRC64  = 1'h1} cmd_xp10_crc_mode_e;
+
+
+
+typedef enum logic [1:0]
+       {FRM          = 2'h0, 
+	FRM_LESS_16  = 2'h1, 
+	INF          = 2'h2, 
+	RSV_THRSH    = 2'h3} cmd_chu_comp_thrsh_e;
+
+
+
+typedef enum logic [1:0]
+       {IV_NONE      = 2'h0, 
+	IV_AUX_CMD   = 2'h1, 
+	IV_KEYS      = 2'h2, 
+	IV_AUX_FRMD  = 2'h3} cmd_iv_src_e;
+
+
+
+typedef enum logic [1:0]
+       {IV_SRC  = 2'h0, 
+	IV_RND  = 2'h1, 
+	IV_INC  = 2'h2, 
+	IV_RSV  = 2'h3} cmd_iv_op_e;
+
+
+
+typedef enum logic 
+       {SIMPLE    = 1'h0, 
+	COMPOUND  = 1'h1} rqe_frame_type_e;
+
+
+
+typedef enum logic 
+       {TRACE_OFF  = 1'h0, 
+	TRACE_ON   = 1'h1} rqe_trace_e;
+
+
+
+typedef enum logic [3:0]
+       {RQE_SIMPLE          = 4'h0, 
+	RQE_COMPOUND_4K     = 4'h5, 
+	RQE_COMPOUND_8K     = 4'h6, 
+	RQE_RSV_FRAME_SIZE  = 4'hf} rqe_frame_size_e;
+
+
+
+typedef enum logic [1:0]
+       {RAW        = 2'h1, 
+	PARSEABLE  = 2'h0, 
+	XP10CFH4K  = 2'h2, 
+	XP10CFH8K  = 2'h3} frmd_coding_e;
+
+
+
+typedef enum logic [1:0]
+       {DIGEST_64B   = 2'h0, 
+	DIGEST_128B  = 2'h1, 
+	DIGEST_256B  = 2'h2, 
+	DIGEST_0B    = 2'h3} frmd_mac_size_e;
+
+
+
+typedef enum logic [1:0]
+       {REP     = 2'h0, 
+	PASS    = 2'h1, 
+	MODIFY  = 2'h2, 
+	DELETE  = 2'h3} tlv_parse_action_e;
+
+
+
+typedef enum logic 
+       {USER  = 1'h0, 
+	TLVP  = 1'h1} tlvp_corrupt_e;
+
+
+
+typedef enum logic 
+       {DATAPATH_CORRUPT  = 1'h0, 
+	FUNCTIONAL_ERROR  = 1'h1} cmd_type_e;
+
+
+
+typedef enum logic [1:0]
+       {SINGLE_ERR        = 2'h0, 
+	CONTINUOUS_ERROR  = 2'h1, 
+	STOP              = 2'h2, 
+	EOT               = 2'h3} cmd_mode_e;
+
+
+
+typedef enum logic [6:0]
+       {REVISION_CONFIG          = 7'h0, 
+	SPARE_CONFIG             = 7'h4, 
+	REGS_TLV_PARSE_ACTION_0  = 7'hc, 
+	REGS_TLV_PARSE_ACTION_1  = 7'h10, 
+	HISTORY_BUFFER_PART2_0   = 7'h18, 
+	HISTORY_BUFFER_PART1_0   = 7'h1c, 
+	HISTORY_BUFFER_PART0_0   = 7'h20, 
+	HISTORY_BUFFER_PART2_1   = 7'h28, 
+	HISTORY_BUFFER_PART1_1   = 7'h2c, 
+	HISTORY_BUFFER_PART0_1   = 7'h30, 
+	HISTORY_BUFFER_PART2_2   = 7'h34, 
+	HISTORY_BUFFER_PART1_2   = 7'h38, 
+	HISTORY_BUFFER_PART0_2   = 7'h3c, 
+	HISTORY_BUFFER_PART2_3   = 7'h40, 
+	HISTORY_BUFFER_PART1_3   = 7'h44, 
+	HISTORY_BUFFER_PART0_3   = 7'h48, 
+	HISTORY_BUFFER_PART2_4   = 7'h4c, 
+	HISTORY_BUFFER_PART1_4   = 7'h50, 
+	HISTORY_BUFFER_PART0_4   = 7'h54, 
+	HISTORY_BUFFER_PART2_5   = 7'h58, 
+	HISTORY_BUFFER_PART1_5   = 7'h5c, 
+	HISTORY_BUFFER_PART0_5   = 7'h60, 
+	HISTORY_BUFFER_PART2_6   = 7'h64, 
+	HISTORY_BUFFER_PART1_6   = 7'h68, 
+	HISTORY_BUFFER_PART0_6   = 7'h6c, 
+	HISTORY_BUFFER_PART2_7   = 7'h70, 
+	HISTORY_BUFFER_PART1_7   = 7'h74, 
+	HISTORY_BUFFER_PART0_7   = 7'h78, 
+	REGS_CRCGC_CTRL          = 7'h7c} address_e;
+
+
+
+typedef union packed {
+  struct packed {
+    logic [7:0]                      part0;                    
+  } r;
+  struct packed {
+    logic [7:0]                    revid;                    
+  } f;
+} revid_t;
+localparam revid_t revid_t_reset 
+     = {8'h0};
+
+
+
+typedef union packed {
+  struct packed {
+    logic [31:0]                     part0;                    
+  } r;
+  struct packed {
+    logic [31:0]                   spare;                    
+  } f;
+} spare_t;
+localparam spare_t spare_t_reset 
+     = {32'h0};
+
+
+
+typedef union packed {
+  struct packed {
+    logic [31:0]                     part0;                    
+  } r;
+  struct packed {
+    logic [1:0]                    frmd_int_app;             
+    logic [1:0]                    frmd_user_vm;             
+    logic [1:0]                    frmd_user_pi64;           
+    logic [1:0]                    frmd_user_pi16;           
+    logic [1:0]                    frmd_user_null;           
+    logic [1:0]                    guid;                     
+    logic [1:0]                    cqe;                      
+    logic [1:0]                    stat;                     
+    logic [1:0]                    lz77;                     
+    logic [1:0]                    ftr;                      
+    logic [1:0]                    data_unk;                 
+    logic [1:0]                    pfd;                      
+    logic [1:0]                    phd;                      
+    logic [1:0]                    key;                      
+    logic [1:0]                    cmd;                      
+    logic [1:0]                    rqe;                      
+  } f;
+} regs_tlv_parse_action_31_0_t;
+localparam regs_tlv_parse_action_31_0_t regs_tlv_parse_action_31_0_t_reset 
+     = {2'h0, 
+	2'h0, 
+	2'h0, 
+	2'h0, 
+	2'h0, 
+	2'h1, 
+	2'h1, 
+	2'h1, 
+	2'h0, 
+	2'h2, 
+	2'h0, 
+	2'h1, 
+	2'h1, 
+	2'h1, 
+	2'h0, 
+	2'h1};
+
+
+
+typedef union packed {
+  struct packed {
+    logic [31:0]                     part0;                    
+  } r;
+  struct packed {
+    logic [1:0]                    unused_4;                 
+    logic [1:0]                    unused_3;                 
+    logic [1:0]                    unused_2;                 
+    logic [1:0]                    unused_1;                 
+    logic [1:0]                    unused_0;                 
+    logic [1:0]                    sch;                      
+    logic [1:0]                    aux_cmd_guid_iv;          
+    logic [1:0]                    aux_cmd_guid;             
+    logic [1:0]                    aux_cmd_iv;               
+    logic [1:0]                    frmd_int_vm_short;        
+    logic [1:0]                    aux_cmd;                  
+    logic [1:0]                    cr_iv;                    
+    logic [1:0]                    data;                     
+    logic [1:0]                    frmd_int_vm;              
+    logic [1:0]                    frmd_int_lip;             
+    logic [1:0]                    frmd_int_sip;             
+  } f;
+} regs_tlv_parse_action_63_32_t;
+localparam regs_tlv_parse_action_63_32_t regs_tlv_parse_action_63_32_t_reset 
+     = {2'h1, 
+	2'h1, 
+	2'h1, 
+	2'h1, 
+	2'h1, 
+	2'h1, 
+	2'h1, 
+	2'h1, 
+	2'h1, 
+	2'h0, 
+	2'h1, 
+	2'h1, 
+	2'h0, 
+	2'h0, 
+	2'h0, 
+	2'h0};
+
+
+
+typedef union packed {
+  struct packed {
+    logic [31:0]                     part0;                    
+  } r;
+  struct packed {
+    logic [31:0]                   crc_low;                  
+  } f;
+} history_buffer_part_0_t;
+localparam history_buffer_part_0_t history_buffer_part_0_t_reset 
+     = {32'h0};
+
+
+
+typedef union packed {
+  struct packed {
+    logic [31:0]                     part0;                    
+  } r;
+  struct packed {
+    logic [31:0]                   crc_up;                   
+  } f;
+} history_buffer_part_1_t;
+localparam history_buffer_part_1_t history_buffer_part_1_t_reset 
+     = {32'h0};
+
+
+
+typedef union packed {
+  struct packed {
+    logic [31:0]                     part0;                    
+  } r;
+  struct packed {
+    logic [9:0]                    rsvd;                     
+    logic                          valid;                    
+    logic                          error;                    
+    logic                          checken;                  
+    logic [10:0]                   tlv_frame_num;            
+    logic [7:0]                    tlv_seq_num;              
+  } f;
+} history_buffer_part_2_t;
+localparam history_buffer_part_2_t history_buffer_part_2_t_reset 
+     = {10'h0, 
+	1'h0, 
+	1'h0, 
+	1'h0, 
+	11'h0, 
+	8'h0};
+
+
+
+typedef union packed {
+  struct packed {
+    logic [31:0]                     part0;                    
+  } r;
+  struct packed {
+    logic [29:0]                   resvd;                    
+    logic                          regs_crc_gen_en;          
+    logic                          regs_crc_chk_en;          
+  } f;
+} crcgc_ctrl_t;
+localparam crcgc_ctrl_t crcgc_ctrl_t_reset 
+     = {30'h0, 
+	1'h1, 
+	1'h1};
+endpackage : cr_crcgc_regfilePKG
+
+`endif 

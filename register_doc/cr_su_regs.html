@@ -1,0 +1,574 @@
+<!--
+/*************************************************************************
+*
+* Copyright © Microsoft Corporation. All rights reserved.
+* Copyright © Broadcom Inc. All rights reserved.
+* Licensed under the MIT License.
+*
+*************************************************************************/
+
+
+!-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=iso-8859-1">
+  <meta name="generator" content="Adobe GoLive 5">
+  <title>CR_SU</title>
+</head>
+
+<body>
+
+<p>Generated on Wed Aug 15 06:10:30 2018</p>
+<H1><a ID="Regs_Registers">CR_SU Regs Registers</a></H1>
+<A HREF="#CR_SU Structures">Additional Data Structures</A><br>
+<table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="10%">Offset<br>(byte space)</th><th align="center" width="8%">Flags</th><th align="center" width="22%">Register Name </th><th align="center" width="60%">Description</th></tr>
+  <tr><td align="center">0x0</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_SU_revision_config" >CR_SU_revision_config</A></td><td>&nbsp;Revision read only register<br></td></tr>
+  <tr><td align="center">0x4</td><td valign="top"> acc=RW</td><td>&nbsp;<A HREF="#CR_SU_spare_config" >CR_SU_spare_config</A></td><td>&nbsp;Spare configuration register<br></td></tr>
+  <tr><td align="center">0x8</td><td valign="top"> acc=CFG</td><td>&nbsp;<A HREF="#CR_SU_dbg_config" >CR_SU_dbg_config</A></td><td>&nbsp;SU Debug register<br></td></tr>
+  <tr><td align="center">0xc</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_SU_hb_sup" >CR_SU_hb_sup</A></td><td>&nbsp;History Buffer Support register<br></td></tr>
+  <tr><td align="center">0x14</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_SU_history_buffer_part0_0" >CR_SU_history_buffer_part0_0</A></td><td>&nbsp;History Buffer 0<br></td></tr>
+  <tr><td align="center">0x18</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_SU_history_buffer_part1_0" >CR_SU_history_buffer_part1_0</A></td><td>&nbsp;History Buffer 0<br></td></tr>
+  <tr><td align="center">0x1c</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_SU_history_buffer_part2_0" >CR_SU_history_buffer_part2_0</A></td><td>&nbsp;History Buffer 0<br></td></tr>
+  <tr><td align="center">0x20</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_SU_history_buffer_part3_0" >CR_SU_history_buffer_part3_0</A></td><td>&nbsp;History Buffer 0<br></td></tr>
+  <tr><td align="center">0x24</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_SU_history_buffer_part0_1" >CR_SU_history_buffer_part0_1</A></td><td>&nbsp;History Buffer 1<br></td></tr>
+  <tr><td align="center">0x28</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_SU_history_buffer_part1_1" >CR_SU_history_buffer_part1_1</A></td><td>&nbsp;History Buffer 1<br></td></tr>
+  <tr><td align="center">0x2c</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_SU_history_buffer_part2_1" >CR_SU_history_buffer_part2_1</A></td><td>&nbsp;History Buffer 1<br></td></tr>
+  <tr><td align="center">0x30</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_SU_history_buffer_part3_1" >CR_SU_history_buffer_part3_1</A></td><td>&nbsp;History Buffer 1<br></td></tr>
+  <tr><td align="center">0x34</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_SU_history_buffer_part0_2" >CR_SU_history_buffer_part0_2</A></td><td>&nbsp;History Buffer 2<br></td></tr>
+  <tr><td align="center">0x38</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_SU_history_buffer_part1_2" >CR_SU_history_buffer_part1_2</A></td><td>&nbsp;History Buffer 2<br></td></tr>
+  <tr><td align="center">0x3c</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_SU_history_buffer_part2_2" >CR_SU_history_buffer_part2_2</A></td><td>&nbsp;History Buffer 2<br></td></tr>
+  <tr><td align="center">0x40</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_SU_history_buffer_part3_2" >CR_SU_history_buffer_part3_2</A></td><td>&nbsp;History Buffer 2<br></td></tr>
+  <tr><td align="center">0x44</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_SU_history_buffer_part0_3" >CR_SU_history_buffer_part0_3</A></td><td>&nbsp;History Buffer 3<br></td></tr>
+  <tr><td align="center">0x48</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_SU_history_buffer_part1_3" >CR_SU_history_buffer_part1_3</A></td><td>&nbsp;History Buffer 3<br></td></tr>
+  <tr><td align="center">0x4c</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_SU_history_buffer_part2_3" >CR_SU_history_buffer_part2_3</A></td><td>&nbsp;History Buffer 3<br></td></tr>
+  <tr><td align="center">0x50</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_SU_history_buffer_part3_3" >CR_SU_history_buffer_part3_3</A></td><td>&nbsp;History Buffer 3<br></td></tr>
+  <tr><td align="center">0x54</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_SU_history_buffer_part0_4" >CR_SU_history_buffer_part0_4</A></td><td>&nbsp;History Buffer 4<br></td></tr>
+  <tr><td align="center">0x58</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_SU_history_buffer_part1_4" >CR_SU_history_buffer_part1_4</A></td><td>&nbsp;History Buffer 4<br></td></tr>
+  <tr><td align="center">0x5c</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_SU_history_buffer_part2_4" >CR_SU_history_buffer_part2_4</A></td><td>&nbsp;History Buffer 4<br></td></tr>
+  <tr><td align="center">0x60</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_SU_history_buffer_part3_4" >CR_SU_history_buffer_part3_4</A></td><td>&nbsp;History Buffer 4<br></td></tr>
+  <tr><td align="center">0x64</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_SU_history_buffer_part0_5" >CR_SU_history_buffer_part0_5</A></td><td>&nbsp;History Buffer 5<br></td></tr>
+  <tr><td align="center">0x68</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_SU_history_buffer_part1_5" >CR_SU_history_buffer_part1_5</A></td><td>&nbsp;History Buffer 5<br></td></tr>
+  <tr><td align="center">0x6c</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_SU_history_buffer_part2_5" >CR_SU_history_buffer_part2_5</A></td><td>&nbsp;History Buffer 5<br></td></tr>
+  <tr><td align="center">0x70</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_SU_history_buffer_part3_5" >CR_SU_history_buffer_part3_5</A></td><td>&nbsp;History Buffer 5<br></td></tr>
+  <tr><td align="center">0x74</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_SU_history_buffer_part0_6" >CR_SU_history_buffer_part0_6</A></td><td>&nbsp;History Buffer 6<br></td></tr>
+  <tr><td align="center">0x78</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_SU_history_buffer_part1_6" >CR_SU_history_buffer_part1_6</A></td><td>&nbsp;History Buffer 6<br></td></tr>
+  <tr><td align="center">0x7c</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_SU_history_buffer_part2_6" >CR_SU_history_buffer_part2_6</A></td><td>&nbsp;History Buffer 6<br></td></tr>
+  <tr><td align="center">0x80</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_SU_history_buffer_part3_6" >CR_SU_history_buffer_part3_6</A></td><td>&nbsp;History Buffer 6<br></td></tr>
+  <tr><td align="center">0x84</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_SU_history_buffer_part0_7" >CR_SU_history_buffer_part0_7</A></td><td>&nbsp;History Buffer 7<br></td></tr>
+  <tr><td align="center">0x88</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_SU_history_buffer_part1_7" >CR_SU_history_buffer_part1_7</A></td><td>&nbsp;History Buffer 7<br></td></tr>
+  <tr><td align="center">0x8c</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_SU_history_buffer_part2_7" >CR_SU_history_buffer_part2_7</A></td><td>&nbsp;History Buffer 7<br></td></tr>
+  <tr><td align="center">0x90</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_SU_history_buffer_part3_7" >CR_SU_history_buffer_part3_7</A></td><td>&nbsp;History Buffer 7<br></td></tr>
+  <tr><td align="center">0x94</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_SU_agg_su_count_a" >CR_SU_agg_su_count_a</A></td><td>&nbsp;Aggregate Scheduler Update TLV Counter<br></td></tr>
+</table>
+<p>Flag legend: acc=access</p><p></p>
+<p>
+  <b><a ID="CR_SU_revision_config">CR_SU_revision_config - Revision read only register</a></b><br>
+  Offset (byte space) = 32'h0<br>
+  Verilog Macro Address = `CR_SU_REVISION_CONFIG<br>
+  Reset Value = 32'bxxxxxxxx_xxxxxxxx_xxxxxxxx_00000000<br>
+  Access = RO (32-bit only)<br>
+</p>
+<table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:08</td><td valign="top"></td><td align="left" valign="top">&nbsp;Reserved</td><td align="left">Reserved bits must be written with 0.  A read returns an unknown value.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">07:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;revid</td><td align="left">Revision control register.<br>Connect to TIE cells in order to change<br>via 1 layer metal spin.<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_SU Regs Table</A></p>
+<p>
+  <b><a ID="CR_SU_spare_config">CR_SU_spare_config - Spare configuration register</a></b><br>
+  Offset (byte space) = 32'h4<br>
+  Verilog Macro Address = `CR_SU_SPARE_CONFIG<br>
+  Reset Value = 32'h0000_0000<br>
+  Access = RW (32-bit only)<br>
+</p>
+<table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;spare</td><td align="left">Spare control register<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_SU Regs Table</A></p>
+<p>
+  <b><a ID="CR_SU_dbg_config">CR_SU_dbg_config - SU Debug register</a></b><br>
+  Offset (byte space) = 32'h8<br>
+  Verilog Macro Address = `CR_SU_DBG_CONFIG<br>
+  Reset Value = 32'bxxxxxxxx_xxxxxxxx_xxxxxxxx_xxxxxxx0<br>
+  Access = CFG (32-bit only)<br>
+</p>
+The SU Debug register provides various debug functionality<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:01</td><td valign="top"></td><td align="left" valign="top">&nbsp;Reserved</td><td align="left">Reserved bits must be written with 0.  A read returns an unknown value.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">00</td><td valign="top"></td><td align="left" valign="top">&nbsp;force_ob_bp</td><td align="left">This bit is used to backpressure the Scheduler Update outbound AXI interface<br>0 = Not forcing backpressure<br>1 = Force backpressure<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_SU Regs Table</A></p>
+<p>
+  <b><a ID="CR_SU_hb_sup">CR_SU_hb_sup - History Buffer Support register</a></b><br>
+  Offset (byte space) = 32'hc<br>
+  Verilog Macro Address = `CR_SU_HB_SUP<br>
+  Reset Value = 32'bxxxxxxxx_xxxxxxxx_xxxxxxxx_xxxxx000<br>
+  Access = RO (32-bit only)<br>
+</p>
+The History Buffer Support register is used to<br>interpret the contents of the 8-entry History Buffer<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:03</td><td valign="top"></td><td align="left" valign="top">&nbsp;Reserved</td><td align="left">Reserved bits must be written with 0.  A read returns an unknown value.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">02:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;wr_pointer</td><td align="left">Pointer to the next History Buffer entry that will be loaded.<br>This value is used to determine the order, in time, of<br>the History Buffer entries. As an example, if this value is<br>2, then the last entry in time (newest) is in entry wr_pointer-1=1.<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_SU Regs Table</A></p>
+<p>
+  <b><a ID="CR_SU_history_buffer_part0_0">CR_SU_history_buffer_part0_0 - History Buffer 0</a></b><br>
+  Offset (byte space) = 32'h14<br>
+  Verilog Macro Address = `CR_SU_HISTORY_BUFFER_PART0_0<br>
+  Reset Value = 32'bxxxxxxxx_00000000_00000000_00000000<br>
+  Access = RO (32-bit only)<br>
+</p>
+Bytes Out<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:24</td><td valign="top"></td><td align="left" valign="top">&nbsp;Reserved</td><td align="left">Reserved bits must be written with 0.  A read returns an unknown value.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">23:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;bytes_in</td><td align="left">Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_SU Regs Table</A></p>
+<p>
+  <b><a ID="CR_SU_history_buffer_part1_0">CR_SU_history_buffer_part1_0 - History Buffer 0</a></b><br>
+  Offset (byte space) = 32'h18<br>
+  Verilog Macro Address = `CR_SU_HISTORY_BUFFER_PART1_0<br>
+  Reset Value = 32'bxxxxxxxx_00000000_00000000_00000000<br>
+  Access = RO (32-bit only)<br>
+</p>
+Bytes In<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:24</td><td valign="top"></td><td align="left" valign="top">&nbsp;Reserved</td><td align="left">Reserved bits must be written with 0.  A read returns an unknown value.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">23:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;bytes_out</td><td align="left">Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_SU Regs Table</A></p>
+<p>
+  <b><a ID="CR_SU_history_buffer_part2_0">CR_SU_history_buffer_part2_0 - History Buffer 0</a></b><br>
+  Offset (byte space) = 32'h1c<br>
+  Verilog Macro Address = `CR_SU_HISTORY_BUFFER_PART2_0<br>
+  Reset Value = 32'h0000_0000<br>
+  Access = RO (32-bit only)<br>
+</p>
+<table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:24</td><td valign="top"></td><td align="left" valign="top">&nbsp;seq_num</td><td align="left">Sequence Number<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">23:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;basis</td><td align="left">Basis Bytes<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_SU Regs Table</A></p>
+<p>
+  <b><a ID="CR_SU_history_buffer_part3_0">CR_SU_history_buffer_part3_0 - History Buffer 0</a></b><br>
+  Offset (byte space) = 32'h20<br>
+  Verilog Macro Address = `CR_SU_HISTORY_BUFFER_PART3_0<br>
+  Reset Value = 32'b0xxxx000_00000000_00000000_00000000<br>
+  Access = RO (32-bit only)<br>
+</p>
+<table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31</td><td valign="top"></td><td align="left" valign="top">&nbsp;cmd_cmp</td><td align="left">Command Complete<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">30:27</td><td valign="top"></td><td align="left" valign="top">&nbsp;Reserved</td><td align="left">Reserved bits must be written with 0.  A read returns an unknown value.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">26:16</td><td valign="top"></td><td align="left" valign="top">&nbsp;frame_num</td><td align="left">Frame Number<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">15:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;sched_handle</td><td align="left">Scheduler Handle<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_SU Regs Table</A></p>
+<p>
+  <b><a ID="CR_SU_history_buffer_part0_1">CR_SU_history_buffer_part0_1 - History Buffer 1</a></b><br>
+  Offset (byte space) = 32'h24<br>
+  Verilog Macro Address = `CR_SU_HISTORY_BUFFER_PART0_1<br>
+  Reset Value = 32'bxxxxxxxx_00000000_00000000_00000000<br>
+  Access = RO (32-bit only)<br>
+</p>
+Bytes Out<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:24</td><td valign="top"></td><td align="left" valign="top">&nbsp;Reserved</td><td align="left">Reserved bits must be written with 0.  A read returns an unknown value.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">23:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;bytes_in</td><td align="left">Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_SU Regs Table</A></p>
+<p>
+  <b><a ID="CR_SU_history_buffer_part1_1">CR_SU_history_buffer_part1_1 - History Buffer 1</a></b><br>
+  Offset (byte space) = 32'h28<br>
+  Verilog Macro Address = `CR_SU_HISTORY_BUFFER_PART1_1<br>
+  Reset Value = 32'bxxxxxxxx_00000000_00000000_00000000<br>
+  Access = RO (32-bit only)<br>
+</p>
+Bytes In<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:24</td><td valign="top"></td><td align="left" valign="top">&nbsp;Reserved</td><td align="left">Reserved bits must be written with 0.  A read returns an unknown value.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">23:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;bytes_out</td><td align="left">Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_SU Regs Table</A></p>
+<p>
+  <b><a ID="CR_SU_history_buffer_part2_1">CR_SU_history_buffer_part2_1 - History Buffer 1</a></b><br>
+  Offset (byte space) = 32'h2c<br>
+  Verilog Macro Address = `CR_SU_HISTORY_BUFFER_PART2_1<br>
+  Reset Value = 32'h0000_0000<br>
+  Access = RO (32-bit only)<br>
+</p>
+<table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:24</td><td valign="top"></td><td align="left" valign="top">&nbsp;seq_num</td><td align="left">Sequence Number<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">23:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;basis</td><td align="left">Basis Bytes<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_SU Regs Table</A></p>
+<p>
+  <b><a ID="CR_SU_history_buffer_part3_1">CR_SU_history_buffer_part3_1 - History Buffer 1</a></b><br>
+  Offset (byte space) = 32'h30<br>
+  Verilog Macro Address = `CR_SU_HISTORY_BUFFER_PART3_1<br>
+  Reset Value = 32'b0xxxx000_00000000_00000000_00000000<br>
+  Access = RO (32-bit only)<br>
+</p>
+<table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31</td><td valign="top"></td><td align="left" valign="top">&nbsp;cmd_cmp</td><td align="left">Command Complete<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">30:27</td><td valign="top"></td><td align="left" valign="top">&nbsp;Reserved</td><td align="left">Reserved bits must be written with 0.  A read returns an unknown value.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">26:16</td><td valign="top"></td><td align="left" valign="top">&nbsp;frame_num</td><td align="left">Frame Number<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">15:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;sched_handle</td><td align="left">Scheduler Handle<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_SU Regs Table</A></p>
+<p>
+  <b><a ID="CR_SU_history_buffer_part0_2">CR_SU_history_buffer_part0_2 - History Buffer 2</a></b><br>
+  Offset (byte space) = 32'h34<br>
+  Verilog Macro Address = `CR_SU_HISTORY_BUFFER_PART0_2<br>
+  Reset Value = 32'bxxxxxxxx_00000000_00000000_00000000<br>
+  Access = RO (32-bit only)<br>
+</p>
+Bytes Out<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:24</td><td valign="top"></td><td align="left" valign="top">&nbsp;Reserved</td><td align="left">Reserved bits must be written with 0.  A read returns an unknown value.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">23:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;bytes_in</td><td align="left">Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_SU Regs Table</A></p>
+<p>
+  <b><a ID="CR_SU_history_buffer_part1_2">CR_SU_history_buffer_part1_2 - History Buffer 2</a></b><br>
+  Offset (byte space) = 32'h38<br>
+  Verilog Macro Address = `CR_SU_HISTORY_BUFFER_PART1_2<br>
+  Reset Value = 32'bxxxxxxxx_00000000_00000000_00000000<br>
+  Access = RO (32-bit only)<br>
+</p>
+Bytes In<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:24</td><td valign="top"></td><td align="left" valign="top">&nbsp;Reserved</td><td align="left">Reserved bits must be written with 0.  A read returns an unknown value.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">23:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;bytes_out</td><td align="left">Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_SU Regs Table</A></p>
+<p>
+  <b><a ID="CR_SU_history_buffer_part2_2">CR_SU_history_buffer_part2_2 - History Buffer 2</a></b><br>
+  Offset (byte space) = 32'h3c<br>
+  Verilog Macro Address = `CR_SU_HISTORY_BUFFER_PART2_2<br>
+  Reset Value = 32'h0000_0000<br>
+  Access = RO (32-bit only)<br>
+</p>
+<table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:24</td><td valign="top"></td><td align="left" valign="top">&nbsp;seq_num</td><td align="left">Sequence Number<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">23:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;basis</td><td align="left">Basis Bytes<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_SU Regs Table</A></p>
+<p>
+  <b><a ID="CR_SU_history_buffer_part3_2">CR_SU_history_buffer_part3_2 - History Buffer 2</a></b><br>
+  Offset (byte space) = 32'h40<br>
+  Verilog Macro Address = `CR_SU_HISTORY_BUFFER_PART3_2<br>
+  Reset Value = 32'b0xxxx000_00000000_00000000_00000000<br>
+  Access = RO (32-bit only)<br>
+</p>
+<table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31</td><td valign="top"></td><td align="left" valign="top">&nbsp;cmd_cmp</td><td align="left">Command Complete<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">30:27</td><td valign="top"></td><td align="left" valign="top">&nbsp;Reserved</td><td align="left">Reserved bits must be written with 0.  A read returns an unknown value.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">26:16</td><td valign="top"></td><td align="left" valign="top">&nbsp;frame_num</td><td align="left">Frame Number<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">15:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;sched_handle</td><td align="left">Scheduler Handle<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_SU Regs Table</A></p>
+<p>
+  <b><a ID="CR_SU_history_buffer_part0_3">CR_SU_history_buffer_part0_3 - History Buffer 3</a></b><br>
+  Offset (byte space) = 32'h44<br>
+  Verilog Macro Address = `CR_SU_HISTORY_BUFFER_PART0_3<br>
+  Reset Value = 32'bxxxxxxxx_00000000_00000000_00000000<br>
+  Access = RO (32-bit only)<br>
+</p>
+Bytes Out<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:24</td><td valign="top"></td><td align="left" valign="top">&nbsp;Reserved</td><td align="left">Reserved bits must be written with 0.  A read returns an unknown value.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">23:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;bytes_in</td><td align="left">Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_SU Regs Table</A></p>
+<p>
+  <b><a ID="CR_SU_history_buffer_part1_3">CR_SU_history_buffer_part1_3 - History Buffer 3</a></b><br>
+  Offset (byte space) = 32'h48<br>
+  Verilog Macro Address = `CR_SU_HISTORY_BUFFER_PART1_3<br>
+  Reset Value = 32'bxxxxxxxx_00000000_00000000_00000000<br>
+  Access = RO (32-bit only)<br>
+</p>
+Bytes In<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:24</td><td valign="top"></td><td align="left" valign="top">&nbsp;Reserved</td><td align="left">Reserved bits must be written with 0.  A read returns an unknown value.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">23:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;bytes_out</td><td align="left">Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_SU Regs Table</A></p>
+<p>
+  <b><a ID="CR_SU_history_buffer_part2_3">CR_SU_history_buffer_part2_3 - History Buffer 3</a></b><br>
+  Offset (byte space) = 32'h4c<br>
+  Verilog Macro Address = `CR_SU_HISTORY_BUFFER_PART2_3<br>
+  Reset Value = 32'h0000_0000<br>
+  Access = RO (32-bit only)<br>
+</p>
+<table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:24</td><td valign="top"></td><td align="left" valign="top">&nbsp;seq_num</td><td align="left">Sequence Number<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">23:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;basis</td><td align="left">Basis Bytes<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_SU Regs Table</A></p>
+<p>
+  <b><a ID="CR_SU_history_buffer_part3_3">CR_SU_history_buffer_part3_3 - History Buffer 3</a></b><br>
+  Offset (byte space) = 32'h50<br>
+  Verilog Macro Address = `CR_SU_HISTORY_BUFFER_PART3_3<br>
+  Reset Value = 32'b0xxxx000_00000000_00000000_00000000<br>
+  Access = RO (32-bit only)<br>
+</p>
+<table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31</td><td valign="top"></td><td align="left" valign="top">&nbsp;cmd_cmp</td><td align="left">Command Complete<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">30:27</td><td valign="top"></td><td align="left" valign="top">&nbsp;Reserved</td><td align="left">Reserved bits must be written with 0.  A read returns an unknown value.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">26:16</td><td valign="top"></td><td align="left" valign="top">&nbsp;frame_num</td><td align="left">Frame Number<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">15:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;sched_handle</td><td align="left">Scheduler Handle<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_SU Regs Table</A></p>
+<p>
+  <b><a ID="CR_SU_history_buffer_part0_4">CR_SU_history_buffer_part0_4 - History Buffer 4</a></b><br>
+  Offset (byte space) = 32'h54<br>
+  Verilog Macro Address = `CR_SU_HISTORY_BUFFER_PART0_4<br>
+  Reset Value = 32'bxxxxxxxx_00000000_00000000_00000000<br>
+  Access = RO (32-bit only)<br>
+</p>
+Bytes Out<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:24</td><td valign="top"></td><td align="left" valign="top">&nbsp;Reserved</td><td align="left">Reserved bits must be written with 0.  A read returns an unknown value.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">23:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;bytes_in</td><td align="left">Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_SU Regs Table</A></p>
+<p>
+  <b><a ID="CR_SU_history_buffer_part1_4">CR_SU_history_buffer_part1_4 - History Buffer 4</a></b><br>
+  Offset (byte space) = 32'h58<br>
+  Verilog Macro Address = `CR_SU_HISTORY_BUFFER_PART1_4<br>
+  Reset Value = 32'bxxxxxxxx_00000000_00000000_00000000<br>
+  Access = RO (32-bit only)<br>
+</p>
+Bytes In<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:24</td><td valign="top"></td><td align="left" valign="top">&nbsp;Reserved</td><td align="left">Reserved bits must be written with 0.  A read returns an unknown value.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">23:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;bytes_out</td><td align="left">Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_SU Regs Table</A></p>
+<p>
+  <b><a ID="CR_SU_history_buffer_part2_4">CR_SU_history_buffer_part2_4 - History Buffer 4</a></b><br>
+  Offset (byte space) = 32'h5c<br>
+  Verilog Macro Address = `CR_SU_HISTORY_BUFFER_PART2_4<br>
+  Reset Value = 32'h0000_0000<br>
+  Access = RO (32-bit only)<br>
+</p>
+<table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:24</td><td valign="top"></td><td align="left" valign="top">&nbsp;seq_num</td><td align="left">Sequence Number<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">23:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;basis</td><td align="left">Basis Bytes<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_SU Regs Table</A></p>
+<p>
+  <b><a ID="CR_SU_history_buffer_part3_4">CR_SU_history_buffer_part3_4 - History Buffer 4</a></b><br>
+  Offset (byte space) = 32'h60<br>
+  Verilog Macro Address = `CR_SU_HISTORY_BUFFER_PART3_4<br>
+  Reset Value = 32'b0xxxx000_00000000_00000000_00000000<br>
+  Access = RO (32-bit only)<br>
+</p>
+<table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31</td><td valign="top"></td><td align="left" valign="top">&nbsp;cmd_cmp</td><td align="left">Command Complete<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">30:27</td><td valign="top"></td><td align="left" valign="top">&nbsp;Reserved</td><td align="left">Reserved bits must be written with 0.  A read returns an unknown value.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">26:16</td><td valign="top"></td><td align="left" valign="top">&nbsp;frame_num</td><td align="left">Frame Number<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">15:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;sched_handle</td><td align="left">Scheduler Handle<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_SU Regs Table</A></p>
+<p>
+  <b><a ID="CR_SU_history_buffer_part0_5">CR_SU_history_buffer_part0_5 - History Buffer 5</a></b><br>
+  Offset (byte space) = 32'h64<br>
+  Verilog Macro Address = `CR_SU_HISTORY_BUFFER_PART0_5<br>
+  Reset Value = 32'bxxxxxxxx_00000000_00000000_00000000<br>
+  Access = RO (32-bit only)<br>
+</p>
+Bytes Out<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:24</td><td valign="top"></td><td align="left" valign="top">&nbsp;Reserved</td><td align="left">Reserved bits must be written with 0.  A read returns an unknown value.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">23:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;bytes_in</td><td align="left">Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_SU Regs Table</A></p>
+<p>
+  <b><a ID="CR_SU_history_buffer_part1_5">CR_SU_history_buffer_part1_5 - History Buffer 5</a></b><br>
+  Offset (byte space) = 32'h68<br>
+  Verilog Macro Address = `CR_SU_HISTORY_BUFFER_PART1_5<br>
+  Reset Value = 32'bxxxxxxxx_00000000_00000000_00000000<br>
+  Access = RO (32-bit only)<br>
+</p>
+Bytes In<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:24</td><td valign="top"></td><td align="left" valign="top">&nbsp;Reserved</td><td align="left">Reserved bits must be written with 0.  A read returns an unknown value.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">23:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;bytes_out</td><td align="left">Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_SU Regs Table</A></p>
+<p>
+  <b><a ID="CR_SU_history_buffer_part2_5">CR_SU_history_buffer_part2_5 - History Buffer 5</a></b><br>
+  Offset (byte space) = 32'h6c<br>
+  Verilog Macro Address = `CR_SU_HISTORY_BUFFER_PART2_5<br>
+  Reset Value = 32'h0000_0000<br>
+  Access = RO (32-bit only)<br>
+</p>
+<table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:24</td><td valign="top"></td><td align="left" valign="top">&nbsp;seq_num</td><td align="left">Sequence Number<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">23:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;basis</td><td align="left">Basis Bytes<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_SU Regs Table</A></p>
+<p>
+  <b><a ID="CR_SU_history_buffer_part3_5">CR_SU_history_buffer_part3_5 - History Buffer 5</a></b><br>
+  Offset (byte space) = 32'h70<br>
+  Verilog Macro Address = `CR_SU_HISTORY_BUFFER_PART3_5<br>
+  Reset Value = 32'b0xxxx000_00000000_00000000_00000000<br>
+  Access = RO (32-bit only)<br>
+</p>
+<table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31</td><td valign="top"></td><td align="left" valign="top">&nbsp;cmd_cmp</td><td align="left">Command Complete<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">30:27</td><td valign="top"></td><td align="left" valign="top">&nbsp;Reserved</td><td align="left">Reserved bits must be written with 0.  A read returns an unknown value.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">26:16</td><td valign="top"></td><td align="left" valign="top">&nbsp;frame_num</td><td align="left">Frame Number<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">15:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;sched_handle</td><td align="left">Scheduler Handle<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_SU Regs Table</A></p>
+<p>
+  <b><a ID="CR_SU_history_buffer_part0_6">CR_SU_history_buffer_part0_6 - History Buffer 6</a></b><br>
+  Offset (byte space) = 32'h74<br>
+  Verilog Macro Address = `CR_SU_HISTORY_BUFFER_PART0_6<br>
+  Reset Value = 32'bxxxxxxxx_00000000_00000000_00000000<br>
+  Access = RO (32-bit only)<br>
+</p>
+Bytes Out<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:24</td><td valign="top"></td><td align="left" valign="top">&nbsp;Reserved</td><td align="left">Reserved bits must be written with 0.  A read returns an unknown value.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">23:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;bytes_in</td><td align="left">Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_SU Regs Table</A></p>
+<p>
+  <b><a ID="CR_SU_history_buffer_part1_6">CR_SU_history_buffer_part1_6 - History Buffer 6</a></b><br>
+  Offset (byte space) = 32'h78<br>
+  Verilog Macro Address = `CR_SU_HISTORY_BUFFER_PART1_6<br>
+  Reset Value = 32'bxxxxxxxx_00000000_00000000_00000000<br>
+  Access = RO (32-bit only)<br>
+</p>
+Bytes In<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:24</td><td valign="top"></td><td align="left" valign="top">&nbsp;Reserved</td><td align="left">Reserved bits must be written with 0.  A read returns an unknown value.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">23:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;bytes_out</td><td align="left">Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_SU Regs Table</A></p>
+<p>
+  <b><a ID="CR_SU_history_buffer_part2_6">CR_SU_history_buffer_part2_6 - History Buffer 6</a></b><br>
+  Offset (byte space) = 32'h7c<br>
+  Verilog Macro Address = `CR_SU_HISTORY_BUFFER_PART2_6<br>
+  Reset Value = 32'h0000_0000<br>
+  Access = RO (32-bit only)<br>
+</p>
+<table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:24</td><td valign="top"></td><td align="left" valign="top">&nbsp;seq_num</td><td align="left">Sequence Number<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">23:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;basis</td><td align="left">Basis Bytes<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_SU Regs Table</A></p>
+<p>
+  <b><a ID="CR_SU_history_buffer_part3_6">CR_SU_history_buffer_part3_6 - History Buffer 6</a></b><br>
+  Offset (byte space) = 32'h80<br>
+  Verilog Macro Address = `CR_SU_HISTORY_BUFFER_PART3_6<br>
+  Reset Value = 32'b0xxxx000_00000000_00000000_00000000<br>
+  Access = RO (32-bit only)<br>
+</p>
+<table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31</td><td valign="top"></td><td align="left" valign="top">&nbsp;cmd_cmp</td><td align="left">Command Complete<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">30:27</td><td valign="top"></td><td align="left" valign="top">&nbsp;Reserved</td><td align="left">Reserved bits must be written with 0.  A read returns an unknown value.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">26:16</td><td valign="top"></td><td align="left" valign="top">&nbsp;frame_num</td><td align="left">Frame Number<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">15:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;sched_handle</td><td align="left">Scheduler Handle<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_SU Regs Table</A></p>
+<p>
+  <b><a ID="CR_SU_history_buffer_part0_7">CR_SU_history_buffer_part0_7 - History Buffer 7</a></b><br>
+  Offset (byte space) = 32'h84<br>
+  Verilog Macro Address = `CR_SU_HISTORY_BUFFER_PART0_7<br>
+  Reset Value = 32'bxxxxxxxx_00000000_00000000_00000000<br>
+  Access = RO (32-bit only)<br>
+</p>
+Bytes Out<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:24</td><td valign="top"></td><td align="left" valign="top">&nbsp;Reserved</td><td align="left">Reserved bits must be written with 0.  A read returns an unknown value.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">23:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;bytes_in</td><td align="left">Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_SU Regs Table</A></p>
+<p>
+  <b><a ID="CR_SU_history_buffer_part1_7">CR_SU_history_buffer_part1_7 - History Buffer 7</a></b><br>
+  Offset (byte space) = 32'h88<br>
+  Verilog Macro Address = `CR_SU_HISTORY_BUFFER_PART1_7<br>
+  Reset Value = 32'bxxxxxxxx_00000000_00000000_00000000<br>
+  Access = RO (32-bit only)<br>
+</p>
+Bytes In<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:24</td><td valign="top"></td><td align="left" valign="top">&nbsp;Reserved</td><td align="left">Reserved bits must be written with 0.  A read returns an unknown value.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">23:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;bytes_out</td><td align="left">Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_SU Regs Table</A></p>
+<p>
+  <b><a ID="CR_SU_history_buffer_part2_7">CR_SU_history_buffer_part2_7 - History Buffer 7</a></b><br>
+  Offset (byte space) = 32'h8c<br>
+  Verilog Macro Address = `CR_SU_HISTORY_BUFFER_PART2_7<br>
+  Reset Value = 32'h0000_0000<br>
+  Access = RO (32-bit only)<br>
+</p>
+<table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:24</td><td valign="top"></td><td align="left" valign="top">&nbsp;seq_num</td><td align="left">Sequence Number<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">23:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;basis</td><td align="left">Basis Bytes<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_SU Regs Table</A></p>
+<p>
+  <b><a ID="CR_SU_history_buffer_part3_7">CR_SU_history_buffer_part3_7 - History Buffer 7</a></b><br>
+  Offset (byte space) = 32'h90<br>
+  Verilog Macro Address = `CR_SU_HISTORY_BUFFER_PART3_7<br>
+  Reset Value = 32'b0xxxx000_00000000_00000000_00000000<br>
+  Access = RO (32-bit only)<br>
+</p>
+<table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31</td><td valign="top"></td><td align="left" valign="top">&nbsp;cmd_cmp</td><td align="left">Command Complete<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">30:27</td><td valign="top"></td><td align="left" valign="top">&nbsp;Reserved</td><td align="left">Reserved bits must be written with 0.  A read returns an unknown value.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">26:16</td><td valign="top"></td><td align="left" valign="top">&nbsp;frame_num</td><td align="left">Frame Number<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">15:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;sched_handle</td><td align="left">Scheduler Handle<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_SU Regs Table</A></p>
+<p>
+  <b><a ID="CR_SU_agg_su_count_a">CR_SU_agg_su_count_a - Aggregate Scheduler Update TLV Counter</a></b><br>
+  Offset (byte space) = 32'h94<br>
+  Verilog Macro Address = `CR_SU_AGG_SU_COUNT_A<br>
+  Reset Value = 32'h0000_0000<br>
+  Access = RO (32-bit only)<br>
+</p>
+Indexed by %docenum agg_su_e%.<br>This register consists of the single field:<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;count</td><td align="left">Current count value. This is a read-only field. When read the<br>counter is automatically cleared. The count value saturates at<br>its maximum positive value.<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_SU Regs Table</A></p>
+<H1><a ID="CR_SU Structures">CR_SU Structures</a></H1>
+<table border=1 align="center" width="100%" cellpadding="0">
+<tr bgcolor="#C0CFF0"><td align="center" width="4%"><b>Flags</b></td><td align="center" width="36%"><b>Structure Name </b></td><td align="center" width="60%"><b>Description</b></td></tr>
+  <tr><td valign="top"></td><td valign="top"><A HREF="#CR_SU_agg_su_Index_t Datatype" >CR_SU_agg_su_Index_t</A></td><td valign="top">Enumeration of AGG_SU Counter Indices<br></td></tr>
+</table>
+<p><b><a ID="CR_SU_agg_su_Index_t Datatype">CR_SU_agg_su_Index_t - Enumeration of AGG_SU Counter Indices</a></b></p>
+<table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:01</td><td valign="top"></td><td align="left" valign="top">&nbsp;Reserved</td><td align="left">Reserved bits must be written with 0.  A read returns an unknown value.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">00</td><td valign="top"></td><td align="left" valign="top">&nbsp;index</td><td align="left">0 = <i>agg_su_e</i><br>Counts aggregate number of Scheduler Update TLVs created.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#CR_SU Structures">Return to CR_SU structures table</A></p>
+</body>
+</html>

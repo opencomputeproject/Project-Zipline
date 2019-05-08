@@ -1,0 +1,3900 @@
+/*************************************************************************
+*
+* Copyright © Microsoft Corporation. All rights reserved.
+* Copyright © Broadcom Inc. All rights reserved.
+* Licensed under the MIT License.
+*
+*************************************************************************/
+
+
+`ifndef CR_PREFIX_REGS_VH
+`define CR_PREFIX_REGS_VH
+
+`define CR_PREFIX_DIGEST_5B27845C94AA6EB5CA8D09863FF27F69 1
+
+
+
+`define CR_PREFIX_PKT_HDR_E_DECL   1:0
+`define CR_PREFIX_PKT_HDR_E_WIDTH  2
+  `define CR_PREFIX_PKT_HDR_E_ENET  (2'h 0)
+  `define CR_PREFIX_PKT_HDR_E_IPV4  (2'h 1)
+  `define CR_PREFIX_PKT_HDR_E_IPV6  (2'h 2)
+  `define CR_PREFIX_PKT_HDR_E_MPLS  (2'h 3)
+
+`define CR_PREFIX_CMD_COMPOUND_CMD_FRM_SIZE_E_DECL   3:0
+`define CR_PREFIX_CMD_COMPOUND_CMD_FRM_SIZE_E_WIDTH  4
+  `define CR_PREFIX_CMD_COMPOUND_CMD_FRM_SIZE_E_CMD_SIMPLE  (4'h 0)
+  `define CR_PREFIX_CMD_COMPOUND_CMD_FRM_SIZE_E_COMPND_4K   (4'h 5)
+  `define CR_PREFIX_CMD_COMPOUND_CMD_FRM_SIZE_E_COMPND_8K   (4'h 6)
+  `define CR_PREFIX_CMD_COMPOUND_CMD_FRM_SIZE_E_COMPND_RSV  (4'h f)
+
+`define CR_PREFIX_CMD_GUID_PRESENT_E_DECL   0:0
+`define CR_PREFIX_CMD_GUID_PRESENT_E_WIDTH  1
+  `define CR_PREFIX_CMD_GUID_PRESENT_E_GUID_NOT_PRESENT  (1'h 0)
+  `define CR_PREFIX_CMD_GUID_PRESENT_E_GUID_PRESENT      (1'h 1)
+
+`define CR_PREFIX_CMD_FRMD_CRC_IN_E_DECL   0:0
+`define CR_PREFIX_CMD_FRMD_CRC_IN_E_WIDTH  1
+  `define CR_PREFIX_CMD_FRMD_CRC_IN_E_CRC_NOT_PRESENT  (1'h 0)
+  `define CR_PREFIX_CMD_FRMD_CRC_IN_E_CRC_PRESENT      (1'h 1)
+
+`define CR_PREFIX_CCEIP_CMD_FRMD_IN_TYPE_E_DECL   6:0
+`define CR_PREFIX_CCEIP_CMD_FRMD_IN_TYPE_E_WIDTH  7
+  `define CR_PREFIX_CCEIP_CMD_FRMD_IN_TYPE_E_CCEIP_FRMD_USER_NULL  (7'h b)
+  `define CR_PREFIX_CCEIP_CMD_FRMD_IN_TYPE_E_CCEIP_FRMD_USER_PI16  (7'h c)
+  `define CR_PREFIX_CCEIP_CMD_FRMD_IN_TYPE_E_CCEIP_FRMD_USER_PI64  (7'h d)
+  `define CR_PREFIX_CCEIP_CMD_FRMD_IN_TYPE_E_CCEIP_FRMD_USER_VM    (7'h e)
+  `define CR_PREFIX_CCEIP_CMD_FRMD_IN_TYPE_E_CCEIP_TYPE_IN_RSV     (7'h 7f)
+
+`define CR_PREFIX_CDDIP_CMD_FRMD_IN_TYPE_E_DECL   6:0
+`define CR_PREFIX_CDDIP_CMD_FRMD_IN_TYPE_E_WIDTH  7
+  `define CR_PREFIX_CDDIP_CMD_FRMD_IN_TYPE_E_CDDIP_FRMD_INT_APP       (7'h f)
+  `define CR_PREFIX_CDDIP_CMD_FRMD_IN_TYPE_E_CDDIP_FRMD_INT_SIP       (7'h 10)
+  `define CR_PREFIX_CDDIP_CMD_FRMD_IN_TYPE_E_CDDIP_FRMD_INT_LIP       (7'h 11)
+  `define CR_PREFIX_CDDIP_CMD_FRMD_IN_TYPE_E_CDDIP_FRMD_INT_VM        (7'h 12)
+  `define CR_PREFIX_CDDIP_CMD_FRMD_IN_TYPE_E_CDDIP_FRMD_INT_VM_SHORT  (7'h 16)
+  `define CR_PREFIX_CDDIP_CMD_FRMD_IN_TYPE_E_CDDIP_TYPE_IN_RSV        (7'h 7f)
+
+`define CR_PREFIX_CCEIP_CMD_FRMD_OUT_TYPE_E_DECL   6:0
+`define CR_PREFIX_CCEIP_CMD_FRMD_OUT_TYPE_E_WIDTH  7
+  `define CR_PREFIX_CCEIP_CMD_FRMD_OUT_TYPE_E_CCEIP_FRMD_INT_APP       (7'h f)
+  `define CR_PREFIX_CCEIP_CMD_FRMD_OUT_TYPE_E_CCEIP_FRMD_INT_SIP       (7'h 10)
+  `define CR_PREFIX_CCEIP_CMD_FRMD_OUT_TYPE_E_CCEIP_FRMD_INT_LIP       (7'h 11)
+  `define CR_PREFIX_CCEIP_CMD_FRMD_OUT_TYPE_E_CCEIP_FRMD_INT_VM        (7'h 12)
+  `define CR_PREFIX_CCEIP_CMD_FRMD_OUT_TYPE_E_CCEIP_FRMD_INT_VM_SHORT  (7'h 16)
+  `define CR_PREFIX_CCEIP_CMD_FRMD_OUT_TYPE_E_CCEIP_TYPE_OUT_RSV       (7'h 7f)
+
+`define CR_PREFIX_CDDIP_CMD_FRMD_OUT_TYPE_E_DECL   6:0
+`define CR_PREFIX_CDDIP_CMD_FRMD_OUT_TYPE_E_WIDTH  7
+  `define CR_PREFIX_CDDIP_CMD_FRMD_OUT_TYPE_E_CDDIP_FRMD_USER_NULL  (7'h b)
+  `define CR_PREFIX_CDDIP_CMD_FRMD_OUT_TYPE_E_CDDIP_FRMD_USER_PI16  (7'h c)
+  `define CR_PREFIX_CDDIP_CMD_FRMD_OUT_TYPE_E_CDDIP_FRMD_USER_PI64  (7'h d)
+  `define CR_PREFIX_CDDIP_CMD_FRMD_OUT_TYPE_E_CDDIP_FRMD_USER_VM    (7'h e)
+  `define CR_PREFIX_CDDIP_CMD_FRMD_OUT_TYPE_E_CDDIP_TYPE_OUT_RSV    (7'h 7f)
+
+`define CR_PREFIX_CMD_FRMD_OUT_CRC_E_DECL   0:0
+`define CR_PREFIX_CMD_FRMD_OUT_CRC_E_WIDTH  1
+  `define CR_PREFIX_CMD_FRMD_OUT_CRC_E_NOT_GEN  (1'h 0)
+  `define CR_PREFIX_CMD_FRMD_OUT_CRC_E_GEN      (1'h 1)
+
+`define CR_PREFIX_CMD_FRMD_OUT_CRC_TYPE_E_DECL   1:0
+`define CR_PREFIX_CMD_FRMD_OUT_CRC_TYPE_E_WIDTH  2
+  `define CR_PREFIX_CMD_FRMD_OUT_CRC_TYPE_E_FRMD_T10_DIX  (2'h 0)
+  `define CR_PREFIX_CMD_FRMD_OUT_CRC_TYPE_E_FRMD_CRC64    (2'h 1)
+  `define CR_PREFIX_CMD_FRMD_OUT_CRC_TYPE_E_FRMD_CRC64E   (2'h 2)
+  `define CR_PREFIX_CMD_FRMD_OUT_CRC_TYPE_E_FRMD_CRC_RSV  (2'h 3)
+
+`define CR_PREFIX_CMD_MD_TYPE_E_DECL   1:0
+`define CR_PREFIX_CMD_MD_TYPE_E_WIDTH  2
+  `define CR_PREFIX_CMD_MD_TYPE_E_NO_CRC         (2'h 0)
+  `define CR_PREFIX_CMD_MD_TYPE_E_CRC_8B_CRC64   (2'h 1)
+  `define CR_PREFIX_CMD_MD_TYPE_E_CRC_8B_CRC64E  (2'h 2)
+  `define CR_PREFIX_CMD_MD_TYPE_E_MD_TYPE_RSV    (2'h 3)
+
+`define CR_PREFIX_CMD_MD_OP_E_DECL   1:0
+`define CR_PREFIX_CMD_MD_OP_E_WIDTH  2
+  `define CR_PREFIX_CMD_MD_OP_E_CRC_GEN_VERIFY  (2'h 0)
+  `define CR_PREFIX_CMD_MD_OP_E_CRC_RSV1        (2'h 1)
+  `define CR_PREFIX_CMD_MD_OP_E_CRC_RSV2        (2'h 2)
+  `define CR_PREFIX_CMD_MD_OP_E_CRC_RSV3        (2'h 3)
+
+`define CR_PREFIX_CMD_FRMD_RAW_MAC_SEL_E_DECL   0:0
+`define CR_PREFIX_CMD_FRMD_RAW_MAC_SEL_E_WIDTH  1
+  `define CR_PREFIX_CMD_FRMD_RAW_MAC_SEL_E_FRMD_MAC_NOP  (1'h 0)
+  `define CR_PREFIX_CMD_FRMD_RAW_MAC_SEL_E_FRMD_MAC_CAL  (1'h 1)
+
+`define CR_PREFIX_CMD_CHU_APPEND_E_DECL   0:0
+`define CR_PREFIX_CMD_CHU_APPEND_E_WIDTH  1
+  `define CR_PREFIX_CMD_CHU_APPEND_E_CHU_NORMAL  (1'h 0)
+  `define CR_PREFIX_CMD_CHU_APPEND_E_CHU_APPEND  (1'h 1)
+
+`define CR_PREFIX_CMD_COMP_MODE_E_DECL   3:0
+`define CR_PREFIX_CMD_COMP_MODE_E_WIDTH  4
+  `define CR_PREFIX_CMD_COMP_MODE_E_NONE      (4'h 0)
+  `define CR_PREFIX_CMD_COMP_MODE_E_ZLIB      (4'h 1)
+  `define CR_PREFIX_CMD_COMP_MODE_E_GZIP      (4'h 2)
+  `define CR_PREFIX_CMD_COMP_MODE_E_XP9       (4'h 3)
+  `define CR_PREFIX_CMD_COMP_MODE_E_XP10      (4'h 4)
+  `define CR_PREFIX_CMD_COMP_MODE_E_CHU4K     (4'h 5)
+  `define CR_PREFIX_CMD_COMP_MODE_E_CHU8K     (4'h 6)
+  `define CR_PREFIX_CMD_COMP_MODE_E_RSV_MODE  (4'h f)
+
+`define CR_PREFIX_CMD_LZ77_WIN_SIZE_E_DECL   3:0
+`define CR_PREFIX_CMD_LZ77_WIN_SIZE_E_WIDTH  4
+  `define CR_PREFIX_CMD_LZ77_WIN_SIZE_E_WIN_32B  (4'h 0)
+  `define CR_PREFIX_CMD_LZ77_WIN_SIZE_E_WIN_4K   (4'h 1)
+  `define CR_PREFIX_CMD_LZ77_WIN_SIZE_E_WIN_8K   (4'h 2)
+  `define CR_PREFIX_CMD_LZ77_WIN_SIZE_E_WIN_16K  (4'h 3)
+  `define CR_PREFIX_CMD_LZ77_WIN_SIZE_E_WIN_32K  (4'h 4)
+  `define CR_PREFIX_CMD_LZ77_WIN_SIZE_E_WIN_64K  (4'h 5)
+  `define CR_PREFIX_CMD_LZ77_WIN_SIZE_E_RSV_WIN  (4'h f)
+
+`define CR_PREFIX_CMD_LZ77_DLY_MATCH_WIN_E_DECL   1:0
+`define CR_PREFIX_CMD_LZ77_DLY_MATCH_WIN_E_WIDTH  2
+  `define CR_PREFIX_CMD_LZ77_DLY_MATCH_WIN_E_NO_MATCH  (2'h 0)
+  `define CR_PREFIX_CMD_LZ77_DLY_MATCH_WIN_E_CHAR_1    (2'h 1)
+  `define CR_PREFIX_CMD_LZ77_DLY_MATCH_WIN_E_CHAR_2    (2'h 2)
+  `define CR_PREFIX_CMD_LZ77_DLY_MATCH_WIN_E_RSV_DLY   (2'h 3)
+
+`define CR_PREFIX_CMD_LZ77_MIN_MATCH_LEN_E_DECL   0:0
+`define CR_PREFIX_CMD_LZ77_MIN_MATCH_LEN_E_WIDTH  1
+  `define CR_PREFIX_CMD_LZ77_MIN_MATCH_LEN_E_CHAR_3  (1'h 0)
+  `define CR_PREFIX_CMD_LZ77_MIN_MATCH_LEN_E_CHAR_4  (1'h 1)
+
+`define CR_PREFIX_CMD_LZ77_MAX_SYMB_LEN_E_DECL   1:0
+`define CR_PREFIX_CMD_LZ77_MAX_SYMB_LEN_E_WIDTH  2
+  `define CR_PREFIX_CMD_LZ77_MAX_SYMB_LEN_E_LEN_LZ77_WIN  (2'h 0)
+  `define CR_PREFIX_CMD_LZ77_MAX_SYMB_LEN_E_LEN_256B      (2'h 1)
+  `define CR_PREFIX_CMD_LZ77_MAX_SYMB_LEN_E_MIN_MTCH_14   (2'h 2)
+  `define CR_PREFIX_CMD_LZ77_MAX_SYMB_LEN_E_LEN_64B       (2'h 3)
+
+`define CR_PREFIX_CMD_XP10_PREFIX_MODE_E_DECL   1:0
+`define CR_PREFIX_CMD_XP10_PREFIX_MODE_E_WIDTH  2
+  `define CR_PREFIX_CMD_XP10_PREFIX_MODE_E_NO_PREFIX      (2'h 0)
+  `define CR_PREFIX_CMD_XP10_PREFIX_MODE_E_USER_PREFIX    (2'h 1)
+  `define CR_PREFIX_CMD_XP10_PREFIX_MODE_E_PREDEF_PREFIX  (2'h 2)
+  `define CR_PREFIX_CMD_XP10_PREFIX_MODE_E_PREDET_HUFF    (2'h 3)
+
+`define CR_PREFIX_CMD_XP10_CRC_MODE_E_DECL   0:0
+`define CR_PREFIX_CMD_XP10_CRC_MODE_E_WIDTH  1
+  `define CR_PREFIX_CMD_XP10_CRC_MODE_E_CRC32  (1'h 0)
+  `define CR_PREFIX_CMD_XP10_CRC_MODE_E_CRC64  (1'h 1)
+
+`define CR_PREFIX_CMD_CHU_COMP_THRSH_E_DECL   1:0
+`define CR_PREFIX_CMD_CHU_COMP_THRSH_E_WIDTH  2
+  `define CR_PREFIX_CMD_CHU_COMP_THRSH_E_FRM          (2'h 0)
+  `define CR_PREFIX_CMD_CHU_COMP_THRSH_E_FRM_LESS_16  (2'h 1)
+  `define CR_PREFIX_CMD_CHU_COMP_THRSH_E_INF          (2'h 2)
+  `define CR_PREFIX_CMD_CHU_COMP_THRSH_E_RSV_THRSH    (2'h 3)
+
+`define CR_PREFIX_CMD_IV_SRC_E_DECL   1:0
+`define CR_PREFIX_CMD_IV_SRC_E_WIDTH  2
+  `define CR_PREFIX_CMD_IV_SRC_E_IV_NONE      (2'h 0)
+  `define CR_PREFIX_CMD_IV_SRC_E_IV_AUX_CMD   (2'h 1)
+  `define CR_PREFIX_CMD_IV_SRC_E_IV_KEYS      (2'h 2)
+  `define CR_PREFIX_CMD_IV_SRC_E_IV_AUX_FRMD  (2'h 3)
+
+`define CR_PREFIX_CMD_IV_OP_E_DECL   1:0
+`define CR_PREFIX_CMD_IV_OP_E_WIDTH  2
+  `define CR_PREFIX_CMD_IV_OP_E_IV_SRC  (2'h 0)
+  `define CR_PREFIX_CMD_IV_OP_E_IV_RND  (2'h 1)
+  `define CR_PREFIX_CMD_IV_OP_E_IV_INC  (2'h 2)
+  `define CR_PREFIX_CMD_IV_OP_E_IV_RSV  (2'h 3)
+
+`define CR_PREFIX_RQE_FRAME_TYPE_E_DECL   0:0
+`define CR_PREFIX_RQE_FRAME_TYPE_E_WIDTH  1
+  `define CR_PREFIX_RQE_FRAME_TYPE_E_SIMPLE    (1'h 0)
+  `define CR_PREFIX_RQE_FRAME_TYPE_E_COMPOUND  (1'h 1)
+
+`define CR_PREFIX_RQE_TRACE_E_DECL   0:0
+`define CR_PREFIX_RQE_TRACE_E_WIDTH  1
+  `define CR_PREFIX_RQE_TRACE_E_TRACE_OFF  (1'h 0)
+  `define CR_PREFIX_RQE_TRACE_E_TRACE_ON   (1'h 1)
+
+`define CR_PREFIX_RQE_FRAME_SIZE_E_DECL   3:0
+`define CR_PREFIX_RQE_FRAME_SIZE_E_WIDTH  4
+  `define CR_PREFIX_RQE_FRAME_SIZE_E_RQE_SIMPLE          (4'h 0)
+  `define CR_PREFIX_RQE_FRAME_SIZE_E_RQE_COMPOUND_4K     (4'h 5)
+  `define CR_PREFIX_RQE_FRAME_SIZE_E_RQE_COMPOUND_8K     (4'h 6)
+  `define CR_PREFIX_RQE_FRAME_SIZE_E_RQE_RSV_FRAME_SIZE  (4'h f)
+
+`define CR_PREFIX_FRMD_CODING_E_DECL   1:0
+`define CR_PREFIX_FRMD_CODING_E_WIDTH  2
+  `define CR_PREFIX_FRMD_CODING_E_RAW        (2'h 1)
+  `define CR_PREFIX_FRMD_CODING_E_PARSEABLE  (2'h 0)
+  `define CR_PREFIX_FRMD_CODING_E_XP10CFH4K  (2'h 2)
+  `define CR_PREFIX_FRMD_CODING_E_XP10CFH8K  (2'h 3)
+
+`define CR_PREFIX_FRMD_MAC_SIZE_E_DECL   1:0
+`define CR_PREFIX_FRMD_MAC_SIZE_E_WIDTH  2
+  `define CR_PREFIX_FRMD_MAC_SIZE_E_DIGEST_64B   (2'h 0)
+  `define CR_PREFIX_FRMD_MAC_SIZE_E_DIGEST_128B  (2'h 1)
+  `define CR_PREFIX_FRMD_MAC_SIZE_E_DIGEST_256B  (2'h 2)
+  `define CR_PREFIX_FRMD_MAC_SIZE_E_DIGEST_0B    (2'h 3)
+
+`define CR_PREFIX_TLV_TYPES_E_DECL   7:0
+`define CR_PREFIX_TLV_TYPES_E_WIDTH  8
+  `define CR_PREFIX_TLV_TYPES_E_RQE                (8'h 0)
+  `define CR_PREFIX_TLV_TYPES_E_CMD                (8'h 1)
+  `define CR_PREFIX_TLV_TYPES_E_KEY                (8'h 2)
+  `define CR_PREFIX_TLV_TYPES_E_PHD                (8'h 3)
+  `define CR_PREFIX_TLV_TYPES_E_PFD                (8'h 4)
+  `define CR_PREFIX_TLV_TYPES_E_DATA               (8'h 13)
+  `define CR_PREFIX_TLV_TYPES_E_FTR                (8'h 6)
+  `define CR_PREFIX_TLV_TYPES_E_LZ77               (8'h 7)
+  `define CR_PREFIX_TLV_TYPES_E_STAT               (8'h 8)
+  `define CR_PREFIX_TLV_TYPES_E_CQE                (8'h 9)
+  `define CR_PREFIX_TLV_TYPES_E_GUID               (8'h a)
+  `define CR_PREFIX_TLV_TYPES_E_FRMD_USER_NULL     (8'h b)
+  `define CR_PREFIX_TLV_TYPES_E_FRMD_USER_PI16     (8'h c)
+  `define CR_PREFIX_TLV_TYPES_E_FRMD_USER_PI64     (8'h d)
+  `define CR_PREFIX_TLV_TYPES_E_FRMD_USER_VM       (8'h e)
+  `define CR_PREFIX_TLV_TYPES_E_FRMD_INT_APP       (8'h f)
+  `define CR_PREFIX_TLV_TYPES_E_FRMD_INT_SIP       (8'h 10)
+  `define CR_PREFIX_TLV_TYPES_E_FRMD_INT_LIP       (8'h 11)
+  `define CR_PREFIX_TLV_TYPES_E_FRMD_INT_VM        (8'h 12)
+  `define CR_PREFIX_TLV_TYPES_E_FRMD_INT_VM_SHORT  (8'h 16)
+  `define CR_PREFIX_TLV_TYPES_E_DATA_UNK           (8'h 5)
+  `define CR_PREFIX_TLV_TYPES_E_CR_IV              (8'h 14)
+  `define CR_PREFIX_TLV_TYPES_E_AUX_CMD            (8'h 15)
+  `define CR_PREFIX_TLV_TYPES_E_AUX_CMD_IV         (8'h 17)
+  `define CR_PREFIX_TLV_TYPES_E_AUX_CMD_GUID       (8'h 18)
+  `define CR_PREFIX_TLV_TYPES_E_AUX_CMD_GUID_IV    (8'h 19)
+  `define CR_PREFIX_TLV_TYPES_E_SCH                (8'h 1a)
+  `define CR_PREFIX_TLV_TYPES_E_RSV_TLV            (8'h ff)
+
+`define CR_PREFIX_TLV_PARSE_ACTION_E_DECL   1:0
+`define CR_PREFIX_TLV_PARSE_ACTION_E_WIDTH  2
+  `define CR_PREFIX_TLV_PARSE_ACTION_E_REP     (2'h 0)
+  `define CR_PREFIX_TLV_PARSE_ACTION_E_PASS    (2'h 1)
+  `define CR_PREFIX_TLV_PARSE_ACTION_E_MODIFY  (2'h 2)
+  `define CR_PREFIX_TLV_PARSE_ACTION_E_DELETE  (2'h 3)
+
+`define CR_PREFIX_TLVP_CORRUPT_E_DECL   0:0
+`define CR_PREFIX_TLVP_CORRUPT_E_WIDTH  1
+  `define CR_PREFIX_TLVP_CORRUPT_E_USER  (1'h 0)
+  `define CR_PREFIX_TLVP_CORRUPT_E_TLVP  (1'h 1)
+
+`define CR_PREFIX_CMD_TYPE_E_DECL   0:0
+`define CR_PREFIX_CMD_TYPE_E_WIDTH  1
+  `define CR_PREFIX_CMD_TYPE_E_DATAPATH_CORRUPT  (1'h 0)
+  `define CR_PREFIX_CMD_TYPE_E_FUNCTIONAL_ERROR  (1'h 1)
+
+`define CR_PREFIX_CMD_MODE_E_DECL   1:0
+`define CR_PREFIX_CMD_MODE_E_WIDTH  2
+  `define CR_PREFIX_CMD_MODE_E_SINGLE_ERR        (2'h 0)
+  `define CR_PREFIX_CMD_MODE_E_CONTINUOUS_ERROR  (2'h 1)
+  `define CR_PREFIX_CMD_MODE_E_STOP              (2'h 2)
+  `define CR_PREFIX_CMD_MODE_E_EOT               (2'h 3)
+
+`define CR_PREFIX_CCEIP_STATS_E_DECL   9:0
+`define CR_PREFIX_CCEIP_STATS_E_WIDTH  10
+  `define CR_PREFIX_CCEIP_STATS_E_CG_CQE_OUTPUT_COMMAND                     (10'h 63)
+  `define CR_PREFIX_CCEIP_STATS_E_CG_SYSTEM_ERROR_COMMAND                   (10'h 62)
+  `define CR_PREFIX_CCEIP_STATS_E_CG_SELECT_ENGINE_ERROR_COMMAND            (10'h 61)
+  `define CR_PREFIX_CCEIP_STATS_E_CG_ENGINE_ERROR_COMMAND                   (10'h 60)
+  `define CR_PREFIX_CCEIP_STATS_E_CRCC0_NVME_CHSUM_ERROR_TOTAL              (10'h 5f)
+  `define CR_PREFIX_CCEIP_STATS_E_CRCC0_NVME_CHSUM_GOOD_TOTAL               (10'h 5e)
+  `define CR_PREFIX_CCEIP_STATS_E_CRCC0_ENC_CHSUM_ERROR_TOTAL               (10'h 5d)
+  `define CR_PREFIX_CCEIP_STATS_E_CRCC0_ENC_CHSUM_GOOD_TOTAL                (10'h 5c)
+  `define CR_PREFIX_CCEIP_STATS_E_CRCC0_CRC64E_CHSUM_ERROR_TOTAL            (10'h 5b)
+  `define CR_PREFIX_CCEIP_STATS_E_CRCC0_CRC64E_CHSUM_GOOD_TOTAL             (10'h 5a)
+  `define CR_PREFIX_CCEIP_STATS_E_CRCC0_RAW_CHSUM_ERROR_TOTAL               (10'h 59)
+  `define CR_PREFIX_CCEIP_STATS_E_CRCC0_RAW_CHSUM_GOOD_TOTAL                (10'h 58)
+  `define CR_PREFIX_CCEIP_STATS_E_CRCC1_NVME_CHSUM_ERROR_TOTAL              (10'h 57)
+  `define CR_PREFIX_CCEIP_STATS_E_CRCC1_NVME_CHSUM_GOOD_TOTAL               (10'h 56)
+  `define CR_PREFIX_CCEIP_STATS_E_CRCC1_ENC_CHSUM_ERROR_TOTAL               (10'h 55)
+  `define CR_PREFIX_CCEIP_STATS_E_CRCC1_ENC_CHSUM_GOOD_TOTAL                (10'h 54)
+  `define CR_PREFIX_CCEIP_STATS_E_CRCC1_CRC64E_CHSUM_ERROR_TOTAL            (10'h 53)
+  `define CR_PREFIX_CCEIP_STATS_E_CRCC1_CRC64E_CHSUM_GOOD_TOTAL             (10'h 52)
+  `define CR_PREFIX_CCEIP_STATS_E_CRCC1_RAW_CHSUM_ERROR_TOTAL               (10'h 51)
+  `define CR_PREFIX_CCEIP_STATS_E_CRCC1_RAW_CHSUM_GOOD_TOTAL                (10'h 50)
+  `define CR_PREFIX_CCEIP_STATS_E_CRCGC0_NVME_CHSUM_ERROR_TOTAL             (10'h 4f)
+  `define CR_PREFIX_CCEIP_STATS_E_CRCGC0_NVME_CHSUM_GOOD_TOTAL              (10'h 4e)
+  `define CR_PREFIX_CCEIP_STATS_E_CRCGC0_ENC_CHSUM_ERROR_TOTAL              (10'h 4d)
+  `define CR_PREFIX_CCEIP_STATS_E_CRCGC0_ENC_CHSUM_GOOD_TOTAL               (10'h 4c)
+  `define CR_PREFIX_CCEIP_STATS_E_CRCGC0_CRC64E_CHSUM_ERROR_TOTAL           (10'h 4b)
+  `define CR_PREFIX_CCEIP_STATS_E_CRCGC0_CRC64E_CHSUM_GOOD_TOTAL            (10'h 4a)
+  `define CR_PREFIX_CCEIP_STATS_E_CRCGC0_RAW_CHSUM_ERROR_TOTAL              (10'h 49)
+  `define CR_PREFIX_CCEIP_STATS_E_CRCGC0_RAW_CHSUM_GOOD_TOTAL               (10'h 48)
+  `define CR_PREFIX_CCEIP_STATS_E_CRCG0_NVME_CHSUM_ERROR_TOTAL              (10'h 47)
+  `define CR_PREFIX_CCEIP_STATS_E_CRCG0_NVME_CHSUM_GOOD_TOTAL               (10'h 46)
+  `define CR_PREFIX_CCEIP_STATS_E_CRCG0_ENC_CHSUM_ERROR_TOTAL               (10'h 45)
+  `define CR_PREFIX_CCEIP_STATS_E_CRCG0_ENC_CHSUM_GOOD_TOTAL                (10'h 44)
+  `define CR_PREFIX_CCEIP_STATS_E_CRCG0_CRC64E_CHSUM_ERROR_TOTAL            (10'h 43)
+  `define CR_PREFIX_CCEIP_STATS_E_CRCG0_CRC64E_CHSUM_GOOD_TOTAL             (10'h 42)
+  `define CR_PREFIX_CCEIP_STATS_E_CRCG0_RAW_CHSUM_ERROR_TOTAL               (10'h 41)
+  `define CR_PREFIX_CCEIP_STATS_E_CRCG0_RAW_CHSUM_GOOD_TOTAL                (10'h 40)
+  `define CR_PREFIX_CCEIP_STATS_E_HUFD_FE_XP9_FRM_TOTAL                     (10'h 140)
+  `define CR_PREFIX_CCEIP_STATS_E_HUFD_FE_XP9_BLK_TOTAL                     (10'h 141)
+  `define CR_PREFIX_CCEIP_STATS_E_HUFD_FE_XP9_RAW_FRM_TOTAL                 (10'h 142)
+  `define CR_PREFIX_CCEIP_STATS_E_HUFD_FE_XP10_FRM_TOTAL                    (10'h 143)
+  `define CR_PREFIX_CCEIP_STATS_E_HUFD_FE_XP10_FRM_PFX_TOTAL                (10'h 144)
+  `define CR_PREFIX_CCEIP_STATS_E_HUFD_FE_XP10_FRM_PDH_TOTAL                (10'h 145)
+  `define CR_PREFIX_CCEIP_STATS_E_HUFD_FE_XP10_BLK_TOTAL                    (10'h 146)
+  `define CR_PREFIX_CCEIP_STATS_E_HUFD_FE_XP10_RAW_BLK_TOTAL                (10'h 147)
+  `define CR_PREFIX_CCEIP_STATS_E_HUFD_FE_GZIP_FRM_TOTAL                    (10'h 148)
+  `define CR_PREFIX_CCEIP_STATS_E_HUFD_FE_GZIP_BLK_TOTAL                    (10'h 149)
+  `define CR_PREFIX_CCEIP_STATS_E_HUFD_FE_GZIP_RAW_BLK_TOTAL                (10'h 14a)
+  `define CR_PREFIX_CCEIP_STATS_E_HUFD_FE_ZLIB_FRM_TOTAL                    (10'h 14b)
+  `define CR_PREFIX_CCEIP_STATS_E_HUFD_FE_ZLIB_BLK_TOTAL                    (10'h 14c)
+  `define CR_PREFIX_CCEIP_STATS_E_HUFD_FE_ZLIB_RAW_BLK_TOTAL                (10'h 14d)
+  `define CR_PREFIX_CCEIP_STATS_E_HUFD_FE_CHU4K_TOTAL                       (10'h 14e)
+  `define CR_PREFIX_CCEIP_STATS_E_HUFD_FE_CHU8K_TOTAL                       (10'h 14f)
+  `define CR_PREFIX_CCEIP_STATS_E_HUFD_FE_CHU4K_RAW_TOTAL                   (10'h 150)
+  `define CR_PREFIX_CCEIP_STATS_E_HUFD_FE_CHU8K_RAW_TOTAL                   (10'h 151)
+  `define CR_PREFIX_CCEIP_STATS_E_HUFD_FE_PFX_CRC_ERR_TOTAL                 (10'h 152)
+  `define CR_PREFIX_CCEIP_STATS_E_HUFD_FE_PHD_CRC_ERR_TOTAL                 (10'h 153)
+  `define CR_PREFIX_CCEIP_STATS_E_HUFD_FE_XP9_CRC_ERR_TOTAL                 (10'h 154)
+  `define CR_PREFIX_CCEIP_STATS_E_HUFD_HTF_XP9_SIMPLE_SHORT_BLK_TOTAL       (10'h 155)
+  `define CR_PREFIX_CCEIP_STATS_E_HUFD_HTF_XP9_RETRO_SHORT_BLK_TOTAL        (10'h 156)
+  `define CR_PREFIX_CCEIP_STATS_E_HUFD_HTF_XP9_SIMPLE_LONG_BLK_TOTAL        (10'h 157)
+  `define CR_PREFIX_CCEIP_STATS_E_HUFD_HTF_XP9_RETRO_LONG_BLK_TOTAL         (10'h 158)
+  `define CR_PREFIX_CCEIP_STATS_E_HUFD_HTF_XP10_SIMPLE_SHORT_BLK_TOTAL      (10'h 159)
+  `define CR_PREFIX_CCEIP_STATS_E_HUFD_HTF_XP10_RETRO_SHORT_BLK_TOTAL       (10'h 15a)
+  `define CR_PREFIX_CCEIP_STATS_E_HUFD_HTF_XP10_PREDEF_SHORT_BLK_TOTAL      (10'h 15b)
+  `define CR_PREFIX_CCEIP_STATS_E_HUFD_HTF_XP10_SIMPLE_LONG_BLK_TOTAL       (10'h 15c)
+  `define CR_PREFIX_CCEIP_STATS_E_HUFD_HTF_XP10_RETRO_LONG_BLK_TOTAL        (10'h 15d)
+  `define CR_PREFIX_CCEIP_STATS_E_HUFD_HTF_XP10_PREDEF_LONG_BLK_TOTAL       (10'h 15e)
+  `define CR_PREFIX_CCEIP_STATS_E_HUFD_HTF_CHU4K_SIMPLE_SHORT_BLK_TOTAL     (10'h 15f)
+  `define CR_PREFIX_CCEIP_STATS_E_HUFD_HTF_CHU4K_RETRO_SHORT_BLK_TOTAL      (10'h 160)
+  `define CR_PREFIX_CCEIP_STATS_E_HUFD_HTF_CHU4K_PREDEF_SHORT_BLK_TOTAL     (10'h 161)
+  `define CR_PREFIX_CCEIP_STATS_E_HUFD_HTF_CHU4K_SIMPLE_LONG_BLK_TOTAL      (10'h 162)
+  `define CR_PREFIX_CCEIP_STATS_E_HUFD_HTF_CHU4K_RETRO_LONG_BLK_TOTAL       (10'h 163)
+  `define CR_PREFIX_CCEIP_STATS_E_HUFD_HTF_CHU4K_PREDEF_LONG_BLK_TOTAL      (10'h 164)
+  `define CR_PREFIX_CCEIP_STATS_E_HUFD_HTF_CHU8K_SIMPLE_SHORT_BLK_TOTAL     (10'h 165)
+  `define CR_PREFIX_CCEIP_STATS_E_HUFD_HTF_CHU8K_RETRO_SHORT_BLK_TOTAL      (10'h 166)
+  `define CR_PREFIX_CCEIP_STATS_E_HUFD_HTF_CHU8K_PREDEF_SHORT_BLK_TOTAL     (10'h 167)
+  `define CR_PREFIX_CCEIP_STATS_E_HUFD_HTF_CHU8K_SIMPLE_LONG_BLK_TOTAL      (10'h 168)
+  `define CR_PREFIX_CCEIP_STATS_E_HUFD_HTF_CHU8K_RETRO_LONG_BLK_TOTAL       (10'h 169)
+  `define CR_PREFIX_CCEIP_STATS_E_HUFD_HTF_CHU8K_PREDEF_LONG_BLK_TOTAL      (10'h 16a)
+  `define CR_PREFIX_CCEIP_STATS_E_HUFD_HTF_DEFLATE_DYNAMIC_BLK_TOTAL        (10'h 16b)
+  `define CR_PREFIX_CCEIP_STATS_E_HUFD_HTF_DEFLATE_FIXED_BLK_TOTAL          (10'h 16c)
+  `define CR_PREFIX_CCEIP_STATS_E_HUFD_MTF_0_TOTAL                          (10'h 16d)
+  `define CR_PREFIX_CCEIP_STATS_E_HUFD_MTF_1_TOTAL                          (10'h 16e)
+  `define CR_PREFIX_CCEIP_STATS_E_HUFD_MTF_2_TOTAL                          (10'h 16f)
+  `define CR_PREFIX_CCEIP_STATS_E_HUFD_MTF_3_TOTAL                          (10'h 170)
+  `define CR_PREFIX_CCEIP_STATS_E_HUFD_FE_FHP_STALL_TOTAL                   (10'h 171)
+  `define CR_PREFIX_CCEIP_STATS_E_HUFD_FE_LFA_STALL_TOTAL                   (10'h 172)
+  `define CR_PREFIX_CCEIP_STATS_E_HUFD_HTF_PREDEF_STALL_TOTAL               (10'h 173)
+  `define CR_PREFIX_CCEIP_STATS_E_HUFD_HTF_HDR_DATA_STALL_TOTAL             (10'h 174)
+  `define CR_PREFIX_CCEIP_STATS_E_HUFD_HTF_HDR_INFO_STALL_TOTAL             (10'h 175)
+  `define CR_PREFIX_CCEIP_STATS_E_HUFD_SDD_INPUT_STALL_TOTAL                (10'h 176)
+  `define CR_PREFIX_CCEIP_STATS_E_HUFD_SDD_BUF_FULL_STALL_TOTAL             (10'h 177)
+  `define CR_PREFIX_CCEIP_STATS_E_LZ77D_PTR_LEN_256_TOTAL                   (10'h 180)
+  `define CR_PREFIX_CCEIP_STATS_E_LZ77D_PTR_LEN_128_TOTAL                   (10'h 181)
+  `define CR_PREFIX_CCEIP_STATS_E_LZ77D_PTR_LEN_64_TOTAL                    (10'h 182)
+  `define CR_PREFIX_CCEIP_STATS_E_LZ77D_PTR_LEN_32_TOTAL                    (10'h 183)
+  `define CR_PREFIX_CCEIP_STATS_E_LZ77D_PTR_LEN_11_TOTAL                    (10'h 184)
+  `define CR_PREFIX_CCEIP_STATS_E_LZ77D_PTR_LEN_10_TOTAL                    (10'h 185)
+  `define CR_PREFIX_CCEIP_STATS_E_LZ77D_PTR_LEN_9_TOTAL                     (10'h 186)
+  `define CR_PREFIX_CCEIP_STATS_E_LZ77D_PTR_LEN_8_TOTAL                     (10'h 187)
+  `define CR_PREFIX_CCEIP_STATS_E_LZ77D_PTR_LEN_7_TOTAL                     (10'h 188)
+  `define CR_PREFIX_CCEIP_STATS_E_LZ77D_PTR_LEN_6_TOTAL                     (10'h 189)
+  `define CR_PREFIX_CCEIP_STATS_E_LZ77D_PTR_LEN_5_TOTAL                     (10'h 18a)
+  `define CR_PREFIX_CCEIP_STATS_E_LZ77D_PTR_LEN_4_TOTAL                     (10'h 18b)
+  `define CR_PREFIX_CCEIP_STATS_E_LZ77D_PTR_LEN_3_TOTAL                     (10'h 18c)
+  `define CR_PREFIX_CCEIP_STATS_E_LZ77D_LANE_1_LITERALS_TOTAL               (10'h 18d)
+  `define CR_PREFIX_CCEIP_STATS_E_LZ77D_LANE_2_LITERALS_TOTAL               (10'h 18e)
+  `define CR_PREFIX_CCEIP_STATS_E_LZ77D_LANE_3_LITERALS_TOTAL               (10'h 18f)
+  `define CR_PREFIX_CCEIP_STATS_E_LZ77D_LANE_4_LITERALS_TOTAL               (10'h 190)
+  `define CR_PREFIX_CCEIP_STATS_E_LZ77D_PTRS_TOTAL                          (10'h 191)
+  `define CR_PREFIX_CCEIP_STATS_E_LZ77D_FRM_IN_TOTAL                        (10'h 192)
+  `define CR_PREFIX_CCEIP_STATS_E_LZ77D_FRM_OUT_TOTAL                       (10'h 193)
+  `define CR_PREFIX_CCEIP_STATS_E_LZ77D_STALL_TOTAL                         (10'h 194)
+  `define CR_PREFIX_CCEIP_STATS_E_OSF_DATA_INPUT_STALL_TOTAL                (10'h 200)
+  `define CR_PREFIX_CCEIP_STATS_E_OSF_CG_INPUT_STALL_TOTAL                  (10'h 201)
+  `define CR_PREFIX_CCEIP_STATS_E_OSF_OUTPUT_BACKPRESSURE_TOTAL             (10'h 202)
+  `define CR_PREFIX_CCEIP_STATS_E_OSF_OUTPUT_STALL_TOTAL                    (10'h 203)
+  `define CR_PREFIX_CCEIP_STATS_E_SHORT_MAP_ERR_TOTAL                       (10'h 280)
+  `define CR_PREFIX_CCEIP_STATS_E_LONG_MAP_ERR_TOTAL                        (10'h 281)
+  `define CR_PREFIX_CCEIP_STATS_E_XP9_BLK_COMP_TOTAL                        (10'h 282)
+  `define CR_PREFIX_CCEIP_STATS_E_XP9_FRM_RAW_TOTAL                         (10'h 283)
+  `define CR_PREFIX_CCEIP_STATS_E_XP9_FRM_TOTAL                             (10'h 284)
+  `define CR_PREFIX_CCEIP_STATS_E_XP9_BLK_SHORT_SIM_TOTAL                   (10'h 285)
+  `define CR_PREFIX_CCEIP_STATS_E_XP9_BLK_LONG_SIM_TOTAL                    (10'h 286)
+  `define CR_PREFIX_CCEIP_STATS_E_XP9_BLK_SHORT_RET_TOTAL                   (10'h 287)
+  `define CR_PREFIX_CCEIP_STATS_E_XP9_BLK_LONG_RET_TOTAL                    (10'h 288)
+  `define CR_PREFIX_CCEIP_STATS_E_XP10_BLK_COMP_TOTAL                       (10'h 289)
+  `define CR_PREFIX_CCEIP_STATS_E_XP10_BLK_RAW_TOTAL                        (10'h 28a)
+  `define CR_PREFIX_CCEIP_STATS_E_XP10_BLK_SHORT_SIM_TOTAL                  (10'h 28b)
+  `define CR_PREFIX_CCEIP_STATS_E_XP10_BLK_LONG_SIM_TOTAL                   (10'h 28c)
+  `define CR_PREFIX_CCEIP_STATS_E_XP10_BLK_SHORT_RET_TOTAL                  (10'h 28d)
+  `define CR_PREFIX_CCEIP_STATS_E_XP10_BLK_LONG_RET_TOTAL                   (10'h 28e)
+  `define CR_PREFIX_CCEIP_STATS_E_XP10_BLK_SHORT_PRE_TOTAL                  (10'h 28f)
+  `define CR_PREFIX_CCEIP_STATS_E_XP10_BLK_LONG_PRE_TOTAL                   (10'h 290)
+  `define CR_PREFIX_CCEIP_STATS_E_XP10_FRM_TOTAL                            (10'h 291)
+  `define CR_PREFIX_CCEIP_STATS_E_CHU8_FRM_RAW_TOTAL                        (10'h 292)
+  `define CR_PREFIX_CCEIP_STATS_E_CHU8_FRM_COMP_TOTAL                       (10'h 293)
+  `define CR_PREFIX_CCEIP_STATS_E_CHU8_FRM_SHORT_SIM_TOTAL                  (10'h 294)
+  `define CR_PREFIX_CCEIP_STATS_E_CHU8_FRM_LONG_SIM_TOTAL                   (10'h 295)
+  `define CR_PREFIX_CCEIP_STATS_E_CHU8_FRM_SHORT_RET_TOTAL                  (10'h 296)
+  `define CR_PREFIX_CCEIP_STATS_E_CHU8_FRM_LONG_RET_TOTAL                   (10'h 297)
+  `define CR_PREFIX_CCEIP_STATS_E_CHU8_FRM_SHORT_PRE_TOTAL                  (10'h 298)
+  `define CR_PREFIX_CCEIP_STATS_E_CHU8_FRM_LONG_PRE_TOTAL                   (10'h 299)
+  `define CR_PREFIX_CCEIP_STATS_E_CHU8_CMD_TOTAL                            (10'h 29a)
+  `define CR_PREFIX_CCEIP_STATS_E_CHU4_FRM_RAW_TOTAL                        (10'h 29b)
+  `define CR_PREFIX_CCEIP_STATS_E_CHU4_FRM_COMP_TOTAL                       (10'h 29c)
+  `define CR_PREFIX_CCEIP_STATS_E_CHU4_FRM_SHORT_SIM_TOTAL                  (10'h 29d)
+  `define CR_PREFIX_CCEIP_STATS_E_CHU4_FRM_LONG_SIM_TOTAL                   (10'h 29e)
+  `define CR_PREFIX_CCEIP_STATS_E_CHU4_FRM_SHORT_RET_TOTAL                  (10'h 29f)
+  `define CR_PREFIX_CCEIP_STATS_E_CHU4_FRM_LONG_RET_TOTAL                   (10'h 2a0)
+  `define CR_PREFIX_CCEIP_STATS_E_CHU4_FRM_SHORT_PRE_TOTAL                  (10'h 2a1)
+  `define CR_PREFIX_CCEIP_STATS_E_CHU4_FRM_LONG_PRE_TOTAL                   (10'h 2a2)
+  `define CR_PREFIX_CCEIP_STATS_E_CHU4_CMD_TOTAL                            (10'h 2a3)
+  `define CR_PREFIX_CCEIP_STATS_E_DF_BLK_COMP_TOTAL                         (10'h 2a4)
+  `define CR_PREFIX_CCEIP_STATS_E_DF_BLK_RAW_TOTAL                          (10'h 2a5)
+  `define CR_PREFIX_CCEIP_STATS_E_DF_BLK_SHORT_SIM_TOTAL                    (10'h 2a6)
+  `define CR_PREFIX_CCEIP_STATS_E_DF_BLK_LONG_SIM_TOTAL                     (10'h 2a7)
+  `define CR_PREFIX_CCEIP_STATS_E_DF_BLK_SHORT_RET_TOTAL                    (10'h 2a8)
+  `define CR_PREFIX_CCEIP_STATS_E_DF_BLK_LONG_RET_TOTAL                     (10'h 2a9)
+  `define CR_PREFIX_CCEIP_STATS_E_DF_FRM_TOTAL                              (10'h 2aa)
+  `define CR_PREFIX_CCEIP_STATS_E_PASS_THRU_FRM_TOTAL                       (10'h 2ab)
+  `define CR_PREFIX_CCEIP_STATS_E_BYTE_0_TOTAL                              (10'h 2ac)
+  `define CR_PREFIX_CCEIP_STATS_E_BYTE_1_TOTAL                              (10'h 2ad)
+  `define CR_PREFIX_CCEIP_STATS_E_BYTE_2_TOTAL                              (10'h 2ae)
+  `define CR_PREFIX_CCEIP_STATS_E_BYTE_3_TOTAL                              (10'h 2af)
+  `define CR_PREFIX_CCEIP_STATS_E_BYTE_4_TOTAL                              (10'h 2b0)
+  `define CR_PREFIX_CCEIP_STATS_E_BYTE_5_TOTAL                              (10'h 2b1)
+  `define CR_PREFIX_CCEIP_STATS_E_BYTE_6_TOTAL                              (10'h 2b2)
+  `define CR_PREFIX_CCEIP_STATS_E_BYTE_7_TOTAL                              (10'h 2b3)
+  `define CR_PREFIX_CCEIP_STATS_E_LZ77_STALL_TOTAL                          (10'h 2b5)
+  `define CR_PREFIX_CCEIP_STATS_E_LZ77C_EOF_FRAME                           (10'h 2c0)
+  `define CR_PREFIX_CCEIP_STATS_E_LZ77C_BYPASS_FRAME                        (10'h 2c1)
+  `define CR_PREFIX_CCEIP_STATS_E_LZ77C_MTF_3_TOTAL                         (10'h 2c2)
+  `define CR_PREFIX_CCEIP_STATS_E_LZ77C_MTF_2_TOTAL                         (10'h 2c3)
+  `define CR_PREFIX_CCEIP_STATS_E_LZ77C_MTF_1_TOTAL                         (10'h 2c4)
+  `define CR_PREFIX_CCEIP_STATS_E_LZ77C_MTF_0_TOTAL                         (10'h 2c5)
+  `define CR_PREFIX_CCEIP_STATS_E_LZ77C_RUN_256_NUP_TOTAL                   (10'h 2c6)
+  `define CR_PREFIX_CCEIP_STATS_E_LZ77C_RUN_128_255_TOTAL                   (10'h 2c7)
+  `define CR_PREFIX_CCEIP_STATS_E_LZ77C_RUN_64_127_TOTAL                    (10'h 2c8)
+  `define CR_PREFIX_CCEIP_STATS_E_LZ77C_RUN_32_63_TOTAL                     (10'h 2c9)
+  `define CR_PREFIX_CCEIP_STATS_E_LZ77C_RUN_11_31_TOTAL                     (10'h 2ca)
+  `define CR_PREFIX_CCEIP_STATS_E_LZ77C_RUN_10_TOTAL                        (10'h 2cb)
+  `define CR_PREFIX_CCEIP_STATS_E_LZ77C_RUN_9_TOTAL                         (10'h 2cc)
+  `define CR_PREFIX_CCEIP_STATS_E_LZ77C_RUN_8_TOTAL                         (10'h 2cd)
+  `define CR_PREFIX_CCEIP_STATS_E_LZ77C_RUN_7_TOTAL                         (10'h 2ce)
+  `define CR_PREFIX_CCEIP_STATS_E_LZ77C_RUN_6_TOTAL                         (10'h 2cf)
+  `define CR_PREFIX_CCEIP_STATS_E_LZ77C_RUN_5_TOTAL                         (10'h 2d0)
+  `define CR_PREFIX_CCEIP_STATS_E_LZ77C_RUN_4_TOTAL                         (10'h 2d1)
+  `define CR_PREFIX_CCEIP_STATS_E_LZ77C_RUN_3_TOTAL                         (10'h 2d2)
+  `define CR_PREFIX_CCEIP_STATS_E_LZ77C_MTF_TOTAL                           (10'h 2d3)
+  `define CR_PREFIX_CCEIP_STATS_E_LZ77C_PTR_TOTAL                           (10'h 2d4)
+  `define CR_PREFIX_CCEIP_STATS_E_LZ77C_FOUR_LIT_TOTAL                      (10'h 2d5)
+  `define CR_PREFIX_CCEIP_STATS_E_LZ77C_THREE_LIT_TOTAL                     (10'h 2d6)
+  `define CR_PREFIX_CCEIP_STATS_E_LZ77C_TWO_LIT_TOTAL                       (10'h 2d7)
+  `define CR_PREFIX_CCEIP_STATS_E_LZ77C_ONE_LIT_TOTAL                       (10'h 2d8)
+  `define CR_PREFIX_CCEIP_STATS_E_LZ77C_THROTTLED_FRAME                     (10'h 2d9)
+  `define CR_PREFIX_CCEIP_STATS_E_PREFIX_NUM_0_TOTAL                        (10'h 340)
+  `define CR_PREFIX_CCEIP_STATS_E_PREFIX_NUM_1_TOTAL                        (10'h 341)
+  `define CR_PREFIX_CCEIP_STATS_E_PREFIX_NUM_2_TOTAL                        (10'h 342)
+  `define CR_PREFIX_CCEIP_STATS_E_PREFIX_NUM_3_TOTAL                        (10'h 343)
+  `define CR_PREFIX_CCEIP_STATS_E_PREFIX_NUM_4_TOTAL                        (10'h 344)
+  `define CR_PREFIX_CCEIP_STATS_E_PREFIX_NUM_5_TOTAL                        (10'h 345)
+  `define CR_PREFIX_CCEIP_STATS_E_PREFIX_NUM_6_TOTAL                        (10'h 346)
+  `define CR_PREFIX_CCEIP_STATS_E_PREFIX_NUM_7_TOTAL                        (10'h 347)
+  `define CR_PREFIX_CCEIP_STATS_E_PREFIX_NUM_8_TOTAL                        (10'h 348)
+  `define CR_PREFIX_CCEIP_STATS_E_PREFIX_NUM_9_TOTAL                        (10'h 349)
+  `define CR_PREFIX_CCEIP_STATS_E_PREFIX_NUM_10_TOTAL                       (10'h 34a)
+  `define CR_PREFIX_CCEIP_STATS_E_PREFIX_NUM_11_TOTAL                       (10'h 34b)
+  `define CR_PREFIX_CCEIP_STATS_E_PREFIX_NUM_12_TOTAL                       (10'h 34c)
+  `define CR_PREFIX_CCEIP_STATS_E_PREFIX_NUM_13_TOTAL                       (10'h 34d)
+  `define CR_PREFIX_CCEIP_STATS_E_PREFIX_NUM_14_TOTAL                       (10'h 34e)
+  `define CR_PREFIX_CCEIP_STATS_E_PREFIX_NUM_15_TOTAL                       (10'h 34f)
+  `define CR_PREFIX_CCEIP_STATS_E_PREFIX_NUM_16_TOTAL                       (10'h 350)
+  `define CR_PREFIX_CCEIP_STATS_E_PREFIX_NUM_17_TOTAL                       (10'h 351)
+  `define CR_PREFIX_CCEIP_STATS_E_PREFIX_NUM_18_TOTAL                       (10'h 352)
+  `define CR_PREFIX_CCEIP_STATS_E_PREFIX_NUM_19_TOTAL                       (10'h 353)
+  `define CR_PREFIX_CCEIP_STATS_E_PREFIX_NUM_20_TOTAL                       (10'h 354)
+  `define CR_PREFIX_CCEIP_STATS_E_PREFIX_NUM_21_TOTAL                       (10'h 355)
+  `define CR_PREFIX_CCEIP_STATS_E_PREFIX_NUM_22_TOTAL                       (10'h 356)
+  `define CR_PREFIX_CCEIP_STATS_E_PREFIX_NUM_23_TOTAL                       (10'h 357)
+  `define CR_PREFIX_CCEIP_STATS_E_PREFIX_NUM_24_TOTAL                       (10'h 358)
+  `define CR_PREFIX_CCEIP_STATS_E_PREFIX_NUM_25_TOTAL                       (10'h 359)
+  `define CR_PREFIX_CCEIP_STATS_E_PREFIX_NUM_26_TOTAL                       (10'h 35a)
+  `define CR_PREFIX_CCEIP_STATS_E_PREFIX_NUM_27_TOTAL                       (10'h 35b)
+  `define CR_PREFIX_CCEIP_STATS_E_PREFIX_NUM_28_TOTAL                       (10'h 35c)
+  `define CR_PREFIX_CCEIP_STATS_E_PREFIX_NUM_29_TOTAL                       (10'h 35d)
+  `define CR_PREFIX_CCEIP_STATS_E_PREFIX_NUM_30_TOTAL                       (10'h 35e)
+  `define CR_PREFIX_CCEIP_STATS_E_PREFIX_NUM_31_TOTAL                       (10'h 35f)
+  `define CR_PREFIX_CCEIP_STATS_E_PREFIX_NUM_32_TOTAL                       (10'h 360)
+  `define CR_PREFIX_CCEIP_STATS_E_PREFIX_NUM_33_TOTAL                       (10'h 361)
+  `define CR_PREFIX_CCEIP_STATS_E_PREFIX_NUM_34_TOTAL                       (10'h 362)
+  `define CR_PREFIX_CCEIP_STATS_E_PREFIX_NUM_35_TOTAL                       (10'h 363)
+  `define CR_PREFIX_CCEIP_STATS_E_PREFIX_NUM_36_TOTAL                       (10'h 364)
+  `define CR_PREFIX_CCEIP_STATS_E_PREFIX_NUM_37_TOTAL                       (10'h 365)
+  `define CR_PREFIX_CCEIP_STATS_E_PREFIX_NUM_38_TOTAL                       (10'h 366)
+  `define CR_PREFIX_CCEIP_STATS_E_PREFIX_NUM_39_TOTAL                       (10'h 367)
+  `define CR_PREFIX_CCEIP_STATS_E_PREFIX_NUM_40_TOTAL                       (10'h 368)
+  `define CR_PREFIX_CCEIP_STATS_E_PREFIX_NUM_41_TOTAL                       (10'h 369)
+  `define CR_PREFIX_CCEIP_STATS_E_PREFIX_NUM_42_TOTAL                       (10'h 36a)
+  `define CR_PREFIX_CCEIP_STATS_E_PREFIX_NUM_43_TOTAL                       (10'h 36b)
+  `define CR_PREFIX_CCEIP_STATS_E_PREFIX_NUM_44_TOTAL                       (10'h 36c)
+  `define CR_PREFIX_CCEIP_STATS_E_PREFIX_NUM_45_TOTAL                       (10'h 36d)
+  `define CR_PREFIX_CCEIP_STATS_E_PREFIX_NUM_46_TOTAL                       (10'h 36e)
+  `define CR_PREFIX_CCEIP_STATS_E_PREFIX_NUM_47_TOTAL                       (10'h 36f)
+  `define CR_PREFIX_CCEIP_STATS_E_PREFIX_NUM_48_TOTAL                       (10'h 370)
+  `define CR_PREFIX_CCEIP_STATS_E_PREFIX_NUM_49_TOTAL                       (10'h 371)
+  `define CR_PREFIX_CCEIP_STATS_E_PREFIX_NUM_50_TOTAL                       (10'h 372)
+  `define CR_PREFIX_CCEIP_STATS_E_PREFIX_NUM_51_TOTAL                       (10'h 373)
+  `define CR_PREFIX_CCEIP_STATS_E_PREFIX_NUM_52_TOTAL                       (10'h 374)
+  `define CR_PREFIX_CCEIP_STATS_E_PREFIX_NUM_53_TOTAL                       (10'h 375)
+  `define CR_PREFIX_CCEIP_STATS_E_PREFIX_NUM_54_TOTAL                       (10'h 376)
+  `define CR_PREFIX_CCEIP_STATS_E_PREFIX_NUM_55_TOTAL                       (10'h 377)
+  `define CR_PREFIX_CCEIP_STATS_E_PREFIX_NUM_56_TOTAL                       (10'h 378)
+  `define CR_PREFIX_CCEIP_STATS_E_PREFIX_NUM_57_TOTAL                       (10'h 379)
+  `define CR_PREFIX_CCEIP_STATS_E_PREFIX_NUM_58_TOTAL                       (10'h 37a)
+  `define CR_PREFIX_CCEIP_STATS_E_PREFIX_NUM_59_TOTAL                       (10'h 37b)
+  `define CR_PREFIX_CCEIP_STATS_E_PREFIX_NUM_60_TOTAL                       (10'h 37c)
+  `define CR_PREFIX_CCEIP_STATS_E_PREFIX_NUM_61_TOTAL                       (10'h 37d)
+  `define CR_PREFIX_CCEIP_STATS_E_PREFIX_NUM_62_TOTAL                       (10'h 37e)
+  `define CR_PREFIX_CCEIP_STATS_E_PREFIX_NUM_63_TOTAL                       (10'h 37f)
+  `define CR_PREFIX_CCEIP_STATS_E_ISF_INPUT_COMMANDS                        (10'h 380)
+  `define CR_PREFIX_CCEIP_STATS_E_ISF_INPUT_FRAMES                          (10'h 381)
+  `define CR_PREFIX_CCEIP_STATS_E_ISF_INPUT_STALL_TOTAL                     (10'h 382)
+  `define CR_PREFIX_CCEIP_STATS_E_ISF_INPUT_SYSTEM_STALL_TOTAL              (10'h 383)
+  `define CR_PREFIX_CCEIP_STATS_E_ISF_OUTPUT_BACKPRESSURE_TOTAL             (10'h 384)
+  `define CR_PREFIX_CCEIP_STATS_E_ISF_AUX_CMD_COMPRESS_CTL_MATCH_COMMAND_0  (10'h 385)
+  `define CR_PREFIX_CCEIP_STATS_E_ISF_AUX_CMD_COMPRESS_CTL_MATCH_COMMAND_1  (10'h 386)
+  `define CR_PREFIX_CCEIP_STATS_E_ISF_AUX_CMD_COMPRESS_CTL_MATCH_COMMAND_2  (10'h 387)
+  `define CR_PREFIX_CCEIP_STATS_E_ISF_AUX_CMD_COMPRESS_CTL_MATCH_COMMAND_3  (10'h 388)
+  `define CR_PREFIX_CCEIP_STATS_E_HUF_COMP_LZ77D_PTR_LEN_256_TOTAL          (10'h 3c0)
+  `define CR_PREFIX_CCEIP_STATS_E_HUF_COMP_LZ77D_PTR_LEN_128_TOTAL          (10'h 3c1)
+  `define CR_PREFIX_CCEIP_STATS_E_HUF_COMP_LZ77D_PTR_LEN_64_TOTAL           (10'h 3c2)
+  `define CR_PREFIX_CCEIP_STATS_E_HUF_COMP_LZ77D_PTR_LEN_32_TOTAL           (10'h 3c3)
+  `define CR_PREFIX_CCEIP_STATS_E_HUF_COMP_LZ77D_PTR_LEN_11_TOTAL           (10'h 3c4)
+  `define CR_PREFIX_CCEIP_STATS_E_HUF_COMP_LZ77D_PTR_LEN_10_TOTAL           (10'h 3c5)
+  `define CR_PREFIX_CCEIP_STATS_E_HUF_COMP_LZ77D_PTR_LEN_9_TOTAL            (10'h 3c6)
+  `define CR_PREFIX_CCEIP_STATS_E_HUF_COMP_LZ77D_PTR_LEN_8_TOTAL            (10'h 3c7)
+  `define CR_PREFIX_CCEIP_STATS_E_HUF_COMP_LZ77D_PTR_LEN_7_TOTAL            (10'h 3c8)
+  `define CR_PREFIX_CCEIP_STATS_E_HUF_COMP_LZ77D_PTR_LEN_6_TOTAL            (10'h 3c9)
+  `define CR_PREFIX_CCEIP_STATS_E_HUF_COMP_LZ77D_PTR_LEN_5_TOTAL            (10'h 3ca)
+  `define CR_PREFIX_CCEIP_STATS_E_HUF_COMP_LZ77D_PTR_LEN_4_TOTAL            (10'h 3cb)
+  `define CR_PREFIX_CCEIP_STATS_E_HUF_COMP_LZ77D_PTR_LEN_3_TOTAL            (10'h 3cc)
+  `define CR_PREFIX_CCEIP_STATS_E_HUF_COMP_LZ77D_LANE_4_LITERALS_TOTAL      (10'h 3cd)
+  `define CR_PREFIX_CCEIP_STATS_E_HUF_COMP_LZ77D_LANE_3_LITERALS_TOTAL      (10'h 3ce)
+  `define CR_PREFIX_CCEIP_STATS_E_HUF_COMP_LZ77D_LANE_2_LITERALS_TOTAL      (10'h 3cf)
+  `define CR_PREFIX_CCEIP_STATS_E_HUF_COMP_LZ77D_LANE_1_LITERALS_TOTAL      (10'h 3d0)
+  `define CR_PREFIX_CCEIP_STATS_E_HUF_COMP_LZ77D_PTRS_TOTAL                 (10'h 3d1)
+  `define CR_PREFIX_CCEIP_STATS_E_HUF_COMP_LZ77D_FRM_IN_TOTAL               (10'h 3d2)
+  `define CR_PREFIX_CCEIP_STATS_E_HUF_COMP_LZ77D_FRM_OUT_TOTAL              (10'h 3d3)
+  `define CR_PREFIX_CCEIP_STATS_E_HUF_COMP_LZ77D_STALL_STB_TOTAL            (10'h 3d4)
+  `define CR_PREFIX_CCEIP_STATS_E_CCEIP_STATS_RESERVED                      (10'h 3ff)
+
+`define CR_PREFIX_PREFIX_COMPARE_TYPE_E_DECL   1:0
+`define CR_PREFIX_PREFIX_COMPARE_TYPE_E_WIDTH  2
+  `define CR_PREFIX_PREFIX_COMPARE_TYPE_E_EQ    (2'h 0)
+  `define CR_PREFIX_PREFIX_COMPARE_TYPE_E_GTEQ  (2'h 1)
+  `define CR_PREFIX_PREFIX_COMPARE_TYPE_E_LT    (2'h 2)
+  `define CR_PREFIX_PREFIX_COMPARE_TYPE_E_EQOP  (2'h 3)
+
+`define CR_PREFIX_IA_OPERATION_E_DECL   3:0
+`define CR_PREFIX_IA_OPERATION_E_WIDTH  4
+  `define CR_PREFIX_IA_OPERATION_E_NOP             (4'h 0)
+  `define CR_PREFIX_IA_OPERATION_E_READ            (4'h 1)
+  `define CR_PREFIX_IA_OPERATION_E_WRITE           (4'h 2)
+  `define CR_PREFIX_IA_OPERATION_E_ENABLE          (4'h 3)
+  `define CR_PREFIX_IA_OPERATION_E_DISABLED        (4'h 4)
+  `define CR_PREFIX_IA_OPERATION_E_RESET           (4'h 5)
+  `define CR_PREFIX_IA_OPERATION_E_INITIALIZE      (4'h 6)
+  `define CR_PREFIX_IA_OPERATION_E_INITIALIZE_INC  (4'h 7)
+  `define CR_PREFIX_IA_OPERATION_E_SET_INI_START   (4'h 8)
+  `define CR_PREFIX_IA_OPERATION_E_COMPARE         (4'h 9)
+  `define CR_PREFIX_IA_OPERATION_E_SIM_TMO         (4'h e)
+  `define CR_PREFIX_IA_OPERATION_E_ACK_ERROR       (4'h f)
+
+`define CR_PREFIX_IA_STATUS_E_DECL   2:0
+`define CR_PREFIX_IA_STATUS_E_WIDTH  3
+  `define CR_PREFIX_IA_STATUS_E_READY  (3'h 0)
+  `define CR_PREFIX_IA_STATUS_E_BUSY   (3'h 1)
+  `define CR_PREFIX_IA_STATUS_E_TMO    (3'h 2)
+  `define CR_PREFIX_IA_STATUS_E_OVR    (3'h 3)
+  `define CR_PREFIX_IA_STATUS_E_NXM    (3'h 4)
+  `define CR_PREFIX_IA_STATUS_E_UOP    (3'h 5)
+  `define CR_PREFIX_IA_STATUS_E_PDN    (3'h 7)
+
+`define CR_PREFIX_MEM_TYPE_E_DECL   3:0
+`define CR_PREFIX_MEM_TYPE_E_WIDTH  4
+  `define CR_PREFIX_MEM_TYPE_E_SPRAM        (4'h 0)
+  `define CR_PREFIX_MEM_TYPE_E_SRFRAM       (4'h 1)
+  `define CR_PREFIX_MEM_TYPE_E_REG          (4'h 2)
+  `define CR_PREFIX_MEM_TYPE_E_TCAM         (4'h 3)
+  `define CR_PREFIX_MEM_TYPE_E_MEM_TYPE_4   (4'h 4)
+  `define CR_PREFIX_MEM_TYPE_E_MEM_TYPE_5   (4'h 5)
+  `define CR_PREFIX_MEM_TYPE_E_MEM_TYPE_6   (4'h 6)
+  `define CR_PREFIX_MEM_TYPE_E_MEM_TYPE_7   (4'h 7)
+  `define CR_PREFIX_MEM_TYPE_E_MEM_TYPE_8   (4'h 8)
+  `define CR_PREFIX_MEM_TYPE_E_MEM_TYPE_9   (4'h 9)
+  `define CR_PREFIX_MEM_TYPE_E_MEM_TYPE_10  (4'h a)
+  `define CR_PREFIX_MEM_TYPE_E_MEM_TYPE_11  (4'h b)
+  `define CR_PREFIX_MEM_TYPE_E_MEM_TYPE_12  (4'h c)
+  `define CR_PREFIX_MEM_TYPE_E_MEM_TYPE_13  (4'h d)
+  `define CR_PREFIX_MEM_TYPE_E_MEM_TYPE_14  (4'h e)
+  `define CR_PREFIX_MEM_TYPE_E_MEM_TYPE_15  (4'h f)
+
+`define CR_PREFIX_OPCODE_E_DECL   3:0
+`define CR_PREFIX_OPCODE_E_WIDTH  4
+  `define CR_PREFIX_OPCODE_E_NOOPO     (4'h 0)
+  `define CR_PREFIX_OPCODE_E_HALT      (4'h 1)
+  `define CR_PREFIX_OPCODE_E_UNLOCK    (4'h 2)
+  `define CR_PREFIX_OPCODE_E_RELUS     (4'h 3)
+  `define CR_PREFIX_OPCODE_E_SIGMOIDS  (4'h 4)
+  `define CR_PREFIX_OPCODE_E_SETNCNT   (4'h 5)
+  `define CR_PREFIX_OPCODE_E_RELUP     (4'h 6)
+  `define CR_PREFIX_OPCODE_E_SIGMOIDP  (4'h 7)
+  `define CR_PREFIX_OPCODE_E_LOAD      (4'h 8)
+  `define CR_PREFIX_OPCODE_E_MAC       (4'h 9)
+  `define CR_PREFIX_OPCODE_E_HOLD      (4'h a)
+
+
+
+`define CR_PREFIX_REVID_T_DECL   31:0
+`define CR_PREFIX_REVID_T_WIDTH  32
+  `define CR_PREFIX_REVID_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_REVID_T_REVID_DECL   7:0
+`define CR_PREFIX_REVID_T_REVID_WIDTH  8
+  `define CR_PREFIX_REVID_T_REVID_DEFAULT  (8'h 0)
+
+`define CR_PREFIX_FULL_REVID_T_DECL   31:0
+`define CR_PREFIX_FULL_REVID_T_WIDTH  32
+  `define CR_PREFIX_FULL_REVID_T_REVID      7:0
+  `define CR_PREFIX_FULL_REVID_T_RESERVED0  31:8
+
+`define CR_PREFIX_C_REVID_T_DECL   7:0
+`define CR_PREFIX_C_REVID_T_WIDTH  8
+  `define CR_PREFIX_C_REVID_T_REVID  7:0
+
+`define CR_PREFIX_SPARE_T_DECL   31:0
+`define CR_PREFIX_SPARE_T_WIDTH  32
+  `define CR_PREFIX_SPARE_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_SPARE_T_SPARE_DECL   31:0
+`define CR_PREFIX_SPARE_T_SPARE_WIDTH  32
+  `define CR_PREFIX_SPARE_T_SPARE_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_FULL_SPARE_T_DECL   31:0
+`define CR_PREFIX_FULL_SPARE_T_WIDTH  32
+  `define CR_PREFIX_FULL_SPARE_T_SPARE  31:00
+
+`define CR_PREFIX_C_SPARE_T_DECL   31:0
+`define CR_PREFIX_C_SPARE_T_WIDTH  32
+  `define CR_PREFIX_C_SPARE_T_SPARE  31:00
+
+`define CR_PREFIX_REGS_TLV_PARSE_ACTION_31_0_T_DECL   31:0
+`define CR_PREFIX_REGS_TLV_PARSE_ACTION_31_0_T_WIDTH  32
+  `define CR_PREFIX_REGS_TLV_PARSE_ACTION_31_0_T_DEFAULT  (32'h 6a956161)
+
+`define CR_PREFIX_REGS_TLV_PARSE_ACTION_31_0_T_RQE_DECL   1:0
+`define CR_PREFIX_REGS_TLV_PARSE_ACTION_31_0_T_RQE_WIDTH  2
+  `define CR_PREFIX_REGS_TLV_PARSE_ACTION_31_0_T_RQE_DEFAULT  (2'h 1)
+
+`define CR_PREFIX_REGS_TLV_PARSE_ACTION_31_0_T_CMD_DECL   1:0
+`define CR_PREFIX_REGS_TLV_PARSE_ACTION_31_0_T_CMD_WIDTH  2
+  `define CR_PREFIX_REGS_TLV_PARSE_ACTION_31_0_T_CMD_DEFAULT  (2'h 0)
+
+`define CR_PREFIX_REGS_TLV_PARSE_ACTION_31_0_T_KEY_DECL   1:0
+`define CR_PREFIX_REGS_TLV_PARSE_ACTION_31_0_T_KEY_WIDTH  2
+  `define CR_PREFIX_REGS_TLV_PARSE_ACTION_31_0_T_KEY_DEFAULT  (2'h 2)
+
+`define CR_PREFIX_REGS_TLV_PARSE_ACTION_31_0_T_PHD_DECL   1:0
+`define CR_PREFIX_REGS_TLV_PARSE_ACTION_31_0_T_PHD_WIDTH  2
+  `define CR_PREFIX_REGS_TLV_PARSE_ACTION_31_0_T_PHD_DEFAULT  (2'h 1)
+
+`define CR_PREFIX_REGS_TLV_PARSE_ACTION_31_0_T_PFD_DECL   1:0
+`define CR_PREFIX_REGS_TLV_PARSE_ACTION_31_0_T_PFD_WIDTH  2
+  `define CR_PREFIX_REGS_TLV_PARSE_ACTION_31_0_T_PFD_DEFAULT  (2'h 1)
+
+`define CR_PREFIX_REGS_TLV_PARSE_ACTION_31_0_T_DATA_UNK_DECL   1:0
+`define CR_PREFIX_REGS_TLV_PARSE_ACTION_31_0_T_DATA_UNK_WIDTH  2
+  `define CR_PREFIX_REGS_TLV_PARSE_ACTION_31_0_T_DATA_UNK_DEFAULT  (2'h 0)
+
+`define CR_PREFIX_REGS_TLV_PARSE_ACTION_31_0_T_FTR_DECL   1:0
+`define CR_PREFIX_REGS_TLV_PARSE_ACTION_31_0_T_FTR_WIDTH  2
+  `define CR_PREFIX_REGS_TLV_PARSE_ACTION_31_0_T_FTR_DEFAULT  (2'h 2)
+
+`define CR_PREFIX_REGS_TLV_PARSE_ACTION_31_0_T_LZ77_DECL   1:0
+`define CR_PREFIX_REGS_TLV_PARSE_ACTION_31_0_T_LZ77_WIDTH  2
+  `define CR_PREFIX_REGS_TLV_PARSE_ACTION_31_0_T_LZ77_DEFAULT  (2'h 1)
+
+`define CR_PREFIX_REGS_TLV_PARSE_ACTION_31_0_T_STAT_DECL   1:0
+`define CR_PREFIX_REGS_TLV_PARSE_ACTION_31_0_T_STAT_WIDTH  2
+  `define CR_PREFIX_REGS_TLV_PARSE_ACTION_31_0_T_STAT_DEFAULT  (2'h 1)
+
+`define CR_PREFIX_REGS_TLV_PARSE_ACTION_31_0_T_CQE_DECL   1:0
+`define CR_PREFIX_REGS_TLV_PARSE_ACTION_31_0_T_CQE_WIDTH  2
+  `define CR_PREFIX_REGS_TLV_PARSE_ACTION_31_0_T_CQE_DEFAULT  (2'h 1)
+
+`define CR_PREFIX_REGS_TLV_PARSE_ACTION_31_0_T_GUID_DECL   1:0
+`define CR_PREFIX_REGS_TLV_PARSE_ACTION_31_0_T_GUID_WIDTH  2
+  `define CR_PREFIX_REGS_TLV_PARSE_ACTION_31_0_T_GUID_DEFAULT  (2'h 1)
+
+`define CR_PREFIX_REGS_TLV_PARSE_ACTION_31_0_T_FRMD_USER_NULL_DECL   1:0
+`define CR_PREFIX_REGS_TLV_PARSE_ACTION_31_0_T_FRMD_USER_NULL_WIDTH  2
+  `define CR_PREFIX_REGS_TLV_PARSE_ACTION_31_0_T_FRMD_USER_NULL_DEFAULT  (2'h 2)
+
+`define CR_PREFIX_REGS_TLV_PARSE_ACTION_31_0_T_FRMD_USER_PI16_DECL   1:0
+`define CR_PREFIX_REGS_TLV_PARSE_ACTION_31_0_T_FRMD_USER_PI16_WIDTH  2
+  `define CR_PREFIX_REGS_TLV_PARSE_ACTION_31_0_T_FRMD_USER_PI16_DEFAULT  (2'h 2)
+
+`define CR_PREFIX_REGS_TLV_PARSE_ACTION_31_0_T_FRMD_USER_PI64_DECL   1:0
+`define CR_PREFIX_REGS_TLV_PARSE_ACTION_31_0_T_FRMD_USER_PI64_WIDTH  2
+  `define CR_PREFIX_REGS_TLV_PARSE_ACTION_31_0_T_FRMD_USER_PI64_DEFAULT  (2'h 2)
+
+`define CR_PREFIX_REGS_TLV_PARSE_ACTION_31_0_T_FRMD_USER_VM_DECL   1:0
+`define CR_PREFIX_REGS_TLV_PARSE_ACTION_31_0_T_FRMD_USER_VM_WIDTH  2
+  `define CR_PREFIX_REGS_TLV_PARSE_ACTION_31_0_T_FRMD_USER_VM_DEFAULT  (2'h 2)
+
+`define CR_PREFIX_REGS_TLV_PARSE_ACTION_31_0_T_FRMD_INT_APP_DECL   1:0
+`define CR_PREFIX_REGS_TLV_PARSE_ACTION_31_0_T_FRMD_INT_APP_WIDTH  2
+  `define CR_PREFIX_REGS_TLV_PARSE_ACTION_31_0_T_FRMD_INT_APP_DEFAULT  (2'h 1)
+
+`define CR_PREFIX_FULL_REGS_TLV_PARSE_ACTION_31_0_T_DECL   31:0
+`define CR_PREFIX_FULL_REGS_TLV_PARSE_ACTION_31_0_T_WIDTH  32
+  `define CR_PREFIX_FULL_REGS_TLV_PARSE_ACTION_31_0_T_RQE             01:00
+  `define CR_PREFIX_FULL_REGS_TLV_PARSE_ACTION_31_0_T_CMD             03:02
+  `define CR_PREFIX_FULL_REGS_TLV_PARSE_ACTION_31_0_T_KEY             05:04
+  `define CR_PREFIX_FULL_REGS_TLV_PARSE_ACTION_31_0_T_PHD             07:06
+  `define CR_PREFIX_FULL_REGS_TLV_PARSE_ACTION_31_0_T_PFD             09:08
+  `define CR_PREFIX_FULL_REGS_TLV_PARSE_ACTION_31_0_T_DATA_UNK        11:10
+  `define CR_PREFIX_FULL_REGS_TLV_PARSE_ACTION_31_0_T_FTR             13:12
+  `define CR_PREFIX_FULL_REGS_TLV_PARSE_ACTION_31_0_T_LZ77            15:14
+  `define CR_PREFIX_FULL_REGS_TLV_PARSE_ACTION_31_0_T_STAT            17:16
+  `define CR_PREFIX_FULL_REGS_TLV_PARSE_ACTION_31_0_T_CQE             19:18
+  `define CR_PREFIX_FULL_REGS_TLV_PARSE_ACTION_31_0_T_GUID            21:20
+  `define CR_PREFIX_FULL_REGS_TLV_PARSE_ACTION_31_0_T_FRMD_USER_NULL  23:22
+  `define CR_PREFIX_FULL_REGS_TLV_PARSE_ACTION_31_0_T_FRMD_USER_PI16  25:24
+  `define CR_PREFIX_FULL_REGS_TLV_PARSE_ACTION_31_0_T_FRMD_USER_PI64  27:26
+  `define CR_PREFIX_FULL_REGS_TLV_PARSE_ACTION_31_0_T_FRMD_USER_VM    29:28
+  `define CR_PREFIX_FULL_REGS_TLV_PARSE_ACTION_31_0_T_FRMD_INT_APP    31:30
+
+`define CR_PREFIX_C_REGS_TLV_PARSE_ACTION_31_0_T_DECL   31:0
+`define CR_PREFIX_C_REGS_TLV_PARSE_ACTION_31_0_T_WIDTH  32
+  `define CR_PREFIX_C_REGS_TLV_PARSE_ACTION_31_0_T_RQE             01:00
+  `define CR_PREFIX_C_REGS_TLV_PARSE_ACTION_31_0_T_CMD             03:02
+  `define CR_PREFIX_C_REGS_TLV_PARSE_ACTION_31_0_T_KEY             05:04
+  `define CR_PREFIX_C_REGS_TLV_PARSE_ACTION_31_0_T_PHD             07:06
+  `define CR_PREFIX_C_REGS_TLV_PARSE_ACTION_31_0_T_PFD             09:08
+  `define CR_PREFIX_C_REGS_TLV_PARSE_ACTION_31_0_T_DATA_UNK        11:10
+  `define CR_PREFIX_C_REGS_TLV_PARSE_ACTION_31_0_T_FTR             13:12
+  `define CR_PREFIX_C_REGS_TLV_PARSE_ACTION_31_0_T_LZ77            15:14
+  `define CR_PREFIX_C_REGS_TLV_PARSE_ACTION_31_0_T_STAT            17:16
+  `define CR_PREFIX_C_REGS_TLV_PARSE_ACTION_31_0_T_CQE             19:18
+  `define CR_PREFIX_C_REGS_TLV_PARSE_ACTION_31_0_T_GUID            21:20
+  `define CR_PREFIX_C_REGS_TLV_PARSE_ACTION_31_0_T_FRMD_USER_NULL  23:22
+  `define CR_PREFIX_C_REGS_TLV_PARSE_ACTION_31_0_T_FRMD_USER_PI16  25:24
+  `define CR_PREFIX_C_REGS_TLV_PARSE_ACTION_31_0_T_FRMD_USER_PI64  27:26
+  `define CR_PREFIX_C_REGS_TLV_PARSE_ACTION_31_0_T_FRMD_USER_VM    29:28
+  `define CR_PREFIX_C_REGS_TLV_PARSE_ACTION_31_0_T_FRMD_INT_APP    31:30
+
+`define CR_PREFIX_REGS_TLV_PARSE_ACTION_63_32_T_DECL   31:0
+`define CR_PREFIX_REGS_TLV_PARSE_ACTION_63_32_T_WIDTH  32
+  `define CR_PREFIX_REGS_TLV_PARSE_ACTION_63_32_T_DEFAULT  (32'h 55555515)
+
+`define CR_PREFIX_REGS_TLV_PARSE_ACTION_63_32_T_FRMD_INT_SIP_DECL   1:0
+`define CR_PREFIX_REGS_TLV_PARSE_ACTION_63_32_T_FRMD_INT_SIP_WIDTH  2
+  `define CR_PREFIX_REGS_TLV_PARSE_ACTION_63_32_T_FRMD_INT_SIP_DEFAULT  (2'h 1)
+
+`define CR_PREFIX_REGS_TLV_PARSE_ACTION_63_32_T_FRMD_INT_LIP_DECL   1:0
+`define CR_PREFIX_REGS_TLV_PARSE_ACTION_63_32_T_FRMD_INT_LIP_WIDTH  2
+  `define CR_PREFIX_REGS_TLV_PARSE_ACTION_63_32_T_FRMD_INT_LIP_DEFAULT  (2'h 1)
+
+`define CR_PREFIX_REGS_TLV_PARSE_ACTION_63_32_T_FRMD_INT_VM_DECL   1:0
+`define CR_PREFIX_REGS_TLV_PARSE_ACTION_63_32_T_FRMD_INT_VM_WIDTH  2
+  `define CR_PREFIX_REGS_TLV_PARSE_ACTION_63_32_T_FRMD_INT_VM_DEFAULT  (2'h 1)
+
+`define CR_PREFIX_REGS_TLV_PARSE_ACTION_63_32_T_DATA_DECL   1:0
+`define CR_PREFIX_REGS_TLV_PARSE_ACTION_63_32_T_DATA_WIDTH  2
+  `define CR_PREFIX_REGS_TLV_PARSE_ACTION_63_32_T_DATA_DEFAULT  (2'h 0)
+
+`define CR_PREFIX_REGS_TLV_PARSE_ACTION_63_32_T_CR_IV_DECL   1:0
+`define CR_PREFIX_REGS_TLV_PARSE_ACTION_63_32_T_CR_IV_WIDTH  2
+  `define CR_PREFIX_REGS_TLV_PARSE_ACTION_63_32_T_CR_IV_DEFAULT  (2'h 1)
+
+`define CR_PREFIX_REGS_TLV_PARSE_ACTION_63_32_T_AUX_CMD_DECL   1:0
+`define CR_PREFIX_REGS_TLV_PARSE_ACTION_63_32_T_AUX_CMD_WIDTH  2
+  `define CR_PREFIX_REGS_TLV_PARSE_ACTION_63_32_T_AUX_CMD_DEFAULT  (2'h 1)
+
+`define CR_PREFIX_REGS_TLV_PARSE_ACTION_63_32_T_FRMD_INT_VM_SHORT_DECL   1:0
+`define CR_PREFIX_REGS_TLV_PARSE_ACTION_63_32_T_FRMD_INT_VM_SHORT_WIDTH  2
+  `define CR_PREFIX_REGS_TLV_PARSE_ACTION_63_32_T_FRMD_INT_VM_SHORT_DEFAULT  (2'h 1)
+
+`define CR_PREFIX_REGS_TLV_PARSE_ACTION_63_32_T_AUX_CMD_IV_DECL   1:0
+`define CR_PREFIX_REGS_TLV_PARSE_ACTION_63_32_T_AUX_CMD_IV_WIDTH  2
+  `define CR_PREFIX_REGS_TLV_PARSE_ACTION_63_32_T_AUX_CMD_IV_DEFAULT  (2'h 1)
+
+`define CR_PREFIX_REGS_TLV_PARSE_ACTION_63_32_T_AUX_CMD_GUID_DECL   1:0
+`define CR_PREFIX_REGS_TLV_PARSE_ACTION_63_32_T_AUX_CMD_GUID_WIDTH  2
+  `define CR_PREFIX_REGS_TLV_PARSE_ACTION_63_32_T_AUX_CMD_GUID_DEFAULT  (2'h 1)
+
+`define CR_PREFIX_REGS_TLV_PARSE_ACTION_63_32_T_AUX_CMD_GUID_IV_DECL   1:0
+`define CR_PREFIX_REGS_TLV_PARSE_ACTION_63_32_T_AUX_CMD_GUID_IV_WIDTH  2
+  `define CR_PREFIX_REGS_TLV_PARSE_ACTION_63_32_T_AUX_CMD_GUID_IV_DEFAULT  (2'h 1)
+
+`define CR_PREFIX_REGS_TLV_PARSE_ACTION_63_32_T_SCH_DECL   1:0
+`define CR_PREFIX_REGS_TLV_PARSE_ACTION_63_32_T_SCH_WIDTH  2
+  `define CR_PREFIX_REGS_TLV_PARSE_ACTION_63_32_T_SCH_DEFAULT  (2'h 1)
+
+`define CR_PREFIX_REGS_TLV_PARSE_ACTION_63_32_T_UNUSED_0_DECL   1:0
+`define CR_PREFIX_REGS_TLV_PARSE_ACTION_63_32_T_UNUSED_0_WIDTH  2
+  `define CR_PREFIX_REGS_TLV_PARSE_ACTION_63_32_T_UNUSED_0_DEFAULT  (2'h 1)
+
+`define CR_PREFIX_REGS_TLV_PARSE_ACTION_63_32_T_UNUSED_1_DECL   1:0
+`define CR_PREFIX_REGS_TLV_PARSE_ACTION_63_32_T_UNUSED_1_WIDTH  2
+  `define CR_PREFIX_REGS_TLV_PARSE_ACTION_63_32_T_UNUSED_1_DEFAULT  (2'h 1)
+
+`define CR_PREFIX_REGS_TLV_PARSE_ACTION_63_32_T_UNUSED_2_DECL   1:0
+`define CR_PREFIX_REGS_TLV_PARSE_ACTION_63_32_T_UNUSED_2_WIDTH  2
+  `define CR_PREFIX_REGS_TLV_PARSE_ACTION_63_32_T_UNUSED_2_DEFAULT  (2'h 1)
+
+`define CR_PREFIX_REGS_TLV_PARSE_ACTION_63_32_T_UNUSED_3_DECL   1:0
+`define CR_PREFIX_REGS_TLV_PARSE_ACTION_63_32_T_UNUSED_3_WIDTH  2
+  `define CR_PREFIX_REGS_TLV_PARSE_ACTION_63_32_T_UNUSED_3_DEFAULT  (2'h 1)
+
+`define CR_PREFIX_REGS_TLV_PARSE_ACTION_63_32_T_UNUSED_4_DECL   1:0
+`define CR_PREFIX_REGS_TLV_PARSE_ACTION_63_32_T_UNUSED_4_WIDTH  2
+  `define CR_PREFIX_REGS_TLV_PARSE_ACTION_63_32_T_UNUSED_4_DEFAULT  (2'h 1)
+
+`define CR_PREFIX_FULL_REGS_TLV_PARSE_ACTION_63_32_T_DECL   31:0
+`define CR_PREFIX_FULL_REGS_TLV_PARSE_ACTION_63_32_T_WIDTH  32
+  `define CR_PREFIX_FULL_REGS_TLV_PARSE_ACTION_63_32_T_FRMD_INT_SIP       01:00
+  `define CR_PREFIX_FULL_REGS_TLV_PARSE_ACTION_63_32_T_FRMD_INT_LIP       03:02
+  `define CR_PREFIX_FULL_REGS_TLV_PARSE_ACTION_63_32_T_FRMD_INT_VM        05:04
+  `define CR_PREFIX_FULL_REGS_TLV_PARSE_ACTION_63_32_T_DATA               07:06
+  `define CR_PREFIX_FULL_REGS_TLV_PARSE_ACTION_63_32_T_CR_IV              09:08
+  `define CR_PREFIX_FULL_REGS_TLV_PARSE_ACTION_63_32_T_AUX_CMD            11:10
+  `define CR_PREFIX_FULL_REGS_TLV_PARSE_ACTION_63_32_T_FRMD_INT_VM_SHORT  13:12
+  `define CR_PREFIX_FULL_REGS_TLV_PARSE_ACTION_63_32_T_AUX_CMD_IV         15:14
+  `define CR_PREFIX_FULL_REGS_TLV_PARSE_ACTION_63_32_T_AUX_CMD_GUID       17:16
+  `define CR_PREFIX_FULL_REGS_TLV_PARSE_ACTION_63_32_T_AUX_CMD_GUID_IV    19:18
+  `define CR_PREFIX_FULL_REGS_TLV_PARSE_ACTION_63_32_T_SCH                21:20
+  `define CR_PREFIX_FULL_REGS_TLV_PARSE_ACTION_63_32_T_UNUSED_0           23:22
+  `define CR_PREFIX_FULL_REGS_TLV_PARSE_ACTION_63_32_T_UNUSED_1           25:24
+  `define CR_PREFIX_FULL_REGS_TLV_PARSE_ACTION_63_32_T_UNUSED_2           27:26
+  `define CR_PREFIX_FULL_REGS_TLV_PARSE_ACTION_63_32_T_UNUSED_3           29:28
+  `define CR_PREFIX_FULL_REGS_TLV_PARSE_ACTION_63_32_T_UNUSED_4           31:30
+
+`define CR_PREFIX_C_REGS_TLV_PARSE_ACTION_63_32_T_DECL   31:0
+`define CR_PREFIX_C_REGS_TLV_PARSE_ACTION_63_32_T_WIDTH  32
+  `define CR_PREFIX_C_REGS_TLV_PARSE_ACTION_63_32_T_FRMD_INT_SIP       01:00
+  `define CR_PREFIX_C_REGS_TLV_PARSE_ACTION_63_32_T_FRMD_INT_LIP       03:02
+  `define CR_PREFIX_C_REGS_TLV_PARSE_ACTION_63_32_T_FRMD_INT_VM        05:04
+  `define CR_PREFIX_C_REGS_TLV_PARSE_ACTION_63_32_T_DATA               07:06
+  `define CR_PREFIX_C_REGS_TLV_PARSE_ACTION_63_32_T_CR_IV              09:08
+  `define CR_PREFIX_C_REGS_TLV_PARSE_ACTION_63_32_T_AUX_CMD            11:10
+  `define CR_PREFIX_C_REGS_TLV_PARSE_ACTION_63_32_T_FRMD_INT_VM_SHORT  13:12
+  `define CR_PREFIX_C_REGS_TLV_PARSE_ACTION_63_32_T_AUX_CMD_IV         15:14
+  `define CR_PREFIX_C_REGS_TLV_PARSE_ACTION_63_32_T_AUX_CMD_GUID       17:16
+  `define CR_PREFIX_C_REGS_TLV_PARSE_ACTION_63_32_T_AUX_CMD_GUID_IV    19:18
+  `define CR_PREFIX_C_REGS_TLV_PARSE_ACTION_63_32_T_SCH                21:20
+  `define CR_PREFIX_C_REGS_TLV_PARSE_ACTION_63_32_T_UNUSED_0           23:22
+  `define CR_PREFIX_C_REGS_TLV_PARSE_ACTION_63_32_T_UNUSED_1           25:24
+  `define CR_PREFIX_C_REGS_TLV_PARSE_ACTION_63_32_T_UNUSED_2           27:26
+  `define CR_PREFIX_C_REGS_TLV_PARSE_ACTION_63_32_T_UNUSED_3           29:28
+  `define CR_PREFIX_C_REGS_TLV_PARSE_ACTION_63_32_T_UNUSED_4           31:30
+
+`define CR_PREFIX_PREFIX_REC_US_CTRL_T_DECL   31:0
+`define CR_PREFIX_PREFIX_REC_US_CTRL_T_WIDTH  32
+  `define CR_PREFIX_PREFIX_REC_US_CTRL_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_PREFIX_REC_US_CTRL_T_REC_US_SW_EN_DECL   0:0
+`define CR_PREFIX_PREFIX_REC_US_CTRL_T_REC_US_SW_EN_WIDTH  1
+  `define CR_PREFIX_PREFIX_REC_US_CTRL_T_REC_US_SW_EN_DEFAULT  (1'h 0)
+
+`define CR_PREFIX_PREFIX_REC_US_CTRL_T_RESVD_DECL   30:0
+`define CR_PREFIX_PREFIX_REC_US_CTRL_T_RESVD_WIDTH  31
+  `define CR_PREFIX_PREFIX_REC_US_CTRL_T_RESVD_DEFAULT  (31'h 0)
+
+`define CR_PREFIX_FULL_PREFIX_REC_US_CTRL_T_DECL   31:0
+`define CR_PREFIX_FULL_PREFIX_REC_US_CTRL_T_WIDTH  32
+  `define CR_PREFIX_FULL_PREFIX_REC_US_CTRL_T_REC_US_SW_EN  00
+  `define CR_PREFIX_FULL_PREFIX_REC_US_CTRL_T_RESVD         31:01
+
+`define CR_PREFIX_C_PREFIX_REC_US_CTRL_T_DECL   31:0
+`define CR_PREFIX_C_PREFIX_REC_US_CTRL_T_WIDTH  32
+  `define CR_PREFIX_C_PREFIX_REC_US_CTRL_T_REC_US_SW_EN  00
+  `define CR_PREFIX_C_PREFIX_REC_US_CTRL_T_RESVD         31:01
+
+`define CR_PREFIX_PREFIX_DEBUG_CONTROL_T_DECL   31:0
+`define CR_PREFIX_PREFIX_DEBUG_CONTROL_T_WIDTH  32
+  `define CR_PREFIX_PREFIX_DEBUG_CONTROL_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_PREFIX_DEBUG_CONTROL_T_REC_US_BREAKPOINT_EN_DECL   0:0
+`define CR_PREFIX_PREFIX_DEBUG_CONTROL_T_REC_US_BREAKPOINT_EN_WIDTH  1
+  `define CR_PREFIX_PREFIX_DEBUG_CONTROL_T_REC_US_BREAKPOINT_EN_DEFAULT  (1'h 0)
+
+`define CR_PREFIX_PREFIX_DEBUG_CONTROL_T_RESVD_DECL   30:0
+`define CR_PREFIX_PREFIX_DEBUG_CONTROL_T_RESVD_WIDTH  31
+  `define CR_PREFIX_PREFIX_DEBUG_CONTROL_T_RESVD_DEFAULT  (31'h 0)
+
+`define CR_PREFIX_FULL_PREFIX_DEBUG_CONTROL_T_DECL   31:0
+`define CR_PREFIX_FULL_PREFIX_DEBUG_CONTROL_T_WIDTH  32
+  `define CR_PREFIX_FULL_PREFIX_DEBUG_CONTROL_T_REC_US_BREAKPOINT_EN  00
+  `define CR_PREFIX_FULL_PREFIX_DEBUG_CONTROL_T_RESVD                 31:01
+
+`define CR_PREFIX_C_PREFIX_DEBUG_CONTROL_T_DECL   31:0
+`define CR_PREFIX_C_PREFIX_DEBUG_CONTROL_T_WIDTH  32
+  `define CR_PREFIX_C_PREFIX_DEBUG_CONTROL_T_REC_US_BREAKPOINT_EN  00
+  `define CR_PREFIX_C_PREFIX_DEBUG_CONTROL_T_RESVD                 31:01
+
+`define CR_PREFIX_PREFIX_BREAKPOINT_ADDR_T_DECL   31:0
+`define CR_PREFIX_PREFIX_BREAKPOINT_ADDR_T_WIDTH  32
+  `define CR_PREFIX_PREFIX_BREAKPOINT_ADDR_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_PREFIX_BREAKPOINT_ADDR_T_REC_US_BREAK_ADDR_DECL   7:0
+`define CR_PREFIX_PREFIX_BREAKPOINT_ADDR_T_REC_US_BREAK_ADDR_WIDTH  8
+  `define CR_PREFIX_PREFIX_BREAKPOINT_ADDR_T_REC_US_BREAK_ADDR_DEFAULT  (8'h 0)
+
+`define CR_PREFIX_PREFIX_BREAKPOINT_ADDR_T_RESVD_DECL   23:0
+`define CR_PREFIX_PREFIX_BREAKPOINT_ADDR_T_RESVD_WIDTH  24
+  `define CR_PREFIX_PREFIX_BREAKPOINT_ADDR_T_RESVD_DEFAULT  (24'h 0)
+
+`define CR_PREFIX_FULL_PREFIX_BREAKPOINT_ADDR_T_DECL   31:0
+`define CR_PREFIX_FULL_PREFIX_BREAKPOINT_ADDR_T_WIDTH  32
+  `define CR_PREFIX_FULL_PREFIX_BREAKPOINT_ADDR_T_REC_US_BREAK_ADDR  07:00
+  `define CR_PREFIX_FULL_PREFIX_BREAKPOINT_ADDR_T_RESVD              31:08
+
+`define CR_PREFIX_C_PREFIX_BREAKPOINT_ADDR_T_DECL   31:0
+`define CR_PREFIX_C_PREFIX_BREAKPOINT_ADDR_T_WIDTH  32
+  `define CR_PREFIX_C_PREFIX_BREAKPOINT_ADDR_T_REC_US_BREAK_ADDR  07:00
+  `define CR_PREFIX_C_PREFIX_BREAKPOINT_ADDR_T_RESVD              31:08
+
+`define CR_PREFIX_PREFIX_BREAKPOINT_CONT_T_DECL   31:0
+`define CR_PREFIX_PREFIX_BREAKPOINT_CONT_T_WIDTH  32
+  `define CR_PREFIX_PREFIX_BREAKPOINT_CONT_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_PREFIX_BREAKPOINT_CONT_T_REC_US_BREAK_ADDR_DECL   0:0
+`define CR_PREFIX_PREFIX_BREAKPOINT_CONT_T_REC_US_BREAK_ADDR_WIDTH  1
+  `define CR_PREFIX_PREFIX_BREAKPOINT_CONT_T_REC_US_BREAK_ADDR_DEFAULT  (1'h 0)
+
+`define CR_PREFIX_PREFIX_BREAKPOINT_CONT_T_RESVD_DECL   30:0
+`define CR_PREFIX_PREFIX_BREAKPOINT_CONT_T_RESVD_WIDTH  31
+  `define CR_PREFIX_PREFIX_BREAKPOINT_CONT_T_RESVD_DEFAULT  (31'h 0)
+
+`define CR_PREFIX_FULL_PREFIX_BREAKPOINT_CONT_T_DECL   31:0
+`define CR_PREFIX_FULL_PREFIX_BREAKPOINT_CONT_T_WIDTH  32
+  `define CR_PREFIX_FULL_PREFIX_BREAKPOINT_CONT_T_REC_US_BREAK_ADDR  00
+  `define CR_PREFIX_FULL_PREFIX_BREAKPOINT_CONT_T_RESVD              31:01
+
+`define CR_PREFIX_C_PREFIX_BREAKPOINT_CONT_T_DECL   31:0
+`define CR_PREFIX_C_PREFIX_BREAKPOINT_CONT_T_WIDTH  32
+  `define CR_PREFIX_C_PREFIX_BREAKPOINT_CONT_T_REC_US_BREAK_ADDR  00
+  `define CR_PREFIX_C_PREFIX_BREAKPOINT_CONT_T_RESVD              31:01
+
+`define CR_PREFIX_PREFIX_BREAKPOINT_STEP_T_DECL   31:0
+`define CR_PREFIX_PREFIX_BREAKPOINT_STEP_T_WIDTH  32
+  `define CR_PREFIX_PREFIX_BREAKPOINT_STEP_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_PREFIX_BREAKPOINT_STEP_T_REC_US_BREAK_ADDR_DECL   0:0
+`define CR_PREFIX_PREFIX_BREAKPOINT_STEP_T_REC_US_BREAK_ADDR_WIDTH  1
+  `define CR_PREFIX_PREFIX_BREAKPOINT_STEP_T_REC_US_BREAK_ADDR_DEFAULT  (1'h 0)
+
+`define CR_PREFIX_PREFIX_BREAKPOINT_STEP_T_RESVD_DECL   30:0
+`define CR_PREFIX_PREFIX_BREAKPOINT_STEP_T_RESVD_WIDTH  31
+  `define CR_PREFIX_PREFIX_BREAKPOINT_STEP_T_RESVD_DEFAULT  (31'h 0)
+
+`define CR_PREFIX_FULL_PREFIX_BREAKPOINT_STEP_T_DECL   31:0
+`define CR_PREFIX_FULL_PREFIX_BREAKPOINT_STEP_T_WIDTH  32
+  `define CR_PREFIX_FULL_PREFIX_BREAKPOINT_STEP_T_REC_US_BREAK_ADDR  00
+  `define CR_PREFIX_FULL_PREFIX_BREAKPOINT_STEP_T_RESVD              31:01
+
+`define CR_PREFIX_C_PREFIX_BREAKPOINT_STEP_T_DECL   31:0
+`define CR_PREFIX_C_PREFIX_BREAKPOINT_STEP_T_WIDTH  32
+  `define CR_PREFIX_C_PREFIX_BREAKPOINT_STEP_T_REC_US_BREAK_ADDR  00
+  `define CR_PREFIX_C_PREFIX_BREAKPOINT_STEP_T_RESVD              31:01
+
+`define CR_PREFIX_PREFIX_DEBUG_STATUS_T_DECL   31:0
+`define CR_PREFIX_PREFIX_DEBUG_STATUS_T_WIDTH  32
+  `define CR_PREFIX_PREFIX_DEBUG_STATUS_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_PREFIX_DEBUG_STATUS_T_REC_US_PC_DECL   7:0
+`define CR_PREFIX_PREFIX_DEBUG_STATUS_T_REC_US_PC_WIDTH  8
+  `define CR_PREFIX_PREFIX_DEBUG_STATUS_T_REC_US_PC_DEFAULT  (8'h 0)
+
+`define CR_PREFIX_PREFIX_DEBUG_STATUS_T_REC_US_BREAK_TRIGGERED_DECL   0:0
+`define CR_PREFIX_PREFIX_DEBUG_STATUS_T_REC_US_BREAK_TRIGGERED_WIDTH  1
+  `define CR_PREFIX_PREFIX_DEBUG_STATUS_T_REC_US_BREAK_TRIGGERED_DEFAULT  (1'h 0)
+
+`define CR_PREFIX_PREFIX_DEBUG_STATUS_T_REC_US_BREAK_ARMED_DECL   0:0
+`define CR_PREFIX_PREFIX_DEBUG_STATUS_T_REC_US_BREAK_ARMED_WIDTH  1
+  `define CR_PREFIX_PREFIX_DEBUG_STATUS_T_REC_US_BREAK_ARMED_DEFAULT  (1'h 0)
+
+`define CR_PREFIX_PREFIX_DEBUG_STATUS_T_RESVD_DECL   21:0
+`define CR_PREFIX_PREFIX_DEBUG_STATUS_T_RESVD_WIDTH  22
+  `define CR_PREFIX_PREFIX_DEBUG_STATUS_T_RESVD_DEFAULT  (22'h 0)
+
+`define CR_PREFIX_FULL_PREFIX_DEBUG_STATUS_T_DECL   31:0
+`define CR_PREFIX_FULL_PREFIX_DEBUG_STATUS_T_WIDTH  32
+  `define CR_PREFIX_FULL_PREFIX_DEBUG_STATUS_T_REC_US_PC               07:00
+  `define CR_PREFIX_FULL_PREFIX_DEBUG_STATUS_T_REC_US_BREAK_TRIGGERED  08
+  `define CR_PREFIX_FULL_PREFIX_DEBUG_STATUS_T_REC_US_BREAK_ARMED      09
+  `define CR_PREFIX_FULL_PREFIX_DEBUG_STATUS_T_RESVD                   31:10
+
+`define CR_PREFIX_C_PREFIX_DEBUG_STATUS_T_DECL   31:0
+`define CR_PREFIX_C_PREFIX_DEBUG_STATUS_T_WIDTH  32
+  `define CR_PREFIX_C_PREFIX_DEBUG_STATUS_T_REC_US_PC               07:00
+  `define CR_PREFIX_C_PREFIX_DEBUG_STATUS_T_REC_US_BREAK_TRIGGERED  08
+  `define CR_PREFIX_C_PREFIX_DEBUG_STATUS_T_REC_US_BREAK_ARMED      09
+  `define CR_PREFIX_C_PREFIX_DEBUG_STATUS_T_RESVD                   31:10
+
+`define CR_PREFIX_PREFIX_ERROR_CONTROL_T_DECL   31:0
+`define CR_PREFIX_PREFIX_ERROR_CONTROL_T_WIDTH  32
+  `define CR_PREFIX_PREFIX_ERROR_CONTROL_T_DEFAULT  (32'h 1)
+
+`define CR_PREFIX_PREFIX_ERROR_CONTROL_T_ENABLE_FTR_ERROR_DECL   0:0
+`define CR_PREFIX_PREFIX_ERROR_CONTROL_T_ENABLE_FTR_ERROR_WIDTH  1
+  `define CR_PREFIX_PREFIX_ERROR_CONTROL_T_ENABLE_FTR_ERROR_DEFAULT  (1'h 1)
+
+`define CR_PREFIX_PREFIX_ERROR_CONTROL_T_RESVD_DECL   30:0
+`define CR_PREFIX_PREFIX_ERROR_CONTROL_T_RESVD_WIDTH  31
+  `define CR_PREFIX_PREFIX_ERROR_CONTROL_T_RESVD_DEFAULT  (31'h 0)
+
+`define CR_PREFIX_FULL_PREFIX_ERROR_CONTROL_T_DECL   31:0
+`define CR_PREFIX_FULL_PREFIX_ERROR_CONTROL_T_WIDTH  32
+  `define CR_PREFIX_FULL_PREFIX_ERROR_CONTROL_T_ENABLE_FTR_ERROR  00
+  `define CR_PREFIX_FULL_PREFIX_ERROR_CONTROL_T_RESVD             31:01
+
+`define CR_PREFIX_C_PREFIX_ERROR_CONTROL_T_DECL   31:0
+`define CR_PREFIX_C_PREFIX_ERROR_CONTROL_T_WIDTH  32
+  `define CR_PREFIX_C_PREFIX_ERROR_CONTROL_T_ENABLE_FTR_ERROR  00
+  `define CR_PREFIX_C_PREFIX_ERROR_CONTROL_T_RESVD             31:01
+
+`define CR_PREFIX_FEATURE_PART0_T_DECL   31:0
+`define CR_PREFIX_FEATURE_PART0_T_WIDTH  32
+  `define CR_PREFIX_FEATURE_PART0_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_FEATURE_PART0_T_MATCH_VAL_A_DECL   7:0
+`define CR_PREFIX_FEATURE_PART0_T_MATCH_VAL_A_WIDTH  8
+  `define CR_PREFIX_FEATURE_PART0_T_MATCH_VAL_A_DEFAULT  (8'h 0)
+
+`define CR_PREFIX_FEATURE_PART0_T_MATCH_VAL_B_DECL   7:0
+`define CR_PREFIX_FEATURE_PART0_T_MATCH_VAL_B_WIDTH  8
+  `define CR_PREFIX_FEATURE_PART0_T_MATCH_VAL_B_DEFAULT  (8'h 0)
+
+`define CR_PREFIX_FEATURE_PART0_T_MATCH_VAL_C_DECL   7:0
+`define CR_PREFIX_FEATURE_PART0_T_MATCH_VAL_C_WIDTH  8
+  `define CR_PREFIX_FEATURE_PART0_T_MATCH_VAL_C_DEFAULT  (8'h 0)
+
+`define CR_PREFIX_FEATURE_PART0_T_MATCH_VAL_D_DECL   7:0
+`define CR_PREFIX_FEATURE_PART0_T_MATCH_VAL_D_WIDTH  8
+  `define CR_PREFIX_FEATURE_PART0_T_MATCH_VAL_D_DEFAULT  (8'h 0)
+
+`define CR_PREFIX_FULL_FEATURE_PART0_T_DECL   31:0
+`define CR_PREFIX_FULL_FEATURE_PART0_T_WIDTH  32
+  `define CR_PREFIX_FULL_FEATURE_PART0_T_MATCH_VAL_A  07:00
+  `define CR_PREFIX_FULL_FEATURE_PART0_T_MATCH_VAL_B  15:08
+  `define CR_PREFIX_FULL_FEATURE_PART0_T_MATCH_VAL_C  23:16
+  `define CR_PREFIX_FULL_FEATURE_PART0_T_MATCH_VAL_D  31:24
+
+`define CR_PREFIX_C_FEATURE_PART0_T_DECL   31:0
+`define CR_PREFIX_C_FEATURE_PART0_T_WIDTH  32
+  `define CR_PREFIX_C_FEATURE_PART0_T_MATCH_VAL_A  07:00
+  `define CR_PREFIX_C_FEATURE_PART0_T_MATCH_VAL_B  15:08
+  `define CR_PREFIX_C_FEATURE_PART0_T_MATCH_VAL_C  23:16
+  `define CR_PREFIX_C_FEATURE_PART0_T_MATCH_VAL_D  31:24
+
+`define CR_PREFIX_FEATURE_PART1_T_DECL   31:0
+`define CR_PREFIX_FEATURE_PART1_T_WIDTH  32
+  `define CR_PREFIX_FEATURE_PART1_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_FEATURE_PART1_T_CMP_TYPE_A_DECL   1:0
+`define CR_PREFIX_FEATURE_PART1_T_CMP_TYPE_A_WIDTH  2
+  `define CR_PREFIX_FEATURE_PART1_T_CMP_TYPE_A_DEFAULT  (2'h 0)
+
+`define CR_PREFIX_FEATURE_PART1_T_NO_DELAY_A_DECL   0:0
+`define CR_PREFIX_FEATURE_PART1_T_NO_DELAY_A_WIDTH  1
+  `define CR_PREFIX_FEATURE_PART1_T_NO_DELAY_A_DEFAULT  (1'h 0)
+
+`define CR_PREFIX_FEATURE_PART1_T_USE_PRIOR_A_DECL   0:0
+`define CR_PREFIX_FEATURE_PART1_T_USE_PRIOR_A_WIDTH  1
+  `define CR_PREFIX_FEATURE_PART1_T_USE_PRIOR_A_DEFAULT  (1'h 0)
+
+`define CR_PREFIX_FEATURE_PART1_T_CMP_TYPE_B_DECL   1:0
+`define CR_PREFIX_FEATURE_PART1_T_CMP_TYPE_B_WIDTH  2
+  `define CR_PREFIX_FEATURE_PART1_T_CMP_TYPE_B_DEFAULT  (2'h 0)
+
+`define CR_PREFIX_FEATURE_PART1_T_NO_DELAY_B_DECL   0:0
+`define CR_PREFIX_FEATURE_PART1_T_NO_DELAY_B_WIDTH  1
+  `define CR_PREFIX_FEATURE_PART1_T_NO_DELAY_B_DEFAULT  (1'h 0)
+
+`define CR_PREFIX_FEATURE_PART1_T_USE_PRIOR_B_DECL   0:0
+`define CR_PREFIX_FEATURE_PART1_T_USE_PRIOR_B_WIDTH  1
+  `define CR_PREFIX_FEATURE_PART1_T_USE_PRIOR_B_DEFAULT  (1'h 0)
+
+`define CR_PREFIX_FEATURE_PART1_T_CMP_TYPE_C_DECL   1:0
+`define CR_PREFIX_FEATURE_PART1_T_CMP_TYPE_C_WIDTH  2
+  `define CR_PREFIX_FEATURE_PART1_T_CMP_TYPE_C_DEFAULT  (2'h 0)
+
+`define CR_PREFIX_FEATURE_PART1_T_NO_DELAY_C_DECL   0:0
+`define CR_PREFIX_FEATURE_PART1_T_NO_DELAY_C_WIDTH  1
+  `define CR_PREFIX_FEATURE_PART1_T_NO_DELAY_C_DEFAULT  (1'h 0)
+
+`define CR_PREFIX_FEATURE_PART1_T_USE_PRIOR_C_DECL   0:0
+`define CR_PREFIX_FEATURE_PART1_T_USE_PRIOR_C_WIDTH  1
+  `define CR_PREFIX_FEATURE_PART1_T_USE_PRIOR_C_DEFAULT  (1'h 0)
+
+`define CR_PREFIX_FEATURE_PART1_T_CMP_TYPE_D_DECL   1:0
+`define CR_PREFIX_FEATURE_PART1_T_CMP_TYPE_D_WIDTH  2
+  `define CR_PREFIX_FEATURE_PART1_T_CMP_TYPE_D_DEFAULT  (2'h 0)
+
+`define CR_PREFIX_FEATURE_PART1_T_NO_DELAY_D_DECL   0:0
+`define CR_PREFIX_FEATURE_PART1_T_NO_DELAY_D_WIDTH  1
+  `define CR_PREFIX_FEATURE_PART1_T_NO_DELAY_D_DEFAULT  (1'h 0)
+
+`define CR_PREFIX_FEATURE_PART1_T_USE_PRIOR_D_DECL   0:0
+`define CR_PREFIX_FEATURE_PART1_T_USE_PRIOR_D_WIDTH  1
+  `define CR_PREFIX_FEATURE_PART1_T_USE_PRIOR_D_DEFAULT  (1'h 0)
+
+`define CR_PREFIX_FEATURE_PART1_T_UNUSED_DECL   15:0
+`define CR_PREFIX_FEATURE_PART1_T_UNUSED_WIDTH  16
+  `define CR_PREFIX_FEATURE_PART1_T_UNUSED_DEFAULT  (16'h 0)
+
+`define CR_PREFIX_FULL_FEATURE_PART1_T_DECL   31:0
+`define CR_PREFIX_FULL_FEATURE_PART1_T_WIDTH  32
+  `define CR_PREFIX_FULL_FEATURE_PART1_T_CMP_TYPE_A   01:00
+  `define CR_PREFIX_FULL_FEATURE_PART1_T_NO_DELAY_A   02
+  `define CR_PREFIX_FULL_FEATURE_PART1_T_USE_PRIOR_A  03
+  `define CR_PREFIX_FULL_FEATURE_PART1_T_CMP_TYPE_B   05:04
+  `define CR_PREFIX_FULL_FEATURE_PART1_T_NO_DELAY_B   06
+  `define CR_PREFIX_FULL_FEATURE_PART1_T_USE_PRIOR_B  07
+  `define CR_PREFIX_FULL_FEATURE_PART1_T_CMP_TYPE_C   09:08
+  `define CR_PREFIX_FULL_FEATURE_PART1_T_NO_DELAY_C   10
+  `define CR_PREFIX_FULL_FEATURE_PART1_T_USE_PRIOR_C  11
+  `define CR_PREFIX_FULL_FEATURE_PART1_T_CMP_TYPE_D   13:12
+  `define CR_PREFIX_FULL_FEATURE_PART1_T_NO_DELAY_D   14
+  `define CR_PREFIX_FULL_FEATURE_PART1_T_USE_PRIOR_D  15
+  `define CR_PREFIX_FULL_FEATURE_PART1_T_UNUSED       31:16
+
+`define CR_PREFIX_C_FEATURE_PART1_T_DECL   31:0
+`define CR_PREFIX_C_FEATURE_PART1_T_WIDTH  32
+  `define CR_PREFIX_C_FEATURE_PART1_T_CMP_TYPE_A   01:00
+  `define CR_PREFIX_C_FEATURE_PART1_T_NO_DELAY_A   02
+  `define CR_PREFIX_C_FEATURE_PART1_T_USE_PRIOR_A  03
+  `define CR_PREFIX_C_FEATURE_PART1_T_CMP_TYPE_B   05:04
+  `define CR_PREFIX_C_FEATURE_PART1_T_NO_DELAY_B   06
+  `define CR_PREFIX_C_FEATURE_PART1_T_USE_PRIOR_B  07
+  `define CR_PREFIX_C_FEATURE_PART1_T_CMP_TYPE_C   09:08
+  `define CR_PREFIX_C_FEATURE_PART1_T_NO_DELAY_C   10
+  `define CR_PREFIX_C_FEATURE_PART1_T_USE_PRIOR_C  11
+  `define CR_PREFIX_C_FEATURE_PART1_T_CMP_TYPE_D   13:12
+  `define CR_PREFIX_C_FEATURE_PART1_T_NO_DELAY_D   14
+  `define CR_PREFIX_C_FEATURE_PART1_T_USE_PRIOR_D  15
+  `define CR_PREFIX_C_FEATURE_PART1_T_UNUSED       31:16
+
+`define CR_PREFIX_FEATURE_IA_CONFIG_T_DECL   31:0
+`define CR_PREFIX_FEATURE_IA_CONFIG_T_WIDTH  32
+  `define CR_PREFIX_FEATURE_IA_CONFIG_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_FEATURE_IA_CONFIG_T_ADDR_DECL   7:0
+`define CR_PREFIX_FEATURE_IA_CONFIG_T_ADDR_WIDTH  8
+  `define CR_PREFIX_FEATURE_IA_CONFIG_T_ADDR_DEFAULT  (8'h 0)
+
+`define CR_PREFIX_FEATURE_IA_CONFIG_T_OP_DECL   3:0
+`define CR_PREFIX_FEATURE_IA_CONFIG_T_OP_WIDTH  4
+  `define CR_PREFIX_FEATURE_IA_CONFIG_T_OP_DEFAULT  (4'h 0)
+
+`define CR_PREFIX_FULL_FEATURE_IA_CONFIG_T_DECL   31:0
+`define CR_PREFIX_FULL_FEATURE_IA_CONFIG_T_WIDTH  32
+  `define CR_PREFIX_FULL_FEATURE_IA_CONFIG_T_ADDR       07:00
+  `define CR_PREFIX_FULL_FEATURE_IA_CONFIG_T_RESERVED0  27:08
+  `define CR_PREFIX_FULL_FEATURE_IA_CONFIG_T_OP         31:28
+
+`define CR_PREFIX_C_FEATURE_IA_CONFIG_T_DECL   11:0
+`define CR_PREFIX_C_FEATURE_IA_CONFIG_T_WIDTH  12
+  `define CR_PREFIX_C_FEATURE_IA_CONFIG_T_ADDR  07:00
+  `define CR_PREFIX_C_FEATURE_IA_CONFIG_T_OP    11:08
+
+`define CR_PREFIX_FEATURE_IA_STATUS_T_DECL   31:0
+`define CR_PREFIX_FEATURE_IA_STATUS_T_WIDTH  32
+  `define CR_PREFIX_FEATURE_IA_STATUS_T_DEFAULT  (32'h 10000ff)
+
+`define CR_PREFIX_FEATURE_IA_STATUS_T_ADDR_DECL   7:0
+`define CR_PREFIX_FEATURE_IA_STATUS_T_ADDR_WIDTH  8
+  `define CR_PREFIX_FEATURE_IA_STATUS_T_ADDR_DEFAULT  (8'h ff)
+
+`define CR_PREFIX_FEATURE_IA_STATUS_T_DATAWORDS_DECL   4:0
+`define CR_PREFIX_FEATURE_IA_STATUS_T_DATAWORDS_WIDTH  5
+  `define CR_PREFIX_FEATURE_IA_STATUS_T_DATAWORDS_DEFAULT  (5'h 1)
+
+`define CR_PREFIX_FEATURE_IA_STATUS_T_CODE_DECL   2:0
+`define CR_PREFIX_FEATURE_IA_STATUS_T_CODE_WIDTH  3
+  `define CR_PREFIX_FEATURE_IA_STATUS_T_CODE_DEFAULT  (3'h 0)
+
+`define CR_PREFIX_FULL_FEATURE_IA_STATUS_T_DECL   31:0
+`define CR_PREFIX_FULL_FEATURE_IA_STATUS_T_WIDTH  32
+  `define CR_PREFIX_FULL_FEATURE_IA_STATUS_T_ADDR       07:00
+  `define CR_PREFIX_FULL_FEATURE_IA_STATUS_T_RESERVED0  23:08
+  `define CR_PREFIX_FULL_FEATURE_IA_STATUS_T_DATAWORDS  28:24
+  `define CR_PREFIX_FULL_FEATURE_IA_STATUS_T_CODE       31:29
+
+`define CR_PREFIX_C_FEATURE_IA_STATUS_T_DECL   15:0
+`define CR_PREFIX_C_FEATURE_IA_STATUS_T_WIDTH  16
+  `define CR_PREFIX_C_FEATURE_IA_STATUS_T_ADDR       07:00
+  `define CR_PREFIX_C_FEATURE_IA_STATUS_T_DATAWORDS  12:08
+  `define CR_PREFIX_C_FEATURE_IA_STATUS_T_CODE       15:13
+
+`define CR_PREFIX_FEATURE_IA_CAPABILITY_T_DECL   31:0
+`define CR_PREFIX_FEATURE_IA_CAPABILITY_T_WIDTH  32
+  `define CR_PREFIX_FEATURE_IA_CAPABILITY_T_DEFAULT  (32'b xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx)
+
+`define CR_PREFIX_FEATURE_IA_CAPABILITY_T_NOP_DECL   0:0
+`define CR_PREFIX_FEATURE_IA_CAPABILITY_T_NOP_WIDTH  1
+
+`define CR_PREFIX_FEATURE_IA_CAPABILITY_T_READ_DECL   0:0
+`define CR_PREFIX_FEATURE_IA_CAPABILITY_T_READ_WIDTH  1
+
+`define CR_PREFIX_FEATURE_IA_CAPABILITY_T_WRITE_DECL   0:0
+`define CR_PREFIX_FEATURE_IA_CAPABILITY_T_WRITE_WIDTH  1
+
+`define CR_PREFIX_FEATURE_IA_CAPABILITY_T_ENABLE_DECL   0:0
+`define CR_PREFIX_FEATURE_IA_CAPABILITY_T_ENABLE_WIDTH  1
+
+`define CR_PREFIX_FEATURE_IA_CAPABILITY_T_DISABLED_DECL   0:0
+`define CR_PREFIX_FEATURE_IA_CAPABILITY_T_DISABLED_WIDTH  1
+
+`define CR_PREFIX_FEATURE_IA_CAPABILITY_T_RESET_DECL   0:0
+`define CR_PREFIX_FEATURE_IA_CAPABILITY_T_RESET_WIDTH  1
+
+`define CR_PREFIX_FEATURE_IA_CAPABILITY_T_INITIALIZE_DECL   0:0
+`define CR_PREFIX_FEATURE_IA_CAPABILITY_T_INITIALIZE_WIDTH  1
+
+`define CR_PREFIX_FEATURE_IA_CAPABILITY_T_INITIALIZE_INC_DECL   0:0
+`define CR_PREFIX_FEATURE_IA_CAPABILITY_T_INITIALIZE_INC_WIDTH  1
+
+`define CR_PREFIX_FEATURE_IA_CAPABILITY_T_SET_INIT_START_DECL   0:0
+`define CR_PREFIX_FEATURE_IA_CAPABILITY_T_SET_INIT_START_WIDTH  1
+
+`define CR_PREFIX_FEATURE_IA_CAPABILITY_T_COMPARE_DECL   0:0
+`define CR_PREFIX_FEATURE_IA_CAPABILITY_T_COMPARE_WIDTH  1
+
+`define CR_PREFIX_FEATURE_IA_CAPABILITY_T_RESERVED_OP_DECL   3:0
+`define CR_PREFIX_FEATURE_IA_CAPABILITY_T_RESERVED_OP_WIDTH  4
+
+`define CR_PREFIX_FEATURE_IA_CAPABILITY_T_SIM_TMO_DECL   0:0
+`define CR_PREFIX_FEATURE_IA_CAPABILITY_T_SIM_TMO_WIDTH  1
+
+`define CR_PREFIX_FEATURE_IA_CAPABILITY_T_ACK_ERROR_DECL   0:0
+`define CR_PREFIX_FEATURE_IA_CAPABILITY_T_ACK_ERROR_WIDTH  1
+
+`define CR_PREFIX_FEATURE_IA_CAPABILITY_T_MEM_TYPE_DECL   3:0
+`define CR_PREFIX_FEATURE_IA_CAPABILITY_T_MEM_TYPE_WIDTH  4
+
+`define CR_PREFIX_FULL_FEATURE_IA_CAPABILITY_T_DECL   31:0
+`define CR_PREFIX_FULL_FEATURE_IA_CAPABILITY_T_WIDTH  32
+  `define CR_PREFIX_FULL_FEATURE_IA_CAPABILITY_T_NOP             00
+  `define CR_PREFIX_FULL_FEATURE_IA_CAPABILITY_T_READ            01
+  `define CR_PREFIX_FULL_FEATURE_IA_CAPABILITY_T_WRITE           02
+  `define CR_PREFIX_FULL_FEATURE_IA_CAPABILITY_T_ENABLE          03
+  `define CR_PREFIX_FULL_FEATURE_IA_CAPABILITY_T_DISABLED        04
+  `define CR_PREFIX_FULL_FEATURE_IA_CAPABILITY_T_RESET           05
+  `define CR_PREFIX_FULL_FEATURE_IA_CAPABILITY_T_INITIALIZE      06
+  `define CR_PREFIX_FULL_FEATURE_IA_CAPABILITY_T_INITIALIZE_INC  07
+  `define CR_PREFIX_FULL_FEATURE_IA_CAPABILITY_T_SET_INIT_START  08
+  `define CR_PREFIX_FULL_FEATURE_IA_CAPABILITY_T_COMPARE         09
+  `define CR_PREFIX_FULL_FEATURE_IA_CAPABILITY_T_RESERVED_OP     13:10
+  `define CR_PREFIX_FULL_FEATURE_IA_CAPABILITY_T_SIM_TMO         14
+  `define CR_PREFIX_FULL_FEATURE_IA_CAPABILITY_T_ACK_ERROR       15
+  `define CR_PREFIX_FULL_FEATURE_IA_CAPABILITY_T_RESERVED0       27:16
+  `define CR_PREFIX_FULL_FEATURE_IA_CAPABILITY_T_MEM_TYPE        31:28
+
+`define CR_PREFIX_C_FEATURE_IA_CAPABILITY_T_DECL   19:0
+`define CR_PREFIX_C_FEATURE_IA_CAPABILITY_T_WIDTH  20
+  `define CR_PREFIX_C_FEATURE_IA_CAPABILITY_T_NOP             00
+  `define CR_PREFIX_C_FEATURE_IA_CAPABILITY_T_READ            01
+  `define CR_PREFIX_C_FEATURE_IA_CAPABILITY_T_WRITE           02
+  `define CR_PREFIX_C_FEATURE_IA_CAPABILITY_T_ENABLE          03
+  `define CR_PREFIX_C_FEATURE_IA_CAPABILITY_T_DISABLED        04
+  `define CR_PREFIX_C_FEATURE_IA_CAPABILITY_T_RESET           05
+  `define CR_PREFIX_C_FEATURE_IA_CAPABILITY_T_INITIALIZE      06
+  `define CR_PREFIX_C_FEATURE_IA_CAPABILITY_T_INITIALIZE_INC  07
+  `define CR_PREFIX_C_FEATURE_IA_CAPABILITY_T_SET_INIT_START  08
+  `define CR_PREFIX_C_FEATURE_IA_CAPABILITY_T_COMPARE         09
+  `define CR_PREFIX_C_FEATURE_IA_CAPABILITY_T_RESERVED_OP     13:10
+  `define CR_PREFIX_C_FEATURE_IA_CAPABILITY_T_SIM_TMO         14
+  `define CR_PREFIX_C_FEATURE_IA_CAPABILITY_T_ACK_ERROR       15
+  `define CR_PREFIX_C_FEATURE_IA_CAPABILITY_T_MEM_TYPE        19:16
+
+`define CR_PREFIX_FEATURE_CTR_T_DECL   31:0
+`define CR_PREFIX_FEATURE_CTR_T_WIDTH  32
+  `define CR_PREFIX_FEATURE_CTR_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_FEATURE_CTR_T_FEATURE_COUNTER_DECL   7:0
+`define CR_PREFIX_FEATURE_CTR_T_FEATURE_COUNTER_WIDTH  8
+  `define CR_PREFIX_FEATURE_CTR_T_FEATURE_COUNTER_DEFAULT  (8'h 0)
+
+`define CR_PREFIX_FEATURE_CTR_T_RSVD_DECL   23:0
+`define CR_PREFIX_FEATURE_CTR_T_RSVD_WIDTH  24
+  `define CR_PREFIX_FEATURE_CTR_T_RSVD_DEFAULT  (24'h 0)
+
+`define CR_PREFIX_FULL_FEATURE_CTR_T_DECL   31:0
+`define CR_PREFIX_FULL_FEATURE_CTR_T_WIDTH  32
+  `define CR_PREFIX_FULL_FEATURE_CTR_T_FEATURE_COUNTER  07:00
+  `define CR_PREFIX_FULL_FEATURE_CTR_T_RSVD             31:08
+
+`define CR_PREFIX_C_FEATURE_CTR_T_DECL   31:0
+`define CR_PREFIX_C_FEATURE_CTR_T_WIDTH  32
+  `define CR_PREFIX_C_FEATURE_CTR_T_FEATURE_COUNTER  07:00
+  `define CR_PREFIX_C_FEATURE_CTR_T_RSVD             31:08
+
+`define CR_PREFIX_FEATURE_CTR_IA_CONFIG_T_DECL   31:0
+`define CR_PREFIX_FEATURE_CTR_IA_CONFIG_T_WIDTH  32
+  `define CR_PREFIX_FEATURE_CTR_IA_CONFIG_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_FEATURE_CTR_IA_CONFIG_T_ADDR_DECL   7:0
+`define CR_PREFIX_FEATURE_CTR_IA_CONFIG_T_ADDR_WIDTH  8
+  `define CR_PREFIX_FEATURE_CTR_IA_CONFIG_T_ADDR_DEFAULT  (8'h 0)
+
+`define CR_PREFIX_FEATURE_CTR_IA_CONFIG_T_OP_DECL   3:0
+`define CR_PREFIX_FEATURE_CTR_IA_CONFIG_T_OP_WIDTH  4
+  `define CR_PREFIX_FEATURE_CTR_IA_CONFIG_T_OP_DEFAULT  (4'h 0)
+
+`define CR_PREFIX_FULL_FEATURE_CTR_IA_CONFIG_T_DECL   31:0
+`define CR_PREFIX_FULL_FEATURE_CTR_IA_CONFIG_T_WIDTH  32
+  `define CR_PREFIX_FULL_FEATURE_CTR_IA_CONFIG_T_ADDR       07:00
+  `define CR_PREFIX_FULL_FEATURE_CTR_IA_CONFIG_T_RESERVED0  27:08
+  `define CR_PREFIX_FULL_FEATURE_CTR_IA_CONFIG_T_OP         31:28
+
+`define CR_PREFIX_C_FEATURE_CTR_IA_CONFIG_T_DECL   11:0
+`define CR_PREFIX_C_FEATURE_CTR_IA_CONFIG_T_WIDTH  12
+  `define CR_PREFIX_C_FEATURE_CTR_IA_CONFIG_T_ADDR  07:00
+  `define CR_PREFIX_C_FEATURE_CTR_IA_CONFIG_T_OP    11:08
+
+`define CR_PREFIX_FEATURE_CTR_IA_STATUS_T_DECL   31:0
+`define CR_PREFIX_FEATURE_CTR_IA_STATUS_T_WIDTH  32
+  `define CR_PREFIX_FEATURE_CTR_IA_STATUS_T_DEFAULT  (32'h ff)
+
+`define CR_PREFIX_FEATURE_CTR_IA_STATUS_T_ADDR_DECL   7:0
+`define CR_PREFIX_FEATURE_CTR_IA_STATUS_T_ADDR_WIDTH  8
+  `define CR_PREFIX_FEATURE_CTR_IA_STATUS_T_ADDR_DEFAULT  (8'h ff)
+
+`define CR_PREFIX_FEATURE_CTR_IA_STATUS_T_DATAWORDS_DECL   4:0
+`define CR_PREFIX_FEATURE_CTR_IA_STATUS_T_DATAWORDS_WIDTH  5
+  `define CR_PREFIX_FEATURE_CTR_IA_STATUS_T_DATAWORDS_DEFAULT  (5'h 0)
+
+`define CR_PREFIX_FEATURE_CTR_IA_STATUS_T_CODE_DECL   2:0
+`define CR_PREFIX_FEATURE_CTR_IA_STATUS_T_CODE_WIDTH  3
+  `define CR_PREFIX_FEATURE_CTR_IA_STATUS_T_CODE_DEFAULT  (3'h 0)
+
+`define CR_PREFIX_FULL_FEATURE_CTR_IA_STATUS_T_DECL   31:0
+`define CR_PREFIX_FULL_FEATURE_CTR_IA_STATUS_T_WIDTH  32
+  `define CR_PREFIX_FULL_FEATURE_CTR_IA_STATUS_T_ADDR       07:00
+  `define CR_PREFIX_FULL_FEATURE_CTR_IA_STATUS_T_RESERVED0  23:08
+  `define CR_PREFIX_FULL_FEATURE_CTR_IA_STATUS_T_DATAWORDS  28:24
+  `define CR_PREFIX_FULL_FEATURE_CTR_IA_STATUS_T_CODE       31:29
+
+`define CR_PREFIX_C_FEATURE_CTR_IA_STATUS_T_DECL   15:0
+`define CR_PREFIX_C_FEATURE_CTR_IA_STATUS_T_WIDTH  16
+  `define CR_PREFIX_C_FEATURE_CTR_IA_STATUS_T_ADDR       07:00
+  `define CR_PREFIX_C_FEATURE_CTR_IA_STATUS_T_DATAWORDS  12:08
+  `define CR_PREFIX_C_FEATURE_CTR_IA_STATUS_T_CODE       15:13
+
+`define CR_PREFIX_FEATURE_CTR_IA_CAPABILITY_T_DECL   31:0
+`define CR_PREFIX_FEATURE_CTR_IA_CAPABILITY_T_WIDTH  32
+  `define CR_PREFIX_FEATURE_CTR_IA_CAPABILITY_T_DEFAULT  (32'b xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx)
+
+`define CR_PREFIX_FEATURE_CTR_IA_CAPABILITY_T_NOP_DECL   0:0
+`define CR_PREFIX_FEATURE_CTR_IA_CAPABILITY_T_NOP_WIDTH  1
+
+`define CR_PREFIX_FEATURE_CTR_IA_CAPABILITY_T_READ_DECL   0:0
+`define CR_PREFIX_FEATURE_CTR_IA_CAPABILITY_T_READ_WIDTH  1
+
+`define CR_PREFIX_FEATURE_CTR_IA_CAPABILITY_T_WRITE_DECL   0:0
+`define CR_PREFIX_FEATURE_CTR_IA_CAPABILITY_T_WRITE_WIDTH  1
+
+`define CR_PREFIX_FEATURE_CTR_IA_CAPABILITY_T_ENABLE_DECL   0:0
+`define CR_PREFIX_FEATURE_CTR_IA_CAPABILITY_T_ENABLE_WIDTH  1
+
+`define CR_PREFIX_FEATURE_CTR_IA_CAPABILITY_T_DISABLED_DECL   0:0
+`define CR_PREFIX_FEATURE_CTR_IA_CAPABILITY_T_DISABLED_WIDTH  1
+
+`define CR_PREFIX_FEATURE_CTR_IA_CAPABILITY_T_RESET_DECL   0:0
+`define CR_PREFIX_FEATURE_CTR_IA_CAPABILITY_T_RESET_WIDTH  1
+
+`define CR_PREFIX_FEATURE_CTR_IA_CAPABILITY_T_INITIALIZE_DECL   0:0
+`define CR_PREFIX_FEATURE_CTR_IA_CAPABILITY_T_INITIALIZE_WIDTH  1
+
+`define CR_PREFIX_FEATURE_CTR_IA_CAPABILITY_T_INITIALIZE_INC_DECL   0:0
+`define CR_PREFIX_FEATURE_CTR_IA_CAPABILITY_T_INITIALIZE_INC_WIDTH  1
+
+`define CR_PREFIX_FEATURE_CTR_IA_CAPABILITY_T_SET_INIT_START_DECL   0:0
+`define CR_PREFIX_FEATURE_CTR_IA_CAPABILITY_T_SET_INIT_START_WIDTH  1
+
+`define CR_PREFIX_FEATURE_CTR_IA_CAPABILITY_T_COMPARE_DECL   0:0
+`define CR_PREFIX_FEATURE_CTR_IA_CAPABILITY_T_COMPARE_WIDTH  1
+
+`define CR_PREFIX_FEATURE_CTR_IA_CAPABILITY_T_RESERVED_OP_DECL   3:0
+`define CR_PREFIX_FEATURE_CTR_IA_CAPABILITY_T_RESERVED_OP_WIDTH  4
+
+`define CR_PREFIX_FEATURE_CTR_IA_CAPABILITY_T_SIM_TMO_DECL   0:0
+`define CR_PREFIX_FEATURE_CTR_IA_CAPABILITY_T_SIM_TMO_WIDTH  1
+
+`define CR_PREFIX_FEATURE_CTR_IA_CAPABILITY_T_ACK_ERROR_DECL   0:0
+`define CR_PREFIX_FEATURE_CTR_IA_CAPABILITY_T_ACK_ERROR_WIDTH  1
+
+`define CR_PREFIX_FEATURE_CTR_IA_CAPABILITY_T_MEM_TYPE_DECL   3:0
+`define CR_PREFIX_FEATURE_CTR_IA_CAPABILITY_T_MEM_TYPE_WIDTH  4
+
+`define CR_PREFIX_FULL_FEATURE_CTR_IA_CAPABILITY_T_DECL   31:0
+`define CR_PREFIX_FULL_FEATURE_CTR_IA_CAPABILITY_T_WIDTH  32
+  `define CR_PREFIX_FULL_FEATURE_CTR_IA_CAPABILITY_T_NOP             00
+  `define CR_PREFIX_FULL_FEATURE_CTR_IA_CAPABILITY_T_READ            01
+  `define CR_PREFIX_FULL_FEATURE_CTR_IA_CAPABILITY_T_WRITE           02
+  `define CR_PREFIX_FULL_FEATURE_CTR_IA_CAPABILITY_T_ENABLE          03
+  `define CR_PREFIX_FULL_FEATURE_CTR_IA_CAPABILITY_T_DISABLED        04
+  `define CR_PREFIX_FULL_FEATURE_CTR_IA_CAPABILITY_T_RESET           05
+  `define CR_PREFIX_FULL_FEATURE_CTR_IA_CAPABILITY_T_INITIALIZE      06
+  `define CR_PREFIX_FULL_FEATURE_CTR_IA_CAPABILITY_T_INITIALIZE_INC  07
+  `define CR_PREFIX_FULL_FEATURE_CTR_IA_CAPABILITY_T_SET_INIT_START  08
+  `define CR_PREFIX_FULL_FEATURE_CTR_IA_CAPABILITY_T_COMPARE         09
+  `define CR_PREFIX_FULL_FEATURE_CTR_IA_CAPABILITY_T_RESERVED_OP     13:10
+  `define CR_PREFIX_FULL_FEATURE_CTR_IA_CAPABILITY_T_SIM_TMO         14
+  `define CR_PREFIX_FULL_FEATURE_CTR_IA_CAPABILITY_T_ACK_ERROR       15
+  `define CR_PREFIX_FULL_FEATURE_CTR_IA_CAPABILITY_T_RESERVED0       27:16
+  `define CR_PREFIX_FULL_FEATURE_CTR_IA_CAPABILITY_T_MEM_TYPE        31:28
+
+`define CR_PREFIX_C_FEATURE_CTR_IA_CAPABILITY_T_DECL   19:0
+`define CR_PREFIX_C_FEATURE_CTR_IA_CAPABILITY_T_WIDTH  20
+  `define CR_PREFIX_C_FEATURE_CTR_IA_CAPABILITY_T_NOP             00
+  `define CR_PREFIX_C_FEATURE_CTR_IA_CAPABILITY_T_READ            01
+  `define CR_PREFIX_C_FEATURE_CTR_IA_CAPABILITY_T_WRITE           02
+  `define CR_PREFIX_C_FEATURE_CTR_IA_CAPABILITY_T_ENABLE          03
+  `define CR_PREFIX_C_FEATURE_CTR_IA_CAPABILITY_T_DISABLED        04
+  `define CR_PREFIX_C_FEATURE_CTR_IA_CAPABILITY_T_RESET           05
+  `define CR_PREFIX_C_FEATURE_CTR_IA_CAPABILITY_T_INITIALIZE      06
+  `define CR_PREFIX_C_FEATURE_CTR_IA_CAPABILITY_T_INITIALIZE_INC  07
+  `define CR_PREFIX_C_FEATURE_CTR_IA_CAPABILITY_T_SET_INIT_START  08
+  `define CR_PREFIX_C_FEATURE_CTR_IA_CAPABILITY_T_COMPARE         09
+  `define CR_PREFIX_C_FEATURE_CTR_IA_CAPABILITY_T_RESERVED_OP     13:10
+  `define CR_PREFIX_C_FEATURE_CTR_IA_CAPABILITY_T_SIM_TMO         14
+  `define CR_PREFIX_C_FEATURE_CTR_IA_CAPABILITY_T_ACK_ERROR       15
+  `define CR_PREFIX_C_FEATURE_CTR_IA_CAPABILITY_T_MEM_TYPE        19:16
+
+`define CR_PREFIX_REC_INST_T_DECL   31:0
+`define CR_PREFIX_REC_INST_T_WIDTH  32
+  `define CR_PREFIX_REC_INST_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_REC_INST_T_SRC4_DECL   0:0
+`define CR_PREFIX_REC_INST_T_SRC4_WIDTH  1
+  `define CR_PREFIX_REC_INST_T_SRC4_DEFAULT  (1'h 0)
+
+`define CR_PREFIX_REC_INST_T_SRC3_DECL   0:0
+`define CR_PREFIX_REC_INST_T_SRC3_WIDTH  1
+  `define CR_PREFIX_REC_INST_T_SRC3_DEFAULT  (1'h 0)
+
+`define CR_PREFIX_REC_INST_T_SRC2_DECL   7:0
+`define CR_PREFIX_REC_INST_T_SRC2_WIDTH  8
+  `define CR_PREFIX_REC_INST_T_SRC2_DEFAULT  (8'h 0)
+
+`define CR_PREFIX_REC_INST_T_SRC1_DECL   7:0
+`define CR_PREFIX_REC_INST_T_SRC1_WIDTH  8
+  `define CR_PREFIX_REC_INST_T_SRC1_DEFAULT  (8'h 0)
+
+`define CR_PREFIX_REC_INST_T_OPCODE_DECL   3:0
+`define CR_PREFIX_REC_INST_T_OPCODE_WIDTH  4
+  `define CR_PREFIX_REC_INST_T_OPCODE_DEFAULT  (4'h 0)
+
+`define CR_PREFIX_REC_INST_T_RSVD_DECL   1:0
+`define CR_PREFIX_REC_INST_T_RSVD_WIDTH  2
+  `define CR_PREFIX_REC_INST_T_RSVD_DEFAULT  (2'h 0)
+
+`define CR_PREFIX_FULL_REC_INST_T_DECL   31:0
+`define CR_PREFIX_FULL_REC_INST_T_WIDTH  32
+  `define CR_PREFIX_FULL_REC_INST_T_SRC4       00
+  `define CR_PREFIX_FULL_REC_INST_T_SRC3       01
+  `define CR_PREFIX_FULL_REC_INST_T_SRC2       09:02
+  `define CR_PREFIX_FULL_REC_INST_T_SRC1       17:10
+  `define CR_PREFIX_FULL_REC_INST_T_OPCODE     21:18
+  `define CR_PREFIX_FULL_REC_INST_T_RSVD       23:22
+  `define CR_PREFIX_FULL_REC_INST_T_RESERVED0  31:24
+
+`define CR_PREFIX_C_REC_INST_T_DECL   23:0
+`define CR_PREFIX_C_REC_INST_T_WIDTH  24
+  `define CR_PREFIX_C_REC_INST_T_SRC4    00
+  `define CR_PREFIX_C_REC_INST_T_SRC3    01
+  `define CR_PREFIX_C_REC_INST_T_SRC2    09:02
+  `define CR_PREFIX_C_REC_INST_T_SRC1    17:10
+  `define CR_PREFIX_C_REC_INST_T_OPCODE  21:18
+  `define CR_PREFIX_C_REC_INST_T_RSVD    23:22
+
+`define CR_PREFIX_RECIM_IA_CONFIG_T_DECL   31:0
+`define CR_PREFIX_RECIM_IA_CONFIG_T_WIDTH  32
+  `define CR_PREFIX_RECIM_IA_CONFIG_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_RECIM_IA_CONFIG_T_ADDR_DECL   7:0
+`define CR_PREFIX_RECIM_IA_CONFIG_T_ADDR_WIDTH  8
+  `define CR_PREFIX_RECIM_IA_CONFIG_T_ADDR_DEFAULT  (8'h 0)
+
+`define CR_PREFIX_RECIM_IA_CONFIG_T_OP_DECL   3:0
+`define CR_PREFIX_RECIM_IA_CONFIG_T_OP_WIDTH  4
+  `define CR_PREFIX_RECIM_IA_CONFIG_T_OP_DEFAULT  (4'h 0)
+
+`define CR_PREFIX_FULL_RECIM_IA_CONFIG_T_DECL   31:0
+`define CR_PREFIX_FULL_RECIM_IA_CONFIG_T_WIDTH  32
+  `define CR_PREFIX_FULL_RECIM_IA_CONFIG_T_ADDR       07:00
+  `define CR_PREFIX_FULL_RECIM_IA_CONFIG_T_RESERVED0  27:08
+  `define CR_PREFIX_FULL_RECIM_IA_CONFIG_T_OP         31:28
+
+`define CR_PREFIX_C_RECIM_IA_CONFIG_T_DECL   11:0
+`define CR_PREFIX_C_RECIM_IA_CONFIG_T_WIDTH  12
+  `define CR_PREFIX_C_RECIM_IA_CONFIG_T_ADDR  07:00
+  `define CR_PREFIX_C_RECIM_IA_CONFIG_T_OP    11:08
+
+`define CR_PREFIX_RECIM_IA_STATUS_T_DECL   31:0
+`define CR_PREFIX_RECIM_IA_STATUS_T_WIDTH  32
+  `define CR_PREFIX_RECIM_IA_STATUS_T_DEFAULT  (32'h 200000ff)
+
+`define CR_PREFIX_RECIM_IA_STATUS_T_ADDR_DECL   7:0
+`define CR_PREFIX_RECIM_IA_STATUS_T_ADDR_WIDTH  8
+  `define CR_PREFIX_RECIM_IA_STATUS_T_ADDR_DEFAULT  (8'h ff)
+
+`define CR_PREFIX_RECIM_IA_STATUS_T_DATAWORDS_DECL   4:0
+`define CR_PREFIX_RECIM_IA_STATUS_T_DATAWORDS_WIDTH  5
+  `define CR_PREFIX_RECIM_IA_STATUS_T_DATAWORDS_DEFAULT  (5'h 0)
+
+`define CR_PREFIX_RECIM_IA_STATUS_T_CODE_DECL   2:0
+`define CR_PREFIX_RECIM_IA_STATUS_T_CODE_WIDTH  3
+  `define CR_PREFIX_RECIM_IA_STATUS_T_CODE_DEFAULT  (3'h 1)
+
+`define CR_PREFIX_FULL_RECIM_IA_STATUS_T_DECL   31:0
+`define CR_PREFIX_FULL_RECIM_IA_STATUS_T_WIDTH  32
+  `define CR_PREFIX_FULL_RECIM_IA_STATUS_T_ADDR       07:00
+  `define CR_PREFIX_FULL_RECIM_IA_STATUS_T_RESERVED0  23:08
+  `define CR_PREFIX_FULL_RECIM_IA_STATUS_T_DATAWORDS  28:24
+  `define CR_PREFIX_FULL_RECIM_IA_STATUS_T_CODE       31:29
+
+`define CR_PREFIX_C_RECIM_IA_STATUS_T_DECL   15:0
+`define CR_PREFIX_C_RECIM_IA_STATUS_T_WIDTH  16
+  `define CR_PREFIX_C_RECIM_IA_STATUS_T_ADDR       07:00
+  `define CR_PREFIX_C_RECIM_IA_STATUS_T_DATAWORDS  12:08
+  `define CR_PREFIX_C_RECIM_IA_STATUS_T_CODE       15:13
+
+`define CR_PREFIX_RECIM_IA_CAPABILITY_T_DECL   31:0
+`define CR_PREFIX_RECIM_IA_CAPABILITY_T_WIDTH  32
+  `define CR_PREFIX_RECIM_IA_CAPABILITY_T_DEFAULT  (32'b xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx)
+
+`define CR_PREFIX_RECIM_IA_CAPABILITY_T_NOP_DECL   0:0
+`define CR_PREFIX_RECIM_IA_CAPABILITY_T_NOP_WIDTH  1
+
+`define CR_PREFIX_RECIM_IA_CAPABILITY_T_READ_DECL   0:0
+`define CR_PREFIX_RECIM_IA_CAPABILITY_T_READ_WIDTH  1
+
+`define CR_PREFIX_RECIM_IA_CAPABILITY_T_WRITE_DECL   0:0
+`define CR_PREFIX_RECIM_IA_CAPABILITY_T_WRITE_WIDTH  1
+
+`define CR_PREFIX_RECIM_IA_CAPABILITY_T_ENABLE_DECL   0:0
+`define CR_PREFIX_RECIM_IA_CAPABILITY_T_ENABLE_WIDTH  1
+
+`define CR_PREFIX_RECIM_IA_CAPABILITY_T_DISABLED_DECL   0:0
+`define CR_PREFIX_RECIM_IA_CAPABILITY_T_DISABLED_WIDTH  1
+
+`define CR_PREFIX_RECIM_IA_CAPABILITY_T_RESET_DECL   0:0
+`define CR_PREFIX_RECIM_IA_CAPABILITY_T_RESET_WIDTH  1
+
+`define CR_PREFIX_RECIM_IA_CAPABILITY_T_INITIALIZE_DECL   0:0
+`define CR_PREFIX_RECIM_IA_CAPABILITY_T_INITIALIZE_WIDTH  1
+
+`define CR_PREFIX_RECIM_IA_CAPABILITY_T_INITIALIZE_INC_DECL   0:0
+`define CR_PREFIX_RECIM_IA_CAPABILITY_T_INITIALIZE_INC_WIDTH  1
+
+`define CR_PREFIX_RECIM_IA_CAPABILITY_T_SET_INIT_START_DECL   0:0
+`define CR_PREFIX_RECIM_IA_CAPABILITY_T_SET_INIT_START_WIDTH  1
+
+`define CR_PREFIX_RECIM_IA_CAPABILITY_T_COMPARE_DECL   0:0
+`define CR_PREFIX_RECIM_IA_CAPABILITY_T_COMPARE_WIDTH  1
+
+`define CR_PREFIX_RECIM_IA_CAPABILITY_T_RESERVED_OP_DECL   3:0
+`define CR_PREFIX_RECIM_IA_CAPABILITY_T_RESERVED_OP_WIDTH  4
+
+`define CR_PREFIX_RECIM_IA_CAPABILITY_T_SIM_TMO_DECL   0:0
+`define CR_PREFIX_RECIM_IA_CAPABILITY_T_SIM_TMO_WIDTH  1
+
+`define CR_PREFIX_RECIM_IA_CAPABILITY_T_ACK_ERROR_DECL   0:0
+`define CR_PREFIX_RECIM_IA_CAPABILITY_T_ACK_ERROR_WIDTH  1
+
+`define CR_PREFIX_RECIM_IA_CAPABILITY_T_MEM_TYPE_DECL   3:0
+`define CR_PREFIX_RECIM_IA_CAPABILITY_T_MEM_TYPE_WIDTH  4
+
+`define CR_PREFIX_FULL_RECIM_IA_CAPABILITY_T_DECL   31:0
+`define CR_PREFIX_FULL_RECIM_IA_CAPABILITY_T_WIDTH  32
+  `define CR_PREFIX_FULL_RECIM_IA_CAPABILITY_T_NOP             00
+  `define CR_PREFIX_FULL_RECIM_IA_CAPABILITY_T_READ            01
+  `define CR_PREFIX_FULL_RECIM_IA_CAPABILITY_T_WRITE           02
+  `define CR_PREFIX_FULL_RECIM_IA_CAPABILITY_T_ENABLE          03
+  `define CR_PREFIX_FULL_RECIM_IA_CAPABILITY_T_DISABLED        04
+  `define CR_PREFIX_FULL_RECIM_IA_CAPABILITY_T_RESET           05
+  `define CR_PREFIX_FULL_RECIM_IA_CAPABILITY_T_INITIALIZE      06
+  `define CR_PREFIX_FULL_RECIM_IA_CAPABILITY_T_INITIALIZE_INC  07
+  `define CR_PREFIX_FULL_RECIM_IA_CAPABILITY_T_SET_INIT_START  08
+  `define CR_PREFIX_FULL_RECIM_IA_CAPABILITY_T_COMPARE         09
+  `define CR_PREFIX_FULL_RECIM_IA_CAPABILITY_T_RESERVED_OP     13:10
+  `define CR_PREFIX_FULL_RECIM_IA_CAPABILITY_T_SIM_TMO         14
+  `define CR_PREFIX_FULL_RECIM_IA_CAPABILITY_T_ACK_ERROR       15
+  `define CR_PREFIX_FULL_RECIM_IA_CAPABILITY_T_RESERVED0       27:16
+  `define CR_PREFIX_FULL_RECIM_IA_CAPABILITY_T_MEM_TYPE        31:28
+
+`define CR_PREFIX_C_RECIM_IA_CAPABILITY_T_DECL   19:0
+`define CR_PREFIX_C_RECIM_IA_CAPABILITY_T_WIDTH  20
+  `define CR_PREFIX_C_RECIM_IA_CAPABILITY_T_NOP             00
+  `define CR_PREFIX_C_RECIM_IA_CAPABILITY_T_READ            01
+  `define CR_PREFIX_C_RECIM_IA_CAPABILITY_T_WRITE           02
+  `define CR_PREFIX_C_RECIM_IA_CAPABILITY_T_ENABLE          03
+  `define CR_PREFIX_C_RECIM_IA_CAPABILITY_T_DISABLED        04
+  `define CR_PREFIX_C_RECIM_IA_CAPABILITY_T_RESET           05
+  `define CR_PREFIX_C_RECIM_IA_CAPABILITY_T_INITIALIZE      06
+  `define CR_PREFIX_C_RECIM_IA_CAPABILITY_T_INITIALIZE_INC  07
+  `define CR_PREFIX_C_RECIM_IA_CAPABILITY_T_SET_INIT_START  08
+  `define CR_PREFIX_C_RECIM_IA_CAPABILITY_T_COMPARE         09
+  `define CR_PREFIX_C_RECIM_IA_CAPABILITY_T_RESERVED_OP     13:10
+  `define CR_PREFIX_C_RECIM_IA_CAPABILITY_T_SIM_TMO         14
+  `define CR_PREFIX_C_RECIM_IA_CAPABILITY_T_ACK_ERROR       15
+  `define CR_PREFIX_C_RECIM_IA_CAPABILITY_T_MEM_TYPE        19:16
+
+`define CR_PREFIX_REC_SAT_PART0_T_DECL   31:0
+`define CR_PREFIX_REC_SAT_PART0_T_WIDTH  32
+  `define CR_PREFIX_REC_SAT_PART0_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_REC_SAT_PART0_T_SAT_ENTRY_PART0_DECL   31:0
+`define CR_PREFIX_REC_SAT_PART0_T_SAT_ENTRY_PART0_WIDTH  32
+  `define CR_PREFIX_REC_SAT_PART0_T_SAT_ENTRY_PART0_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_FULL_REC_SAT_PART0_T_DECL   31:0
+`define CR_PREFIX_FULL_REC_SAT_PART0_T_WIDTH  32
+  `define CR_PREFIX_FULL_REC_SAT_PART0_T_SAT_ENTRY_PART0  31:00
+
+`define CR_PREFIX_C_REC_SAT_PART0_T_DECL   31:0
+`define CR_PREFIX_C_REC_SAT_PART0_T_WIDTH  32
+  `define CR_PREFIX_C_REC_SAT_PART0_T_SAT_ENTRY_PART0  31:00
+
+`define CR_PREFIX_REC_SAT_PART1_T_DECL   31:0
+`define CR_PREFIX_REC_SAT_PART1_T_WIDTH  32
+  `define CR_PREFIX_REC_SAT_PART1_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_REC_SAT_PART1_T_SAT_ENTRY_PART1_DECL   31:0
+`define CR_PREFIX_REC_SAT_PART1_T_SAT_ENTRY_PART1_WIDTH  32
+  `define CR_PREFIX_REC_SAT_PART1_T_SAT_ENTRY_PART1_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_FULL_REC_SAT_PART1_T_DECL   31:0
+`define CR_PREFIX_FULL_REC_SAT_PART1_T_WIDTH  32
+  `define CR_PREFIX_FULL_REC_SAT_PART1_T_SAT_ENTRY_PART1  31:00
+
+`define CR_PREFIX_C_REC_SAT_PART1_T_DECL   31:0
+`define CR_PREFIX_C_REC_SAT_PART1_T_WIDTH  32
+  `define CR_PREFIX_C_REC_SAT_PART1_T_SAT_ENTRY_PART1  31:00
+
+`define CR_PREFIX_REC_SAT_PART2_T_DECL   31:0
+`define CR_PREFIX_REC_SAT_PART2_T_WIDTH  32
+  `define CR_PREFIX_REC_SAT_PART2_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_REC_SAT_PART2_T_SAT_ENTRY_PART2_DECL   31:0
+`define CR_PREFIX_REC_SAT_PART2_T_SAT_ENTRY_PART2_WIDTH  32
+  `define CR_PREFIX_REC_SAT_PART2_T_SAT_ENTRY_PART2_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_FULL_REC_SAT_PART2_T_DECL   31:0
+`define CR_PREFIX_FULL_REC_SAT_PART2_T_WIDTH  32
+  `define CR_PREFIX_FULL_REC_SAT_PART2_T_SAT_ENTRY_PART2  31:00
+
+`define CR_PREFIX_C_REC_SAT_PART2_T_DECL   31:0
+`define CR_PREFIX_C_REC_SAT_PART2_T_WIDTH  32
+  `define CR_PREFIX_C_REC_SAT_PART2_T_SAT_ENTRY_PART2  31:00
+
+`define CR_PREFIX_REC_SAT_PART3_T_DECL   31:0
+`define CR_PREFIX_REC_SAT_PART3_T_WIDTH  32
+  `define CR_PREFIX_REC_SAT_PART3_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_REC_SAT_PART3_T_SAT_ENTRY_PART3_DECL   31:0
+`define CR_PREFIX_REC_SAT_PART3_T_SAT_ENTRY_PART3_WIDTH  32
+  `define CR_PREFIX_REC_SAT_PART3_T_SAT_ENTRY_PART3_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_FULL_REC_SAT_PART3_T_DECL   31:0
+`define CR_PREFIX_FULL_REC_SAT_PART3_T_WIDTH  32
+  `define CR_PREFIX_FULL_REC_SAT_PART3_T_SAT_ENTRY_PART3  31:00
+
+`define CR_PREFIX_C_REC_SAT_PART3_T_DECL   31:0
+`define CR_PREFIX_C_REC_SAT_PART3_T_WIDTH  32
+  `define CR_PREFIX_C_REC_SAT_PART3_T_SAT_ENTRY_PART3  31:00
+
+`define CR_PREFIX_REC_SAT_PART4_T_DECL   31:0
+`define CR_PREFIX_REC_SAT_PART4_T_WIDTH  32
+  `define CR_PREFIX_REC_SAT_PART4_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_REC_SAT_PART4_T_SAT_ENTRY_PART4_DECL   31:0
+`define CR_PREFIX_REC_SAT_PART4_T_SAT_ENTRY_PART4_WIDTH  32
+  `define CR_PREFIX_REC_SAT_PART4_T_SAT_ENTRY_PART4_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_FULL_REC_SAT_PART4_T_DECL   31:0
+`define CR_PREFIX_FULL_REC_SAT_PART4_T_WIDTH  32
+  `define CR_PREFIX_FULL_REC_SAT_PART4_T_SAT_ENTRY_PART4  31:00
+
+`define CR_PREFIX_C_REC_SAT_PART4_T_DECL   31:0
+`define CR_PREFIX_C_REC_SAT_PART4_T_WIDTH  32
+  `define CR_PREFIX_C_REC_SAT_PART4_T_SAT_ENTRY_PART4  31:00
+
+`define CR_PREFIX_REC_SAT_PART5_T_DECL   31:0
+`define CR_PREFIX_REC_SAT_PART5_T_WIDTH  32
+  `define CR_PREFIX_REC_SAT_PART5_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_REC_SAT_PART5_T_SAT_ENTRY_PART5_DECL   31:0
+`define CR_PREFIX_REC_SAT_PART5_T_SAT_ENTRY_PART5_WIDTH  32
+  `define CR_PREFIX_REC_SAT_PART5_T_SAT_ENTRY_PART5_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_FULL_REC_SAT_PART5_T_DECL   31:0
+`define CR_PREFIX_FULL_REC_SAT_PART5_T_WIDTH  32
+  `define CR_PREFIX_FULL_REC_SAT_PART5_T_SAT_ENTRY_PART5  31:00
+
+`define CR_PREFIX_C_REC_SAT_PART5_T_DECL   31:0
+`define CR_PREFIX_C_REC_SAT_PART5_T_WIDTH  32
+  `define CR_PREFIX_C_REC_SAT_PART5_T_SAT_ENTRY_PART5  31:00
+
+`define CR_PREFIX_REC_SAT_PART6_T_DECL   31:0
+`define CR_PREFIX_REC_SAT_PART6_T_WIDTH  32
+  `define CR_PREFIX_REC_SAT_PART6_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_REC_SAT_PART6_T_SAT_ENTRY_PART6_DECL   31:0
+`define CR_PREFIX_REC_SAT_PART6_T_SAT_ENTRY_PART6_WIDTH  32
+  `define CR_PREFIX_REC_SAT_PART6_T_SAT_ENTRY_PART6_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_FULL_REC_SAT_PART6_T_DECL   31:0
+`define CR_PREFIX_FULL_REC_SAT_PART6_T_WIDTH  32
+  `define CR_PREFIX_FULL_REC_SAT_PART6_T_SAT_ENTRY_PART6  31:00
+
+`define CR_PREFIX_C_REC_SAT_PART6_T_DECL   31:0
+`define CR_PREFIX_C_REC_SAT_PART6_T_WIDTH  32
+  `define CR_PREFIX_C_REC_SAT_PART6_T_SAT_ENTRY_PART6  31:00
+
+`define CR_PREFIX_REC_SAT_PART7_T_DECL   31:0
+`define CR_PREFIX_REC_SAT_PART7_T_WIDTH  32
+  `define CR_PREFIX_REC_SAT_PART7_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_REC_SAT_PART7_T_SAT_ENTRY_PART7_DECL   31:0
+`define CR_PREFIX_REC_SAT_PART7_T_SAT_ENTRY_PART7_WIDTH  32
+  `define CR_PREFIX_REC_SAT_PART7_T_SAT_ENTRY_PART7_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_FULL_REC_SAT_PART7_T_DECL   31:0
+`define CR_PREFIX_FULL_REC_SAT_PART7_T_WIDTH  32
+  `define CR_PREFIX_FULL_REC_SAT_PART7_T_SAT_ENTRY_PART7  31:00
+
+`define CR_PREFIX_C_REC_SAT_PART7_T_DECL   31:0
+`define CR_PREFIX_C_REC_SAT_PART7_T_WIDTH  32
+  `define CR_PREFIX_C_REC_SAT_PART7_T_SAT_ENTRY_PART7  31:00
+
+`define CR_PREFIX_REC_SAT_PART8_T_DECL   31:0
+`define CR_PREFIX_REC_SAT_PART8_T_WIDTH  32
+  `define CR_PREFIX_REC_SAT_PART8_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_REC_SAT_PART8_T_SAT_ENTRY_PART8_DECL   31:0
+`define CR_PREFIX_REC_SAT_PART8_T_SAT_ENTRY_PART8_WIDTH  32
+  `define CR_PREFIX_REC_SAT_PART8_T_SAT_ENTRY_PART8_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_FULL_REC_SAT_PART8_T_DECL   31:0
+`define CR_PREFIX_FULL_REC_SAT_PART8_T_WIDTH  32
+  `define CR_PREFIX_FULL_REC_SAT_PART8_T_SAT_ENTRY_PART8  31:00
+
+`define CR_PREFIX_C_REC_SAT_PART8_T_DECL   31:0
+`define CR_PREFIX_C_REC_SAT_PART8_T_WIDTH  32
+  `define CR_PREFIX_C_REC_SAT_PART8_T_SAT_ENTRY_PART8  31:00
+
+`define CR_PREFIX_REC_SAT_PART9_T_DECL   31:0
+`define CR_PREFIX_REC_SAT_PART9_T_WIDTH  32
+  `define CR_PREFIX_REC_SAT_PART9_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_REC_SAT_PART9_T_SAT_ENTRY_PART9_DECL   31:0
+`define CR_PREFIX_REC_SAT_PART9_T_SAT_ENTRY_PART9_WIDTH  32
+  `define CR_PREFIX_REC_SAT_PART9_T_SAT_ENTRY_PART9_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_FULL_REC_SAT_PART9_T_DECL   31:0
+`define CR_PREFIX_FULL_REC_SAT_PART9_T_WIDTH  32
+  `define CR_PREFIX_FULL_REC_SAT_PART9_T_SAT_ENTRY_PART9  31:00
+
+`define CR_PREFIX_C_REC_SAT_PART9_T_DECL   31:0
+`define CR_PREFIX_C_REC_SAT_PART9_T_WIDTH  32
+  `define CR_PREFIX_C_REC_SAT_PART9_T_SAT_ENTRY_PART9  31:00
+
+`define CR_PREFIX_REC_SAT_PART10_T_DECL   31:0
+`define CR_PREFIX_REC_SAT_PART10_T_WIDTH  32
+  `define CR_PREFIX_REC_SAT_PART10_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_REC_SAT_PART10_T_SAT_ENTRY_PART10_DECL   31:0
+`define CR_PREFIX_REC_SAT_PART10_T_SAT_ENTRY_PART10_WIDTH  32
+  `define CR_PREFIX_REC_SAT_PART10_T_SAT_ENTRY_PART10_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_FULL_REC_SAT_PART10_T_DECL   31:0
+`define CR_PREFIX_FULL_REC_SAT_PART10_T_WIDTH  32
+  `define CR_PREFIX_FULL_REC_SAT_PART10_T_SAT_ENTRY_PART10  31:00
+
+`define CR_PREFIX_C_REC_SAT_PART10_T_DECL   31:0
+`define CR_PREFIX_C_REC_SAT_PART10_T_WIDTH  32
+  `define CR_PREFIX_C_REC_SAT_PART10_T_SAT_ENTRY_PART10  31:00
+
+`define CR_PREFIX_REC_SAT_PART11_T_DECL   31:0
+`define CR_PREFIX_REC_SAT_PART11_T_WIDTH  32
+  `define CR_PREFIX_REC_SAT_PART11_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_REC_SAT_PART11_T_SAT_ENTRY_PART11_DECL   31:0
+`define CR_PREFIX_REC_SAT_PART11_T_SAT_ENTRY_PART11_WIDTH  32
+  `define CR_PREFIX_REC_SAT_PART11_T_SAT_ENTRY_PART11_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_FULL_REC_SAT_PART11_T_DECL   31:0
+`define CR_PREFIX_FULL_REC_SAT_PART11_T_WIDTH  32
+  `define CR_PREFIX_FULL_REC_SAT_PART11_T_SAT_ENTRY_PART11  31:00
+
+`define CR_PREFIX_C_REC_SAT_PART11_T_DECL   31:0
+`define CR_PREFIX_C_REC_SAT_PART11_T_WIDTH  32
+  `define CR_PREFIX_C_REC_SAT_PART11_T_SAT_ENTRY_PART11  31:00
+
+`define CR_PREFIX_REC_SAT_PART12_T_DECL   31:0
+`define CR_PREFIX_REC_SAT_PART12_T_WIDTH  32
+  `define CR_PREFIX_REC_SAT_PART12_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_REC_SAT_PART12_T_SAT_ENTRY_PART12_DECL   31:0
+`define CR_PREFIX_REC_SAT_PART12_T_SAT_ENTRY_PART12_WIDTH  32
+  `define CR_PREFIX_REC_SAT_PART12_T_SAT_ENTRY_PART12_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_FULL_REC_SAT_PART12_T_DECL   31:0
+`define CR_PREFIX_FULL_REC_SAT_PART12_T_WIDTH  32
+  `define CR_PREFIX_FULL_REC_SAT_PART12_T_SAT_ENTRY_PART12  31:00
+
+`define CR_PREFIX_C_REC_SAT_PART12_T_DECL   31:0
+`define CR_PREFIX_C_REC_SAT_PART12_T_WIDTH  32
+  `define CR_PREFIX_C_REC_SAT_PART12_T_SAT_ENTRY_PART12  31:00
+
+`define CR_PREFIX_REC_SAT_PART13_T_DECL   31:0
+`define CR_PREFIX_REC_SAT_PART13_T_WIDTH  32
+  `define CR_PREFIX_REC_SAT_PART13_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_REC_SAT_PART13_T_SAT_ENTRY_PART13_DECL   31:0
+`define CR_PREFIX_REC_SAT_PART13_T_SAT_ENTRY_PART13_WIDTH  32
+  `define CR_PREFIX_REC_SAT_PART13_T_SAT_ENTRY_PART13_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_FULL_REC_SAT_PART13_T_DECL   31:0
+`define CR_PREFIX_FULL_REC_SAT_PART13_T_WIDTH  32
+  `define CR_PREFIX_FULL_REC_SAT_PART13_T_SAT_ENTRY_PART13  31:00
+
+`define CR_PREFIX_C_REC_SAT_PART13_T_DECL   31:0
+`define CR_PREFIX_C_REC_SAT_PART13_T_WIDTH  32
+  `define CR_PREFIX_C_REC_SAT_PART13_T_SAT_ENTRY_PART13  31:00
+
+`define CR_PREFIX_REC_SAT_PART14_T_DECL   31:0
+`define CR_PREFIX_REC_SAT_PART14_T_WIDTH  32
+  `define CR_PREFIX_REC_SAT_PART14_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_REC_SAT_PART14_T_SAT_ENTRY_PART14_DECL   31:0
+`define CR_PREFIX_REC_SAT_PART14_T_SAT_ENTRY_PART14_WIDTH  32
+  `define CR_PREFIX_REC_SAT_PART14_T_SAT_ENTRY_PART14_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_FULL_REC_SAT_PART14_T_DECL   31:0
+`define CR_PREFIX_FULL_REC_SAT_PART14_T_WIDTH  32
+  `define CR_PREFIX_FULL_REC_SAT_PART14_T_SAT_ENTRY_PART14  31:00
+
+`define CR_PREFIX_C_REC_SAT_PART14_T_DECL   31:0
+`define CR_PREFIX_C_REC_SAT_PART14_T_WIDTH  32
+  `define CR_PREFIX_C_REC_SAT_PART14_T_SAT_ENTRY_PART14  31:00
+
+`define CR_PREFIX_REC_SAT_PART15_T_DECL   31:0
+`define CR_PREFIX_REC_SAT_PART15_T_WIDTH  32
+  `define CR_PREFIX_REC_SAT_PART15_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_REC_SAT_PART15_T_SAT_ENTRY_PART15_DECL   31:0
+`define CR_PREFIX_REC_SAT_PART15_T_SAT_ENTRY_PART15_WIDTH  32
+  `define CR_PREFIX_REC_SAT_PART15_T_SAT_ENTRY_PART15_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_FULL_REC_SAT_PART15_T_DECL   31:0
+`define CR_PREFIX_FULL_REC_SAT_PART15_T_WIDTH  32
+  `define CR_PREFIX_FULL_REC_SAT_PART15_T_SAT_ENTRY_PART15  31:00
+
+`define CR_PREFIX_C_REC_SAT_PART15_T_DECL   31:0
+`define CR_PREFIX_C_REC_SAT_PART15_T_WIDTH  32
+  `define CR_PREFIX_C_REC_SAT_PART15_T_SAT_ENTRY_PART15  31:00
+
+`define CR_PREFIX_REC_SAT_PART16_T_DECL   31:0
+`define CR_PREFIX_REC_SAT_PART16_T_WIDTH  32
+  `define CR_PREFIX_REC_SAT_PART16_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_REC_SAT_PART16_T_SAT_ENTRY_PART16_DECL   31:0
+`define CR_PREFIX_REC_SAT_PART16_T_SAT_ENTRY_PART16_WIDTH  32
+  `define CR_PREFIX_REC_SAT_PART16_T_SAT_ENTRY_PART16_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_FULL_REC_SAT_PART16_T_DECL   31:0
+`define CR_PREFIX_FULL_REC_SAT_PART16_T_WIDTH  32
+  `define CR_PREFIX_FULL_REC_SAT_PART16_T_SAT_ENTRY_PART16  31:00
+
+`define CR_PREFIX_C_REC_SAT_PART16_T_DECL   31:0
+`define CR_PREFIX_C_REC_SAT_PART16_T_WIDTH  32
+  `define CR_PREFIX_C_REC_SAT_PART16_T_SAT_ENTRY_PART16  31:00
+
+`define CR_PREFIX_REC_SAT_PART17_T_DECL   31:0
+`define CR_PREFIX_REC_SAT_PART17_T_WIDTH  32
+  `define CR_PREFIX_REC_SAT_PART17_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_REC_SAT_PART17_T_SAT_ENTRY_PART17_DECL   31:0
+`define CR_PREFIX_REC_SAT_PART17_T_SAT_ENTRY_PART17_WIDTH  32
+  `define CR_PREFIX_REC_SAT_PART17_T_SAT_ENTRY_PART17_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_FULL_REC_SAT_PART17_T_DECL   31:0
+`define CR_PREFIX_FULL_REC_SAT_PART17_T_WIDTH  32
+  `define CR_PREFIX_FULL_REC_SAT_PART17_T_SAT_ENTRY_PART17  31:00
+
+`define CR_PREFIX_C_REC_SAT_PART17_T_DECL   31:0
+`define CR_PREFIX_C_REC_SAT_PART17_T_WIDTH  32
+  `define CR_PREFIX_C_REC_SAT_PART17_T_SAT_ENTRY_PART17  31:00
+
+`define CR_PREFIX_REC_SAT_PART18_T_DECL   31:0
+`define CR_PREFIX_REC_SAT_PART18_T_WIDTH  32
+  `define CR_PREFIX_REC_SAT_PART18_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_REC_SAT_PART18_T_SAT_ENTRY_PART18_DECL   31:0
+`define CR_PREFIX_REC_SAT_PART18_T_SAT_ENTRY_PART18_WIDTH  32
+  `define CR_PREFIX_REC_SAT_PART18_T_SAT_ENTRY_PART18_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_FULL_REC_SAT_PART18_T_DECL   31:0
+`define CR_PREFIX_FULL_REC_SAT_PART18_T_WIDTH  32
+  `define CR_PREFIX_FULL_REC_SAT_PART18_T_SAT_ENTRY_PART18  31:00
+
+`define CR_PREFIX_C_REC_SAT_PART18_T_DECL   31:0
+`define CR_PREFIX_C_REC_SAT_PART18_T_WIDTH  32
+  `define CR_PREFIX_C_REC_SAT_PART18_T_SAT_ENTRY_PART18  31:00
+
+`define CR_PREFIX_REC_SAT_PART19_T_DECL   31:0
+`define CR_PREFIX_REC_SAT_PART19_T_WIDTH  32
+  `define CR_PREFIX_REC_SAT_PART19_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_REC_SAT_PART19_T_SAT_ENTRY_PART19_DECL   31:0
+`define CR_PREFIX_REC_SAT_PART19_T_SAT_ENTRY_PART19_WIDTH  32
+  `define CR_PREFIX_REC_SAT_PART19_T_SAT_ENTRY_PART19_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_FULL_REC_SAT_PART19_T_DECL   31:0
+`define CR_PREFIX_FULL_REC_SAT_PART19_T_WIDTH  32
+  `define CR_PREFIX_FULL_REC_SAT_PART19_T_SAT_ENTRY_PART19  31:00
+
+`define CR_PREFIX_C_REC_SAT_PART19_T_DECL   31:0
+`define CR_PREFIX_C_REC_SAT_PART19_T_WIDTH  32
+  `define CR_PREFIX_C_REC_SAT_PART19_T_SAT_ENTRY_PART19  31:00
+
+`define CR_PREFIX_REC_SAT_PART20_T_DECL   31:0
+`define CR_PREFIX_REC_SAT_PART20_T_WIDTH  32
+  `define CR_PREFIX_REC_SAT_PART20_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_REC_SAT_PART20_T_SAT_ENTRY_PART20_DECL   31:0
+`define CR_PREFIX_REC_SAT_PART20_T_SAT_ENTRY_PART20_WIDTH  32
+  `define CR_PREFIX_REC_SAT_PART20_T_SAT_ENTRY_PART20_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_FULL_REC_SAT_PART20_T_DECL   31:0
+`define CR_PREFIX_FULL_REC_SAT_PART20_T_WIDTH  32
+  `define CR_PREFIX_FULL_REC_SAT_PART20_T_SAT_ENTRY_PART20  31:00
+
+`define CR_PREFIX_C_REC_SAT_PART20_T_DECL   31:0
+`define CR_PREFIX_C_REC_SAT_PART20_T_WIDTH  32
+  `define CR_PREFIX_C_REC_SAT_PART20_T_SAT_ENTRY_PART20  31:00
+
+`define CR_PREFIX_REC_SAT_PART21_T_DECL   31:0
+`define CR_PREFIX_REC_SAT_PART21_T_WIDTH  32
+  `define CR_PREFIX_REC_SAT_PART21_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_REC_SAT_PART21_T_SAT_ENTRY_PART21_DECL   31:0
+`define CR_PREFIX_REC_SAT_PART21_T_SAT_ENTRY_PART21_WIDTH  32
+  `define CR_PREFIX_REC_SAT_PART21_T_SAT_ENTRY_PART21_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_FULL_REC_SAT_PART21_T_DECL   31:0
+`define CR_PREFIX_FULL_REC_SAT_PART21_T_WIDTH  32
+  `define CR_PREFIX_FULL_REC_SAT_PART21_T_SAT_ENTRY_PART21  31:00
+
+`define CR_PREFIX_C_REC_SAT_PART21_T_DECL   31:0
+`define CR_PREFIX_C_REC_SAT_PART21_T_WIDTH  32
+  `define CR_PREFIX_C_REC_SAT_PART21_T_SAT_ENTRY_PART21  31:00
+
+`define CR_PREFIX_REC_SAT_PART22_T_DECL   31:0
+`define CR_PREFIX_REC_SAT_PART22_T_WIDTH  32
+  `define CR_PREFIX_REC_SAT_PART22_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_REC_SAT_PART22_T_SAT_ENTRY_PART22_DECL   31:0
+`define CR_PREFIX_REC_SAT_PART22_T_SAT_ENTRY_PART22_WIDTH  32
+  `define CR_PREFIX_REC_SAT_PART22_T_SAT_ENTRY_PART22_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_FULL_REC_SAT_PART22_T_DECL   31:0
+`define CR_PREFIX_FULL_REC_SAT_PART22_T_WIDTH  32
+  `define CR_PREFIX_FULL_REC_SAT_PART22_T_SAT_ENTRY_PART22  31:00
+
+`define CR_PREFIX_C_REC_SAT_PART22_T_DECL   31:0
+`define CR_PREFIX_C_REC_SAT_PART22_T_WIDTH  32
+  `define CR_PREFIX_C_REC_SAT_PART22_T_SAT_ENTRY_PART22  31:00
+
+`define CR_PREFIX_REC_SAT_PART23_T_DECL   31:0
+`define CR_PREFIX_REC_SAT_PART23_T_WIDTH  32
+  `define CR_PREFIX_REC_SAT_PART23_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_REC_SAT_PART23_T_SAT_ENTRY_PART23_DECL   31:0
+`define CR_PREFIX_REC_SAT_PART23_T_SAT_ENTRY_PART23_WIDTH  32
+  `define CR_PREFIX_REC_SAT_PART23_T_SAT_ENTRY_PART23_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_FULL_REC_SAT_PART23_T_DECL   31:0
+`define CR_PREFIX_FULL_REC_SAT_PART23_T_WIDTH  32
+  `define CR_PREFIX_FULL_REC_SAT_PART23_T_SAT_ENTRY_PART23  31:00
+
+`define CR_PREFIX_C_REC_SAT_PART23_T_DECL   31:0
+`define CR_PREFIX_C_REC_SAT_PART23_T_WIDTH  32
+  `define CR_PREFIX_C_REC_SAT_PART23_T_SAT_ENTRY_PART23  31:00
+
+`define CR_PREFIX_REC_SAT_PART24_T_DECL   31:0
+`define CR_PREFIX_REC_SAT_PART24_T_WIDTH  32
+  `define CR_PREFIX_REC_SAT_PART24_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_REC_SAT_PART24_T_SAT_ENTRY_PART24_DECL   31:0
+`define CR_PREFIX_REC_SAT_PART24_T_SAT_ENTRY_PART24_WIDTH  32
+  `define CR_PREFIX_REC_SAT_PART24_T_SAT_ENTRY_PART24_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_FULL_REC_SAT_PART24_T_DECL   31:0
+`define CR_PREFIX_FULL_REC_SAT_PART24_T_WIDTH  32
+  `define CR_PREFIX_FULL_REC_SAT_PART24_T_SAT_ENTRY_PART24  31:00
+
+`define CR_PREFIX_C_REC_SAT_PART24_T_DECL   31:0
+`define CR_PREFIX_C_REC_SAT_PART24_T_WIDTH  32
+  `define CR_PREFIX_C_REC_SAT_PART24_T_SAT_ENTRY_PART24  31:00
+
+`define CR_PREFIX_REC_SAT_PART25_T_DECL   31:0
+`define CR_PREFIX_REC_SAT_PART25_T_WIDTH  32
+  `define CR_PREFIX_REC_SAT_PART25_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_REC_SAT_PART25_T_SAT_ENTRY_PART25_DECL   31:0
+`define CR_PREFIX_REC_SAT_PART25_T_SAT_ENTRY_PART25_WIDTH  32
+  `define CR_PREFIX_REC_SAT_PART25_T_SAT_ENTRY_PART25_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_FULL_REC_SAT_PART25_T_DECL   31:0
+`define CR_PREFIX_FULL_REC_SAT_PART25_T_WIDTH  32
+  `define CR_PREFIX_FULL_REC_SAT_PART25_T_SAT_ENTRY_PART25  31:00
+
+`define CR_PREFIX_C_REC_SAT_PART25_T_DECL   31:0
+`define CR_PREFIX_C_REC_SAT_PART25_T_WIDTH  32
+  `define CR_PREFIX_C_REC_SAT_PART25_T_SAT_ENTRY_PART25  31:00
+
+`define CR_PREFIX_REC_SAT_PART26_T_DECL   31:0
+`define CR_PREFIX_REC_SAT_PART26_T_WIDTH  32
+  `define CR_PREFIX_REC_SAT_PART26_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_REC_SAT_PART26_T_SAT_ENTRY_PART26_DECL   31:0
+`define CR_PREFIX_REC_SAT_PART26_T_SAT_ENTRY_PART26_WIDTH  32
+  `define CR_PREFIX_REC_SAT_PART26_T_SAT_ENTRY_PART26_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_FULL_REC_SAT_PART26_T_DECL   31:0
+`define CR_PREFIX_FULL_REC_SAT_PART26_T_WIDTH  32
+  `define CR_PREFIX_FULL_REC_SAT_PART26_T_SAT_ENTRY_PART26  31:00
+
+`define CR_PREFIX_C_REC_SAT_PART26_T_DECL   31:0
+`define CR_PREFIX_C_REC_SAT_PART26_T_WIDTH  32
+  `define CR_PREFIX_C_REC_SAT_PART26_T_SAT_ENTRY_PART26  31:00
+
+`define CR_PREFIX_REC_SAT_PART27_T_DECL   31:0
+`define CR_PREFIX_REC_SAT_PART27_T_WIDTH  32
+  `define CR_PREFIX_REC_SAT_PART27_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_REC_SAT_PART27_T_SAT_ENTRY_PART27_DECL   31:0
+`define CR_PREFIX_REC_SAT_PART27_T_SAT_ENTRY_PART27_WIDTH  32
+  `define CR_PREFIX_REC_SAT_PART27_T_SAT_ENTRY_PART27_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_FULL_REC_SAT_PART27_T_DECL   31:0
+`define CR_PREFIX_FULL_REC_SAT_PART27_T_WIDTH  32
+  `define CR_PREFIX_FULL_REC_SAT_PART27_T_SAT_ENTRY_PART27  31:00
+
+`define CR_PREFIX_C_REC_SAT_PART27_T_DECL   31:0
+`define CR_PREFIX_C_REC_SAT_PART27_T_WIDTH  32
+  `define CR_PREFIX_C_REC_SAT_PART27_T_SAT_ENTRY_PART27  31:00
+
+`define CR_PREFIX_REC_SAT_PART28_T_DECL   31:0
+`define CR_PREFIX_REC_SAT_PART28_T_WIDTH  32
+  `define CR_PREFIX_REC_SAT_PART28_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_REC_SAT_PART28_T_SAT_ENTRY_PART28_DECL   31:0
+`define CR_PREFIX_REC_SAT_PART28_T_SAT_ENTRY_PART28_WIDTH  32
+  `define CR_PREFIX_REC_SAT_PART28_T_SAT_ENTRY_PART28_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_FULL_REC_SAT_PART28_T_DECL   31:0
+`define CR_PREFIX_FULL_REC_SAT_PART28_T_WIDTH  32
+  `define CR_PREFIX_FULL_REC_SAT_PART28_T_SAT_ENTRY_PART28  31:00
+
+`define CR_PREFIX_C_REC_SAT_PART28_T_DECL   31:0
+`define CR_PREFIX_C_REC_SAT_PART28_T_WIDTH  32
+  `define CR_PREFIX_C_REC_SAT_PART28_T_SAT_ENTRY_PART28  31:00
+
+`define CR_PREFIX_REC_SAT_PART29_T_DECL   31:0
+`define CR_PREFIX_REC_SAT_PART29_T_WIDTH  32
+  `define CR_PREFIX_REC_SAT_PART29_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_REC_SAT_PART29_T_SAT_ENTRY_PART29_DECL   31:0
+`define CR_PREFIX_REC_SAT_PART29_T_SAT_ENTRY_PART29_WIDTH  32
+  `define CR_PREFIX_REC_SAT_PART29_T_SAT_ENTRY_PART29_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_FULL_REC_SAT_PART29_T_DECL   31:0
+`define CR_PREFIX_FULL_REC_SAT_PART29_T_WIDTH  32
+  `define CR_PREFIX_FULL_REC_SAT_PART29_T_SAT_ENTRY_PART29  31:00
+
+`define CR_PREFIX_C_REC_SAT_PART29_T_DECL   31:0
+`define CR_PREFIX_C_REC_SAT_PART29_T_WIDTH  32
+  `define CR_PREFIX_C_REC_SAT_PART29_T_SAT_ENTRY_PART29  31:00
+
+`define CR_PREFIX_REC_SAT_PART30_T_DECL   31:0
+`define CR_PREFIX_REC_SAT_PART30_T_WIDTH  32
+  `define CR_PREFIX_REC_SAT_PART30_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_REC_SAT_PART30_T_SAT_ENTRY_PART30_DECL   31:0
+`define CR_PREFIX_REC_SAT_PART30_T_SAT_ENTRY_PART30_WIDTH  32
+  `define CR_PREFIX_REC_SAT_PART30_T_SAT_ENTRY_PART30_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_FULL_REC_SAT_PART30_T_DECL   31:0
+`define CR_PREFIX_FULL_REC_SAT_PART30_T_WIDTH  32
+  `define CR_PREFIX_FULL_REC_SAT_PART30_T_SAT_ENTRY_PART30  31:00
+
+`define CR_PREFIX_C_REC_SAT_PART30_T_DECL   31:0
+`define CR_PREFIX_C_REC_SAT_PART30_T_WIDTH  32
+  `define CR_PREFIX_C_REC_SAT_PART30_T_SAT_ENTRY_PART30  31:00
+
+`define CR_PREFIX_REC_SAT_PART31_T_DECL   31:0
+`define CR_PREFIX_REC_SAT_PART31_T_WIDTH  32
+  `define CR_PREFIX_REC_SAT_PART31_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_REC_SAT_PART31_T_SAT_ENTRY_PART31_DECL   31:0
+`define CR_PREFIX_REC_SAT_PART31_T_SAT_ENTRY_PART31_WIDTH  32
+  `define CR_PREFIX_REC_SAT_PART31_T_SAT_ENTRY_PART31_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_FULL_REC_SAT_PART31_T_DECL   31:0
+`define CR_PREFIX_FULL_REC_SAT_PART31_T_WIDTH  32
+  `define CR_PREFIX_FULL_REC_SAT_PART31_T_SAT_ENTRY_PART31  31:00
+
+`define CR_PREFIX_C_REC_SAT_PART31_T_DECL   31:0
+`define CR_PREFIX_C_REC_SAT_PART31_T_WIDTH  32
+  `define CR_PREFIX_C_REC_SAT_PART31_T_SAT_ENTRY_PART31  31:00
+
+`define CR_PREFIX_RECSAT_IA_CONFIG_T_DECL   31:0
+`define CR_PREFIX_RECSAT_IA_CONFIG_T_WIDTH  32
+  `define CR_PREFIX_RECSAT_IA_CONFIG_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_RECSAT_IA_CONFIG_T_ADDR_DECL   6:0
+`define CR_PREFIX_RECSAT_IA_CONFIG_T_ADDR_WIDTH  7
+  `define CR_PREFIX_RECSAT_IA_CONFIG_T_ADDR_DEFAULT  (7'h 0)
+
+`define CR_PREFIX_RECSAT_IA_CONFIG_T_OP_DECL   3:0
+`define CR_PREFIX_RECSAT_IA_CONFIG_T_OP_WIDTH  4
+  `define CR_PREFIX_RECSAT_IA_CONFIG_T_OP_DEFAULT  (4'h 0)
+
+`define CR_PREFIX_FULL_RECSAT_IA_CONFIG_T_DECL   31:0
+`define CR_PREFIX_FULL_RECSAT_IA_CONFIG_T_WIDTH  32
+  `define CR_PREFIX_FULL_RECSAT_IA_CONFIG_T_ADDR       06:00
+  `define CR_PREFIX_FULL_RECSAT_IA_CONFIG_T_RESERVED0  27:07
+  `define CR_PREFIX_FULL_RECSAT_IA_CONFIG_T_OP         31:28
+
+`define CR_PREFIX_C_RECSAT_IA_CONFIG_T_DECL   10:0
+`define CR_PREFIX_C_RECSAT_IA_CONFIG_T_WIDTH  11
+  `define CR_PREFIX_C_RECSAT_IA_CONFIG_T_ADDR  06:00
+  `define CR_PREFIX_C_RECSAT_IA_CONFIG_T_OP    10:07
+
+`define CR_PREFIX_RECSAT_IA_STATUS_T_DECL   31:0
+`define CR_PREFIX_RECSAT_IA_STATUS_T_WIDTH  32
+  `define CR_PREFIX_RECSAT_IA_STATUS_T_DEFAULT  (32'h 2000007f)
+
+`define CR_PREFIX_RECSAT_IA_STATUS_T_ADDR_DECL   6:0
+`define CR_PREFIX_RECSAT_IA_STATUS_T_ADDR_WIDTH  7
+  `define CR_PREFIX_RECSAT_IA_STATUS_T_ADDR_DEFAULT  (7'h 7f)
+
+`define CR_PREFIX_RECSAT_IA_STATUS_T_DATAWORDS_DECL   4:0
+`define CR_PREFIX_RECSAT_IA_STATUS_T_DATAWORDS_WIDTH  5
+  `define CR_PREFIX_RECSAT_IA_STATUS_T_DATAWORDS_DEFAULT  (5'h 0)
+
+`define CR_PREFIX_RECSAT_IA_STATUS_T_CODE_DECL   2:0
+`define CR_PREFIX_RECSAT_IA_STATUS_T_CODE_WIDTH  3
+  `define CR_PREFIX_RECSAT_IA_STATUS_T_CODE_DEFAULT  (3'h 1)
+
+`define CR_PREFIX_FULL_RECSAT_IA_STATUS_T_DECL   31:0
+`define CR_PREFIX_FULL_RECSAT_IA_STATUS_T_WIDTH  32
+  `define CR_PREFIX_FULL_RECSAT_IA_STATUS_T_ADDR       06:00
+  `define CR_PREFIX_FULL_RECSAT_IA_STATUS_T_RESERVED0  23:07
+  `define CR_PREFIX_FULL_RECSAT_IA_STATUS_T_DATAWORDS  28:24
+  `define CR_PREFIX_FULL_RECSAT_IA_STATUS_T_CODE       31:29
+
+`define CR_PREFIX_C_RECSAT_IA_STATUS_T_DECL   14:0
+`define CR_PREFIX_C_RECSAT_IA_STATUS_T_WIDTH  15
+  `define CR_PREFIX_C_RECSAT_IA_STATUS_T_ADDR       06:00
+  `define CR_PREFIX_C_RECSAT_IA_STATUS_T_DATAWORDS  11:07
+  `define CR_PREFIX_C_RECSAT_IA_STATUS_T_CODE       14:12
+
+`define CR_PREFIX_RECSAT_IA_CAPABILITY_T_DECL   31:0
+`define CR_PREFIX_RECSAT_IA_CAPABILITY_T_WIDTH  32
+  `define CR_PREFIX_RECSAT_IA_CAPABILITY_T_DEFAULT  (32'b xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx)
+
+`define CR_PREFIX_RECSAT_IA_CAPABILITY_T_NOP_DECL   0:0
+`define CR_PREFIX_RECSAT_IA_CAPABILITY_T_NOP_WIDTH  1
+
+`define CR_PREFIX_RECSAT_IA_CAPABILITY_T_READ_DECL   0:0
+`define CR_PREFIX_RECSAT_IA_CAPABILITY_T_READ_WIDTH  1
+
+`define CR_PREFIX_RECSAT_IA_CAPABILITY_T_WRITE_DECL   0:0
+`define CR_PREFIX_RECSAT_IA_CAPABILITY_T_WRITE_WIDTH  1
+
+`define CR_PREFIX_RECSAT_IA_CAPABILITY_T_ENABLE_DECL   0:0
+`define CR_PREFIX_RECSAT_IA_CAPABILITY_T_ENABLE_WIDTH  1
+
+`define CR_PREFIX_RECSAT_IA_CAPABILITY_T_DISABLED_DECL   0:0
+`define CR_PREFIX_RECSAT_IA_CAPABILITY_T_DISABLED_WIDTH  1
+
+`define CR_PREFIX_RECSAT_IA_CAPABILITY_T_RESET_DECL   0:0
+`define CR_PREFIX_RECSAT_IA_CAPABILITY_T_RESET_WIDTH  1
+
+`define CR_PREFIX_RECSAT_IA_CAPABILITY_T_INITIALIZE_DECL   0:0
+`define CR_PREFIX_RECSAT_IA_CAPABILITY_T_INITIALIZE_WIDTH  1
+
+`define CR_PREFIX_RECSAT_IA_CAPABILITY_T_INITIALIZE_INC_DECL   0:0
+`define CR_PREFIX_RECSAT_IA_CAPABILITY_T_INITIALIZE_INC_WIDTH  1
+
+`define CR_PREFIX_RECSAT_IA_CAPABILITY_T_SET_INIT_START_DECL   0:0
+`define CR_PREFIX_RECSAT_IA_CAPABILITY_T_SET_INIT_START_WIDTH  1
+
+`define CR_PREFIX_RECSAT_IA_CAPABILITY_T_COMPARE_DECL   0:0
+`define CR_PREFIX_RECSAT_IA_CAPABILITY_T_COMPARE_WIDTH  1
+
+`define CR_PREFIX_RECSAT_IA_CAPABILITY_T_RESERVED_OP_DECL   3:0
+`define CR_PREFIX_RECSAT_IA_CAPABILITY_T_RESERVED_OP_WIDTH  4
+
+`define CR_PREFIX_RECSAT_IA_CAPABILITY_T_SIM_TMO_DECL   0:0
+`define CR_PREFIX_RECSAT_IA_CAPABILITY_T_SIM_TMO_WIDTH  1
+
+`define CR_PREFIX_RECSAT_IA_CAPABILITY_T_ACK_ERROR_DECL   0:0
+`define CR_PREFIX_RECSAT_IA_CAPABILITY_T_ACK_ERROR_WIDTH  1
+
+`define CR_PREFIX_RECSAT_IA_CAPABILITY_T_MEM_TYPE_DECL   3:0
+`define CR_PREFIX_RECSAT_IA_CAPABILITY_T_MEM_TYPE_WIDTH  4
+
+`define CR_PREFIX_FULL_RECSAT_IA_CAPABILITY_T_DECL   31:0
+`define CR_PREFIX_FULL_RECSAT_IA_CAPABILITY_T_WIDTH  32
+  `define CR_PREFIX_FULL_RECSAT_IA_CAPABILITY_T_NOP             00
+  `define CR_PREFIX_FULL_RECSAT_IA_CAPABILITY_T_READ            01
+  `define CR_PREFIX_FULL_RECSAT_IA_CAPABILITY_T_WRITE           02
+  `define CR_PREFIX_FULL_RECSAT_IA_CAPABILITY_T_ENABLE          03
+  `define CR_PREFIX_FULL_RECSAT_IA_CAPABILITY_T_DISABLED        04
+  `define CR_PREFIX_FULL_RECSAT_IA_CAPABILITY_T_RESET           05
+  `define CR_PREFIX_FULL_RECSAT_IA_CAPABILITY_T_INITIALIZE      06
+  `define CR_PREFIX_FULL_RECSAT_IA_CAPABILITY_T_INITIALIZE_INC  07
+  `define CR_PREFIX_FULL_RECSAT_IA_CAPABILITY_T_SET_INIT_START  08
+  `define CR_PREFIX_FULL_RECSAT_IA_CAPABILITY_T_COMPARE         09
+  `define CR_PREFIX_FULL_RECSAT_IA_CAPABILITY_T_RESERVED_OP     13:10
+  `define CR_PREFIX_FULL_RECSAT_IA_CAPABILITY_T_SIM_TMO         14
+  `define CR_PREFIX_FULL_RECSAT_IA_CAPABILITY_T_ACK_ERROR       15
+  `define CR_PREFIX_FULL_RECSAT_IA_CAPABILITY_T_RESERVED0       27:16
+  `define CR_PREFIX_FULL_RECSAT_IA_CAPABILITY_T_MEM_TYPE        31:28
+
+`define CR_PREFIX_C_RECSAT_IA_CAPABILITY_T_DECL   19:0
+`define CR_PREFIX_C_RECSAT_IA_CAPABILITY_T_WIDTH  20
+  `define CR_PREFIX_C_RECSAT_IA_CAPABILITY_T_NOP             00
+  `define CR_PREFIX_C_RECSAT_IA_CAPABILITY_T_READ            01
+  `define CR_PREFIX_C_RECSAT_IA_CAPABILITY_T_WRITE           02
+  `define CR_PREFIX_C_RECSAT_IA_CAPABILITY_T_ENABLE          03
+  `define CR_PREFIX_C_RECSAT_IA_CAPABILITY_T_DISABLED        04
+  `define CR_PREFIX_C_RECSAT_IA_CAPABILITY_T_RESET           05
+  `define CR_PREFIX_C_RECSAT_IA_CAPABILITY_T_INITIALIZE      06
+  `define CR_PREFIX_C_RECSAT_IA_CAPABILITY_T_INITIALIZE_INC  07
+  `define CR_PREFIX_C_RECSAT_IA_CAPABILITY_T_SET_INIT_START  08
+  `define CR_PREFIX_C_RECSAT_IA_CAPABILITY_T_COMPARE         09
+  `define CR_PREFIX_C_RECSAT_IA_CAPABILITY_T_RESERVED_OP     13:10
+  `define CR_PREFIX_C_RECSAT_IA_CAPABILITY_T_SIM_TMO         14
+  `define CR_PREFIX_C_RECSAT_IA_CAPABILITY_T_ACK_ERROR       15
+  `define CR_PREFIX_C_RECSAT_IA_CAPABILITY_T_MEM_TYPE        19:16
+
+`define CR_PREFIX_REC_CT_PART0_T_DECL   31:0
+`define CR_PREFIX_REC_CT_PART0_T_WIDTH  32
+  `define CR_PREFIX_REC_CT_PART0_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_REC_CT_PART0_T_CT_ENTRY_PART0_DECL   31:0
+`define CR_PREFIX_REC_CT_PART0_T_CT_ENTRY_PART0_WIDTH  32
+  `define CR_PREFIX_REC_CT_PART0_T_CT_ENTRY_PART0_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_FULL_REC_CT_PART0_T_DECL   31:0
+`define CR_PREFIX_FULL_REC_CT_PART0_T_WIDTH  32
+  `define CR_PREFIX_FULL_REC_CT_PART0_T_CT_ENTRY_PART0  31:00
+
+`define CR_PREFIX_C_REC_CT_PART0_T_DECL   31:0
+`define CR_PREFIX_C_REC_CT_PART0_T_WIDTH  32
+  `define CR_PREFIX_C_REC_CT_PART0_T_CT_ENTRY_PART0  31:00
+
+`define CR_PREFIX_REC_CT_PART1_T_DECL   31:0
+`define CR_PREFIX_REC_CT_PART1_T_WIDTH  32
+  `define CR_PREFIX_REC_CT_PART1_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_REC_CT_PART1_T_CT_ENTRY_PART1_DECL   31:0
+`define CR_PREFIX_REC_CT_PART1_T_CT_ENTRY_PART1_WIDTH  32
+  `define CR_PREFIX_REC_CT_PART1_T_CT_ENTRY_PART1_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_FULL_REC_CT_PART1_T_DECL   31:0
+`define CR_PREFIX_FULL_REC_CT_PART1_T_WIDTH  32
+  `define CR_PREFIX_FULL_REC_CT_PART1_T_CT_ENTRY_PART1  31:00
+
+`define CR_PREFIX_C_REC_CT_PART1_T_DECL   31:0
+`define CR_PREFIX_C_REC_CT_PART1_T_WIDTH  32
+  `define CR_PREFIX_C_REC_CT_PART1_T_CT_ENTRY_PART1  31:00
+
+`define CR_PREFIX_REC_CT_PART2_T_DECL   31:0
+`define CR_PREFIX_REC_CT_PART2_T_WIDTH  32
+  `define CR_PREFIX_REC_CT_PART2_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_REC_CT_PART2_T_CT_ENTRY_PART2_DECL   31:0
+`define CR_PREFIX_REC_CT_PART2_T_CT_ENTRY_PART2_WIDTH  32
+  `define CR_PREFIX_REC_CT_PART2_T_CT_ENTRY_PART2_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_FULL_REC_CT_PART2_T_DECL   31:0
+`define CR_PREFIX_FULL_REC_CT_PART2_T_WIDTH  32
+  `define CR_PREFIX_FULL_REC_CT_PART2_T_CT_ENTRY_PART2  31:00
+
+`define CR_PREFIX_C_REC_CT_PART2_T_DECL   31:0
+`define CR_PREFIX_C_REC_CT_PART2_T_WIDTH  32
+  `define CR_PREFIX_C_REC_CT_PART2_T_CT_ENTRY_PART2  31:00
+
+`define CR_PREFIX_REC_CT_PART3_T_DECL   31:0
+`define CR_PREFIX_REC_CT_PART3_T_WIDTH  32
+  `define CR_PREFIX_REC_CT_PART3_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_REC_CT_PART3_T_CT_ENTRY_PART3_DECL   31:0
+`define CR_PREFIX_REC_CT_PART3_T_CT_ENTRY_PART3_WIDTH  32
+  `define CR_PREFIX_REC_CT_PART3_T_CT_ENTRY_PART3_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_FULL_REC_CT_PART3_T_DECL   31:0
+`define CR_PREFIX_FULL_REC_CT_PART3_T_WIDTH  32
+  `define CR_PREFIX_FULL_REC_CT_PART3_T_CT_ENTRY_PART3  31:00
+
+`define CR_PREFIX_C_REC_CT_PART3_T_DECL   31:0
+`define CR_PREFIX_C_REC_CT_PART3_T_WIDTH  32
+  `define CR_PREFIX_C_REC_CT_PART3_T_CT_ENTRY_PART3  31:00
+
+`define CR_PREFIX_REC_CT_PART4_T_DECL   31:0
+`define CR_PREFIX_REC_CT_PART4_T_WIDTH  32
+  `define CR_PREFIX_REC_CT_PART4_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_REC_CT_PART4_T_CT_ENTRY_PART4_DECL   31:0
+`define CR_PREFIX_REC_CT_PART4_T_CT_ENTRY_PART4_WIDTH  32
+  `define CR_PREFIX_REC_CT_PART4_T_CT_ENTRY_PART4_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_FULL_REC_CT_PART4_T_DECL   31:0
+`define CR_PREFIX_FULL_REC_CT_PART4_T_WIDTH  32
+  `define CR_PREFIX_FULL_REC_CT_PART4_T_CT_ENTRY_PART4  31:00
+
+`define CR_PREFIX_C_REC_CT_PART4_T_DECL   31:0
+`define CR_PREFIX_C_REC_CT_PART4_T_WIDTH  32
+  `define CR_PREFIX_C_REC_CT_PART4_T_CT_ENTRY_PART4  31:00
+
+`define CR_PREFIX_REC_CT_PART5_T_DECL   31:0
+`define CR_PREFIX_REC_CT_PART5_T_WIDTH  32
+  `define CR_PREFIX_REC_CT_PART5_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_REC_CT_PART5_T_CT_ENTRY_PART5_DECL   31:0
+`define CR_PREFIX_REC_CT_PART5_T_CT_ENTRY_PART5_WIDTH  32
+  `define CR_PREFIX_REC_CT_PART5_T_CT_ENTRY_PART5_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_FULL_REC_CT_PART5_T_DECL   31:0
+`define CR_PREFIX_FULL_REC_CT_PART5_T_WIDTH  32
+  `define CR_PREFIX_FULL_REC_CT_PART5_T_CT_ENTRY_PART5  31:00
+
+`define CR_PREFIX_C_REC_CT_PART5_T_DECL   31:0
+`define CR_PREFIX_C_REC_CT_PART5_T_WIDTH  32
+  `define CR_PREFIX_C_REC_CT_PART5_T_CT_ENTRY_PART5  31:00
+
+`define CR_PREFIX_REC_CT_PART6_T_DECL   31:0
+`define CR_PREFIX_REC_CT_PART6_T_WIDTH  32
+  `define CR_PREFIX_REC_CT_PART6_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_REC_CT_PART6_T_CT_ENTRY_PART6_DECL   31:0
+`define CR_PREFIX_REC_CT_PART6_T_CT_ENTRY_PART6_WIDTH  32
+  `define CR_PREFIX_REC_CT_PART6_T_CT_ENTRY_PART6_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_FULL_REC_CT_PART6_T_DECL   31:0
+`define CR_PREFIX_FULL_REC_CT_PART6_T_WIDTH  32
+  `define CR_PREFIX_FULL_REC_CT_PART6_T_CT_ENTRY_PART6  31:00
+
+`define CR_PREFIX_C_REC_CT_PART6_T_DECL   31:0
+`define CR_PREFIX_C_REC_CT_PART6_T_WIDTH  32
+  `define CR_PREFIX_C_REC_CT_PART6_T_CT_ENTRY_PART6  31:00
+
+`define CR_PREFIX_REC_CT_PART7_T_DECL   31:0
+`define CR_PREFIX_REC_CT_PART7_T_WIDTH  32
+  `define CR_PREFIX_REC_CT_PART7_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_REC_CT_PART7_T_CT_ENTRY_PART7_DECL   31:0
+`define CR_PREFIX_REC_CT_PART7_T_CT_ENTRY_PART7_WIDTH  32
+  `define CR_PREFIX_REC_CT_PART7_T_CT_ENTRY_PART7_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_FULL_REC_CT_PART7_T_DECL   31:0
+`define CR_PREFIX_FULL_REC_CT_PART7_T_WIDTH  32
+  `define CR_PREFIX_FULL_REC_CT_PART7_T_CT_ENTRY_PART7  31:00
+
+`define CR_PREFIX_C_REC_CT_PART7_T_DECL   31:0
+`define CR_PREFIX_C_REC_CT_PART7_T_WIDTH  32
+  `define CR_PREFIX_C_REC_CT_PART7_T_CT_ENTRY_PART7  31:00
+
+`define CR_PREFIX_REC_CT_PART8_T_DECL   31:0
+`define CR_PREFIX_REC_CT_PART8_T_WIDTH  32
+  `define CR_PREFIX_REC_CT_PART8_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_REC_CT_PART8_T_CT_ENTRY_PART8_DECL   31:0
+`define CR_PREFIX_REC_CT_PART8_T_CT_ENTRY_PART8_WIDTH  32
+  `define CR_PREFIX_REC_CT_PART8_T_CT_ENTRY_PART8_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_FULL_REC_CT_PART8_T_DECL   31:0
+`define CR_PREFIX_FULL_REC_CT_PART8_T_WIDTH  32
+  `define CR_PREFIX_FULL_REC_CT_PART8_T_CT_ENTRY_PART8  31:00
+
+`define CR_PREFIX_C_REC_CT_PART8_T_DECL   31:0
+`define CR_PREFIX_C_REC_CT_PART8_T_WIDTH  32
+  `define CR_PREFIX_C_REC_CT_PART8_T_CT_ENTRY_PART8  31:00
+
+`define CR_PREFIX_REC_CT_PART9_T_DECL   31:0
+`define CR_PREFIX_REC_CT_PART9_T_WIDTH  32
+  `define CR_PREFIX_REC_CT_PART9_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_REC_CT_PART9_T_CT_ENTRY_PART9_DECL   31:0
+`define CR_PREFIX_REC_CT_PART9_T_CT_ENTRY_PART9_WIDTH  32
+  `define CR_PREFIX_REC_CT_PART9_T_CT_ENTRY_PART9_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_FULL_REC_CT_PART9_T_DECL   31:0
+`define CR_PREFIX_FULL_REC_CT_PART9_T_WIDTH  32
+  `define CR_PREFIX_FULL_REC_CT_PART9_T_CT_ENTRY_PART9  31:00
+
+`define CR_PREFIX_C_REC_CT_PART9_T_DECL   31:0
+`define CR_PREFIX_C_REC_CT_PART9_T_WIDTH  32
+  `define CR_PREFIX_C_REC_CT_PART9_T_CT_ENTRY_PART9  31:00
+
+`define CR_PREFIX_REC_CT_PART10_T_DECL   31:0
+`define CR_PREFIX_REC_CT_PART10_T_WIDTH  32
+  `define CR_PREFIX_REC_CT_PART10_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_REC_CT_PART10_T_CT_ENTRY_PART10_DECL   31:0
+`define CR_PREFIX_REC_CT_PART10_T_CT_ENTRY_PART10_WIDTH  32
+  `define CR_PREFIX_REC_CT_PART10_T_CT_ENTRY_PART10_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_FULL_REC_CT_PART10_T_DECL   31:0
+`define CR_PREFIX_FULL_REC_CT_PART10_T_WIDTH  32
+  `define CR_PREFIX_FULL_REC_CT_PART10_T_CT_ENTRY_PART10  31:00
+
+`define CR_PREFIX_C_REC_CT_PART10_T_DECL   31:0
+`define CR_PREFIX_C_REC_CT_PART10_T_WIDTH  32
+  `define CR_PREFIX_C_REC_CT_PART10_T_CT_ENTRY_PART10  31:00
+
+`define CR_PREFIX_REC_CT_PART11_T_DECL   31:0
+`define CR_PREFIX_REC_CT_PART11_T_WIDTH  32
+  `define CR_PREFIX_REC_CT_PART11_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_REC_CT_PART11_T_CT_ENTRY_PART11_DECL   31:0
+`define CR_PREFIX_REC_CT_PART11_T_CT_ENTRY_PART11_WIDTH  32
+  `define CR_PREFIX_REC_CT_PART11_T_CT_ENTRY_PART11_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_FULL_REC_CT_PART11_T_DECL   31:0
+`define CR_PREFIX_FULL_REC_CT_PART11_T_WIDTH  32
+  `define CR_PREFIX_FULL_REC_CT_PART11_T_CT_ENTRY_PART11  31:00
+
+`define CR_PREFIX_C_REC_CT_PART11_T_DECL   31:0
+`define CR_PREFIX_C_REC_CT_PART11_T_WIDTH  32
+  `define CR_PREFIX_C_REC_CT_PART11_T_CT_ENTRY_PART11  31:00
+
+`define CR_PREFIX_REC_CT_PART12_T_DECL   31:0
+`define CR_PREFIX_REC_CT_PART12_T_WIDTH  32
+  `define CR_PREFIX_REC_CT_PART12_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_REC_CT_PART12_T_CT_ENTRY_PART12_DECL   31:0
+`define CR_PREFIX_REC_CT_PART12_T_CT_ENTRY_PART12_WIDTH  32
+  `define CR_PREFIX_REC_CT_PART12_T_CT_ENTRY_PART12_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_FULL_REC_CT_PART12_T_DECL   31:0
+`define CR_PREFIX_FULL_REC_CT_PART12_T_WIDTH  32
+  `define CR_PREFIX_FULL_REC_CT_PART12_T_CT_ENTRY_PART12  31:00
+
+`define CR_PREFIX_C_REC_CT_PART12_T_DECL   31:0
+`define CR_PREFIX_C_REC_CT_PART12_T_WIDTH  32
+  `define CR_PREFIX_C_REC_CT_PART12_T_CT_ENTRY_PART12  31:00
+
+`define CR_PREFIX_REC_CT_PART13_T_DECL   31:0
+`define CR_PREFIX_REC_CT_PART13_T_WIDTH  32
+  `define CR_PREFIX_REC_CT_PART13_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_REC_CT_PART13_T_CT_ENTRY_PART13_DECL   31:0
+`define CR_PREFIX_REC_CT_PART13_T_CT_ENTRY_PART13_WIDTH  32
+  `define CR_PREFIX_REC_CT_PART13_T_CT_ENTRY_PART13_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_FULL_REC_CT_PART13_T_DECL   31:0
+`define CR_PREFIX_FULL_REC_CT_PART13_T_WIDTH  32
+  `define CR_PREFIX_FULL_REC_CT_PART13_T_CT_ENTRY_PART13  31:00
+
+`define CR_PREFIX_C_REC_CT_PART13_T_DECL   31:0
+`define CR_PREFIX_C_REC_CT_PART13_T_WIDTH  32
+  `define CR_PREFIX_C_REC_CT_PART13_T_CT_ENTRY_PART13  31:00
+
+`define CR_PREFIX_REC_CT_PART14_T_DECL   31:0
+`define CR_PREFIX_REC_CT_PART14_T_WIDTH  32
+  `define CR_PREFIX_REC_CT_PART14_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_REC_CT_PART14_T_CT_ENTRY_PART14_DECL   31:0
+`define CR_PREFIX_REC_CT_PART14_T_CT_ENTRY_PART14_WIDTH  32
+  `define CR_PREFIX_REC_CT_PART14_T_CT_ENTRY_PART14_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_FULL_REC_CT_PART14_T_DECL   31:0
+`define CR_PREFIX_FULL_REC_CT_PART14_T_WIDTH  32
+  `define CR_PREFIX_FULL_REC_CT_PART14_T_CT_ENTRY_PART14  31:00
+
+`define CR_PREFIX_C_REC_CT_PART14_T_DECL   31:0
+`define CR_PREFIX_C_REC_CT_PART14_T_WIDTH  32
+  `define CR_PREFIX_C_REC_CT_PART14_T_CT_ENTRY_PART14  31:00
+
+`define CR_PREFIX_REC_CT_PART15_T_DECL   31:0
+`define CR_PREFIX_REC_CT_PART15_T_WIDTH  32
+  `define CR_PREFIX_REC_CT_PART15_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_REC_CT_PART15_T_CT_ENTRY_PART15_DECL   31:0
+`define CR_PREFIX_REC_CT_PART15_T_CT_ENTRY_PART15_WIDTH  32
+  `define CR_PREFIX_REC_CT_PART15_T_CT_ENTRY_PART15_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_FULL_REC_CT_PART15_T_DECL   31:0
+`define CR_PREFIX_FULL_REC_CT_PART15_T_WIDTH  32
+  `define CR_PREFIX_FULL_REC_CT_PART15_T_CT_ENTRY_PART15  31:00
+
+`define CR_PREFIX_C_REC_CT_PART15_T_DECL   31:0
+`define CR_PREFIX_C_REC_CT_PART15_T_WIDTH  32
+  `define CR_PREFIX_C_REC_CT_PART15_T_CT_ENTRY_PART15  31:00
+
+`define CR_PREFIX_REC_CT_PART16_T_DECL   31:0
+`define CR_PREFIX_REC_CT_PART16_T_WIDTH  32
+  `define CR_PREFIX_REC_CT_PART16_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_REC_CT_PART16_T_CT_ENTRY_PART16_DECL   31:0
+`define CR_PREFIX_REC_CT_PART16_T_CT_ENTRY_PART16_WIDTH  32
+  `define CR_PREFIX_REC_CT_PART16_T_CT_ENTRY_PART16_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_FULL_REC_CT_PART16_T_DECL   31:0
+`define CR_PREFIX_FULL_REC_CT_PART16_T_WIDTH  32
+  `define CR_PREFIX_FULL_REC_CT_PART16_T_CT_ENTRY_PART16  31:00
+
+`define CR_PREFIX_C_REC_CT_PART16_T_DECL   31:0
+`define CR_PREFIX_C_REC_CT_PART16_T_WIDTH  32
+  `define CR_PREFIX_C_REC_CT_PART16_T_CT_ENTRY_PART16  31:00
+
+`define CR_PREFIX_REC_CT_PART17_T_DECL   31:0
+`define CR_PREFIX_REC_CT_PART17_T_WIDTH  32
+  `define CR_PREFIX_REC_CT_PART17_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_REC_CT_PART17_T_CT_ENTRY_PART17_DECL   31:0
+`define CR_PREFIX_REC_CT_PART17_T_CT_ENTRY_PART17_WIDTH  32
+  `define CR_PREFIX_REC_CT_PART17_T_CT_ENTRY_PART17_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_FULL_REC_CT_PART17_T_DECL   31:0
+`define CR_PREFIX_FULL_REC_CT_PART17_T_WIDTH  32
+  `define CR_PREFIX_FULL_REC_CT_PART17_T_CT_ENTRY_PART17  31:00
+
+`define CR_PREFIX_C_REC_CT_PART17_T_DECL   31:0
+`define CR_PREFIX_C_REC_CT_PART17_T_WIDTH  32
+  `define CR_PREFIX_C_REC_CT_PART17_T_CT_ENTRY_PART17  31:00
+
+`define CR_PREFIX_REC_CT_PART18_T_DECL   31:0
+`define CR_PREFIX_REC_CT_PART18_T_WIDTH  32
+  `define CR_PREFIX_REC_CT_PART18_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_REC_CT_PART18_T_CT_ENTRY_PART18_DECL   31:0
+`define CR_PREFIX_REC_CT_PART18_T_CT_ENTRY_PART18_WIDTH  32
+  `define CR_PREFIX_REC_CT_PART18_T_CT_ENTRY_PART18_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_FULL_REC_CT_PART18_T_DECL   31:0
+`define CR_PREFIX_FULL_REC_CT_PART18_T_WIDTH  32
+  `define CR_PREFIX_FULL_REC_CT_PART18_T_CT_ENTRY_PART18  31:00
+
+`define CR_PREFIX_C_REC_CT_PART18_T_DECL   31:0
+`define CR_PREFIX_C_REC_CT_PART18_T_WIDTH  32
+  `define CR_PREFIX_C_REC_CT_PART18_T_CT_ENTRY_PART18  31:00
+
+`define CR_PREFIX_REC_CT_PART19_T_DECL   31:0
+`define CR_PREFIX_REC_CT_PART19_T_WIDTH  32
+  `define CR_PREFIX_REC_CT_PART19_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_REC_CT_PART19_T_CT_ENTRY_PART19_DECL   31:0
+`define CR_PREFIX_REC_CT_PART19_T_CT_ENTRY_PART19_WIDTH  32
+  `define CR_PREFIX_REC_CT_PART19_T_CT_ENTRY_PART19_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_FULL_REC_CT_PART19_T_DECL   31:0
+`define CR_PREFIX_FULL_REC_CT_PART19_T_WIDTH  32
+  `define CR_PREFIX_FULL_REC_CT_PART19_T_CT_ENTRY_PART19  31:00
+
+`define CR_PREFIX_C_REC_CT_PART19_T_DECL   31:0
+`define CR_PREFIX_C_REC_CT_PART19_T_WIDTH  32
+  `define CR_PREFIX_C_REC_CT_PART19_T_CT_ENTRY_PART19  31:00
+
+`define CR_PREFIX_REC_CT_PART20_T_DECL   31:0
+`define CR_PREFIX_REC_CT_PART20_T_WIDTH  32
+  `define CR_PREFIX_REC_CT_PART20_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_REC_CT_PART20_T_CT_ENTRY_PART20_DECL   31:0
+`define CR_PREFIX_REC_CT_PART20_T_CT_ENTRY_PART20_WIDTH  32
+  `define CR_PREFIX_REC_CT_PART20_T_CT_ENTRY_PART20_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_FULL_REC_CT_PART20_T_DECL   31:0
+`define CR_PREFIX_FULL_REC_CT_PART20_T_WIDTH  32
+  `define CR_PREFIX_FULL_REC_CT_PART20_T_CT_ENTRY_PART20  31:00
+
+`define CR_PREFIX_C_REC_CT_PART20_T_DECL   31:0
+`define CR_PREFIX_C_REC_CT_PART20_T_WIDTH  32
+  `define CR_PREFIX_C_REC_CT_PART20_T_CT_ENTRY_PART20  31:00
+
+`define CR_PREFIX_REC_CT_PART21_T_DECL   31:0
+`define CR_PREFIX_REC_CT_PART21_T_WIDTH  32
+  `define CR_PREFIX_REC_CT_PART21_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_REC_CT_PART21_T_CT_ENTRY_PART21_DECL   31:0
+`define CR_PREFIX_REC_CT_PART21_T_CT_ENTRY_PART21_WIDTH  32
+  `define CR_PREFIX_REC_CT_PART21_T_CT_ENTRY_PART21_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_FULL_REC_CT_PART21_T_DECL   31:0
+`define CR_PREFIX_FULL_REC_CT_PART21_T_WIDTH  32
+  `define CR_PREFIX_FULL_REC_CT_PART21_T_CT_ENTRY_PART21  31:00
+
+`define CR_PREFIX_C_REC_CT_PART21_T_DECL   31:0
+`define CR_PREFIX_C_REC_CT_PART21_T_WIDTH  32
+  `define CR_PREFIX_C_REC_CT_PART21_T_CT_ENTRY_PART21  31:00
+
+`define CR_PREFIX_REC_CT_PART22_T_DECL   31:0
+`define CR_PREFIX_REC_CT_PART22_T_WIDTH  32
+  `define CR_PREFIX_REC_CT_PART22_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_REC_CT_PART22_T_CT_ENTRY_PART22_DECL   31:0
+`define CR_PREFIX_REC_CT_PART22_T_CT_ENTRY_PART22_WIDTH  32
+  `define CR_PREFIX_REC_CT_PART22_T_CT_ENTRY_PART22_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_FULL_REC_CT_PART22_T_DECL   31:0
+`define CR_PREFIX_FULL_REC_CT_PART22_T_WIDTH  32
+  `define CR_PREFIX_FULL_REC_CT_PART22_T_CT_ENTRY_PART22  31:00
+
+`define CR_PREFIX_C_REC_CT_PART22_T_DECL   31:0
+`define CR_PREFIX_C_REC_CT_PART22_T_WIDTH  32
+  `define CR_PREFIX_C_REC_CT_PART22_T_CT_ENTRY_PART22  31:00
+
+`define CR_PREFIX_REC_CT_PART23_T_DECL   31:0
+`define CR_PREFIX_REC_CT_PART23_T_WIDTH  32
+  `define CR_PREFIX_REC_CT_PART23_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_REC_CT_PART23_T_CT_ENTRY_PART23_DECL   31:0
+`define CR_PREFIX_REC_CT_PART23_T_CT_ENTRY_PART23_WIDTH  32
+  `define CR_PREFIX_REC_CT_PART23_T_CT_ENTRY_PART23_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_FULL_REC_CT_PART23_T_DECL   31:0
+`define CR_PREFIX_FULL_REC_CT_PART23_T_WIDTH  32
+  `define CR_PREFIX_FULL_REC_CT_PART23_T_CT_ENTRY_PART23  31:00
+
+`define CR_PREFIX_C_REC_CT_PART23_T_DECL   31:0
+`define CR_PREFIX_C_REC_CT_PART23_T_WIDTH  32
+  `define CR_PREFIX_C_REC_CT_PART23_T_CT_ENTRY_PART23  31:00
+
+`define CR_PREFIX_REC_CT_PART24_T_DECL   31:0
+`define CR_PREFIX_REC_CT_PART24_T_WIDTH  32
+  `define CR_PREFIX_REC_CT_PART24_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_REC_CT_PART24_T_CT_ENTRY_PART24_DECL   31:0
+`define CR_PREFIX_REC_CT_PART24_T_CT_ENTRY_PART24_WIDTH  32
+  `define CR_PREFIX_REC_CT_PART24_T_CT_ENTRY_PART24_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_FULL_REC_CT_PART24_T_DECL   31:0
+`define CR_PREFIX_FULL_REC_CT_PART24_T_WIDTH  32
+  `define CR_PREFIX_FULL_REC_CT_PART24_T_CT_ENTRY_PART24  31:00
+
+`define CR_PREFIX_C_REC_CT_PART24_T_DECL   31:0
+`define CR_PREFIX_C_REC_CT_PART24_T_WIDTH  32
+  `define CR_PREFIX_C_REC_CT_PART24_T_CT_ENTRY_PART24  31:00
+
+`define CR_PREFIX_REC_CT_PART25_T_DECL   31:0
+`define CR_PREFIX_REC_CT_PART25_T_WIDTH  32
+  `define CR_PREFIX_REC_CT_PART25_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_REC_CT_PART25_T_CT_ENTRY_PART25_DECL   31:0
+`define CR_PREFIX_REC_CT_PART25_T_CT_ENTRY_PART25_WIDTH  32
+  `define CR_PREFIX_REC_CT_PART25_T_CT_ENTRY_PART25_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_FULL_REC_CT_PART25_T_DECL   31:0
+`define CR_PREFIX_FULL_REC_CT_PART25_T_WIDTH  32
+  `define CR_PREFIX_FULL_REC_CT_PART25_T_CT_ENTRY_PART25  31:00
+
+`define CR_PREFIX_C_REC_CT_PART25_T_DECL   31:0
+`define CR_PREFIX_C_REC_CT_PART25_T_WIDTH  32
+  `define CR_PREFIX_C_REC_CT_PART25_T_CT_ENTRY_PART25  31:00
+
+`define CR_PREFIX_REC_CT_PART26_T_DECL   31:0
+`define CR_PREFIX_REC_CT_PART26_T_WIDTH  32
+  `define CR_PREFIX_REC_CT_PART26_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_REC_CT_PART26_T_CT_ENTRY_PART26_DECL   31:0
+`define CR_PREFIX_REC_CT_PART26_T_CT_ENTRY_PART26_WIDTH  32
+  `define CR_PREFIX_REC_CT_PART26_T_CT_ENTRY_PART26_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_FULL_REC_CT_PART26_T_DECL   31:0
+`define CR_PREFIX_FULL_REC_CT_PART26_T_WIDTH  32
+  `define CR_PREFIX_FULL_REC_CT_PART26_T_CT_ENTRY_PART26  31:00
+
+`define CR_PREFIX_C_REC_CT_PART26_T_DECL   31:0
+`define CR_PREFIX_C_REC_CT_PART26_T_WIDTH  32
+  `define CR_PREFIX_C_REC_CT_PART26_T_CT_ENTRY_PART26  31:00
+
+`define CR_PREFIX_REC_CT_PART27_T_DECL   31:0
+`define CR_PREFIX_REC_CT_PART27_T_WIDTH  32
+  `define CR_PREFIX_REC_CT_PART27_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_REC_CT_PART27_T_CT_ENTRY_PART27_DECL   31:0
+`define CR_PREFIX_REC_CT_PART27_T_CT_ENTRY_PART27_WIDTH  32
+  `define CR_PREFIX_REC_CT_PART27_T_CT_ENTRY_PART27_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_FULL_REC_CT_PART27_T_DECL   31:0
+`define CR_PREFIX_FULL_REC_CT_PART27_T_WIDTH  32
+  `define CR_PREFIX_FULL_REC_CT_PART27_T_CT_ENTRY_PART27  31:00
+
+`define CR_PREFIX_C_REC_CT_PART27_T_DECL   31:0
+`define CR_PREFIX_C_REC_CT_PART27_T_WIDTH  32
+  `define CR_PREFIX_C_REC_CT_PART27_T_CT_ENTRY_PART27  31:00
+
+`define CR_PREFIX_REC_CT_PART28_T_DECL   31:0
+`define CR_PREFIX_REC_CT_PART28_T_WIDTH  32
+  `define CR_PREFIX_REC_CT_PART28_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_REC_CT_PART28_T_CT_ENTRY_PART28_DECL   31:0
+`define CR_PREFIX_REC_CT_PART28_T_CT_ENTRY_PART28_WIDTH  32
+  `define CR_PREFIX_REC_CT_PART28_T_CT_ENTRY_PART28_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_FULL_REC_CT_PART28_T_DECL   31:0
+`define CR_PREFIX_FULL_REC_CT_PART28_T_WIDTH  32
+  `define CR_PREFIX_FULL_REC_CT_PART28_T_CT_ENTRY_PART28  31:00
+
+`define CR_PREFIX_C_REC_CT_PART28_T_DECL   31:0
+`define CR_PREFIX_C_REC_CT_PART28_T_WIDTH  32
+  `define CR_PREFIX_C_REC_CT_PART28_T_CT_ENTRY_PART28  31:00
+
+`define CR_PREFIX_REC_CT_PART29_T_DECL   31:0
+`define CR_PREFIX_REC_CT_PART29_T_WIDTH  32
+  `define CR_PREFIX_REC_CT_PART29_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_REC_CT_PART29_T_CT_ENTRY_PART29_DECL   31:0
+`define CR_PREFIX_REC_CT_PART29_T_CT_ENTRY_PART29_WIDTH  32
+  `define CR_PREFIX_REC_CT_PART29_T_CT_ENTRY_PART29_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_FULL_REC_CT_PART29_T_DECL   31:0
+`define CR_PREFIX_FULL_REC_CT_PART29_T_WIDTH  32
+  `define CR_PREFIX_FULL_REC_CT_PART29_T_CT_ENTRY_PART29  31:00
+
+`define CR_PREFIX_C_REC_CT_PART29_T_DECL   31:0
+`define CR_PREFIX_C_REC_CT_PART29_T_WIDTH  32
+  `define CR_PREFIX_C_REC_CT_PART29_T_CT_ENTRY_PART29  31:00
+
+`define CR_PREFIX_REC_CT_PART30_T_DECL   31:0
+`define CR_PREFIX_REC_CT_PART30_T_WIDTH  32
+  `define CR_PREFIX_REC_CT_PART30_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_REC_CT_PART30_T_CT_ENTRY_PART30_DECL   31:0
+`define CR_PREFIX_REC_CT_PART30_T_CT_ENTRY_PART30_WIDTH  32
+  `define CR_PREFIX_REC_CT_PART30_T_CT_ENTRY_PART30_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_FULL_REC_CT_PART30_T_DECL   31:0
+`define CR_PREFIX_FULL_REC_CT_PART30_T_WIDTH  32
+  `define CR_PREFIX_FULL_REC_CT_PART30_T_CT_ENTRY_PART30  31:00
+
+`define CR_PREFIX_C_REC_CT_PART30_T_DECL   31:0
+`define CR_PREFIX_C_REC_CT_PART30_T_WIDTH  32
+  `define CR_PREFIX_C_REC_CT_PART30_T_CT_ENTRY_PART30  31:00
+
+`define CR_PREFIX_REC_CT_PART31_T_DECL   31:0
+`define CR_PREFIX_REC_CT_PART31_T_WIDTH  32
+  `define CR_PREFIX_REC_CT_PART31_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_REC_CT_PART31_T_CT_ENTRY_PART31_DECL   31:0
+`define CR_PREFIX_REC_CT_PART31_T_CT_ENTRY_PART31_WIDTH  32
+  `define CR_PREFIX_REC_CT_PART31_T_CT_ENTRY_PART31_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_FULL_REC_CT_PART31_T_DECL   31:0
+`define CR_PREFIX_FULL_REC_CT_PART31_T_WIDTH  32
+  `define CR_PREFIX_FULL_REC_CT_PART31_T_CT_ENTRY_PART31  31:00
+
+`define CR_PREFIX_C_REC_CT_PART31_T_DECL   31:0
+`define CR_PREFIX_C_REC_CT_PART31_T_WIDTH  32
+  `define CR_PREFIX_C_REC_CT_PART31_T_CT_ENTRY_PART31  31:00
+
+`define CR_PREFIX_RECCT_IA_CONFIG_T_DECL   31:0
+`define CR_PREFIX_RECCT_IA_CONFIG_T_WIDTH  32
+  `define CR_PREFIX_RECCT_IA_CONFIG_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_RECCT_IA_CONFIG_T_ADDR_DECL   6:0
+`define CR_PREFIX_RECCT_IA_CONFIG_T_ADDR_WIDTH  7
+  `define CR_PREFIX_RECCT_IA_CONFIG_T_ADDR_DEFAULT  (7'h 0)
+
+`define CR_PREFIX_RECCT_IA_CONFIG_T_OP_DECL   3:0
+`define CR_PREFIX_RECCT_IA_CONFIG_T_OP_WIDTH  4
+  `define CR_PREFIX_RECCT_IA_CONFIG_T_OP_DEFAULT  (4'h 0)
+
+`define CR_PREFIX_FULL_RECCT_IA_CONFIG_T_DECL   31:0
+`define CR_PREFIX_FULL_RECCT_IA_CONFIG_T_WIDTH  32
+  `define CR_PREFIX_FULL_RECCT_IA_CONFIG_T_ADDR       06:00
+  `define CR_PREFIX_FULL_RECCT_IA_CONFIG_T_RESERVED0  27:07
+  `define CR_PREFIX_FULL_RECCT_IA_CONFIG_T_OP         31:28
+
+`define CR_PREFIX_C_RECCT_IA_CONFIG_T_DECL   10:0
+`define CR_PREFIX_C_RECCT_IA_CONFIG_T_WIDTH  11
+  `define CR_PREFIX_C_RECCT_IA_CONFIG_T_ADDR  06:00
+  `define CR_PREFIX_C_RECCT_IA_CONFIG_T_OP    10:07
+
+`define CR_PREFIX_RECCT_IA_STATUS_T_DECL   31:0
+`define CR_PREFIX_RECCT_IA_STATUS_T_WIDTH  32
+  `define CR_PREFIX_RECCT_IA_STATUS_T_DEFAULT  (32'h 2000007f)
+
+`define CR_PREFIX_RECCT_IA_STATUS_T_ADDR_DECL   6:0
+`define CR_PREFIX_RECCT_IA_STATUS_T_ADDR_WIDTH  7
+  `define CR_PREFIX_RECCT_IA_STATUS_T_ADDR_DEFAULT  (7'h 7f)
+
+`define CR_PREFIX_RECCT_IA_STATUS_T_DATAWORDS_DECL   4:0
+`define CR_PREFIX_RECCT_IA_STATUS_T_DATAWORDS_WIDTH  5
+  `define CR_PREFIX_RECCT_IA_STATUS_T_DATAWORDS_DEFAULT  (5'h 0)
+
+`define CR_PREFIX_RECCT_IA_STATUS_T_CODE_DECL   2:0
+`define CR_PREFIX_RECCT_IA_STATUS_T_CODE_WIDTH  3
+  `define CR_PREFIX_RECCT_IA_STATUS_T_CODE_DEFAULT  (3'h 1)
+
+`define CR_PREFIX_FULL_RECCT_IA_STATUS_T_DECL   31:0
+`define CR_PREFIX_FULL_RECCT_IA_STATUS_T_WIDTH  32
+  `define CR_PREFIX_FULL_RECCT_IA_STATUS_T_ADDR       06:00
+  `define CR_PREFIX_FULL_RECCT_IA_STATUS_T_RESERVED0  23:07
+  `define CR_PREFIX_FULL_RECCT_IA_STATUS_T_DATAWORDS  28:24
+  `define CR_PREFIX_FULL_RECCT_IA_STATUS_T_CODE       31:29
+
+`define CR_PREFIX_C_RECCT_IA_STATUS_T_DECL   14:0
+`define CR_PREFIX_C_RECCT_IA_STATUS_T_WIDTH  15
+  `define CR_PREFIX_C_RECCT_IA_STATUS_T_ADDR       06:00
+  `define CR_PREFIX_C_RECCT_IA_STATUS_T_DATAWORDS  11:07
+  `define CR_PREFIX_C_RECCT_IA_STATUS_T_CODE       14:12
+
+`define CR_PREFIX_RECCT_IA_CAPABILITY_T_DECL   31:0
+`define CR_PREFIX_RECCT_IA_CAPABILITY_T_WIDTH  32
+  `define CR_PREFIX_RECCT_IA_CAPABILITY_T_DEFAULT  (32'b xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx)
+
+`define CR_PREFIX_RECCT_IA_CAPABILITY_T_NOP_DECL   0:0
+`define CR_PREFIX_RECCT_IA_CAPABILITY_T_NOP_WIDTH  1
+
+`define CR_PREFIX_RECCT_IA_CAPABILITY_T_READ_DECL   0:0
+`define CR_PREFIX_RECCT_IA_CAPABILITY_T_READ_WIDTH  1
+
+`define CR_PREFIX_RECCT_IA_CAPABILITY_T_WRITE_DECL   0:0
+`define CR_PREFIX_RECCT_IA_CAPABILITY_T_WRITE_WIDTH  1
+
+`define CR_PREFIX_RECCT_IA_CAPABILITY_T_ENABLE_DECL   0:0
+`define CR_PREFIX_RECCT_IA_CAPABILITY_T_ENABLE_WIDTH  1
+
+`define CR_PREFIX_RECCT_IA_CAPABILITY_T_DISABLED_DECL   0:0
+`define CR_PREFIX_RECCT_IA_CAPABILITY_T_DISABLED_WIDTH  1
+
+`define CR_PREFIX_RECCT_IA_CAPABILITY_T_RESET_DECL   0:0
+`define CR_PREFIX_RECCT_IA_CAPABILITY_T_RESET_WIDTH  1
+
+`define CR_PREFIX_RECCT_IA_CAPABILITY_T_INITIALIZE_DECL   0:0
+`define CR_PREFIX_RECCT_IA_CAPABILITY_T_INITIALIZE_WIDTH  1
+
+`define CR_PREFIX_RECCT_IA_CAPABILITY_T_INITIALIZE_INC_DECL   0:0
+`define CR_PREFIX_RECCT_IA_CAPABILITY_T_INITIALIZE_INC_WIDTH  1
+
+`define CR_PREFIX_RECCT_IA_CAPABILITY_T_SET_INIT_START_DECL   0:0
+`define CR_PREFIX_RECCT_IA_CAPABILITY_T_SET_INIT_START_WIDTH  1
+
+`define CR_PREFIX_RECCT_IA_CAPABILITY_T_COMPARE_DECL   0:0
+`define CR_PREFIX_RECCT_IA_CAPABILITY_T_COMPARE_WIDTH  1
+
+`define CR_PREFIX_RECCT_IA_CAPABILITY_T_RESERVED_OP_DECL   3:0
+`define CR_PREFIX_RECCT_IA_CAPABILITY_T_RESERVED_OP_WIDTH  4
+
+`define CR_PREFIX_RECCT_IA_CAPABILITY_T_SIM_TMO_DECL   0:0
+`define CR_PREFIX_RECCT_IA_CAPABILITY_T_SIM_TMO_WIDTH  1
+
+`define CR_PREFIX_RECCT_IA_CAPABILITY_T_ACK_ERROR_DECL   0:0
+`define CR_PREFIX_RECCT_IA_CAPABILITY_T_ACK_ERROR_WIDTH  1
+
+`define CR_PREFIX_RECCT_IA_CAPABILITY_T_MEM_TYPE_DECL   3:0
+`define CR_PREFIX_RECCT_IA_CAPABILITY_T_MEM_TYPE_WIDTH  4
+
+`define CR_PREFIX_FULL_RECCT_IA_CAPABILITY_T_DECL   31:0
+`define CR_PREFIX_FULL_RECCT_IA_CAPABILITY_T_WIDTH  32
+  `define CR_PREFIX_FULL_RECCT_IA_CAPABILITY_T_NOP             00
+  `define CR_PREFIX_FULL_RECCT_IA_CAPABILITY_T_READ            01
+  `define CR_PREFIX_FULL_RECCT_IA_CAPABILITY_T_WRITE           02
+  `define CR_PREFIX_FULL_RECCT_IA_CAPABILITY_T_ENABLE          03
+  `define CR_PREFIX_FULL_RECCT_IA_CAPABILITY_T_DISABLED        04
+  `define CR_PREFIX_FULL_RECCT_IA_CAPABILITY_T_RESET           05
+  `define CR_PREFIX_FULL_RECCT_IA_CAPABILITY_T_INITIALIZE      06
+  `define CR_PREFIX_FULL_RECCT_IA_CAPABILITY_T_INITIALIZE_INC  07
+  `define CR_PREFIX_FULL_RECCT_IA_CAPABILITY_T_SET_INIT_START  08
+  `define CR_PREFIX_FULL_RECCT_IA_CAPABILITY_T_COMPARE         09
+  `define CR_PREFIX_FULL_RECCT_IA_CAPABILITY_T_RESERVED_OP     13:10
+  `define CR_PREFIX_FULL_RECCT_IA_CAPABILITY_T_SIM_TMO         14
+  `define CR_PREFIX_FULL_RECCT_IA_CAPABILITY_T_ACK_ERROR       15
+  `define CR_PREFIX_FULL_RECCT_IA_CAPABILITY_T_RESERVED0       27:16
+  `define CR_PREFIX_FULL_RECCT_IA_CAPABILITY_T_MEM_TYPE        31:28
+
+`define CR_PREFIX_C_RECCT_IA_CAPABILITY_T_DECL   19:0
+`define CR_PREFIX_C_RECCT_IA_CAPABILITY_T_WIDTH  20
+  `define CR_PREFIX_C_RECCT_IA_CAPABILITY_T_NOP             00
+  `define CR_PREFIX_C_RECCT_IA_CAPABILITY_T_READ            01
+  `define CR_PREFIX_C_RECCT_IA_CAPABILITY_T_WRITE           02
+  `define CR_PREFIX_C_RECCT_IA_CAPABILITY_T_ENABLE          03
+  `define CR_PREFIX_C_RECCT_IA_CAPABILITY_T_DISABLED        04
+  `define CR_PREFIX_C_RECCT_IA_CAPABILITY_T_RESET           05
+  `define CR_PREFIX_C_RECCT_IA_CAPABILITY_T_INITIALIZE      06
+  `define CR_PREFIX_C_RECCT_IA_CAPABILITY_T_INITIALIZE_INC  07
+  `define CR_PREFIX_C_RECCT_IA_CAPABILITY_T_SET_INIT_START  08
+  `define CR_PREFIX_C_RECCT_IA_CAPABILITY_T_COMPARE         09
+  `define CR_PREFIX_C_RECCT_IA_CAPABILITY_T_RESERVED_OP     13:10
+  `define CR_PREFIX_C_RECCT_IA_CAPABILITY_T_SIM_TMO         14
+  `define CR_PREFIX_C_RECCT_IA_CAPABILITY_T_ACK_ERROR       15
+  `define CR_PREFIX_C_RECCT_IA_CAPABILITY_T_MEM_TYPE        19:16
+
+`define CR_PREFIX_PSR_T_DECL   31:0
+`define CR_PREFIX_PSR_T_WIDTH  32
+  `define CR_PREFIX_PSR_T_DEFAULT  (32'b xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx)
+
+`define CR_PREFIX_PSR_T_REC_PSR_DECL   31:0
+`define CR_PREFIX_PSR_T_REC_PSR_WIDTH  32
+
+`define CR_PREFIX_FULL_PSR_T_DECL   31:0
+`define CR_PREFIX_FULL_PSR_T_WIDTH  32
+  `define CR_PREFIX_FULL_PSR_T_REC_PSR  31:00
+
+`define CR_PREFIX_C_PSR_T_DECL   31:0
+`define CR_PREFIX_C_PSR_T_WIDTH  32
+  `define CR_PREFIX_C_PSR_T_REC_PSR  31:00
+
+`define CR_PREFIX_PSR_IA_CONFIG_T_DECL   31:0
+`define CR_PREFIX_PSR_IA_CONFIG_T_WIDTH  32
+  `define CR_PREFIX_PSR_IA_CONFIG_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_PSR_IA_CONFIG_T_ADDR_DECL   8:0
+`define CR_PREFIX_PSR_IA_CONFIG_T_ADDR_WIDTH  9
+  `define CR_PREFIX_PSR_IA_CONFIG_T_ADDR_DEFAULT  (9'h 0)
+
+`define CR_PREFIX_PSR_IA_CONFIG_T_OP_DECL   3:0
+`define CR_PREFIX_PSR_IA_CONFIG_T_OP_WIDTH  4
+  `define CR_PREFIX_PSR_IA_CONFIG_T_OP_DEFAULT  (4'h 0)
+
+`define CR_PREFIX_FULL_PSR_IA_CONFIG_T_DECL   31:0
+`define CR_PREFIX_FULL_PSR_IA_CONFIG_T_WIDTH  32
+  `define CR_PREFIX_FULL_PSR_IA_CONFIG_T_ADDR       08:00
+  `define CR_PREFIX_FULL_PSR_IA_CONFIG_T_RESERVED0  27:09
+  `define CR_PREFIX_FULL_PSR_IA_CONFIG_T_OP         31:28
+
+`define CR_PREFIX_C_PSR_IA_CONFIG_T_DECL   12:0
+`define CR_PREFIX_C_PSR_IA_CONFIG_T_WIDTH  13
+  `define CR_PREFIX_C_PSR_IA_CONFIG_T_ADDR  08:00
+  `define CR_PREFIX_C_PSR_IA_CONFIG_T_OP    12:09
+
+`define CR_PREFIX_PSR_IA_STATUS_T_DECL   31:0
+`define CR_PREFIX_PSR_IA_STATUS_T_WIDTH  32
+  `define CR_PREFIX_PSR_IA_STATUS_T_DEFAULT  (32'h 1aa)
+
+`define CR_PREFIX_PSR_IA_STATUS_T_ADDR_DECL   8:0
+`define CR_PREFIX_PSR_IA_STATUS_T_ADDR_WIDTH  9
+  `define CR_PREFIX_PSR_IA_STATUS_T_ADDR_DEFAULT  (9'h 1aa)
+
+`define CR_PREFIX_PSR_IA_STATUS_T_DATAWORDS_DECL   4:0
+`define CR_PREFIX_PSR_IA_STATUS_T_DATAWORDS_WIDTH  5
+  `define CR_PREFIX_PSR_IA_STATUS_T_DATAWORDS_DEFAULT  (5'h 0)
+
+`define CR_PREFIX_PSR_IA_STATUS_T_CODE_DECL   2:0
+`define CR_PREFIX_PSR_IA_STATUS_T_CODE_WIDTH  3
+  `define CR_PREFIX_PSR_IA_STATUS_T_CODE_DEFAULT  (3'h 0)
+
+`define CR_PREFIX_FULL_PSR_IA_STATUS_T_DECL   31:0
+`define CR_PREFIX_FULL_PSR_IA_STATUS_T_WIDTH  32
+  `define CR_PREFIX_FULL_PSR_IA_STATUS_T_ADDR       08:00
+  `define CR_PREFIX_FULL_PSR_IA_STATUS_T_RESERVED0  23:09
+  `define CR_PREFIX_FULL_PSR_IA_STATUS_T_DATAWORDS  28:24
+  `define CR_PREFIX_FULL_PSR_IA_STATUS_T_CODE       31:29
+
+`define CR_PREFIX_C_PSR_IA_STATUS_T_DECL   16:0
+`define CR_PREFIX_C_PSR_IA_STATUS_T_WIDTH  17
+  `define CR_PREFIX_C_PSR_IA_STATUS_T_ADDR       08:00
+  `define CR_PREFIX_C_PSR_IA_STATUS_T_DATAWORDS  13:09
+  `define CR_PREFIX_C_PSR_IA_STATUS_T_CODE       16:14
+
+`define CR_PREFIX_PSR_IA_CAPABILITY_T_DECL   31:0
+`define CR_PREFIX_PSR_IA_CAPABILITY_T_WIDTH  32
+  `define CR_PREFIX_PSR_IA_CAPABILITY_T_DEFAULT  (32'b xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx)
+
+`define CR_PREFIX_PSR_IA_CAPABILITY_T_NOP_DECL   0:0
+`define CR_PREFIX_PSR_IA_CAPABILITY_T_NOP_WIDTH  1
+
+`define CR_PREFIX_PSR_IA_CAPABILITY_T_READ_DECL   0:0
+`define CR_PREFIX_PSR_IA_CAPABILITY_T_READ_WIDTH  1
+
+`define CR_PREFIX_PSR_IA_CAPABILITY_T_WRITE_DECL   0:0
+`define CR_PREFIX_PSR_IA_CAPABILITY_T_WRITE_WIDTH  1
+
+`define CR_PREFIX_PSR_IA_CAPABILITY_T_ENABLE_DECL   0:0
+`define CR_PREFIX_PSR_IA_CAPABILITY_T_ENABLE_WIDTH  1
+
+`define CR_PREFIX_PSR_IA_CAPABILITY_T_DISABLED_DECL   0:0
+`define CR_PREFIX_PSR_IA_CAPABILITY_T_DISABLED_WIDTH  1
+
+`define CR_PREFIX_PSR_IA_CAPABILITY_T_RESET_DECL   0:0
+`define CR_PREFIX_PSR_IA_CAPABILITY_T_RESET_WIDTH  1
+
+`define CR_PREFIX_PSR_IA_CAPABILITY_T_INITIALIZE_DECL   0:0
+`define CR_PREFIX_PSR_IA_CAPABILITY_T_INITIALIZE_WIDTH  1
+
+`define CR_PREFIX_PSR_IA_CAPABILITY_T_INITIALIZE_INC_DECL   0:0
+`define CR_PREFIX_PSR_IA_CAPABILITY_T_INITIALIZE_INC_WIDTH  1
+
+`define CR_PREFIX_PSR_IA_CAPABILITY_T_SET_INIT_START_DECL   0:0
+`define CR_PREFIX_PSR_IA_CAPABILITY_T_SET_INIT_START_WIDTH  1
+
+`define CR_PREFIX_PSR_IA_CAPABILITY_T_COMPARE_DECL   0:0
+`define CR_PREFIX_PSR_IA_CAPABILITY_T_COMPARE_WIDTH  1
+
+`define CR_PREFIX_PSR_IA_CAPABILITY_T_RESERVED_OP_DECL   3:0
+`define CR_PREFIX_PSR_IA_CAPABILITY_T_RESERVED_OP_WIDTH  4
+
+`define CR_PREFIX_PSR_IA_CAPABILITY_T_SIM_TMO_DECL   0:0
+`define CR_PREFIX_PSR_IA_CAPABILITY_T_SIM_TMO_WIDTH  1
+
+`define CR_PREFIX_PSR_IA_CAPABILITY_T_ACK_ERROR_DECL   0:0
+`define CR_PREFIX_PSR_IA_CAPABILITY_T_ACK_ERROR_WIDTH  1
+
+`define CR_PREFIX_PSR_IA_CAPABILITY_T_MEM_TYPE_DECL   3:0
+`define CR_PREFIX_PSR_IA_CAPABILITY_T_MEM_TYPE_WIDTH  4
+
+`define CR_PREFIX_FULL_PSR_IA_CAPABILITY_T_DECL   31:0
+`define CR_PREFIX_FULL_PSR_IA_CAPABILITY_T_WIDTH  32
+  `define CR_PREFIX_FULL_PSR_IA_CAPABILITY_T_NOP             00
+  `define CR_PREFIX_FULL_PSR_IA_CAPABILITY_T_READ            01
+  `define CR_PREFIX_FULL_PSR_IA_CAPABILITY_T_WRITE           02
+  `define CR_PREFIX_FULL_PSR_IA_CAPABILITY_T_ENABLE          03
+  `define CR_PREFIX_FULL_PSR_IA_CAPABILITY_T_DISABLED        04
+  `define CR_PREFIX_FULL_PSR_IA_CAPABILITY_T_RESET           05
+  `define CR_PREFIX_FULL_PSR_IA_CAPABILITY_T_INITIALIZE      06
+  `define CR_PREFIX_FULL_PSR_IA_CAPABILITY_T_INITIALIZE_INC  07
+  `define CR_PREFIX_FULL_PSR_IA_CAPABILITY_T_SET_INIT_START  08
+  `define CR_PREFIX_FULL_PSR_IA_CAPABILITY_T_COMPARE         09
+  `define CR_PREFIX_FULL_PSR_IA_CAPABILITY_T_RESERVED_OP     13:10
+  `define CR_PREFIX_FULL_PSR_IA_CAPABILITY_T_SIM_TMO         14
+  `define CR_PREFIX_FULL_PSR_IA_CAPABILITY_T_ACK_ERROR       15
+  `define CR_PREFIX_FULL_PSR_IA_CAPABILITY_T_RESERVED0       27:16
+  `define CR_PREFIX_FULL_PSR_IA_CAPABILITY_T_MEM_TYPE        31:28
+
+`define CR_PREFIX_C_PSR_IA_CAPABILITY_T_DECL   19:0
+`define CR_PREFIX_C_PSR_IA_CAPABILITY_T_WIDTH  20
+  `define CR_PREFIX_C_PSR_IA_CAPABILITY_T_NOP             00
+  `define CR_PREFIX_C_PSR_IA_CAPABILITY_T_READ            01
+  `define CR_PREFIX_C_PSR_IA_CAPABILITY_T_WRITE           02
+  `define CR_PREFIX_C_PSR_IA_CAPABILITY_T_ENABLE          03
+  `define CR_PREFIX_C_PSR_IA_CAPABILITY_T_DISABLED        04
+  `define CR_PREFIX_C_PSR_IA_CAPABILITY_T_RESET           05
+  `define CR_PREFIX_C_PSR_IA_CAPABILITY_T_INITIALIZE      06
+  `define CR_PREFIX_C_PSR_IA_CAPABILITY_T_INITIALIZE_INC  07
+  `define CR_PREFIX_C_PSR_IA_CAPABILITY_T_SET_INIT_START  08
+  `define CR_PREFIX_C_PSR_IA_CAPABILITY_T_COMPARE         09
+  `define CR_PREFIX_C_PSR_IA_CAPABILITY_T_RESERVED_OP     13:10
+  `define CR_PREFIX_C_PSR_IA_CAPABILITY_T_SIM_TMO         14
+  `define CR_PREFIX_C_PSR_IA_CAPABILITY_T_ACK_ERROR       15
+  `define CR_PREFIX_C_PSR_IA_CAPABILITY_T_MEM_TYPE        19:16
+
+`define CR_PREFIX_BIMC_MONITOR_T_DECL   31:0
+`define CR_PREFIX_BIMC_MONITOR_T_WIDTH  32
+  `define CR_PREFIX_BIMC_MONITOR_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_BIMC_MONITOR_T_UNCORRECTABLE_ECC_ERROR_DECL   0:0
+`define CR_PREFIX_BIMC_MONITOR_T_UNCORRECTABLE_ECC_ERROR_WIDTH  1
+  `define CR_PREFIX_BIMC_MONITOR_T_UNCORRECTABLE_ECC_ERROR_DEFAULT  (1'h 0)
+
+`define CR_PREFIX_BIMC_MONITOR_T_CORRECTABLE_ECC_ERROR_DECL   0:0
+`define CR_PREFIX_BIMC_MONITOR_T_CORRECTABLE_ECC_ERROR_WIDTH  1
+  `define CR_PREFIX_BIMC_MONITOR_T_CORRECTABLE_ECC_ERROR_DEFAULT  (1'h 0)
+
+`define CR_PREFIX_BIMC_MONITOR_T_PARITY_ERROR_DECL   0:0
+`define CR_PREFIX_BIMC_MONITOR_T_PARITY_ERROR_WIDTH  1
+  `define CR_PREFIX_BIMC_MONITOR_T_PARITY_ERROR_DEFAULT  (1'h 0)
+
+`define CR_PREFIX_BIMC_MONITOR_T_RESERVE_DECL   0:0
+`define CR_PREFIX_BIMC_MONITOR_T_RESERVE_WIDTH  1
+  `define CR_PREFIX_BIMC_MONITOR_T_RESERVE_DEFAULT  (1'h 0)
+
+`define CR_PREFIX_BIMC_MONITOR_T_BIMC_CHAIN_RCV_ERROR_DECL   0:0
+`define CR_PREFIX_BIMC_MONITOR_T_BIMC_CHAIN_RCV_ERROR_WIDTH  1
+  `define CR_PREFIX_BIMC_MONITOR_T_BIMC_CHAIN_RCV_ERROR_DEFAULT  (1'h 0)
+
+`define CR_PREFIX_BIMC_MONITOR_T_RCV_INVALID_OPCODE_DECL   0:0
+`define CR_PREFIX_BIMC_MONITOR_T_RCV_INVALID_OPCODE_WIDTH  1
+  `define CR_PREFIX_BIMC_MONITOR_T_RCV_INVALID_OPCODE_DEFAULT  (1'h 0)
+
+`define CR_PREFIX_BIMC_MONITOR_T_UNANSWERED_READ_DECL   0:0
+`define CR_PREFIX_BIMC_MONITOR_T_UNANSWERED_READ_WIDTH  1
+  `define CR_PREFIX_BIMC_MONITOR_T_UNANSWERED_READ_DEFAULT  (1'h 0)
+
+`define CR_PREFIX_FULL_BIMC_MONITOR_T_DECL   31:0
+`define CR_PREFIX_FULL_BIMC_MONITOR_T_WIDTH  32
+  `define CR_PREFIX_FULL_BIMC_MONITOR_T_UNCORRECTABLE_ECC_ERROR  0
+  `define CR_PREFIX_FULL_BIMC_MONITOR_T_CORRECTABLE_ECC_ERROR    1
+  `define CR_PREFIX_FULL_BIMC_MONITOR_T_PARITY_ERROR             2
+  `define CR_PREFIX_FULL_BIMC_MONITOR_T_RESERVE                  3
+  `define CR_PREFIX_FULL_BIMC_MONITOR_T_BIMC_CHAIN_RCV_ERROR     4
+  `define CR_PREFIX_FULL_BIMC_MONITOR_T_RCV_INVALID_OPCODE       5
+  `define CR_PREFIX_FULL_BIMC_MONITOR_T_UNANSWERED_READ          6
+  `define CR_PREFIX_FULL_BIMC_MONITOR_T_RESERVED0                31:7
+
+`define CR_PREFIX_C_BIMC_MONITOR_T_DECL   6:0
+`define CR_PREFIX_C_BIMC_MONITOR_T_WIDTH  7
+  `define CR_PREFIX_C_BIMC_MONITOR_T_UNCORRECTABLE_ECC_ERROR  0
+  `define CR_PREFIX_C_BIMC_MONITOR_T_CORRECTABLE_ECC_ERROR    1
+  `define CR_PREFIX_C_BIMC_MONITOR_T_PARITY_ERROR             2
+  `define CR_PREFIX_C_BIMC_MONITOR_T_RESERVE                  3
+  `define CR_PREFIX_C_BIMC_MONITOR_T_BIMC_CHAIN_RCV_ERROR     4
+  `define CR_PREFIX_C_BIMC_MONITOR_T_RCV_INVALID_OPCODE       5
+  `define CR_PREFIX_C_BIMC_MONITOR_T_UNANSWERED_READ          6
+
+`define CR_PREFIX_BIMC_MONITOR_MASK_T_DECL   31:0
+`define CR_PREFIX_BIMC_MONITOR_MASK_T_WIDTH  32
+  `define CR_PREFIX_BIMC_MONITOR_MASK_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_BIMC_MONITOR_MASK_T_UNCORRECTABLE_ECC_ERROR_ENABLE_DECL   0:0
+`define CR_PREFIX_BIMC_MONITOR_MASK_T_UNCORRECTABLE_ECC_ERROR_ENABLE_WIDTH  1
+  `define CR_PREFIX_BIMC_MONITOR_MASK_T_UNCORRECTABLE_ECC_ERROR_ENABLE_DEFAULT  (1'h 0)
+
+`define CR_PREFIX_BIMC_MONITOR_MASK_T_CORRECTABLE_ECC_ERROR_ENABLE_DECL   0:0
+`define CR_PREFIX_BIMC_MONITOR_MASK_T_CORRECTABLE_ECC_ERROR_ENABLE_WIDTH  1
+  `define CR_PREFIX_BIMC_MONITOR_MASK_T_CORRECTABLE_ECC_ERROR_ENABLE_DEFAULT  (1'h 0)
+
+`define CR_PREFIX_BIMC_MONITOR_MASK_T_PARITY_ERROR_ENABLE_DECL   0:0
+`define CR_PREFIX_BIMC_MONITOR_MASK_T_PARITY_ERROR_ENABLE_WIDTH  1
+  `define CR_PREFIX_BIMC_MONITOR_MASK_T_PARITY_ERROR_ENABLE_DEFAULT  (1'h 0)
+
+`define CR_PREFIX_BIMC_MONITOR_MASK_T_RESERVE_DECL   0:0
+`define CR_PREFIX_BIMC_MONITOR_MASK_T_RESERVE_WIDTH  1
+  `define CR_PREFIX_BIMC_MONITOR_MASK_T_RESERVE_DEFAULT  (1'h 0)
+
+`define CR_PREFIX_BIMC_MONITOR_MASK_T_BIMC_CHAIN_RCV_ERROR_ENABLE_DECL   0:0
+`define CR_PREFIX_BIMC_MONITOR_MASK_T_BIMC_CHAIN_RCV_ERROR_ENABLE_WIDTH  1
+  `define CR_PREFIX_BIMC_MONITOR_MASK_T_BIMC_CHAIN_RCV_ERROR_ENABLE_DEFAULT  (1'h 0)
+
+`define CR_PREFIX_BIMC_MONITOR_MASK_T_RCV_INVALID_OPCODE_DECL   0:0
+`define CR_PREFIX_BIMC_MONITOR_MASK_T_RCV_INVALID_OPCODE_WIDTH  1
+  `define CR_PREFIX_BIMC_MONITOR_MASK_T_RCV_INVALID_OPCODE_DEFAULT  (1'h 0)
+
+`define CR_PREFIX_BIMC_MONITOR_MASK_T_UNANSWERED_READ_DECL   0:0
+`define CR_PREFIX_BIMC_MONITOR_MASK_T_UNANSWERED_READ_WIDTH  1
+  `define CR_PREFIX_BIMC_MONITOR_MASK_T_UNANSWERED_READ_DEFAULT  (1'h 0)
+
+`define CR_PREFIX_FULL_BIMC_MONITOR_MASK_T_DECL   31:0
+`define CR_PREFIX_FULL_BIMC_MONITOR_MASK_T_WIDTH  32
+  `define CR_PREFIX_FULL_BIMC_MONITOR_MASK_T_UNCORRECTABLE_ECC_ERROR_ENABLE  0
+  `define CR_PREFIX_FULL_BIMC_MONITOR_MASK_T_CORRECTABLE_ECC_ERROR_ENABLE    1
+  `define CR_PREFIX_FULL_BIMC_MONITOR_MASK_T_PARITY_ERROR_ENABLE             2
+  `define CR_PREFIX_FULL_BIMC_MONITOR_MASK_T_RESERVE                         3
+  `define CR_PREFIX_FULL_BIMC_MONITOR_MASK_T_BIMC_CHAIN_RCV_ERROR_ENABLE     4
+  `define CR_PREFIX_FULL_BIMC_MONITOR_MASK_T_RCV_INVALID_OPCODE              5
+  `define CR_PREFIX_FULL_BIMC_MONITOR_MASK_T_UNANSWERED_READ                 6
+  `define CR_PREFIX_FULL_BIMC_MONITOR_MASK_T_RESERVED0                       31:7
+
+`define CR_PREFIX_C_BIMC_MONITOR_MASK_T_DECL   6:0
+`define CR_PREFIX_C_BIMC_MONITOR_MASK_T_WIDTH  7
+  `define CR_PREFIX_C_BIMC_MONITOR_MASK_T_UNCORRECTABLE_ECC_ERROR_ENABLE  0
+  `define CR_PREFIX_C_BIMC_MONITOR_MASK_T_CORRECTABLE_ECC_ERROR_ENABLE    1
+  `define CR_PREFIX_C_BIMC_MONITOR_MASK_T_PARITY_ERROR_ENABLE             2
+  `define CR_PREFIX_C_BIMC_MONITOR_MASK_T_RESERVE                         3
+  `define CR_PREFIX_C_BIMC_MONITOR_MASK_T_BIMC_CHAIN_RCV_ERROR_ENABLE     4
+  `define CR_PREFIX_C_BIMC_MONITOR_MASK_T_RCV_INVALID_OPCODE              5
+  `define CR_PREFIX_C_BIMC_MONITOR_MASK_T_UNANSWERED_READ                 6
+
+`define CR_PREFIX_BIMC_ECC_UNCORRECTABLE_ERROR_CNT_T_DECL   31:0
+`define CR_PREFIX_BIMC_ECC_UNCORRECTABLE_ERROR_CNT_T_WIDTH  32
+  `define CR_PREFIX_BIMC_ECC_UNCORRECTABLE_ERROR_CNT_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_BIMC_ECC_UNCORRECTABLE_ERROR_CNT_T_UNCORRECTABLE_ECC_DECL   31:0
+`define CR_PREFIX_BIMC_ECC_UNCORRECTABLE_ERROR_CNT_T_UNCORRECTABLE_ECC_WIDTH  32
+  `define CR_PREFIX_BIMC_ECC_UNCORRECTABLE_ERROR_CNT_T_UNCORRECTABLE_ECC_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_FULL_BIMC_ECC_UNCORRECTABLE_ERROR_CNT_T_DECL   31:0
+`define CR_PREFIX_FULL_BIMC_ECC_UNCORRECTABLE_ERROR_CNT_T_WIDTH  32
+  `define CR_PREFIX_FULL_BIMC_ECC_UNCORRECTABLE_ERROR_CNT_T_UNCORRECTABLE_ECC  31:00
+
+`define CR_PREFIX_C_BIMC_ECC_UNCORRECTABLE_ERROR_CNT_T_DECL   31:0
+`define CR_PREFIX_C_BIMC_ECC_UNCORRECTABLE_ERROR_CNT_T_WIDTH  32
+  `define CR_PREFIX_C_BIMC_ECC_UNCORRECTABLE_ERROR_CNT_T_UNCORRECTABLE_ECC  31:00
+
+`define CR_PREFIX_BIMC_ECC_CORRECTABLE_ERROR_CNT_T_DECL   31:0
+`define CR_PREFIX_BIMC_ECC_CORRECTABLE_ERROR_CNT_T_WIDTH  32
+  `define CR_PREFIX_BIMC_ECC_CORRECTABLE_ERROR_CNT_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_BIMC_ECC_CORRECTABLE_ERROR_CNT_T_CORRECTABLE_ECC_DECL   31:0
+`define CR_PREFIX_BIMC_ECC_CORRECTABLE_ERROR_CNT_T_CORRECTABLE_ECC_WIDTH  32
+  `define CR_PREFIX_BIMC_ECC_CORRECTABLE_ERROR_CNT_T_CORRECTABLE_ECC_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_FULL_BIMC_ECC_CORRECTABLE_ERROR_CNT_T_DECL   31:0
+`define CR_PREFIX_FULL_BIMC_ECC_CORRECTABLE_ERROR_CNT_T_WIDTH  32
+  `define CR_PREFIX_FULL_BIMC_ECC_CORRECTABLE_ERROR_CNT_T_CORRECTABLE_ECC  31:00
+
+`define CR_PREFIX_C_BIMC_ECC_CORRECTABLE_ERROR_CNT_T_DECL   31:0
+`define CR_PREFIX_C_BIMC_ECC_CORRECTABLE_ERROR_CNT_T_WIDTH  32
+  `define CR_PREFIX_C_BIMC_ECC_CORRECTABLE_ERROR_CNT_T_CORRECTABLE_ECC  31:00
+
+`define CR_PREFIX_BIMC_PARITY_ERROR_CNT_T_DECL   31:0
+`define CR_PREFIX_BIMC_PARITY_ERROR_CNT_T_WIDTH  32
+  `define CR_PREFIX_BIMC_PARITY_ERROR_CNT_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_BIMC_PARITY_ERROR_CNT_T_PARITY_ERRORS_DECL   31:0
+`define CR_PREFIX_BIMC_PARITY_ERROR_CNT_T_PARITY_ERRORS_WIDTH  32
+  `define CR_PREFIX_BIMC_PARITY_ERROR_CNT_T_PARITY_ERRORS_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_FULL_BIMC_PARITY_ERROR_CNT_T_DECL   31:0
+`define CR_PREFIX_FULL_BIMC_PARITY_ERROR_CNT_T_WIDTH  32
+  `define CR_PREFIX_FULL_BIMC_PARITY_ERROR_CNT_T_PARITY_ERRORS  31:00
+
+`define CR_PREFIX_C_BIMC_PARITY_ERROR_CNT_T_DECL   31:0
+`define CR_PREFIX_C_BIMC_PARITY_ERROR_CNT_T_WIDTH  32
+  `define CR_PREFIX_C_BIMC_PARITY_ERROR_CNT_T_PARITY_ERRORS  31:00
+
+`define CR_PREFIX_BIMC_GLOBAL_CONFIG_T_DECL   31:0
+`define CR_PREFIX_BIMC_GLOBAL_CONFIG_T_WIDTH  32
+  `define CR_PREFIX_BIMC_GLOBAL_CONFIG_T_DEFAULT  (32'h 1)
+
+`define CR_PREFIX_BIMC_GLOBAL_CONFIG_T_SOFT_RESET_DECL   0:0
+`define CR_PREFIX_BIMC_GLOBAL_CONFIG_T_SOFT_RESET_WIDTH  1
+  `define CR_PREFIX_BIMC_GLOBAL_CONFIG_T_SOFT_RESET_DEFAULT  (1'h 1)
+
+`define CR_PREFIX_BIMC_GLOBAL_CONFIG_T_RESERVE_DECL   0:0
+`define CR_PREFIX_BIMC_GLOBAL_CONFIG_T_RESERVE_WIDTH  1
+  `define CR_PREFIX_BIMC_GLOBAL_CONFIG_T_RESERVE_DEFAULT  (1'h 0)
+
+`define CR_PREFIX_BIMC_GLOBAL_CONFIG_T_BIMC_MEM_INIT_DONE_DECL   0:0
+`define CR_PREFIX_BIMC_GLOBAL_CONFIG_T_BIMC_MEM_INIT_DONE_WIDTH  1
+  `define CR_PREFIX_BIMC_GLOBAL_CONFIG_T_BIMC_MEM_INIT_DONE_DEFAULT  (1'h 0)
+
+`define CR_PREFIX_BIMC_GLOBAL_CONFIG_T_MEM_WR_INIT_DECL   0:0
+`define CR_PREFIX_BIMC_GLOBAL_CONFIG_T_MEM_WR_INIT_WIDTH  1
+  `define CR_PREFIX_BIMC_GLOBAL_CONFIG_T_MEM_WR_INIT_DEFAULT  (1'h 0)
+
+`define CR_PREFIX_BIMC_GLOBAL_CONFIG_T_POLL_ECC_PAR_ERROR_DECL   0:0
+`define CR_PREFIX_BIMC_GLOBAL_CONFIG_T_POLL_ECC_PAR_ERROR_WIDTH  1
+  `define CR_PREFIX_BIMC_GLOBAL_CONFIG_T_POLL_ECC_PAR_ERROR_DEFAULT  (1'h 0)
+
+`define CR_PREFIX_BIMC_GLOBAL_CONFIG_T_DEBUG_WRITE_EN_DECL   0:0
+`define CR_PREFIX_BIMC_GLOBAL_CONFIG_T_DEBUG_WRITE_EN_WIDTH  1
+  `define CR_PREFIX_BIMC_GLOBAL_CONFIG_T_DEBUG_WRITE_EN_DEFAULT  (1'h 0)
+
+`define CR_PREFIX_BIMC_GLOBAL_CONFIG_T_POLL_ECC_PAR_TIMER_DECL   25:0
+`define CR_PREFIX_BIMC_GLOBAL_CONFIG_T_POLL_ECC_PAR_TIMER_WIDTH  26
+  `define CR_PREFIX_BIMC_GLOBAL_CONFIG_T_POLL_ECC_PAR_TIMER_DEFAULT  (26'h 0)
+
+`define CR_PREFIX_FULL_BIMC_GLOBAL_CONFIG_T_DECL   31:0
+`define CR_PREFIX_FULL_BIMC_GLOBAL_CONFIG_T_WIDTH  32
+  `define CR_PREFIX_FULL_BIMC_GLOBAL_CONFIG_T_SOFT_RESET          00
+  `define CR_PREFIX_FULL_BIMC_GLOBAL_CONFIG_T_RESERVE             01
+  `define CR_PREFIX_FULL_BIMC_GLOBAL_CONFIG_T_BIMC_MEM_INIT_DONE  02
+  `define CR_PREFIX_FULL_BIMC_GLOBAL_CONFIG_T_MEM_WR_INIT         03
+  `define CR_PREFIX_FULL_BIMC_GLOBAL_CONFIG_T_POLL_ECC_PAR_ERROR  04
+  `define CR_PREFIX_FULL_BIMC_GLOBAL_CONFIG_T_DEBUG_WRITE_EN      05
+  `define CR_PREFIX_FULL_BIMC_GLOBAL_CONFIG_T_POLL_ECC_PAR_TIMER  31:06
+
+`define CR_PREFIX_C_BIMC_GLOBAL_CONFIG_T_DECL   31:0
+`define CR_PREFIX_C_BIMC_GLOBAL_CONFIG_T_WIDTH  32
+  `define CR_PREFIX_C_BIMC_GLOBAL_CONFIG_T_SOFT_RESET          00
+  `define CR_PREFIX_C_BIMC_GLOBAL_CONFIG_T_RESERVE             01
+  `define CR_PREFIX_C_BIMC_GLOBAL_CONFIG_T_BIMC_MEM_INIT_DONE  02
+  `define CR_PREFIX_C_BIMC_GLOBAL_CONFIG_T_MEM_WR_INIT         03
+  `define CR_PREFIX_C_BIMC_GLOBAL_CONFIG_T_POLL_ECC_PAR_ERROR  04
+  `define CR_PREFIX_C_BIMC_GLOBAL_CONFIG_T_DEBUG_WRITE_EN      05
+  `define CR_PREFIX_C_BIMC_GLOBAL_CONFIG_T_POLL_ECC_PAR_TIMER  31:06
+
+`define CR_PREFIX_BIMC_MEMID_T_DECL   31:0
+`define CR_PREFIX_BIMC_MEMID_T_WIDTH  32
+  `define CR_PREFIX_BIMC_MEMID_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_BIMC_MEMID_T_MAX_MEMID_DECL   11:0
+`define CR_PREFIX_BIMC_MEMID_T_MAX_MEMID_WIDTH  12
+  `define CR_PREFIX_BIMC_MEMID_T_MAX_MEMID_DEFAULT  (12'h 0)
+
+`define CR_PREFIX_FULL_BIMC_MEMID_T_DECL   31:0
+`define CR_PREFIX_FULL_BIMC_MEMID_T_WIDTH  32
+  `define CR_PREFIX_FULL_BIMC_MEMID_T_MAX_MEMID  11:00
+  `define CR_PREFIX_FULL_BIMC_MEMID_T_RESERVED0  31:12
+
+`define CR_PREFIX_C_BIMC_MEMID_T_DECL   11:0
+`define CR_PREFIX_C_BIMC_MEMID_T_WIDTH  12
+  `define CR_PREFIX_C_BIMC_MEMID_T_MAX_MEMID  11:00
+
+`define CR_PREFIX_BIMC_ECCPAR_DEBUG_T_DECL   31:0
+`define CR_PREFIX_BIMC_ECCPAR_DEBUG_T_WIDTH  32
+  `define CR_PREFIX_BIMC_ECCPAR_DEBUG_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_BIMC_ECCPAR_DEBUG_T_MEMADDR_DECL   11:0
+`define CR_PREFIX_BIMC_ECCPAR_DEBUG_T_MEMADDR_WIDTH  12
+  `define CR_PREFIX_BIMC_ECCPAR_DEBUG_T_MEMADDR_DEFAULT  (12'h 0)
+
+`define CR_PREFIX_BIMC_ECCPAR_DEBUG_T_MEMTYPE_DECL   3:0
+`define CR_PREFIX_BIMC_ECCPAR_DEBUG_T_MEMTYPE_WIDTH  4
+  `define CR_PREFIX_BIMC_ECCPAR_DEBUG_T_MEMTYPE_DEFAULT  (4'h 0)
+
+`define CR_PREFIX_BIMC_ECCPAR_DEBUG_T_ECCPAR_CORRUPT_DECL   1:0
+`define CR_PREFIX_BIMC_ECCPAR_DEBUG_T_ECCPAR_CORRUPT_WIDTH  2
+  `define CR_PREFIX_BIMC_ECCPAR_DEBUG_T_ECCPAR_CORRUPT_DEFAULT  (2'h 0)
+
+`define CR_PREFIX_BIMC_ECCPAR_DEBUG_T_RESERVE_DECL   1:0
+`define CR_PREFIX_BIMC_ECCPAR_DEBUG_T_RESERVE_WIDTH  2
+  `define CR_PREFIX_BIMC_ECCPAR_DEBUG_T_RESERVE_DEFAULT  (2'h 0)
+
+`define CR_PREFIX_BIMC_ECCPAR_DEBUG_T_ECCPAR_DISABLE_DECL   1:0
+`define CR_PREFIX_BIMC_ECCPAR_DEBUG_T_ECCPAR_DISABLE_WIDTH  2
+  `define CR_PREFIX_BIMC_ECCPAR_DEBUG_T_ECCPAR_DISABLE_DEFAULT  (2'h 0)
+
+`define CR_PREFIX_BIMC_ECCPAR_DEBUG_T_SEND_DECL   0:0
+`define CR_PREFIX_BIMC_ECCPAR_DEBUG_T_SEND_WIDTH  1
+  `define CR_PREFIX_BIMC_ECCPAR_DEBUG_T_SEND_DEFAULT  (1'h 0)
+
+`define CR_PREFIX_BIMC_ECCPAR_DEBUG_T_SENT_DECL   0:0
+`define CR_PREFIX_BIMC_ECCPAR_DEBUG_T_SENT_WIDTH  1
+  `define CR_PREFIX_BIMC_ECCPAR_DEBUG_T_SENT_DEFAULT  (1'h 0)
+
+`define CR_PREFIX_BIMC_ECCPAR_DEBUG_T_JABBER_OFF_DECL   3:0
+`define CR_PREFIX_BIMC_ECCPAR_DEBUG_T_JABBER_OFF_WIDTH  4
+  `define CR_PREFIX_BIMC_ECCPAR_DEBUG_T_JABBER_OFF_DEFAULT  (4'h 0)
+
+`define CR_PREFIX_BIMC_ECCPAR_DEBUG_T_ACK_DECL   0:0
+`define CR_PREFIX_BIMC_ECCPAR_DEBUG_T_ACK_WIDTH  1
+  `define CR_PREFIX_BIMC_ECCPAR_DEBUG_T_ACK_DEFAULT  (1'h 0)
+
+`define CR_PREFIX_FULL_BIMC_ECCPAR_DEBUG_T_DECL   31:0
+`define CR_PREFIX_FULL_BIMC_ECCPAR_DEBUG_T_WIDTH  32
+  `define CR_PREFIX_FULL_BIMC_ECCPAR_DEBUG_T_MEMADDR         11:00
+  `define CR_PREFIX_FULL_BIMC_ECCPAR_DEBUG_T_MEMTYPE         15:12
+  `define CR_PREFIX_FULL_BIMC_ECCPAR_DEBUG_T_ECCPAR_CORRUPT  17:16
+  `define CR_PREFIX_FULL_BIMC_ECCPAR_DEBUG_T_RESERVE         19:18
+  `define CR_PREFIX_FULL_BIMC_ECCPAR_DEBUG_T_ECCPAR_DISABLE  21:20
+  `define CR_PREFIX_FULL_BIMC_ECCPAR_DEBUG_T_SEND            22
+  `define CR_PREFIX_FULL_BIMC_ECCPAR_DEBUG_T_SENT            23
+  `define CR_PREFIX_FULL_BIMC_ECCPAR_DEBUG_T_JABBER_OFF      27:24
+  `define CR_PREFIX_FULL_BIMC_ECCPAR_DEBUG_T_ACK             28
+  `define CR_PREFIX_FULL_BIMC_ECCPAR_DEBUG_T_RESERVED0       31:29
+
+`define CR_PREFIX_C_BIMC_ECCPAR_DEBUG_T_DECL   28:0
+`define CR_PREFIX_C_BIMC_ECCPAR_DEBUG_T_WIDTH  29
+  `define CR_PREFIX_C_BIMC_ECCPAR_DEBUG_T_MEMADDR         11:00
+  `define CR_PREFIX_C_BIMC_ECCPAR_DEBUG_T_MEMTYPE         15:12
+  `define CR_PREFIX_C_BIMC_ECCPAR_DEBUG_T_ECCPAR_CORRUPT  17:16
+  `define CR_PREFIX_C_BIMC_ECCPAR_DEBUG_T_RESERVE         19:18
+  `define CR_PREFIX_C_BIMC_ECCPAR_DEBUG_T_ECCPAR_DISABLE  21:20
+  `define CR_PREFIX_C_BIMC_ECCPAR_DEBUG_T_SEND            22
+  `define CR_PREFIX_C_BIMC_ECCPAR_DEBUG_T_SENT            23
+  `define CR_PREFIX_C_BIMC_ECCPAR_DEBUG_T_JABBER_OFF      27:24
+  `define CR_PREFIX_C_BIMC_ECCPAR_DEBUG_T_ACK             28
+
+`define CR_PREFIX_BIMC_CMD2_T_DECL   31:0
+`define CR_PREFIX_BIMC_CMD2_T_WIDTH  32
+  `define CR_PREFIX_BIMC_CMD2_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_BIMC_CMD2_T_OPCODE_DECL   7:0
+`define CR_PREFIX_BIMC_CMD2_T_OPCODE_WIDTH  8
+  `define CR_PREFIX_BIMC_CMD2_T_OPCODE_DEFAULT  (8'h 0)
+
+`define CR_PREFIX_BIMC_CMD2_T_SEND_DECL   0:0
+`define CR_PREFIX_BIMC_CMD2_T_SEND_WIDTH  1
+  `define CR_PREFIX_BIMC_CMD2_T_SEND_DEFAULT  (1'h 0)
+
+`define CR_PREFIX_BIMC_CMD2_T_SENT_DECL   0:0
+`define CR_PREFIX_BIMC_CMD2_T_SENT_WIDTH  1
+  `define CR_PREFIX_BIMC_CMD2_T_SENT_DEFAULT  (1'h 0)
+
+`define CR_PREFIX_BIMC_CMD2_T_ACK_DECL   0:0
+`define CR_PREFIX_BIMC_CMD2_T_ACK_WIDTH  1
+  `define CR_PREFIX_BIMC_CMD2_T_ACK_DEFAULT  (1'h 0)
+
+`define CR_PREFIX_FULL_BIMC_CMD2_T_DECL   31:0
+`define CR_PREFIX_FULL_BIMC_CMD2_T_WIDTH  32
+  `define CR_PREFIX_FULL_BIMC_CMD2_T_OPCODE     07:00
+  `define CR_PREFIX_FULL_BIMC_CMD2_T_SEND       08
+  `define CR_PREFIX_FULL_BIMC_CMD2_T_SENT       09
+  `define CR_PREFIX_FULL_BIMC_CMD2_T_ACK        10
+  `define CR_PREFIX_FULL_BIMC_CMD2_T_RESERVED0  31:11
+
+`define CR_PREFIX_C_BIMC_CMD2_T_DECL   10:0
+`define CR_PREFIX_C_BIMC_CMD2_T_WIDTH  11
+  `define CR_PREFIX_C_BIMC_CMD2_T_OPCODE  07:00
+  `define CR_PREFIX_C_BIMC_CMD2_T_SEND    08
+  `define CR_PREFIX_C_BIMC_CMD2_T_SENT    09
+  `define CR_PREFIX_C_BIMC_CMD2_T_ACK     10
+
+`define CR_PREFIX_BIMC_CMD1_T_DECL   31:0
+`define CR_PREFIX_BIMC_CMD1_T_WIDTH  32
+  `define CR_PREFIX_BIMC_CMD1_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_BIMC_CMD1_T_ADDR_DECL   15:0
+`define CR_PREFIX_BIMC_CMD1_T_ADDR_WIDTH  16
+  `define CR_PREFIX_BIMC_CMD1_T_ADDR_DEFAULT  (16'h 0)
+
+`define CR_PREFIX_BIMC_CMD1_T_MEM_DECL   11:0
+`define CR_PREFIX_BIMC_CMD1_T_MEM_WIDTH  12
+  `define CR_PREFIX_BIMC_CMD1_T_MEM_DEFAULT  (12'h 0)
+
+`define CR_PREFIX_BIMC_CMD1_T_MEMTYPE_DECL   3:0
+`define CR_PREFIX_BIMC_CMD1_T_MEMTYPE_WIDTH  4
+  `define CR_PREFIX_BIMC_CMD1_T_MEMTYPE_DEFAULT  (4'h 0)
+
+`define CR_PREFIX_FULL_BIMC_CMD1_T_DECL   31:0
+`define CR_PREFIX_FULL_BIMC_CMD1_T_WIDTH  32
+  `define CR_PREFIX_FULL_BIMC_CMD1_T_ADDR     15:00
+  `define CR_PREFIX_FULL_BIMC_CMD1_T_MEM      27:16
+  `define CR_PREFIX_FULL_BIMC_CMD1_T_MEMTYPE  31:28
+
+`define CR_PREFIX_C_BIMC_CMD1_T_DECL   31:0
+`define CR_PREFIX_C_BIMC_CMD1_T_WIDTH  32
+  `define CR_PREFIX_C_BIMC_CMD1_T_ADDR     15:00
+  `define CR_PREFIX_C_BIMC_CMD1_T_MEM      27:16
+  `define CR_PREFIX_C_BIMC_CMD1_T_MEMTYPE  31:28
+
+`define CR_PREFIX_BIMC_CMD0_T_DECL   31:0
+`define CR_PREFIX_BIMC_CMD0_T_WIDTH  32
+  `define CR_PREFIX_BIMC_CMD0_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_BIMC_CMD0_T_DATA_DECL   31:0
+`define CR_PREFIX_BIMC_CMD0_T_DATA_WIDTH  32
+  `define CR_PREFIX_BIMC_CMD0_T_DATA_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_FULL_BIMC_CMD0_T_DECL   31:0
+`define CR_PREFIX_FULL_BIMC_CMD0_T_WIDTH  32
+  `define CR_PREFIX_FULL_BIMC_CMD0_T_DATA  31:00
+
+`define CR_PREFIX_C_BIMC_CMD0_T_DECL   31:0
+`define CR_PREFIX_C_BIMC_CMD0_T_WIDTH  32
+  `define CR_PREFIX_C_BIMC_CMD0_T_DATA  31:00
+
+`define CR_PREFIX_BIMC_RXCMD2_T_DECL   31:0
+`define CR_PREFIX_BIMC_RXCMD2_T_WIDTH  32
+  `define CR_PREFIX_BIMC_RXCMD2_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_BIMC_RXCMD2_T_OPCODE_DECL   7:0
+`define CR_PREFIX_BIMC_RXCMD2_T_OPCODE_WIDTH  8
+  `define CR_PREFIX_BIMC_RXCMD2_T_OPCODE_DEFAULT  (8'h 0)
+
+`define CR_PREFIX_BIMC_RXCMD2_T_RXFLAG_DECL   0:0
+`define CR_PREFIX_BIMC_RXCMD2_T_RXFLAG_WIDTH  1
+  `define CR_PREFIX_BIMC_RXCMD2_T_RXFLAG_DEFAULT  (1'h 0)
+
+`define CR_PREFIX_BIMC_RXCMD2_T_ACK_DECL   0:0
+`define CR_PREFIX_BIMC_RXCMD2_T_ACK_WIDTH  1
+
+`define CR_PREFIX_FULL_BIMC_RXCMD2_T_DECL   31:0
+`define CR_PREFIX_FULL_BIMC_RXCMD2_T_WIDTH  32
+  `define CR_PREFIX_FULL_BIMC_RXCMD2_T_OPCODE     7:0
+  `define CR_PREFIX_FULL_BIMC_RXCMD2_T_RXFLAG     8
+  `define CR_PREFIX_FULL_BIMC_RXCMD2_T_ACK        9
+  `define CR_PREFIX_FULL_BIMC_RXCMD2_T_RESERVED0  31:10
+
+`define CR_PREFIX_C_BIMC_RXCMD2_T_DECL   9:0
+`define CR_PREFIX_C_BIMC_RXCMD2_T_WIDTH  10
+  `define CR_PREFIX_C_BIMC_RXCMD2_T_OPCODE  7:0
+  `define CR_PREFIX_C_BIMC_RXCMD2_T_RXFLAG  8
+  `define CR_PREFIX_C_BIMC_RXCMD2_T_ACK     9
+
+`define CR_PREFIX_BIMC_RXCMD1_T_DECL   31:0
+`define CR_PREFIX_BIMC_RXCMD1_T_WIDTH  32
+  `define CR_PREFIX_BIMC_RXCMD1_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_BIMC_RXCMD1_T_ADDR_DECL   15:0
+`define CR_PREFIX_BIMC_RXCMD1_T_ADDR_WIDTH  16
+  `define CR_PREFIX_BIMC_RXCMD1_T_ADDR_DEFAULT  (16'h 0)
+
+`define CR_PREFIX_BIMC_RXCMD1_T_MEM_DECL   11:0
+`define CR_PREFIX_BIMC_RXCMD1_T_MEM_WIDTH  12
+  `define CR_PREFIX_BIMC_RXCMD1_T_MEM_DEFAULT  (12'h 0)
+
+`define CR_PREFIX_BIMC_RXCMD1_T_MEMTYPE_DECL   3:0
+`define CR_PREFIX_BIMC_RXCMD1_T_MEMTYPE_WIDTH  4
+  `define CR_PREFIX_BIMC_RXCMD1_T_MEMTYPE_DEFAULT  (4'h 0)
+
+`define CR_PREFIX_FULL_BIMC_RXCMD1_T_DECL   31:0
+`define CR_PREFIX_FULL_BIMC_RXCMD1_T_WIDTH  32
+  `define CR_PREFIX_FULL_BIMC_RXCMD1_T_ADDR     15:00
+  `define CR_PREFIX_FULL_BIMC_RXCMD1_T_MEM      27:16
+  `define CR_PREFIX_FULL_BIMC_RXCMD1_T_MEMTYPE  31:28
+
+`define CR_PREFIX_C_BIMC_RXCMD1_T_DECL   31:0
+`define CR_PREFIX_C_BIMC_RXCMD1_T_WIDTH  32
+  `define CR_PREFIX_C_BIMC_RXCMD1_T_ADDR     15:00
+  `define CR_PREFIX_C_BIMC_RXCMD1_T_MEM      27:16
+  `define CR_PREFIX_C_BIMC_RXCMD1_T_MEMTYPE  31:28
+
+`define CR_PREFIX_BIMC_RXCMD0_T_DECL   31:0
+`define CR_PREFIX_BIMC_RXCMD0_T_WIDTH  32
+  `define CR_PREFIX_BIMC_RXCMD0_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_BIMC_RXCMD0_T_DATA_DECL   31:0
+`define CR_PREFIX_BIMC_RXCMD0_T_DATA_WIDTH  32
+  `define CR_PREFIX_BIMC_RXCMD0_T_DATA_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_FULL_BIMC_RXCMD0_T_DECL   31:0
+`define CR_PREFIX_FULL_BIMC_RXCMD0_T_WIDTH  32
+  `define CR_PREFIX_FULL_BIMC_RXCMD0_T_DATA  31:00
+
+`define CR_PREFIX_C_BIMC_RXCMD0_T_DECL   31:0
+`define CR_PREFIX_C_BIMC_RXCMD0_T_WIDTH  32
+  `define CR_PREFIX_C_BIMC_RXCMD0_T_DATA  31:00
+
+`define CR_PREFIX_BIMC_RXRSP2_T_DECL   31:0
+`define CR_PREFIX_BIMC_RXRSP2_T_WIDTH  32
+  `define CR_PREFIX_BIMC_RXRSP2_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_BIMC_RXRSP2_T_DATA_DECL   7:0
+`define CR_PREFIX_BIMC_RXRSP2_T_DATA_WIDTH  8
+  `define CR_PREFIX_BIMC_RXRSP2_T_DATA_DEFAULT  (8'h 0)
+
+`define CR_PREFIX_BIMC_RXRSP2_T_RXFLAG_DECL   0:0
+`define CR_PREFIX_BIMC_RXRSP2_T_RXFLAG_WIDTH  1
+  `define CR_PREFIX_BIMC_RXRSP2_T_RXFLAG_DEFAULT  (1'h 0)
+
+`define CR_PREFIX_BIMC_RXRSP2_T_ACK_DECL   0:0
+`define CR_PREFIX_BIMC_RXRSP2_T_ACK_WIDTH  1
+
+`define CR_PREFIX_FULL_BIMC_RXRSP2_T_DECL   31:0
+`define CR_PREFIX_FULL_BIMC_RXRSP2_T_WIDTH  32
+  `define CR_PREFIX_FULL_BIMC_RXRSP2_T_DATA       7:0
+  `define CR_PREFIX_FULL_BIMC_RXRSP2_T_RXFLAG     8
+  `define CR_PREFIX_FULL_BIMC_RXRSP2_T_ACK        9
+  `define CR_PREFIX_FULL_BIMC_RXRSP2_T_RESERVED0  31:10
+
+`define CR_PREFIX_C_BIMC_RXRSP2_T_DECL   9:0
+`define CR_PREFIX_C_BIMC_RXRSP2_T_WIDTH  10
+  `define CR_PREFIX_C_BIMC_RXRSP2_T_DATA    7:0
+  `define CR_PREFIX_C_BIMC_RXRSP2_T_RXFLAG  8
+  `define CR_PREFIX_C_BIMC_RXRSP2_T_ACK     9
+
+`define CR_PREFIX_BIMC_RXRSP1_T_DECL   31:0
+`define CR_PREFIX_BIMC_RXRSP1_T_WIDTH  32
+  `define CR_PREFIX_BIMC_RXRSP1_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_BIMC_RXRSP1_T_DATA_DECL   31:0
+`define CR_PREFIX_BIMC_RXRSP1_T_DATA_WIDTH  32
+  `define CR_PREFIX_BIMC_RXRSP1_T_DATA_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_FULL_BIMC_RXRSP1_T_DECL   31:0
+`define CR_PREFIX_FULL_BIMC_RXRSP1_T_WIDTH  32
+  `define CR_PREFIX_FULL_BIMC_RXRSP1_T_DATA  31:00
+
+`define CR_PREFIX_C_BIMC_RXRSP1_T_DECL   31:0
+`define CR_PREFIX_C_BIMC_RXRSP1_T_WIDTH  32
+  `define CR_PREFIX_C_BIMC_RXRSP1_T_DATA  31:00
+
+`define CR_PREFIX_BIMC_RXRSP0_T_DECL   31:0
+`define CR_PREFIX_BIMC_RXRSP0_T_WIDTH  32
+  `define CR_PREFIX_BIMC_RXRSP0_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_BIMC_RXRSP0_T_DATA_DECL   31:0
+`define CR_PREFIX_BIMC_RXRSP0_T_DATA_WIDTH  32
+  `define CR_PREFIX_BIMC_RXRSP0_T_DATA_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_FULL_BIMC_RXRSP0_T_DECL   31:0
+`define CR_PREFIX_FULL_BIMC_RXRSP0_T_WIDTH  32
+  `define CR_PREFIX_FULL_BIMC_RXRSP0_T_DATA  31:00
+
+`define CR_PREFIX_C_BIMC_RXRSP0_T_DECL   31:0
+`define CR_PREFIX_C_BIMC_RXRSP0_T_WIDTH  32
+  `define CR_PREFIX_C_BIMC_RXRSP0_T_DATA  31:00
+
+`define CR_PREFIX_BIMC_POLLRSP2_T_DECL   31:0
+`define CR_PREFIX_BIMC_POLLRSP2_T_WIDTH  32
+  `define CR_PREFIX_BIMC_POLLRSP2_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_BIMC_POLLRSP2_T_DATA_DECL   7:0
+`define CR_PREFIX_BIMC_POLLRSP2_T_DATA_WIDTH  8
+  `define CR_PREFIX_BIMC_POLLRSP2_T_DATA_DEFAULT  (8'h 0)
+
+`define CR_PREFIX_BIMC_POLLRSP2_T_RXFLAG_DECL   0:0
+`define CR_PREFIX_BIMC_POLLRSP2_T_RXFLAG_WIDTH  1
+  `define CR_PREFIX_BIMC_POLLRSP2_T_RXFLAG_DEFAULT  (1'h 0)
+
+`define CR_PREFIX_BIMC_POLLRSP2_T_ACK_DECL   0:0
+`define CR_PREFIX_BIMC_POLLRSP2_T_ACK_WIDTH  1
+
+`define CR_PREFIX_FULL_BIMC_POLLRSP2_T_DECL   31:0
+`define CR_PREFIX_FULL_BIMC_POLLRSP2_T_WIDTH  32
+  `define CR_PREFIX_FULL_BIMC_POLLRSP2_T_DATA       7:0
+  `define CR_PREFIX_FULL_BIMC_POLLRSP2_T_RXFLAG     8
+  `define CR_PREFIX_FULL_BIMC_POLLRSP2_T_ACK        9
+  `define CR_PREFIX_FULL_BIMC_POLLRSP2_T_RESERVED0  31:10
+
+`define CR_PREFIX_C_BIMC_POLLRSP2_T_DECL   9:0
+`define CR_PREFIX_C_BIMC_POLLRSP2_T_WIDTH  10
+  `define CR_PREFIX_C_BIMC_POLLRSP2_T_DATA    7:0
+  `define CR_PREFIX_C_BIMC_POLLRSP2_T_RXFLAG  8
+  `define CR_PREFIX_C_BIMC_POLLRSP2_T_ACK     9
+
+`define CR_PREFIX_BIMC_POLLRSP1_T_DECL   31:0
+`define CR_PREFIX_BIMC_POLLRSP1_T_WIDTH  32
+  `define CR_PREFIX_BIMC_POLLRSP1_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_BIMC_POLLRSP1_T_DATA_DECL   31:0
+`define CR_PREFIX_BIMC_POLLRSP1_T_DATA_WIDTH  32
+  `define CR_PREFIX_BIMC_POLLRSP1_T_DATA_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_FULL_BIMC_POLLRSP1_T_DECL   31:0
+`define CR_PREFIX_FULL_BIMC_POLLRSP1_T_WIDTH  32
+  `define CR_PREFIX_FULL_BIMC_POLLRSP1_T_DATA  31:00
+
+`define CR_PREFIX_C_BIMC_POLLRSP1_T_DECL   31:0
+`define CR_PREFIX_C_BIMC_POLLRSP1_T_WIDTH  32
+  `define CR_PREFIX_C_BIMC_POLLRSP1_T_DATA  31:00
+
+`define CR_PREFIX_BIMC_POLLRSP0_T_DECL   31:0
+`define CR_PREFIX_BIMC_POLLRSP0_T_WIDTH  32
+  `define CR_PREFIX_BIMC_POLLRSP0_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_BIMC_POLLRSP0_T_DATA_DECL   31:0
+`define CR_PREFIX_BIMC_POLLRSP0_T_DATA_WIDTH  32
+  `define CR_PREFIX_BIMC_POLLRSP0_T_DATA_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_FULL_BIMC_POLLRSP0_T_DECL   31:0
+`define CR_PREFIX_FULL_BIMC_POLLRSP0_T_WIDTH  32
+  `define CR_PREFIX_FULL_BIMC_POLLRSP0_T_DATA  31:00
+
+`define CR_PREFIX_C_BIMC_POLLRSP0_T_DECL   31:0
+`define CR_PREFIX_C_BIMC_POLLRSP0_T_WIDTH  32
+  `define CR_PREFIX_C_BIMC_POLLRSP0_T_DATA  31:00
+
+`define CR_PREFIX_BIMC_DBGCMD2_T_DECL   31:0
+`define CR_PREFIX_BIMC_DBGCMD2_T_WIDTH  32
+  `define CR_PREFIX_BIMC_DBGCMD2_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_BIMC_DBGCMD2_T_OPCODE_DECL   7:0
+`define CR_PREFIX_BIMC_DBGCMD2_T_OPCODE_WIDTH  8
+  `define CR_PREFIX_BIMC_DBGCMD2_T_OPCODE_DEFAULT  (8'h 0)
+
+`define CR_PREFIX_BIMC_DBGCMD2_T_RXFLAG_DECL   0:0
+`define CR_PREFIX_BIMC_DBGCMD2_T_RXFLAG_WIDTH  1
+  `define CR_PREFIX_BIMC_DBGCMD2_T_RXFLAG_DEFAULT  (1'h 0)
+
+`define CR_PREFIX_BIMC_DBGCMD2_T_ACK_DECL   0:0
+`define CR_PREFIX_BIMC_DBGCMD2_T_ACK_WIDTH  1
+
+`define CR_PREFIX_FULL_BIMC_DBGCMD2_T_DECL   31:0
+`define CR_PREFIX_FULL_BIMC_DBGCMD2_T_WIDTH  32
+  `define CR_PREFIX_FULL_BIMC_DBGCMD2_T_OPCODE     7:0
+  `define CR_PREFIX_FULL_BIMC_DBGCMD2_T_RXFLAG     8
+  `define CR_PREFIX_FULL_BIMC_DBGCMD2_T_ACK        9
+  `define CR_PREFIX_FULL_BIMC_DBGCMD2_T_RESERVED0  31:10
+
+`define CR_PREFIX_C_BIMC_DBGCMD2_T_DECL   9:0
+`define CR_PREFIX_C_BIMC_DBGCMD2_T_WIDTH  10
+  `define CR_PREFIX_C_BIMC_DBGCMD2_T_OPCODE  7:0
+  `define CR_PREFIX_C_BIMC_DBGCMD2_T_RXFLAG  8
+  `define CR_PREFIX_C_BIMC_DBGCMD2_T_ACK     9
+
+`define CR_PREFIX_BIMC_DBGCMD1_T_DECL   31:0
+`define CR_PREFIX_BIMC_DBGCMD1_T_WIDTH  32
+  `define CR_PREFIX_BIMC_DBGCMD1_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_BIMC_DBGCMD1_T_ADDR_DECL   15:0
+`define CR_PREFIX_BIMC_DBGCMD1_T_ADDR_WIDTH  16
+  `define CR_PREFIX_BIMC_DBGCMD1_T_ADDR_DEFAULT  (16'h 0)
+
+`define CR_PREFIX_BIMC_DBGCMD1_T_MEM_DECL   11:0
+`define CR_PREFIX_BIMC_DBGCMD1_T_MEM_WIDTH  12
+  `define CR_PREFIX_BIMC_DBGCMD1_T_MEM_DEFAULT  (12'h 0)
+
+`define CR_PREFIX_BIMC_DBGCMD1_T_MEMTYPE_DECL   3:0
+`define CR_PREFIX_BIMC_DBGCMD1_T_MEMTYPE_WIDTH  4
+  `define CR_PREFIX_BIMC_DBGCMD1_T_MEMTYPE_DEFAULT  (4'h 0)
+
+`define CR_PREFIX_FULL_BIMC_DBGCMD1_T_DECL   31:0
+`define CR_PREFIX_FULL_BIMC_DBGCMD1_T_WIDTH  32
+  `define CR_PREFIX_FULL_BIMC_DBGCMD1_T_ADDR     15:00
+  `define CR_PREFIX_FULL_BIMC_DBGCMD1_T_MEM      27:16
+  `define CR_PREFIX_FULL_BIMC_DBGCMD1_T_MEMTYPE  31:28
+
+`define CR_PREFIX_C_BIMC_DBGCMD1_T_DECL   31:0
+`define CR_PREFIX_C_BIMC_DBGCMD1_T_WIDTH  32
+  `define CR_PREFIX_C_BIMC_DBGCMD1_T_ADDR     15:00
+  `define CR_PREFIX_C_BIMC_DBGCMD1_T_MEM      27:16
+  `define CR_PREFIX_C_BIMC_DBGCMD1_T_MEMTYPE  31:28
+
+`define CR_PREFIX_BIMC_DBGCMD0_T_DECL   31:0
+`define CR_PREFIX_BIMC_DBGCMD0_T_WIDTH  32
+  `define CR_PREFIX_BIMC_DBGCMD0_T_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_BIMC_DBGCMD0_T_DATA_DECL   31:0
+`define CR_PREFIX_BIMC_DBGCMD0_T_DATA_WIDTH  32
+  `define CR_PREFIX_BIMC_DBGCMD0_T_DATA_DEFAULT  (32'h 0)
+
+`define CR_PREFIX_FULL_BIMC_DBGCMD0_T_DECL   31:0
+`define CR_PREFIX_FULL_BIMC_DBGCMD0_T_WIDTH  32
+  `define CR_PREFIX_FULL_BIMC_DBGCMD0_T_DATA  31:00
+
+`define CR_PREFIX_C_BIMC_DBGCMD0_T_DECL   31:0
+`define CR_PREFIX_C_BIMC_DBGCMD0_T_WIDTH  32
+  `define CR_PREFIX_C_BIMC_DBGCMD0_T_DATA  31:00
+
+
+
+`define CR_PREFIX_NUMREG 190
+
+`define CR_PREFIX_MAXREG 764
+
+`define CR_PREFIX_DECL   9:0
+`define CR_PREFIX_WIDTH  10
+  `define CR_PREFIX_REVISION_CONFIG                   (10'h 0)
+  `define CR_PREFIX_SPARE_CONFIG                      (10'h 4)
+  `define CR_PREFIX_REGS_REC_US_CTRL                  (10'h 8)
+  `define CR_PREFIX_REGS_REC_DEBUG_CONTROL            (10'h c)
+  `define CR_PREFIX_REGS_BREAKPOINT_ADDR              (10'h 10)
+  `define CR_PREFIX_REGS_BREAKPOINT_CONT              (10'h 14)
+  `define CR_PREFIX_REGS_BREAKPOINT_STEP              (10'h 18)
+  `define CR_PREFIX_REC_DEBUG_STATUS                  (10'h 1c)
+  `define CR_PREFIX_REGS_ERROR_CONTROL                (10'h 20)
+  `define CR_PREFIX_REGS_TLV_PARSE_ACTION_0           (10'h 28)
+  `define CR_PREFIX_REGS_TLV_PARSE_ACTION_1           (10'h 2c)
+  `define CR_PREFIX_FEATURE_IA_CAPABILITY             (10'h 30)
+  `define CR_PREFIX_FEATURE_IA_STATUS                 (10'h 34)
+  `define CR_PREFIX_FEATURE_IA_WDATA_PART0            (10'h 38)
+  `define CR_PREFIX_FEATURE_IA_WDATA_PART1            (10'h 3c)
+  `define CR_PREFIX_FEATURE_IA_CONFIG                 (10'h 40)
+  `define CR_PREFIX_FEATURE_IA_RDATA_PART0            (10'h 44)
+  `define CR_PREFIX_FEATURE_IA_RDATA_PART1            (10'h 48)
+  `define CR_PREFIX_FEATURE_CTR_IA_CAPABILITY         (10'h 4c)
+  `define CR_PREFIX_FEATURE_CTR_IA_STATUS             (10'h 50)
+  `define CR_PREFIX_FEATURE_CTR_IA_WDATA_PART0        (10'h 54)
+  `define CR_PREFIX_FEATURE_CTR_IA_CONFIG             (10'h 58)
+  `define CR_PREFIX_FEATURE_CTR_IA_RDATA_PART0        (10'h 5c)
+  `define CR_PREFIX_RECIM_IA_CAPABILITY               (10'h 60)
+  `define CR_PREFIX_RECIM_IA_STATUS                   (10'h 64)
+  `define CR_PREFIX_RECIM_IA_WDATA_PART0              (10'h 68)
+  `define CR_PREFIX_RECIM_IA_CONFIG                   (10'h 6c)
+  `define CR_PREFIX_RECIM_IA_RDATA_PART0              (10'h 70)
+  `define CR_PREFIX_RECSAT_IA_CAPABILITY              (10'h 74)
+  `define CR_PREFIX_RECSAT_IA_STATUS                  (10'h 78)
+  `define CR_PREFIX_RECSAT_IA_WDATA_PART0             (10'h 7c)
+  `define CR_PREFIX_RECSAT_IA_WDATA_PART1             (10'h 80)
+  `define CR_PREFIX_RECSAT_IA_WDATA_PART2             (10'h 84)
+  `define CR_PREFIX_RECSAT_IA_WDATA_PART3             (10'h 88)
+  `define CR_PREFIX_RECSAT_IA_WDATA_PART4             (10'h 8c)
+  `define CR_PREFIX_RECSAT_IA_WDATA_PART5             (10'h 90)
+  `define CR_PREFIX_RECSAT_IA_WDATA_PART6             (10'h 94)
+  `define CR_PREFIX_RECSAT_IA_WDATA_PART7             (10'h 98)
+  `define CR_PREFIX_RECSAT_IA_WDATA_PART8             (10'h 9c)
+  `define CR_PREFIX_RECSAT_IA_WDATA_PART9             (10'h a0)
+  `define CR_PREFIX_RECSAT_IA_WDATA_PART10            (10'h a4)
+  `define CR_PREFIX_RECSAT_IA_WDATA_PART11            (10'h a8)
+  `define CR_PREFIX_RECSAT_IA_WDATA_PART12            (10'h ac)
+  `define CR_PREFIX_RECSAT_IA_WDATA_PART13            (10'h b0)
+  `define CR_PREFIX_RECSAT_IA_WDATA_PART14            (10'h b4)
+  `define CR_PREFIX_RECSAT_IA_WDATA_PART15            (10'h b8)
+  `define CR_PREFIX_RECSAT_IA_WDATA_PART16            (10'h bc)
+  `define CR_PREFIX_RECSAT_IA_WDATA_PART17            (10'h c0)
+  `define CR_PREFIX_RECSAT_IA_WDATA_PART18            (10'h c4)
+  `define CR_PREFIX_RECSAT_IA_WDATA_PART19            (10'h c8)
+  `define CR_PREFIX_RECSAT_IA_WDATA_PART20            (10'h cc)
+  `define CR_PREFIX_RECSAT_IA_WDATA_PART21            (10'h d0)
+  `define CR_PREFIX_RECSAT_IA_WDATA_PART22            (10'h d4)
+  `define CR_PREFIX_RECSAT_IA_WDATA_PART23            (10'h d8)
+  `define CR_PREFIX_RECSAT_IA_WDATA_PART24            (10'h dc)
+  `define CR_PREFIX_RECSAT_IA_WDATA_PART25            (10'h e0)
+  `define CR_PREFIX_RECSAT_IA_WDATA_PART26            (10'h e4)
+  `define CR_PREFIX_RECSAT_IA_WDATA_PART27            (10'h e8)
+  `define CR_PREFIX_RECSAT_IA_WDATA_PART28            (10'h ec)
+  `define CR_PREFIX_RECSAT_IA_WDATA_PART29            (10'h f0)
+  `define CR_PREFIX_RECSAT_IA_WDATA_PART30            (10'h f4)
+  `define CR_PREFIX_RECSAT_IA_WDATA_PART31            (10'h f8)
+  `define CR_PREFIX_RECSAT_IA_CONFIG                  (10'h fc)
+  `define CR_PREFIX_RECSAT_IA_RDATA_PART0             (10'h 100)
+  `define CR_PREFIX_RECSAT_IA_RDATA_PART1             (10'h 104)
+  `define CR_PREFIX_RECSAT_IA_RDATA_PART2             (10'h 108)
+  `define CR_PREFIX_RECSAT_IA_RDATA_PART3             (10'h 10c)
+  `define CR_PREFIX_RECSAT_IA_RDATA_PART4             (10'h 110)
+  `define CR_PREFIX_RECSAT_IA_RDATA_PART5             (10'h 114)
+  `define CR_PREFIX_RECSAT_IA_RDATA_PART6             (10'h 118)
+  `define CR_PREFIX_RECSAT_IA_RDATA_PART7             (10'h 11c)
+  `define CR_PREFIX_RECSAT_IA_RDATA_PART8             (10'h 120)
+  `define CR_PREFIX_RECSAT_IA_RDATA_PART9             (10'h 124)
+  `define CR_PREFIX_RECSAT_IA_RDATA_PART10            (10'h 128)
+  `define CR_PREFIX_RECSAT_IA_RDATA_PART11            (10'h 12c)
+  `define CR_PREFIX_RECSAT_IA_RDATA_PART12            (10'h 130)
+  `define CR_PREFIX_RECSAT_IA_RDATA_PART13            (10'h 134)
+  `define CR_PREFIX_RECSAT_IA_RDATA_PART14            (10'h 138)
+  `define CR_PREFIX_RECSAT_IA_RDATA_PART15            (10'h 13c)
+  `define CR_PREFIX_RECSAT_IA_RDATA_PART16            (10'h 140)
+  `define CR_PREFIX_RECSAT_IA_RDATA_PART17            (10'h 144)
+  `define CR_PREFIX_RECSAT_IA_RDATA_PART18            (10'h 148)
+  `define CR_PREFIX_RECSAT_IA_RDATA_PART19            (10'h 14c)
+  `define CR_PREFIX_RECSAT_IA_RDATA_PART20            (10'h 150)
+  `define CR_PREFIX_RECSAT_IA_RDATA_PART21            (10'h 154)
+  `define CR_PREFIX_RECSAT_IA_RDATA_PART22            (10'h 158)
+  `define CR_PREFIX_RECSAT_IA_RDATA_PART23            (10'h 15c)
+  `define CR_PREFIX_RECSAT_IA_RDATA_PART24            (10'h 160)
+  `define CR_PREFIX_RECSAT_IA_RDATA_PART25            (10'h 164)
+  `define CR_PREFIX_RECSAT_IA_RDATA_PART26            (10'h 168)
+  `define CR_PREFIX_RECSAT_IA_RDATA_PART27            (10'h 16c)
+  `define CR_PREFIX_RECSAT_IA_RDATA_PART28            (10'h 170)
+  `define CR_PREFIX_RECSAT_IA_RDATA_PART29            (10'h 174)
+  `define CR_PREFIX_RECSAT_IA_RDATA_PART30            (10'h 178)
+  `define CR_PREFIX_RECSAT_IA_RDATA_PART31            (10'h 17c)
+  `define CR_PREFIX_RECCT_IA_CAPABILITY               (10'h 180)
+  `define CR_PREFIX_RECCT_IA_STATUS                   (10'h 184)
+  `define CR_PREFIX_RECCT_IA_WDATA_PART0              (10'h 188)
+  `define CR_PREFIX_RECCT_IA_WDATA_PART1              (10'h 18c)
+  `define CR_PREFIX_RECCT_IA_WDATA_PART2              (10'h 190)
+  `define CR_PREFIX_RECCT_IA_WDATA_PART3              (10'h 194)
+  `define CR_PREFIX_RECCT_IA_WDATA_PART4              (10'h 198)
+  `define CR_PREFIX_RECCT_IA_WDATA_PART5              (10'h 19c)
+  `define CR_PREFIX_RECCT_IA_WDATA_PART6              (10'h 1a0)
+  `define CR_PREFIX_RECCT_IA_WDATA_PART7              (10'h 1a4)
+  `define CR_PREFIX_RECCT_IA_WDATA_PART8              (10'h 1a8)
+  `define CR_PREFIX_RECCT_IA_WDATA_PART9              (10'h 1ac)
+  `define CR_PREFIX_RECCT_IA_WDATA_PART10             (10'h 1b0)
+  `define CR_PREFIX_RECCT_IA_WDATA_PART11             (10'h 1b4)
+  `define CR_PREFIX_RECCT_IA_WDATA_PART12             (10'h 1b8)
+  `define CR_PREFIX_RECCT_IA_WDATA_PART13             (10'h 1bc)
+  `define CR_PREFIX_RECCT_IA_WDATA_PART14             (10'h 1c0)
+  `define CR_PREFIX_RECCT_IA_WDATA_PART15             (10'h 1c4)
+  `define CR_PREFIX_RECCT_IA_WDATA_PART16             (10'h 1c8)
+  `define CR_PREFIX_RECCT_IA_WDATA_PART17             (10'h 1cc)
+  `define CR_PREFIX_RECCT_IA_WDATA_PART18             (10'h 1d0)
+  `define CR_PREFIX_RECCT_IA_WDATA_PART19             (10'h 1d4)
+  `define CR_PREFIX_RECCT_IA_WDATA_PART20             (10'h 1d8)
+  `define CR_PREFIX_RECCT_IA_WDATA_PART21             (10'h 1dc)
+  `define CR_PREFIX_RECCT_IA_WDATA_PART22             (10'h 1e0)
+  `define CR_PREFIX_RECCT_IA_WDATA_PART23             (10'h 1e4)
+  `define CR_PREFIX_RECCT_IA_WDATA_PART24             (10'h 1e8)
+  `define CR_PREFIX_RECCT_IA_WDATA_PART25             (10'h 1ec)
+  `define CR_PREFIX_RECCT_IA_WDATA_PART26             (10'h 1f0)
+  `define CR_PREFIX_RECCT_IA_WDATA_PART27             (10'h 1f4)
+  `define CR_PREFIX_RECCT_IA_WDATA_PART28             (10'h 1f8)
+  `define CR_PREFIX_RECCT_IA_WDATA_PART29             (10'h 1fc)
+  `define CR_PREFIX_RECCT_IA_WDATA_PART30             (10'h 200)
+  `define CR_PREFIX_RECCT_IA_WDATA_PART31             (10'h 204)
+  `define CR_PREFIX_RECCT_IA_CONFIG                   (10'h 208)
+  `define CR_PREFIX_RECCT_IA_RDATA_PART0              (10'h 20c)
+  `define CR_PREFIX_RECCT_IA_RDATA_PART1              (10'h 210)
+  `define CR_PREFIX_RECCT_IA_RDATA_PART2              (10'h 214)
+  `define CR_PREFIX_RECCT_IA_RDATA_PART3              (10'h 218)
+  `define CR_PREFIX_RECCT_IA_RDATA_PART4              (10'h 21c)
+  `define CR_PREFIX_RECCT_IA_RDATA_PART5              (10'h 220)
+  `define CR_PREFIX_RECCT_IA_RDATA_PART6              (10'h 224)
+  `define CR_PREFIX_RECCT_IA_RDATA_PART7              (10'h 228)
+  `define CR_PREFIX_RECCT_IA_RDATA_PART8              (10'h 22c)
+  `define CR_PREFIX_RECCT_IA_RDATA_PART9              (10'h 230)
+  `define CR_PREFIX_RECCT_IA_RDATA_PART10             (10'h 234)
+  `define CR_PREFIX_RECCT_IA_RDATA_PART11             (10'h 238)
+  `define CR_PREFIX_RECCT_IA_RDATA_PART12             (10'h 23c)
+  `define CR_PREFIX_RECCT_IA_RDATA_PART13             (10'h 240)
+  `define CR_PREFIX_RECCT_IA_RDATA_PART14             (10'h 244)
+  `define CR_PREFIX_RECCT_IA_RDATA_PART15             (10'h 248)
+  `define CR_PREFIX_RECCT_IA_RDATA_PART16             (10'h 24c)
+  `define CR_PREFIX_RECCT_IA_RDATA_PART17             (10'h 250)
+  `define CR_PREFIX_RECCT_IA_RDATA_PART18             (10'h 254)
+  `define CR_PREFIX_RECCT_IA_RDATA_PART19             (10'h 258)
+  `define CR_PREFIX_RECCT_IA_RDATA_PART20             (10'h 25c)
+  `define CR_PREFIX_RECCT_IA_RDATA_PART21             (10'h 260)
+  `define CR_PREFIX_RECCT_IA_RDATA_PART22             (10'h 264)
+  `define CR_PREFIX_RECCT_IA_RDATA_PART23             (10'h 268)
+  `define CR_PREFIX_RECCT_IA_RDATA_PART24             (10'h 26c)
+  `define CR_PREFIX_RECCT_IA_RDATA_PART25             (10'h 270)
+  `define CR_PREFIX_RECCT_IA_RDATA_PART26             (10'h 274)
+  `define CR_PREFIX_RECCT_IA_RDATA_PART27             (10'h 278)
+  `define CR_PREFIX_RECCT_IA_RDATA_PART28             (10'h 27c)
+  `define CR_PREFIX_RECCT_IA_RDATA_PART29             (10'h 280)
+  `define CR_PREFIX_RECCT_IA_RDATA_PART30             (10'h 284)
+  `define CR_PREFIX_RECCT_IA_RDATA_PART31             (10'h 288)
+  `define CR_PREFIX_PSR_IA_CAPABILITY                 (10'h 28c)
+  `define CR_PREFIX_PSR_IA_STATUS                     (10'h 290)
+  `define CR_PREFIX_PSR_IA_WDATA_PART0                (10'h 294)
+  `define CR_PREFIX_PSR_IA_CONFIG                     (10'h 298)
+  `define CR_PREFIX_PSR_IA_RDATA_PART0                (10'h 29c)
+  `define CR_PREFIX_BIMC_MONITOR                      (10'h 2a4)
+  `define CR_PREFIX_BIMC_MONITOR_MASK                 (10'h 2a8)
+  `define CR_PREFIX_BIMC_ECC_UNCORRECTABLE_ERROR_CNT  (10'h 2ac)
+  `define CR_PREFIX_BIMC_ECC_CORRECTABLE_ERROR_CNT    (10'h 2b0)
+  `define CR_PREFIX_BIMC_PARITY_ERROR_CNT             (10'h 2b4)
+  `define CR_PREFIX_BIMC_GLOBAL_CONFIG                (10'h 2b8)
+  `define CR_PREFIX_BIMC_MEMID                        (10'h 2bc)
+  `define CR_PREFIX_BIMC_ECCPAR_DEBUG                 (10'h 2c0)
+  `define CR_PREFIX_BIMC_CMD2                         (10'h 2c4)
+  `define CR_PREFIX_BIMC_CMD1                         (10'h 2c8)
+  `define CR_PREFIX_BIMC_CMD0                         (10'h 2cc)
+  `define CR_PREFIX_BIMC_RXCMD2                       (10'h 2d0)
+  `define CR_PREFIX_BIMC_RXCMD1                       (10'h 2d4)
+  `define CR_PREFIX_BIMC_RXCMD0                       (10'h 2d8)
+  `define CR_PREFIX_BIMC_RXRSP2                       (10'h 2dc)
+  `define CR_PREFIX_BIMC_RXRSP1                       (10'h 2e0)
+  `define CR_PREFIX_BIMC_RXRSP0                       (10'h 2e4)
+  `define CR_PREFIX_BIMC_POLLRSP2                     (10'h 2e8)
+  `define CR_PREFIX_BIMC_POLLRSP1                     (10'h 2ec)
+  `define CR_PREFIX_BIMC_POLLRSP0                     (10'h 2f0)
+  `define CR_PREFIX_BIMC_DBGCMD2                      (10'h 2f4)
+  `define CR_PREFIX_BIMC_DBGCMD1                      (10'h 2f8)
+  `define CR_PREFIX_BIMC_DBGCMD0                      (10'h 2fc)
+
+`endif

@@ -1,0 +1,31 @@
+# *************************************************************************
+#
+# Copyright © Microsoft Corporation. All rights reserved.
+# Copyright © Broadcom Inc. All rights reserved.
+# Licensed under the MIT License.
+#
+# *************************************************************************
+
+
+ 
+This README file contains information about the programmable registers
+in the CCEIP/CDDIP/KME.  This directory contains an ".html" file for
+each block in the CCEIP/CDDIP with a description of the programmable
+registers in each block.  For the KME, a single ".html" file is
+provided. The addresses in these files are offsets from a base. The
+remaining files in this directory are described below.
+
+
+CCEIP_CDDIP_Memory_Maps.pdf - CCEIP/CDDIP memory maps with the base
+address of each block
+
+xp10_prefix.config_annotated - Sample config file that illustrates the
+register accesses used for the xp10_prefix CCEIP test with
+annotation. Config files for each test are located in
+zipline/dv/CCE_64/tests and zipline/dv/CDD_64/tests.
+
+For the KME there is only one .config file for all of the tests:
+zipline/dv/KME/tests/kme.config
+
+
+

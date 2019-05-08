@@ -1,0 +1,14 @@
+# *************************************************************************
+#
+# Copyright © Microsoft Corporation. All rights reserved.
+# Copyright © Broadcom Inc. All rights reserved.
+# Licensed under the MIT License.
+#
+# *************************************************************************
+
+setenv VCSVER "VCSMX_2017.03-SP1-1"
+setenv VCS_HOME /tools/synopsys/vcs/$VCSVER
+setenv VERDIVER "Verdi3-2017.03-SP1-1"
+setenv VERDI_HOME /tools/novas/$VERDIVER/Linux
+setenv SYNTHVER "2016.03-SP3"
+setenv SPYGLASS_DC_PATH /tools/synopsys/synthesis/$SYNTHVER

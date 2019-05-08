@@ -1,0 +1,938 @@
+/*************************************************************************
+*
+* Copyright © Microsoft Corporation. All rights reserved.
+* Copyright © Broadcom Inc. All rights reserved.
+* Licensed under the MIT License.
+*
+*************************************************************************/
+`ifndef __CR_OSF_REGFILEPKG_SVP
+`define __CR_OSF_REGFILEPKG_SVP
+package cr_osf_regfilePKG;
+
+
+
+
+typedef enum logic [1:0]
+       {ENET  = 2'h0, 
+	IPV4  = 2'h1, 
+	IPV6  = 2'h2, 
+	MPLS  = 2'h3} pkt_hdr_e;
+
+
+
+typedef enum logic [3:0]
+       {CMD_SIMPLE  = 4'h0, 
+	COMPND_4K   = 4'h5, 
+	COMPND_8K   = 4'h6, 
+	COMPND_RSV  = 4'hf} cmd_compound_cmd_frm_size_e;
+
+
+
+typedef enum logic 
+       {GUID_NOT_PRESENT  = 1'h0, 
+	GUID_PRESENT      = 1'h1} cmd_guid_present_e;
+
+
+
+typedef enum logic 
+       {CRC_NOT_PRESENT  = 1'h0, 
+	CRC_PRESENT      = 1'h1} cmd_frmd_crc_in_e;
+
+
+
+typedef enum logic [6:0]
+       {CCEIP_FRMD_USER_NULL  = 7'hb, 
+	CCEIP_FRMD_USER_PI16  = 7'hc, 
+	CCEIP_FRMD_USER_PI64  = 7'hd, 
+	CCEIP_FRMD_USER_VM    = 7'he, 
+	CCEIP_TYPE_IN_RSV     = 7'h7f} cceip_cmd_frmd_in_type_e;
+
+
+
+typedef enum logic [6:0]
+       {CDDIP_FRMD_INT_APP       = 7'hf, 
+	CDDIP_FRMD_INT_SIP       = 7'h10, 
+	CDDIP_FRMD_INT_LIP       = 7'h11, 
+	CDDIP_FRMD_INT_VM        = 7'h12, 
+	CDDIP_FRMD_INT_VM_SHORT  = 7'h16, 
+	CDDIP_TYPE_IN_RSV        = 7'h7f} cddip_cmd_frmd_in_type_e;
+
+
+
+typedef enum logic [6:0]
+       {CCEIP_FRMD_INT_APP       = 7'hf, 
+	CCEIP_FRMD_INT_SIP       = 7'h10, 
+	CCEIP_FRMD_INT_LIP       = 7'h11, 
+	CCEIP_FRMD_INT_VM        = 7'h12, 
+	CCEIP_FRMD_INT_VM_SHORT  = 7'h16, 
+	CCEIP_TYPE_OUT_RSV       = 7'h7f} cceip_cmd_frmd_out_type_e;
+
+
+
+typedef enum logic [6:0]
+       {CDDIP_FRMD_USER_NULL  = 7'hb, 
+	CDDIP_FRMD_USER_PI16  = 7'hc, 
+	CDDIP_FRMD_USER_PI64  = 7'hd, 
+	CDDIP_FRMD_USER_VM    = 7'he, 
+	CDDIP_TYPE_OUT_RSV    = 7'h7f} cddip_cmd_frmd_out_type_e;
+
+
+
+typedef enum logic 
+       {NOT_GEN  = 1'h0, 
+	GEN      = 1'h1} cmd_frmd_out_crc_e;
+
+
+
+typedef enum logic [1:0]
+       {FRMD_T10_DIX  = 2'h0, 
+	FRMD_CRC64    = 2'h1, 
+	FRMD_CRC64E   = 2'h2, 
+	FRMD_CRC_RSV  = 2'h3} cmd_frmd_out_crc_type_e;
+
+
+
+typedef enum logic [1:0]
+       {NO_CRC         = 2'h0, 
+	CRC_8B_CRC64   = 2'h1, 
+	CRC_8B_CRC64E  = 2'h2, 
+	MD_TYPE_RSV    = 2'h3} cmd_md_type_e;
+
+
+
+typedef enum logic [1:0]
+       {CRC_GEN_VERIFY  = 2'h0, 
+	CRC_RSV1        = 2'h1, 
+	CRC_RSV2        = 2'h2, 
+	CRC_RSV3        = 2'h3} cmd_md_op_e;
+
+
+
+typedef enum logic 
+       {FRMD_MAC_NOP  = 1'h0, 
+	FRMD_MAC_CAL  = 1'h1} cmd_frmd_raw_mac_sel_e;
+
+
+
+typedef enum logic 
+       {CHU_NORMAL  = 1'h0, 
+	CHU_APPEND  = 1'h1} cmd_chu_append_e;
+
+
+
+typedef enum logic [3:0]
+       {NONE      = 4'h0, 
+	ZLIB      = 4'h1, 
+	GZIP      = 4'h2, 
+	XP9       = 4'h3, 
+	XP10      = 4'h4, 
+	CHU4K     = 4'h5, 
+	CHU8K     = 4'h6, 
+	RSV_MODE  = 4'hf} cmd_comp_mode_e;
+
+
+
+typedef enum logic [3:0]
+       {WIN_32B  = 4'h0, 
+	WIN_4K   = 4'h1, 
+	WIN_8K   = 4'h2, 
+	WIN_16K  = 4'h3, 
+	WIN_32K  = 4'h4, 
+	WIN_64K  = 4'h5, 
+	RSV_WIN  = 4'hf} cmd_lz77_win_size_e;
+
+
+
+typedef enum logic [1:0]
+       {NO_MATCH  = 2'h0, 
+	CHAR_1    = 2'h1, 
+	CHAR_2    = 2'h2, 
+	RSV_DLY   = 2'h3} cmd_lz77_dly_match_win_e;
+
+
+
+typedef enum logic 
+       {CHAR_3  = 1'h0, 
+	CHAR_4  = 1'h1} cmd_lz77_min_match_len_e;
+
+
+
+typedef enum logic [1:0]
+       {LEN_LZ77_WIN  = 2'h0, 
+	LEN_256B      = 2'h1, 
+	MIN_MTCH_14   = 2'h2, 
+	LEN_64B       = 2'h3} cmd_lz77_max_symb_len_e;
+
+
+
+typedef enum logic [1:0]
+       {NO_PREFIX      = 2'h0, 
+	USER_PREFIX    = 2'h1, 
+	PREDEF_PREFIX  = 2'h2, 
+	PREDET_HUFF    = 2'h3} cmd_xp10_prefix_mode_e;
+
+
+
+typedef enum logic 
+       {CRC32  = 1'h0, 
+	CRC64  = 1'h1} cmd_xp10_crc_mode_e;
+
+
+
+typedef enum logic [1:0]
+       {FRM          = 2'h0, 
+	FRM_LESS_16  = 2'h1, 
+	INF          = 2'h2, 
+	RSV_THRSH    = 2'h3} cmd_chu_comp_thrsh_e;
+
+
+
+typedef enum logic [1:0]
+       {IV_NONE      = 2'h0, 
+	IV_AUX_CMD   = 2'h1, 
+	IV_KEYS      = 2'h2, 
+	IV_AUX_FRMD  = 2'h3} cmd_iv_src_e;
+
+
+
+typedef enum logic [1:0]
+       {IV_SRC  = 2'h0, 
+	IV_RND  = 2'h1, 
+	IV_INC  = 2'h2, 
+	IV_RSV  = 2'h3} cmd_iv_op_e;
+
+
+
+typedef enum logic 
+       {SIMPLE    = 1'h0, 
+	COMPOUND  = 1'h1} rqe_frame_type_e;
+
+
+
+typedef enum logic 
+       {TRACE_OFF  = 1'h0, 
+	TRACE_ON   = 1'h1} rqe_trace_e;
+
+
+
+typedef enum logic [3:0]
+       {RQE_SIMPLE          = 4'h0, 
+	RQE_COMPOUND_4K     = 4'h5, 
+	RQE_COMPOUND_8K     = 4'h6, 
+	RQE_RSV_FRAME_SIZE  = 4'hf} rqe_frame_size_e;
+
+
+
+typedef enum logic [1:0]
+       {RAW        = 2'h1, 
+	PARSEABLE  = 2'h0, 
+	XP10CFH4K  = 2'h2, 
+	XP10CFH8K  = 2'h3} frmd_coding_e;
+
+
+
+typedef enum logic [1:0]
+       {DIGEST_64B   = 2'h0, 
+	DIGEST_128B  = 2'h1, 
+	DIGEST_256B  = 2'h2, 
+	DIGEST_0B    = 2'h3} frmd_mac_size_e;
+
+
+
+typedef enum logic [1:0]
+       {REP     = 2'h0, 
+	PASS    = 2'h1, 
+	MODIFY  = 2'h2, 
+	DELETE  = 2'h3} tlv_parse_action_e;
+
+
+
+typedef enum logic 
+       {USER  = 1'h0, 
+	TLVP  = 1'h1} tlvp_corrupt_e;
+
+
+
+typedef enum logic 
+       {DATAPATH_CORRUPT  = 1'h0, 
+	FUNCTIONAL_ERROR  = 1'h1} cmd_type_e;
+
+
+
+typedef enum logic [1:0]
+       {SINGLE_ERR        = 2'h0, 
+	CONTINUOUS_ERROR  = 2'h1, 
+	STOP              = 2'h2, 
+	EOT               = 2'h3} cmd_mode_e;
+
+
+
+typedef enum logic [3:0]
+       {NOP             = 4'h0, 
+	READ            = 4'h1, 
+	WRITE           = 4'h2, 
+	ENABLE          = 4'h3, 
+	DISABLED        = 4'h4, 
+	RESET           = 4'h5, 
+	INITIALIZE      = 4'h6, 
+	INITIALIZE_INC  = 4'h7, 
+	SET_INI_START   = 4'h8, 
+	COMPARE         = 4'h9, 
+	SIM_TMO         = 4'he, 
+	ACK_ERROR       = 4'hf} ia_operation_e;
+
+
+
+typedef enum logic [2:0]
+       {READY  = 3'h0, 
+	BUSY   = 3'h1, 
+	TMO    = 3'h2, 
+	OVR    = 3'h3, 
+	NXM    = 3'h4, 
+	UOP    = 3'h5, 
+	PDN    = 3'h7} ia_status_e;
+
+
+
+typedef enum logic [3:0]
+       {SPRAM        = 4'h0, 
+	SRFRAM       = 4'h1, 
+	REG          = 4'h2, 
+	TCAM         = 4'h3, 
+	MEM_TYPE_4   = 4'h4, 
+	MEM_TYPE_5   = 4'h5, 
+	MEM_TYPE_6   = 4'h6, 
+	MEM_TYPE_7   = 4'h7, 
+	MEM_TYPE_8   = 4'h8, 
+	MEM_TYPE_9   = 4'h9, 
+	MEM_TYPE_10  = 4'ha, 
+	MEM_TYPE_11  = 4'hb, 
+	MEM_TYPE_12  = 4'hc, 
+	MEM_TYPE_13  = 4'hd, 
+	MEM_TYPE_14  = 4'he, 
+	MEM_TYPE_15  = 4'hf} mem_type_e;
+
+
+
+typedef enum logic [7:0]
+       {REVISION_CONFIG                    = 8'h0, 
+	SPARE_CONFIG                       = 8'h4, 
+	OSF_TLV_PARSE_ACTION_0             = 8'hc, 
+	OSF_TLV_PARSE_ACTION_1             = 8'h10, 
+	DEBUG_CTL_CONFIG                   = 8'h14, 
+	DATA_FIFO_DEBUG_CTL_CONFIG         = 8'h18, 
+	DATA_FIFO_DEBUG_SS_CTL_CONFIG      = 8'h1c, 
+	DATA_FIFO_DEBUG_STAT               = 8'h20, 
+	PDT_FIFO_DEBUG_CTL_CONFIG          = 8'h24, 
+	PDT_FIFO_DEBUG_SS_CTL_CONFIG       = 8'h28, 
+	PDT_FIFO_DEBUG_STAT                = 8'h2c, 
+	OSF_DATA_FIFO_IA_CAPABILITY        = 8'h30, 
+	OSF_DATA_FIFO_IA_STATUS            = 8'h34, 
+	OSF_DATA_FIFO_IA_WDATA_PART0       = 8'h38, 
+	OSF_DATA_FIFO_IA_WDATA_PART1       = 8'h3c, 
+	OSF_DATA_FIFO_IA_WDATA_PART2       = 8'h40, 
+	OSF_DATA_FIFO_IA_CONFIG            = 8'h44, 
+	OSF_DATA_FIFO_IA_RDATA_PART0       = 8'h48, 
+	OSF_DATA_FIFO_IA_RDATA_PART1       = 8'h4c, 
+	OSF_DATA_FIFO_IA_RDATA_PART2       = 8'h50, 
+	OSF_DATA_FIFO_FIFO_STATUS_0        = 8'h58, 
+	OSF_DATA_FIFO_FIFO_STATUS_1        = 8'h5c, 
+	OSF_PDT_FIFO_IA_CAPABILITY         = 8'h60, 
+	OSF_PDT_FIFO_IA_STATUS             = 8'h64, 
+	OSF_PDT_FIFO_IA_WDATA_PART0        = 8'h68, 
+	OSF_PDT_FIFO_IA_WDATA_PART1        = 8'h6c, 
+	OSF_PDT_FIFO_IA_WDATA_PART2        = 8'h70, 
+	OSF_PDT_FIFO_IA_CONFIG             = 8'h74, 
+	OSF_PDT_FIFO_IA_RDATA_PART0        = 8'h78, 
+	OSF_PDT_FIFO_IA_RDATA_PART1        = 8'h7c, 
+	OSF_PDT_FIFO_IA_RDATA_PART2        = 8'h80, 
+	OSF_PDT_FIFO_FIFO_STATUS_0         = 8'h88, 
+	OSF_PDT_FIFO_FIFO_STATUS_1         = 8'h8c, 
+	OB_AGG_DATA_BYTES_0_COUNT_PART0_A  = 8'h90, 
+	OB_AGG_DATA_BYTES_0_COUNT_PART1_A  = 8'h94, 
+	OB_AGG_DATA_BYTES_GLOBAL_READ      = 8'h98, 
+	OB_AGG_DATA_BYTES_GLOBAL_CONFIG    = 8'h9c, 
+	OB_AGG_FRAME_0_COUNT_PART0_A       = 8'ha0, 
+	OB_AGG_FRAME_0_COUNT_PART1_A       = 8'ha4, 
+	OB_AGG_FRAME_GLOBAL_READ           = 8'ha8, 
+	OB_AGG_FRAME_GLOBAL_CONFIG         = 8'hac} address_e;
+
+
+
+typedef union packed {
+  struct packed {
+    logic [7:0]                      part0;                    
+  } r;
+  struct packed {
+    logic [7:0]                    revid;                    
+  } f;
+} revid_t;
+localparam revid_t revid_t_reset 
+     = {8'h0};
+
+
+
+typedef union packed {
+  struct packed {
+    logic [31:0]                     part0;                    
+  } r;
+  struct packed {
+    logic [31:0]                   spare;                    
+  } f;
+} spare_t;
+localparam spare_t spare_t_reset 
+     = {32'h0};
+
+
+
+typedef union packed {
+  struct packed {
+    logic [31:0]                     part0;                    
+  } r;
+  struct packed {
+    logic [1:0]                    frmd_int_app;             
+    logic [1:0]                    frmd_user_vm;             
+    logic [1:0]                    frmd_user_pi64;           
+    logic [1:0]                    frmd_user_pi16;           
+    logic [1:0]                    frmd_user_null;           
+    logic [1:0]                    guid;                     
+    logic [1:0]                    cqe;                      
+    logic [1:0]                    stat;                     
+    logic [1:0]                    lz77;                     
+    logic [1:0]                    ftr;                      
+    logic [1:0]                    data_unk;                 
+    logic [1:0]                    pfd;                      
+    logic [1:0]                    phd;                      
+    logic [1:0]                    key;                      
+    logic [1:0]                    cmd;                      
+    logic [1:0]                    rqe;                      
+  } f;
+} osf_tlv_parse_action_31_0_t;
+localparam osf_tlv_parse_action_31_0_t osf_tlv_parse_action_31_0_t_reset 
+     = {2'h3, 
+	2'h3, 
+	2'h3, 
+	2'h3, 
+	2'h3, 
+	2'h3, 
+	2'h3, 
+	2'h3, 
+	2'h1, 
+	2'h3, 
+	2'h1, 
+	2'h3, 
+	2'h3, 
+	2'h3, 
+	2'h3, 
+	2'h1};
+
+
+
+typedef union packed {
+  struct packed {
+    logic [31:0]                     part0;                    
+  } r;
+  struct packed {
+    logic [1:0]                    unused_4;                 
+    logic [1:0]                    unused_3;                 
+    logic [1:0]                    unused_2;                 
+    logic [1:0]                    unused_1;                 
+    logic [1:0]                    unused_0;                 
+    logic [1:0]                    sch;                      
+    logic [1:0]                    aux_cmd_guid_iv;          
+    logic [1:0]                    aux_cmd_guid;             
+    logic [1:0]                    aux_cmd_iv;               
+    logic [1:0]                    frmd_int_vm_short;        
+    logic [1:0]                    aux_cmd;                  
+    logic [1:0]                    cr_iv;                    
+    logic [1:0]                    data;                     
+    logic [1:0]                    frmd_int_vm;              
+    logic [1:0]                    frmd_int_lip;             
+    logic [1:0]                    frmd_int_sip;             
+  } f;
+} osf_tlv_parse_action_63_32_t;
+localparam osf_tlv_parse_action_63_32_t osf_tlv_parse_action_63_32_t_reset 
+     = {2'h3, 
+	2'h3, 
+	2'h3, 
+	2'h3, 
+	2'h3, 
+	2'h3, 
+	2'h3, 
+	2'h3, 
+	2'h3, 
+	2'h3, 
+	2'h3, 
+	2'h3, 
+	2'h1, 
+	2'h3, 
+	2'h3, 
+	2'h3};
+
+
+
+typedef union packed {
+  struct packed {
+    logic [4:0]                      part0;                    
+  } r;
+  struct packed {
+    logic                          eng_self_test_en;         
+    logic                          debug_stats_sel;          
+    logic                          force_ob_bp;              
+    logic [1:0]                    rd_mode;                  
+  } f;
+} debug_ctl_t;
+localparam debug_ctl_t debug_ctl_t_reset 
+     = {1'h0, 
+	1'h0, 
+	1'h0, 
+	2'h0};
+
+
+
+typedef union packed {
+  struct packed {
+    logic [22:0]                     part0;                    
+  } r;
+  struct packed {
+    logic                          force_sw_access;          
+    logic [9:0]                    dbg_fifo_depth;           
+    logic [8:0]                    dbg_wr_pointer;           
+    logic                          load_dbg_values;          
+    logic [1:0]                    debug_mode;               
+  } f;
+} data_fifo_debug_ctl_t;
+localparam data_fifo_debug_ctl_t data_fifo_debug_ctl_t_reset 
+     = {1'h0, 
+	10'h0, 
+	9'h0, 
+	1'h0, 
+	2'h0};
+
+
+
+typedef union packed {
+  struct packed {
+    logic                            part0;                    
+  } r;
+  struct packed {
+    logic                          dummy;                    
+  } f;
+} data_fifo_debug_ss_ctl_t;
+localparam data_fifo_debug_ss_ctl_t data_fifo_debug_ss_ctl_t_reset 
+     = {1'h0};
+
+
+
+typedef union packed {
+  struct packed {
+    logic                            part0;                    
+  } r;
+  struct packed {
+    logic                          data_pipe_fifo_full;      
+  } f;
+} data_fifo_debug_stat_t;
+localparam data_fifo_debug_stat_t data_fifo_debug_stat_t_reset 
+     = {1'h0};
+
+
+
+typedef union packed {
+  struct packed {
+    logic [20:0]                     part2;                    
+    logic [31:0]                     part1;                    
+    logic [31:0]                     part0;                    
+  } r;
+  struct packed {
+    logic                          tid;                      
+    logic [7:0]                    tstrb;                    
+    logic [7:0]                    tuser;                    
+    logic [2:0]                    spare;                    
+    logic                          tlast;                    
+    logic [31:0]                   tdata_hi;                 
+    logic [31:0]                   tdata_lo;                 
+  } f;
+} osf_data_fifo_t;
+localparam osf_data_fifo_t osf_data_fifo_t_reset 
+     = {1'h0, 
+	8'h0, 
+	8'h0, 
+	3'h0, 
+	1'h0, 
+	32'h0, 
+	32'h0};
+
+
+
+typedef union packed {
+  struct packed {
+    logic [20:0]                     part0;                    
+  } r;
+  struct packed {
+    logic                          force_sw_access;          
+    logic [8:0]                    dbg_fifo_depth;           
+    logic [7:0]                    dbg_wr_pointer;           
+    logic                          load_dbg_values;          
+    logic [1:0]                    debug_mode;               
+  } f;
+} pdt_fifo_debug_ctl_t;
+localparam pdt_fifo_debug_ctl_t pdt_fifo_debug_ctl_t_reset 
+     = {1'h0, 
+	9'h0, 
+	8'h0, 
+	1'h0, 
+	2'h0};
+
+
+
+typedef union packed {
+  struct packed {
+    logic                            part0;                    
+  } r;
+  struct packed {
+    logic                          dummy;                    
+  } f;
+} pdt_fifo_debug_ss_ctl_t;
+localparam pdt_fifo_debug_ss_ctl_t pdt_fifo_debug_ss_ctl_t_reset 
+     = {1'h0};
+
+
+
+typedef union packed {
+  struct packed {
+    logic                            part0;                    
+  } r;
+  struct packed {
+    logic                          pdt_pipe_fifo_full;       
+  } f;
+} pdt_fifo_debug_stat_t;
+localparam pdt_fifo_debug_stat_t pdt_fifo_debug_stat_t_reset 
+     = {1'h0};
+
+
+
+typedef union packed {
+  struct packed {
+    logic [20:0]                     part2;                    
+    logic [31:0]                     part1;                    
+    logic [31:0]                     part0;                    
+  } r;
+  struct packed {
+    logic                          tid;                      
+    logic [7:0]                    tstrb;                    
+    logic [7:0]                    tuser;                    
+    logic [2:0]                    spare;                    
+    logic                          tlast;                    
+    logic [31:0]                   tdata_hi;                 
+    logic [31:0]                   tdata_lo;                 
+  } f;
+} osf_pdt_fifo_t;
+localparam osf_pdt_fifo_t osf_pdt_fifo_t_reset 
+     = {1'h0, 
+	8'h0, 
+	8'h0, 
+	3'h0, 
+	1'h0, 
+	32'h0, 
+	32'h0};
+
+
+
+typedef union packed {
+  struct packed {
+    logic [12:0]                     part0;                    
+  } r;
+  struct packed {
+    logic [3:0]                    op;                       
+    logic [8:0]                    addr;                     
+  } f;
+} osf_data_fifo_ia_config_t;
+localparam osf_data_fifo_ia_config_t osf_data_fifo_ia_config_t_reset 
+     = {4'h0, 
+	9'h0};
+
+
+
+typedef union packed {
+  struct packed {
+    logic [16:0]                     part0;                    
+  } r;
+  struct packed {
+    logic [2:0]                    code;                     
+    logic [4:0]                    datawords;                
+    logic [8:0]                    addr;                     
+  } f;
+} osf_data_fifo_ia_status_t;
+localparam osf_data_fifo_ia_status_t osf_data_fifo_ia_status_t_reset 
+     = {3'h0, 
+	5'h2, 
+	9'h1ff};
+
+
+
+typedef union packed {
+  struct packed {
+    logic [19:0]                     part0;                    
+  } r;
+  struct packed {
+    logic [3:0]                    mem_type;                 
+    logic                          ack_error;                
+    logic                          sim_tmo;                  
+    logic [3:0]                    reserved_op;              
+    logic                          compare;                  
+    logic                          set_init_start;           
+    logic                          initialize_inc;           
+    logic                          initialize;               
+    logic                          reset;                    
+    logic                          disabled;                 
+    logic                          enable;                   
+    logic                          write;                    
+    logic                          read;                     
+    logic                          nop;                      
+  } f;
+} osf_data_fifo_ia_capability_t;
+localparam osf_data_fifo_ia_capability_t osf_data_fifo_ia_capability_t_reset 
+     = {4'h0, 
+	1'h0, 
+	1'h0, 
+	4'h0, 
+	1'h0, 
+	1'h0, 
+	1'h0, 
+	1'h0, 
+	1'h0, 
+	1'h0, 
+	1'h0, 
+	1'h0, 
+	1'h0, 
+	1'h0};
+
+
+
+typedef union packed {
+  struct packed {
+    logic [21:0]                     part0;                    
+  } r;
+  struct packed {
+    logic                          overflow;                 
+    logic                          underflow;                
+    logic                          full;                     
+    logic                          empty;                    
+    logic [8:0]                    wr_pointer;               
+    logic [8:0]                    rd_pointer;               
+  } f;
+} osf_data_fifo_fifo_status_0_t;
+localparam osf_data_fifo_fifo_status_0_t osf_data_fifo_fifo_status_0_t_reset 
+     = {1'h0, 
+	1'h0, 
+	1'h0, 
+	1'h0, 
+	9'h0, 
+	9'h0};
+
+
+
+typedef union packed {
+  struct packed {
+    logic [9:0]                      part0;                    
+  } r;
+  struct packed {
+    logic [9:0]                    depth;                    
+  } f;
+} osf_data_fifo_fifo_status_1_t;
+localparam osf_data_fifo_fifo_status_1_t osf_data_fifo_fifo_status_1_t_reset 
+     = {10'h0};
+
+
+
+typedef union packed {
+  struct packed {
+    logic [11:0]                     part0;                    
+  } r;
+  struct packed {
+    logic [3:0]                    op;                       
+    logic [7:0]                    addr;                     
+  } f;
+} osf_pdt_fifo_ia_config_t;
+localparam osf_pdt_fifo_ia_config_t osf_pdt_fifo_ia_config_t_reset 
+     = {4'h0, 
+	8'h0};
+
+
+
+typedef union packed {
+  struct packed {
+    logic [15:0]                     part0;                    
+  } r;
+  struct packed {
+    logic [2:0]                    code;                     
+    logic [4:0]                    datawords;                
+    logic [7:0]                    addr;                     
+  } f;
+} osf_pdt_fifo_ia_status_t;
+localparam osf_pdt_fifo_ia_status_t osf_pdt_fifo_ia_status_t_reset 
+     = {3'h0, 
+	5'h2, 
+	8'hff};
+
+
+
+typedef union packed {
+  struct packed {
+    logic [19:0]                     part0;                    
+  } r;
+  struct packed {
+    logic [3:0]                    mem_type;                 
+    logic                          ack_error;                
+    logic                          sim_tmo;                  
+    logic [3:0]                    reserved_op;              
+    logic                          compare;                  
+    logic                          set_init_start;           
+    logic                          initialize_inc;           
+    logic                          initialize;               
+    logic                          reset;                    
+    logic                          disabled;                 
+    logic                          enable;                   
+    logic                          write;                    
+    logic                          read;                     
+    logic                          nop;                      
+  } f;
+} osf_pdt_fifo_ia_capability_t;
+localparam osf_pdt_fifo_ia_capability_t osf_pdt_fifo_ia_capability_t_reset 
+     = {4'h0, 
+	1'h0, 
+	1'h0, 
+	4'h0, 
+	1'h0, 
+	1'h0, 
+	1'h0, 
+	1'h0, 
+	1'h0, 
+	1'h0, 
+	1'h0, 
+	1'h0, 
+	1'h0, 
+	1'h0};
+
+
+
+typedef union packed {
+  struct packed {
+    logic [19:0]                     part0;                    
+  } r;
+  struct packed {
+    logic                          overflow;                 
+    logic                          underflow;                
+    logic                          full;                     
+    logic                          empty;                    
+    logic [7:0]                    wr_pointer;               
+    logic [7:0]                    rd_pointer;               
+  } f;
+} osf_pdt_fifo_fifo_status_0_t;
+localparam osf_pdt_fifo_fifo_status_0_t osf_pdt_fifo_fifo_status_0_t_reset 
+     = {1'h0, 
+	1'h0, 
+	1'h0, 
+	1'h0, 
+	8'h0, 
+	8'h0};
+
+
+
+typedef union packed {
+  struct packed {
+    logic [8:0]                      part0;                    
+  } r;
+  struct packed {
+    logic [8:0]                    depth;                    
+  } f;
+} osf_pdt_fifo_fifo_status_1_t;
+localparam osf_pdt_fifo_fifo_status_1_t osf_pdt_fifo_fifo_status_1_t_reset 
+     = {9'h0};
+
+
+
+typedef union packed {
+  struct packed {
+    logic [17:0]                     part1;                    
+    logic [31:0]                     part0;                    
+  } r;
+  struct packed {
+    logic [17:0]                   count_part1;              
+    logic [31:0]                   count_part0;              
+  } f;
+} ob_agg_data_bytes_0_counter_t;
+localparam ob_agg_data_bytes_0_counter_t ob_agg_data_bytes_0_counter_t_reset 
+     = {18'h0, 
+	32'h0};
+
+
+
+typedef union packed {
+  struct packed {
+    logic                            part0;                    
+  } r;
+  struct packed {
+    logic                          read_mode;                
+  } f;
+} ob_agg_data_bytes_global_config_t;
+localparam ob_agg_data_bytes_global_config_t ob_agg_data_bytes_global_config_t_reset 
+     = {1'h0};
+
+
+
+typedef union packed {
+  struct packed {
+    logic                            part0;                    
+  } r;
+  struct packed {
+    logic                          read_strobe;              
+  } f;
+} ob_agg_data_bytes_global_read_t;
+localparam ob_agg_data_bytes_global_read_t ob_agg_data_bytes_global_read_t_reset 
+     = {1'h0};
+
+
+
+typedef union packed {
+  struct packed {
+    logic [17:0]                     part1;                    
+    logic [31:0]                     part0;                    
+  } r;
+  struct packed {
+    logic [17:0]                   count_part1;              
+    logic [31:0]                   count_part0;              
+  } f;
+} ob_agg_frame_0_counter_t;
+localparam ob_agg_frame_0_counter_t ob_agg_frame_0_counter_t_reset 
+     = {18'h0, 
+	32'h0};
+
+
+
+typedef union packed {
+  struct packed {
+    logic                            part0;                    
+  } r;
+  struct packed {
+    logic                          read_mode;                
+  } f;
+} ob_agg_frame_global_config_t;
+localparam ob_agg_frame_global_config_t ob_agg_frame_global_config_t_reset 
+     = {1'h0};
+
+
+
+typedef union packed {
+  struct packed {
+    logic                            part0;                    
+  } r;
+  struct packed {
+    logic                          read_strobe;              
+  } f;
+} ob_agg_frame_global_read_t;
+localparam ob_agg_frame_global_read_t ob_agg_frame_global_read_t_reset 
+     = {1'h0};
+endpackage : cr_osf_regfilePKG
+
+`endif 

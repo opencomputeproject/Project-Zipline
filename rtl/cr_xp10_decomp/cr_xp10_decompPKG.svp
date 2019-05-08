@@ -1,7 +1,7 @@
 /*************************************************************************
 *
-* Copyright Â© Microsoft Corporation. All rights reserved.
-* Copyright Â© Broadcom Inc. All rights reserved.
+* Copyright © Microsoft Corporation. All rights reserved.
+* Copyright © Broadcom Inc. All rights reserved.
 * Licensed under the MIT License.
 *
 *************************************************************************/
@@ -138,7 +138,7 @@ package cr_xp10_decompPKG;
    
    typedef struct  packed {
       logic [12:0] size;
-      huff_error_e error;
+      zipline_error_e error;
    } htf_bhp_status_bus_t;
    
    
@@ -169,7 +169,7 @@ package cr_xp10_decompPKG;
       logic        trace_bit;
       logic [27:0] frame_bytes_in;
       logic        last_frame;
-      huff_error_e error;
+      zipline_error_e error;
    } lfa_sdd_dp_bus_t;
 
    typedef struct  packed {
@@ -278,7 +278,7 @@ package cr_xp10_decompPKG;
       logic [10:0] tlv_frame_num;
       logic [3:0]  tlv_eng_id;
       logic [7:0]  tlv_seq_num;
-      huff_error_e error;
+      zipline_error_e error;
    } fe_sof_bus_t;
 
    typedef struct packed {
@@ -300,7 +300,7 @@ package cr_xp10_decompPKG;
       logic        skip_stbl;
       logic        last_blk;
       logic        crc_option;
-      huff_error_e  error;
+      zipline_error_e  error;
    } bhp_lfa_status_bus_t;
 
    typedef enum logic [1:0] {ILLEGAL_HUFFTREE, INVALID_SYMBOL, END_MISMATCH, MISSING_EOB_SYM} sdd_error_e; 
@@ -338,7 +338,7 @@ package cr_xp10_decompPKG;
       logic         sob;
       logic         eob;
       logic         eof;
-      huff_error_e errcode;
+      zipline_error_e errcode;
       logic         table_bank;
       htf_fmt_e     fmt;
       logic         min_ptr_len;
@@ -374,7 +374,7 @@ package cr_xp10_decompPKG;
       logic       eob; 
       logic       err; 
       logic       eof;
-      huff_error_e eof_errcode;
+      zipline_error_e eof_errcode;
       sdd_error_e sdd_errcode;
       logic [27:0] frame_bytes_in;
       logic        last_frame;

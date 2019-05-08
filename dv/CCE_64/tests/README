@@ -1,0 +1,49 @@
+# *************************************************************************
+#
+# Copyright © 2018 Broadcom. The term "Broadcom" refers to Broadcom Inc. 
+# and/or its subsidiaries. This source file is the property of Broadcom 
+# and may not be copied or distributed in any form except in strict 
+# compliance with the relevant license agreement between Microsoft and 
+# Broadcom. 
+# 
+# *************************************************************************
+
+Below is a list of CCEIP tests and their descriptions.
+1.  cfh_4k
+    XP10 compression test using a compound command with 3, 4KB frames  
+
+2.  cfh_8k
+    XP10 compression test using a compound command with 3, 8KB frames  
+
+3.  gzip
+    Single frame GZIP compression test
+
+4.  smoke
+    Single frame CCEIP smoke test
+
+5.  smoke_pi16
+    Variation of CCEIP smoke test using PI16 input FRMD with a 16-bit CRC
+
+6.  xp10
+    Single frame XP10 compression test 
+
+7.  xp10_prefix
+    Single frame XP10 compression test with Prefix engine used to select a prefix
+
+8.  xp10_prefix_w_huffman
+    Single frame XP10 compression test with Prefix engine used to select 
+    both a prefix and pre-determined Huffman data.
+   
+9.  xp10_user_prefix
+    Single frame XP10 compression test illustrating the use of USER_PREFIX mode
+
+10. xp9
+    Single frame XP9 compression test
+
+11. zlib
+    Single frame ZLIB compression test
+
+To run all of the tests from a script:
+cd creole/dv/CCE_64/run
+regress (runs all of the tests)
+

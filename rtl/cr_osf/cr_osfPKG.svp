@@ -1,0 +1,80 @@
+/*************************************************************************
+*
+* Copyright © Microsoft Corporation. All rights reserved.
+* Copyright © Broadcom Inc. All rights reserved.
+* Licensed under the MIT License.
+*
+*************************************************************************/
+
+`ifndef __CR_OSFPKG_SVP
+`define __CR_OSFPKG_SVP
+`include "cr_global_params.vh"
+`include "cr_osf.vh"
+package cr_osfPKG;
+
+   
+   import cr_osf_regsPKG::*;
+
+   
+  typedef enum logic [1:0] 
+               {
+                OSF_DEBUG_NORMAL    = 2'h0,
+                OSF_DEBUG_BLK_RDWR  = 2'h1,
+                OSF_DEBUG_BLK_RD    = 2'h2,
+                OSF_DEBUG_SS        = 2'h3
+                } 
+               osf_debug_mode_e;
+
+  typedef enum logic [3:0] 
+               {
+                OSF_OB_DF          = 4'h0,
+                OSF_OB_PF          = 4'h1,
+                OSF_OB_PF_RESUME   = 4'h2,
+                OSF_OB_DF_ARB      = 4'h9,
+                OSF_OB_PF_ARB      = 4'ha
+                }
+                osf_ob_st_e;
+
+  typedef enum logic
+               {
+                CQE_PAR_IDLE   = 1'b0,
+                CQE_PAR_FOUND  = 1'b1
+                }
+                cqe_par_st_e;
+
+  typedef enum logic [1:0]
+               {
+                OSF_DBG_CMD_IDLE   = 2'h0,
+                OSF_DBG_CMD_WORD0  = 2'h1,
+                OSF_DBG_CMD_WORD1  = 2'h2,
+                OSF_DBG_CMD_OVFL   = 2'h3
+                }
+                osf_dbg_cmd_st_e;
+
+  typedef enum logic [1:0]
+               {
+                OSF_LAT_CTL_IDLE    = 2'h0,
+                OSF_LAT_CTL_WAIT    = 2'h1,
+                OSF_LAT_CTL_STAT    = 2'h2,
+                OSF_LAT_CTL_INSERT  = 2'h3
+                }
+                osf_lat_ctl_st_e;
+
+  typedef enum logic [1:0]
+               {
+                OSF_OB_PAR_IDLE       = 2'h0,
+                OSF_OB_RQE_PAR_FOUND  = 2'h1,
+                OSF_OB_CQE_PAR_FOUND  = 2'h2
+                }
+                osf_ob_par_st_e;
+
+  typedef enum logic
+               {
+                OSF_OB_DATA_PAR_IDLE   = 1'b0,
+                OSF_OB_DATA_PAR_FOUND  = 1'b1
+                }
+                osf_ob_data_par_st_e;
+
+endpackage : cr_osfPKG
+
+`endif 

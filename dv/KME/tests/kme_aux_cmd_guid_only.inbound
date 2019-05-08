@@ -1,0 +1,29 @@
+# *************************************************************************
+#
+# Copyright © Microsoft Corporation. All rights reserved.
+# Copyright © Broadcom Inc. All rights reserved.
+# Licensed under the MIT License.
+#
+# *************************************************************************
+0x0000000000000000  SoT       0xff
+0x1001000000000000  EoT       0xff
+0xc000000005000018  SoT       0xff
+0x0000000000000000            0xff
+0x0c00012000000000            0xff
+0xd8dddddddddddddd            0xff
+0xeeeeee5eeeeeeeee            0xff
+0xffffefffffffffff            0xff
+0x0000350000000000            0xff
+0x0000000000000000            0xff
+0x0000000009abadbe            0xff
+0x000000000abaedde            0xff
+0x000000000bdaacad            0xff
+0x000000000cdadada            0xff
+0x000000000dbababa            0xff
+0x000000000ecacaca            0xff
+0x000000000feaeaea            0xff
+0x0000000010fafafa            0xff
+0x0000000011000000            0xff
+0x0000000012000000            0xff
+0x0000000014131211            0xff
+0x0000000015141312  EoT       0xff

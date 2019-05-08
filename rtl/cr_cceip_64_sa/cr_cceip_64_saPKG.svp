@@ -1,0 +1,23 @@
+/*************************************************************************
+*
+* Copyright © Microsoft Corporation. All rights reserved.
+* Copyright © Broadcom Inc. All rights reserved.
+* Licensed under the MIT License.
+*
+*************************************************************************/
+
+`ifndef __CR_CCEIP_64_SAPKG_SVP
+`define __CR_CCEIP_64_SAPKG_SVP
+`include "cr_global_params.vh"
+`include "cr_cceip_64_sa.vh"
+package cr_cceip_64_saPKG;
+
+   
+   import cr_cceip_64_sa_regsPKG::*;
+
+   
+
+   
+endpackage : cr_cceip_64_saPKG
+
+`endif 

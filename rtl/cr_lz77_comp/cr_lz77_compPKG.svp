@@ -1,0 +1,159 @@
+/*************************************************************************
+*
+* Copyright © Microsoft Corporation. All rights reserved.
+* Copyright © Broadcom Inc. All rights reserved.
+* Licensed under the MIT License.
+*
+*************************************************************************/
+
+
+
+
+
+
+
+
+package cr_lz77_compPKG;
+   
+`include "cr_lz77_comp_regs.vh"
+`include "cr_structs.sv"
+
+   import cr_lz77_comp_regfilePKG::tlv_parse_action_15_0_t;
+   import cr_lz77_comp_regfilePKG::tlv_parse_action_31_16_t;
+
+   
+   
+   
+   typedef struct packed {
+      logic [38:0] reserved; 	   
+      logic 	   one_lit_ev;
+      logic 	   two_lit_ev;
+      logic 	   three_lit_ev;
+      logic 	   four_lit_ev;
+      logic 	   ptr_ev;
+      logic 	   mtf_ev;
+      logic 	   run_3_ev;
+      logic 	   run_4_ev;
+      logic 	   run_5_ev;
+      logic 	   run_6_ev;
+      logic 	   run_7_ev;
+      logic 	   run_8_ev;
+      logic 	   run_9_ev;
+      logic 	   run_10_ev;
+      logic 	   run_11_31_ev;
+      logic 	   run_32_63_ev;
+      logic 	   run_64_127_ev;
+      logic 	   run_128_255_ev;
+      logic 	   run_256_nup_ev;
+      logic 	   mtf_0_ev;
+      logic 	   mtf_1_ev;
+      logic 	   mtf_2_ev;
+      logic 	   mtf_3_ev;
+      logic 	   bypass_ev;
+      logic 	   eof_ev;
+   } lob_events_t;
+   
+   typedef struct packed {
+      tlv_parse_action_31_16_t   tlv_types_31_16;
+      tlv_parse_action_15_0_t    tlv_types_15_0;
+   } tlv_parse_action_t;
+   
+   typedef struct packed {
+      logic [4:0][1:0] symbol_type;
+      logic [3:0][7:0] literal;
+      logic [15:0]     type3_offset;
+      logic [15:0]     type3_length;
+      logic [15:0]     type4_offset;
+      logic 	       eot;
+   } pkf_data_t;
+   
+   typedef struct packed {
+      logic 	       is_compressed;
+      logic 	       enable_stats;
+      tlvp_if_bus_t tlv_bus;
+   } bpq_data_t;
+   
+   
+   typedef struct packed {
+      logic 	       insert;
+      logic [`TLVP_SEQ_NUM_WIDTH-1:0] ordern;
+      tlv_types_e                     typen;
+      logic                           sot;
+      logic                           eot;
+      logic                           tlast;
+      logic [`AXI_S_TID_WIDTH-1:0]    tid;
+      logic [`AXI_S_TSTRB_WIDTH-1:0]  tstrb;
+      logic [`AXI_S_USER_WIDTH-1:0]   tuser;
+   } tlv_bus_sidebands_t;
+   
+   
+   typedef struct packed {
+      logic            eot;
+      lz_symbol_bus_t  lz77_frame_data;
+   } packer_symbol_bus_t;
+
+   typedef enum logic [1:0] {
+			     NULL=0,
+			     LIT=1,
+			     PTR=2,
+			     MTF=3
+			     } lz77_symbol_type_e;
+   
+   typedef struct packed {
+      logic 	  is_mtf;
+      logic [3:0] phase;
+      logic [11:0] fwd_therm;
+   } match_tuple_t;
+   
+
+typedef enum int 
+     {
+      MSM_IDLE = 0,
+      U0,
+      U1,
+      U2,
+      U3,
+      UM1,
+      UM2,
+      U4,
+      U5,
+      U6,
+      U7,
+      U8,
+      U9,
+      U10,
+      U11,
+      UM4D,
+      UM4_1,
+      UM4_2,
+      UM8,
+      C4,
+      UM3D,
+      UM3,
+      UM7,
+      C3,
+      UM2D,
+      UM6,
+      C2,
+      UM1D,
+      UM5,
+      C1,
+      LZ_ERROR
+      } msm_states_e;
+
+typedef enum int 
+     {
+      ONE   = 0,
+      TWO   = 1,
+      THREE = 2,
+      FOUR  = 3
+      } one_hot_index_e;
+
+typedef enum logic [1:0]
+     {
+      SHORT    = 2'b00, 
+      MIDDLE   = 2'b01, 
+      LONG     = 2'b11  
+      } format_e;
+
+endpackage : cr_lz77_compPKG

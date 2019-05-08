@@ -1,0 +1,23 @@
+/*************************************************************************
+*
+* Copyright © Microsoft Corporation. All rights reserved.
+* Copyright © Broadcom Inc. All rights reserved.
+* Licensed under the MIT License.
+*
+*************************************************************************/
+
+`ifndef __CR_PREFIXPKG_SVP
+`define __CR_PREFIXPKG_SVP
+`include "cr_global_params.vh"
+`include "cr_prefix.vh"
+package cr_prefixPKG;
+
+   
+   import cr_prefix_regsPKG::*;
+
+   
+
+   
+endpackage : cr_prefixPKG
+
+`endif 

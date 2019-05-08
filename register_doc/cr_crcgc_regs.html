@@ -1,0 +1,479 @@
+<!--
+/*************************************************************************
+*
+* Copyright © Microsoft Corporation. All rights reserved.
+* Copyright © Broadcom Inc. All rights reserved.
+* Licensed under the MIT License.
+*
+*************************************************************************/
+
+
+!-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=iso-8859-1">
+  <meta name="generator" content="Adobe GoLive 5">
+  <title>CR_CRCGC</title>
+</head>
+
+<body>
+
+<p>Generated on Wed Aug 15 06:10:31 2018</p>
+<H1><a ID="Regs_Registers">CR_CRCGC Regs Registers</a></H1>
+<table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="10%">Offset<br>(byte space)</th><th align="center" width="8%">Flags</th><th align="center" width="22%">Register Name </th><th align="center" width="60%">Description</th></tr>
+  <tr><td align="center">0x0</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_CRCGC_revision_config" >CR_CRCGC_revision_config</A></td><td>&nbsp;Revision read only register<br></td></tr>
+  <tr><td align="center">0x4</td><td valign="top"> acc=RW</td><td>&nbsp;<A HREF="#CR_CRCGC_spare_config" >CR_CRCGC_spare_config</A></td><td>&nbsp;Spare configuration register<br></td></tr>
+  <tr><td align="center">0xc</td><td valign="top"> acc=CFG</td><td>&nbsp;<A HREF="#CR_CRCGC_REGS_TLV_Parse_Action_0" >CR_CRCGC_REGS_TLV_Parse_Action_0</A></td><td>&nbsp;TLV Parse Action 0<br></td></tr>
+  <tr><td align="center">0x10</td><td valign="top"> acc=CFG</td><td>&nbsp;<A HREF="#CR_CRCGC_REGS_TLV_Parse_Action_1" >CR_CRCGC_REGS_TLV_Parse_Action_1</A></td><td>&nbsp;TLV Parse Action 1<br></td></tr>
+  <tr><td align="center">0x18</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_CRCGC_history_buffer_part2_0" >CR_CRCGC_history_buffer_part2_0</A></td><td>&nbsp;History Buffer 0<br></td></tr>
+  <tr><td align="center">0x1c</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_CRCGC_history_buffer_part1_0" >CR_CRCGC_history_buffer_part1_0</A></td><td>&nbsp;History Buffer 0<br></td></tr>
+  <tr><td align="center">0x20</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_CRCGC_history_buffer_part0_0" >CR_CRCGC_history_buffer_part0_0</A></td><td>&nbsp;History Buffer 0<br></td></tr>
+  <tr><td align="center">0x28</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_CRCGC_history_buffer_part2_1" >CR_CRCGC_history_buffer_part2_1</A></td><td>&nbsp;History Buffer 1<br></td></tr>
+  <tr><td align="center">0x2c</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_CRCGC_history_buffer_part1_1" >CR_CRCGC_history_buffer_part1_1</A></td><td>&nbsp;History Buffer 1<br></td></tr>
+  <tr><td align="center">0x30</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_CRCGC_history_buffer_part0_1" >CR_CRCGC_history_buffer_part0_1</A></td><td>&nbsp;History Buffer 1<br></td></tr>
+  <tr><td align="center">0x34</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_CRCGC_history_buffer_part2_2" >CR_CRCGC_history_buffer_part2_2</A></td><td>&nbsp;History Buffer 2<br></td></tr>
+  <tr><td align="center">0x38</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_CRCGC_history_buffer_part1_2" >CR_CRCGC_history_buffer_part1_2</A></td><td>&nbsp;History Buffer 2<br></td></tr>
+  <tr><td align="center">0x3c</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_CRCGC_history_buffer_part0_2" >CR_CRCGC_history_buffer_part0_2</A></td><td>&nbsp;History Buffer 2<br></td></tr>
+  <tr><td align="center">0x40</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_CRCGC_history_buffer_part2_3" >CR_CRCGC_history_buffer_part2_3</A></td><td>&nbsp;History Buffer 3<br></td></tr>
+  <tr><td align="center">0x44</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_CRCGC_history_buffer_part1_3" >CR_CRCGC_history_buffer_part1_3</A></td><td>&nbsp;History Buffer 3<br></td></tr>
+  <tr><td align="center">0x48</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_CRCGC_history_buffer_part0_3" >CR_CRCGC_history_buffer_part0_3</A></td><td>&nbsp;History Buffer 3<br></td></tr>
+  <tr><td align="center">0x4c</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_CRCGC_history_buffer_part2_4" >CR_CRCGC_history_buffer_part2_4</A></td><td>&nbsp;History Buffer 4<br></td></tr>
+  <tr><td align="center">0x50</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_CRCGC_history_buffer_part1_4" >CR_CRCGC_history_buffer_part1_4</A></td><td>&nbsp;History Buffer 4<br></td></tr>
+  <tr><td align="center">0x54</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_CRCGC_history_buffer_part0_4" >CR_CRCGC_history_buffer_part0_4</A></td><td>&nbsp;History Buffer 4<br></td></tr>
+  <tr><td align="center">0x58</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_CRCGC_history_buffer_part2_5" >CR_CRCGC_history_buffer_part2_5</A></td><td>&nbsp;History Buffer 5<br></td></tr>
+  <tr><td align="center">0x5c</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_CRCGC_history_buffer_part1_5" >CR_CRCGC_history_buffer_part1_5</A></td><td>&nbsp;History Buffer 5<br></td></tr>
+  <tr><td align="center">0x60</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_CRCGC_history_buffer_part0_5" >CR_CRCGC_history_buffer_part0_5</A></td><td>&nbsp;History Buffer 5<br></td></tr>
+  <tr><td align="center">0x64</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_CRCGC_history_buffer_part2_6" >CR_CRCGC_history_buffer_part2_6</A></td><td>&nbsp;History Buffer 6<br></td></tr>
+  <tr><td align="center">0x68</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_CRCGC_history_buffer_part1_6" >CR_CRCGC_history_buffer_part1_6</A></td><td>&nbsp;History Buffer 6<br></td></tr>
+  <tr><td align="center">0x6c</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_CRCGC_history_buffer_part0_6" >CR_CRCGC_history_buffer_part0_6</A></td><td>&nbsp;History Buffer 6<br></td></tr>
+  <tr><td align="center">0x70</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_CRCGC_history_buffer_part2_7" >CR_CRCGC_history_buffer_part2_7</A></td><td>&nbsp;History Buffer 7<br></td></tr>
+  <tr><td align="center">0x74</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_CRCGC_history_buffer_part1_7" >CR_CRCGC_history_buffer_part1_7</A></td><td>&nbsp;History Buffer 7<br></td></tr>
+  <tr><td align="center">0x78</td><td valign="top"> acc=RO</td><td>&nbsp;<A HREF="#CR_CRCGC_history_buffer_part0_7" >CR_CRCGC_history_buffer_part0_7</A></td><td>&nbsp;History Buffer 7<br></td></tr>
+  <tr><td align="center">0x7c</td><td valign="top"> acc=RW</td><td>&nbsp;<A HREF="#CR_CRCGC_regs_crcgc_ctrl" >CR_CRCGC_regs_crcgc_ctrl</A></td><td>&nbsp;CRC Generator Checker Control<br></td></tr>
+</table>
+<p>Flag legend: acc=access</p><p></p>
+<p>
+  <b><a ID="CR_CRCGC_revision_config">CR_CRCGC_revision_config - Revision read only register</a></b><br>
+  Offset (byte space) = 32'h0<br>
+  Verilog Macro Address = `CR_CRCGC_REVISION_CONFIG<br>
+  Reset Value = 32'bxxxxxxxx_xxxxxxxx_xxxxxxxx_00000000<br>
+  Access = RO (32-bit only)<br>
+</p>
+<table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:08</td><td valign="top"></td><td align="left" valign="top">&nbsp;Reserved</td><td align="left">Reserved bits must be written with 0.  A read returns an unknown value.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">07:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;revid</td><td align="left">Revision control register.<br>Connect to TIE cells in order to change<br>via 1 layer metal spin.<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_CRCGC Regs Table</A></p>
+<p>
+  <b><a ID="CR_CRCGC_spare_config">CR_CRCGC_spare_config - Spare configuration register</a></b><br>
+  Offset (byte space) = 32'h4<br>
+  Verilog Macro Address = `CR_CRCGC_SPARE_CONFIG<br>
+  Reset Value = 32'h0000_0000<br>
+  Access = RW (32-bit only)<br>
+</p>
+<table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;spare</td><td align="left">Spare control register<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_CRCGC Regs Table</A></p>
+<p>
+  <b><a ID="CR_CRCGC_REGS_TLV_Parse_Action_0">CR_CRCGC_REGS_TLV_Parse_Action_0 - TLV Parse Action 0</a></b><br>
+  Offset (byte space) = 32'hc<br>
+  Verilog Macro Address = `CR_CRCGC_REGS_TLV_PARSE_ACTION_0<br>
+  Reset Value = 32'h0015_2151<br>
+  Access = CFG (32-bit only)<br>
+</p>
+<table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:30</td><td valign="top"></td><td align="left" valign="top">&nbsp;FRMD_INT_APP</td><td align="left">FRMD_INT_APP Action.<br>0 = <i>REP</i><br>replicate tlv, write tlv to both fifo's<br>1 = <i>PASS</i><br>passthrough tlv, write tlv to passthrough fifo only<br>2 = <i>MODIFY</i><br>modify tlv, write tlv to user_rx fifo only<br>3 = <i>DELETE</i><br>delete tlv, write tlv to user_rx fifo only, order number not incremented, user should not write this tlv back to the user_tx interface<br>Reset value is <i>REP</i>.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">29:28</td><td valign="top"></td><td align="left" valign="top">&nbsp;FRMD_USER_VM</td><td align="left">FRMD_USER_VM Action.<br>0 = <i>REP</i><br>replicate tlv, write tlv to both fifo's<br>1 = <i>PASS</i><br>passthrough tlv, write tlv to passthrough fifo only<br>2 = <i>MODIFY</i><br>modify tlv, write tlv to user_rx fifo only<br>3 = <i>DELETE</i><br>delete tlv, write tlv to user_rx fifo only, order number not incremented, user should not write this tlv back to the user_tx interface<br>Reset value is <i>REP</i>.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">27:26</td><td valign="top"></td><td align="left" valign="top">&nbsp;FRMD_USER_PI64</td><td align="left">FRMD_USER_PI64 Action.<br>0 = <i>REP</i><br>replicate tlv, write tlv to both fifo's<br>1 = <i>PASS</i><br>passthrough tlv, write tlv to passthrough fifo only<br>2 = <i>MODIFY</i><br>modify tlv, write tlv to user_rx fifo only<br>3 = <i>DELETE</i><br>delete tlv, write tlv to user_rx fifo only, order number not incremented, user should not write this tlv back to the user_tx interface<br>Reset value is <i>REP</i>.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">25:24</td><td valign="top"></td><td align="left" valign="top">&nbsp;FRMD_USER_PI16</td><td align="left">FRMD_USER_PI16 Action.<br>0 = <i>REP</i><br>replicate tlv, write tlv to both fifo's<br>1 = <i>PASS</i><br>passthrough tlv, write tlv to passthrough fifo only<br>2 = <i>MODIFY</i><br>modify tlv, write tlv to user_rx fifo only<br>3 = <i>DELETE</i><br>delete tlv, write tlv to user_rx fifo only, order number not incremented, user should not write this tlv back to the user_tx interface<br>Reset value is <i>REP</i>.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">23:22</td><td valign="top"></td><td align="left" valign="top">&nbsp;FRMD_USER_NULL</td><td align="left">FRMD_USER_NULL Action.<br>0 = <i>REP</i><br>replicate tlv, write tlv to both fifo's<br>1 = <i>PASS</i><br>passthrough tlv, write tlv to passthrough fifo only<br>2 = <i>MODIFY</i><br>modify tlv, write tlv to user_rx fifo only<br>3 = <i>DELETE</i><br>delete tlv, write tlv to user_rx fifo only, order number not incremented, user should not write this tlv back to the user_tx interface<br>Reset value is <i>REP</i>.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">21:20</td><td valign="top"></td><td align="left" valign="top">&nbsp;GUID</td><td align="left">GUID Action.<br>0 = <i>REP</i><br>replicate tlv, write tlv to both fifo's<br>1 = <i>PASS</i><br>passthrough tlv, write tlv to passthrough fifo only<br>2 = <i>MODIFY</i><br>modify tlv, write tlv to user_rx fifo only<br>3 = <i>DELETE</i><br>delete tlv, write tlv to user_rx fifo only, order number not incremented, user should not write this tlv back to the user_tx interface<br>Reset value is <i>PASS</i>.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">19:18</td><td valign="top"></td><td align="left" valign="top">&nbsp;CQE</td><td align="left">CQE Action.<br>0 = <i>REP</i><br>replicate tlv, write tlv to both fifo's<br>1 = <i>PASS</i><br>passthrough tlv, write tlv to passthrough fifo only<br>2 = <i>MODIFY</i><br>modify tlv, write tlv to user_rx fifo only<br>3 = <i>DELETE</i><br>delete tlv, write tlv to user_rx fifo only, order number not incremented, user should not write this tlv back to the user_tx interface<br>Reset value is <i>PASS</i>.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">17:16</td><td valign="top"></td><td align="left" valign="top">&nbsp;STAT</td><td align="left">STAT Action.<br>0 = <i>REP</i><br>replicate tlv, write tlv to both fifo's<br>1 = <i>PASS</i><br>passthrough tlv, write tlv to passthrough fifo only<br>2 = <i>MODIFY</i><br>modify tlv, write tlv to user_rx fifo only<br>3 = <i>DELETE</i><br>delete tlv, write tlv to user_rx fifo only, order number not incremented, user should not write this tlv back to the user_tx interface<br>Reset value is <i>PASS</i>.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">15:14</td><td valign="top"></td><td align="left" valign="top">&nbsp;LZ77</td><td align="left">LZ77 Action.<br>0 = <i>REP</i><br>replicate tlv, write tlv to both fifo's<br>1 = <i>PASS</i><br>passthrough tlv, write tlv to passthrough fifo only<br>2 = <i>MODIFY</i><br>modify tlv, write tlv to user_rx fifo only<br>3 = <i>DELETE</i><br>delete tlv, write tlv to user_rx fifo only, order number not incremented, user should not write this tlv back to the user_tx interface<br>Reset value is <i>REP</i>.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">13:12</td><td valign="top"></td><td align="left" valign="top">&nbsp;FTR</td><td align="left">FTR Action.<br>0 = <i>REP</i><br>replicate tlv, write tlv to both fifo's<br>1 = <i>PASS</i><br>passthrough tlv, write tlv to passthrough fifo only<br>2 = <i>MODIFY</i><br>modify tlv, write tlv to user_rx fifo only<br>3 = <i>DELETE</i><br>delete tlv, write tlv to user_rx fifo only, order number not incremented, user should not write this tlv back to the user_tx interface<br>Reset value is <i>MODIFY</i>.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">11:10</td><td valign="top"></td><td align="left" valign="top">&nbsp;DATA_UNK</td><td align="left">DATA_UNK Action.<br>0 = <i>REP</i><br>replicate tlv, write tlv to both fifo's<br>1 = <i>PASS</i><br>passthrough tlv, write tlv to passthrough fifo only<br>2 = <i>MODIFY</i><br>modify tlv, write tlv to user_rx fifo only<br>3 = <i>DELETE</i><br>delete tlv, write tlv to user_rx fifo only, order number not incremented, user should not write this tlv back to the user_tx interface<br>Reset value is <i>REP</i>.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">09:08</td><td valign="top"></td><td align="left" valign="top">&nbsp;PFD</td><td align="left">PFD Action.<br>0 = <i>REP</i><br>replicate tlv, write tlv to both fifo's<br>1 = <i>PASS</i><br>passthrough tlv, write tlv to passthrough fifo only<br>2 = <i>MODIFY</i><br>modify tlv, write tlv to user_rx fifo only<br>3 = <i>DELETE</i><br>delete tlv, write tlv to user_rx fifo only, order number not incremented, user should not write this tlv back to the user_tx interface<br>Reset value is <i>PASS</i>.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">07:06</td><td valign="top"></td><td align="left" valign="top">&nbsp;PHD</td><td align="left">PHD Action.<br>0 = <i>REP</i><br>replicate tlv, write tlv to both fifo's<br>1 = <i>PASS</i><br>passthrough tlv, write tlv to passthrough fifo only<br>2 = <i>MODIFY</i><br>modify tlv, write tlv to user_rx fifo only<br>3 = <i>DELETE</i><br>delete tlv, write tlv to user_rx fifo only, order number not incremented, user should not write this tlv back to the user_tx interface<br>Reset value is <i>PASS</i>.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">05:04</td><td valign="top"></td><td align="left" valign="top">&nbsp;KEY</td><td align="left">KEY Action.<br>0 = <i>REP</i><br>replicate tlv, write tlv to both fifo's<br>1 = <i>PASS</i><br>passthrough tlv, write tlv to passthrough fifo only<br>2 = <i>MODIFY</i><br>modify tlv, write tlv to user_rx fifo only<br>3 = <i>DELETE</i><br>delete tlv, write tlv to user_rx fifo only, order number not incremented, user should not write this tlv back to the user_tx interface<br>Reset value is <i>PASS</i>.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">03:02</td><td valign="top"></td><td align="left" valign="top">&nbsp;CMD</td><td align="left">CMD Action.<br>0 = <i>REP</i><br>replicate tlv, write tlv to both fifo's<br>1 = <i>PASS</i><br>passthrough tlv, write tlv to passthrough fifo only<br>2 = <i>MODIFY</i><br>modify tlv, write tlv to user_rx fifo only<br>3 = <i>DELETE</i><br>delete tlv, write tlv to user_rx fifo only, order number not incremented, user should not write this tlv back to the user_tx interface<br>Reset value is <i>REP</i>.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">01:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;RQE</td><td align="left">RQE Action.<br>0 = <i>REP</i><br>replicate tlv, write tlv to both fifo's<br>1 = <i>PASS</i><br>passthrough tlv, write tlv to passthrough fifo only<br>2 = <i>MODIFY</i><br>modify tlv, write tlv to user_rx fifo only<br>3 = <i>DELETE</i><br>delete tlv, write tlv to user_rx fifo only, order number not incremented, user should not write this tlv back to the user_tx interface<br>Reset value is <i>PASS</i>.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_CRCGC Regs Table</A></p>
+<p>
+  <b><a ID="CR_CRCGC_REGS_TLV_Parse_Action_1">CR_CRCGC_REGS_TLV_Parse_Action_1 - TLV Parse Action 1</a></b><br>
+  Offset (byte space) = 32'h10<br>
+  Verilog Macro Address = `CR_CRCGC_REGS_TLV_PARSE_ACTION_1<br>
+  Reset Value = 32'h5555_4500<br>
+  Access = CFG (32-bit only)<br>
+</p>
+<table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:30</td><td valign="top"></td><td align="left" valign="top">&nbsp;unused_4</td><td align="left">unused_4 Action.<br>0 = <i>REP</i><br>replicate tlv, write tlv to both fifo's<br>1 = <i>PASS</i><br>passthrough tlv, write tlv to passthrough fifo only<br>2 = <i>MODIFY</i><br>modify tlv, write tlv to user_rx fifo only<br>3 = <i>DELETE</i><br>delete tlv, write tlv to user_rx fifo only, order number not incremented, user should not write this tlv back to the user_tx interface<br>Reset value is <i>PASS</i>.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">29:28</td><td valign="top"></td><td align="left" valign="top">&nbsp;unused_3</td><td align="left">unused_3 Action.<br>0 = <i>REP</i><br>replicate tlv, write tlv to both fifo's<br>1 = <i>PASS</i><br>passthrough tlv, write tlv to passthrough fifo only<br>2 = <i>MODIFY</i><br>modify tlv, write tlv to user_rx fifo only<br>3 = <i>DELETE</i><br>delete tlv, write tlv to user_rx fifo only, order number not incremented, user should not write this tlv back to the user_tx interface<br>Reset value is <i>PASS</i>.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">27:26</td><td valign="top"></td><td align="left" valign="top">&nbsp;unused_2</td><td align="left">unused_2 Action.<br>0 = <i>REP</i><br>replicate tlv, write tlv to both fifo's<br>1 = <i>PASS</i><br>passthrough tlv, write tlv to passthrough fifo only<br>2 = <i>MODIFY</i><br>modify tlv, write tlv to user_rx fifo only<br>3 = <i>DELETE</i><br>delete tlv, write tlv to user_rx fifo only, order number not incremented, user should not write this tlv back to the user_tx interface<br>Reset value is <i>PASS</i>.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">25:24</td><td valign="top"></td><td align="left" valign="top">&nbsp;unused_1</td><td align="left">unused_1 Action.<br>0 = <i>REP</i><br>replicate tlv, write tlv to both fifo's<br>1 = <i>PASS</i><br>passthrough tlv, write tlv to passthrough fifo only<br>2 = <i>MODIFY</i><br>modify tlv, write tlv to user_rx fifo only<br>3 = <i>DELETE</i><br>delete tlv, write tlv to user_rx fifo only, order number not incremented, user should not write this tlv back to the user_tx interface<br>Reset value is <i>PASS</i>.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">23:22</td><td valign="top"></td><td align="left" valign="top">&nbsp;unused_0</td><td align="left">unused_0 Action.<br>0 = <i>REP</i><br>replicate tlv, write tlv to both fifo's<br>1 = <i>PASS</i><br>passthrough tlv, write tlv to passthrough fifo only<br>2 = <i>MODIFY</i><br>modify tlv, write tlv to user_rx fifo only<br>3 = <i>DELETE</i><br>delete tlv, write tlv to user_rx fifo only, order number not incremented, user should not write this tlv back to the user_tx interface<br>Reset value is <i>PASS</i>.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">21:20</td><td valign="top"></td><td align="left" valign="top">&nbsp;SCH</td><td align="left">SCH Action.<br>0 = <i>REP</i><br>replicate tlv, write tlv to both fifo's<br>1 = <i>PASS</i><br>passthrough tlv, write tlv to passthrough fifo only<br>2 = <i>MODIFY</i><br>modify tlv, write tlv to user_rx fifo only<br>3 = <i>DELETE</i><br>delete tlv, write tlv to user_rx fifo only, order number not incremented, user should not write this tlv back to the user_tx interface<br>Reset value is <i>PASS</i>.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">19:18</td><td valign="top"></td><td align="left" valign="top">&nbsp;AUX_CMD_GUID_IV</td><td align="left">AUX_CMD_GUID_IV Action.<br>0 = <i>REP</i><br>replicate tlv, write tlv to both fifo's<br>1 = <i>PASS</i><br>passthrough tlv, write tlv to passthrough fifo only<br>2 = <i>MODIFY</i><br>modify tlv, write tlv to user_rx fifo only<br>3 = <i>DELETE</i><br>delete tlv, write tlv to user_rx fifo only, order number not incremented, user should not write this tlv back to the user_tx interface<br>Reset value is <i>PASS</i>.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">17:16</td><td valign="top"></td><td align="left" valign="top">&nbsp;AUX_CMD_GUID</td><td align="left">AUX_CMD_GUID Action.<br>0 = <i>REP</i><br>replicate tlv, write tlv to both fifo's<br>1 = <i>PASS</i><br>passthrough tlv, write tlv to passthrough fifo only<br>2 = <i>MODIFY</i><br>modify tlv, write tlv to user_rx fifo only<br>3 = <i>DELETE</i><br>delete tlv, write tlv to user_rx fifo only, order number not incremented, user should not write this tlv back to the user_tx interface<br>Reset value is <i>PASS</i>.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">15:14</td><td valign="top"></td><td align="left" valign="top">&nbsp;AUX_CMD_IV</td><td align="left">AUX_CMD_IV Action.<br>0 = <i>REP</i><br>replicate tlv, write tlv to both fifo's<br>1 = <i>PASS</i><br>passthrough tlv, write tlv to passthrough fifo only<br>2 = <i>MODIFY</i><br>modify tlv, write tlv to user_rx fifo only<br>3 = <i>DELETE</i><br>delete tlv, write tlv to user_rx fifo only, order number not incremented, user should not write this tlv back to the user_tx interface<br>Reset value is <i>PASS</i>.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">13:12</td><td valign="top"></td><td align="left" valign="top">&nbsp;FRMD_INT_VM_SHORT</td><td align="left">FRMD_INT_VM_SHORT Action.<br>0 = <i>REP</i><br>replicate tlv, write tlv to both fifo's<br>1 = <i>PASS</i><br>passthrough tlv, write tlv to passthrough fifo only<br>2 = <i>MODIFY</i><br>modify tlv, write tlv to user_rx fifo only<br>3 = <i>DELETE</i><br>delete tlv, write tlv to user_rx fifo only, order number not incremented, user should not write this tlv back to the user_tx interface<br>Reset value is <i>REP</i>.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">11:10</td><td valign="top"></td><td align="left" valign="top">&nbsp;AUX_CMD</td><td align="left">AUX_CMD Action.<br>0 = <i>REP</i><br>replicate tlv, write tlv to both fifo's<br>1 = <i>PASS</i><br>passthrough tlv, write tlv to passthrough fifo only<br>2 = <i>MODIFY</i><br>modify tlv, write tlv to user_rx fifo only<br>3 = <i>DELETE</i><br>delete tlv, write tlv to user_rx fifo only, order number not incremented, user should not write this tlv back to the user_tx interface<br>Reset value is <i>PASS</i>.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">09:08</td><td valign="top"></td><td align="left" valign="top">&nbsp;CR_IV</td><td align="left">CR_IV Action.<br>0 = <i>REP</i><br>replicate tlv, write tlv to both fifo's<br>1 = <i>PASS</i><br>passthrough tlv, write tlv to passthrough fifo only<br>2 = <i>MODIFY</i><br>modify tlv, write tlv to user_rx fifo only<br>3 = <i>DELETE</i><br>delete tlv, write tlv to user_rx fifo only, order number not incremented, user should not write this tlv back to the user_tx interface<br>Reset value is <i>PASS</i>.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">07:06</td><td valign="top"></td><td align="left" valign="top">&nbsp;DATA</td><td align="left">DATA Action.<br>0 = <i>REP</i><br>replicate tlv, write tlv to both fifo's<br>1 = <i>PASS</i><br>passthrough tlv, write tlv to passthrough fifo only<br>2 = <i>MODIFY</i><br>modify tlv, write tlv to user_rx fifo only<br>3 = <i>DELETE</i><br>delete tlv, write tlv to user_rx fifo only, order number not incremented, user should not write this tlv back to the user_tx interface<br>Reset value is <i>REP</i>.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">05:04</td><td valign="top"></td><td align="left" valign="top">&nbsp;FRMD_INT_VM</td><td align="left">FRMD_INT_VM Action.<br>0 = <i>REP</i><br>replicate tlv, write tlv to both fifo's<br>1 = <i>PASS</i><br>passthrough tlv, write tlv to passthrough fifo only<br>2 = <i>MODIFY</i><br>modify tlv, write tlv to user_rx fifo only<br>3 = <i>DELETE</i><br>delete tlv, write tlv to user_rx fifo only, order number not incremented, user should not write this tlv back to the user_tx interface<br>Reset value is <i>REP</i>.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">03:02</td><td valign="top"></td><td align="left" valign="top">&nbsp;FRMD_INT_LIP</td><td align="left">FRMD_INT_LIP Action.<br>0 = <i>REP</i><br>replicate tlv, write tlv to both fifo's<br>1 = <i>PASS</i><br>passthrough tlv, write tlv to passthrough fifo only<br>2 = <i>MODIFY</i><br>modify tlv, write tlv to user_rx fifo only<br>3 = <i>DELETE</i><br>delete tlv, write tlv to user_rx fifo only, order number not incremented, user should not write this tlv back to the user_tx interface<br>Reset value is <i>REP</i>.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">01:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;FRMD_INT_SIP</td><td align="left">FRMD_INT_SIP Action.<br>0 = <i>REP</i><br>replicate tlv, write tlv to both fifo's<br>1 = <i>PASS</i><br>passthrough tlv, write tlv to passthrough fifo only<br>2 = <i>MODIFY</i><br>modify tlv, write tlv to user_rx fifo only<br>3 = <i>DELETE</i><br>delete tlv, write tlv to user_rx fifo only, order number not incremented, user should not write this tlv back to the user_tx interface<br>Reset value is <i>REP</i>.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_CRCGC Regs Table</A></p>
+<p>
+  <b><a ID="CR_CRCGC_history_buffer_part2_0">CR_CRCGC_history_buffer_part2_0 - History Buffer 0</a></b><br>
+  Offset (byte space) = 32'h18<br>
+  Verilog Macro Address = `CR_CRCGC_HISTORY_BUFFER_PART2_0<br>
+  Reset Value = 32'h0000_0000<br>
+  Access = RO (32-bit only)<br>
+</p>
+<table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:22</td><td valign="top"></td><td align="left" valign="top">&nbsp;rsvd</td><td align="left">Reserved<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">21</td><td valign="top"></td><td align="left" valign="top">&nbsp;valid</td><td align="left">CRC Check Error<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">20</td><td valign="top"></td><td align="left" valign="top">&nbsp;error</td><td align="left">CRC Check Error<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">19</td><td valign="top"></td><td align="left" valign="top">&nbsp;checken</td><td align="left">Check Enable<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">18:08</td><td valign="top"></td><td align="left" valign="top">&nbsp;tlv_frame_num</td><td align="left">Frame Number<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">07:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;tlv_seq_num</td><td align="left">Sequence Number<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_CRCGC Regs Table</A></p>
+<p>
+  <b><a ID="CR_CRCGC_history_buffer_part1_0">CR_CRCGC_history_buffer_part1_0 - History Buffer 0</a></b><br>
+  Offset (byte space) = 32'h1c<br>
+  Verilog Macro Address = `CR_CRCGC_HISTORY_BUFFER_PART1_0<br>
+  Reset Value = 32'h0000_0000<br>
+  Access = RO (32-bit only)<br>
+</p>
+upper 32 bits of CRC value<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;crc_up</td><td align="left">Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_CRCGC Regs Table</A></p>
+<p>
+  <b><a ID="CR_CRCGC_history_buffer_part0_0">CR_CRCGC_history_buffer_part0_0 - History Buffer 0</a></b><br>
+  Offset (byte space) = 32'h20<br>
+  Verilog Macro Address = `CR_CRCGC_HISTORY_BUFFER_PART0_0<br>
+  Reset Value = 32'h0000_0000<br>
+  Access = RO (32-bit only)<br>
+</p>
+lower 32 bits of CRC value<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;crc_low</td><td align="left">Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_CRCGC Regs Table</A></p>
+<p>
+  <b><a ID="CR_CRCGC_history_buffer_part2_1">CR_CRCGC_history_buffer_part2_1 - History Buffer 1</a></b><br>
+  Offset (byte space) = 32'h28<br>
+  Verilog Macro Address = `CR_CRCGC_HISTORY_BUFFER_PART2_1<br>
+  Reset Value = 32'h0000_0000<br>
+  Access = RO (32-bit only)<br>
+</p>
+<table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:22</td><td valign="top"></td><td align="left" valign="top">&nbsp;rsvd</td><td align="left">Reserved<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">21</td><td valign="top"></td><td align="left" valign="top">&nbsp;valid</td><td align="left">CRC Check Error<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">20</td><td valign="top"></td><td align="left" valign="top">&nbsp;error</td><td align="left">CRC Check Error<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">19</td><td valign="top"></td><td align="left" valign="top">&nbsp;checken</td><td align="left">Check Enable<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">18:08</td><td valign="top"></td><td align="left" valign="top">&nbsp;tlv_frame_num</td><td align="left">Frame Number<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">07:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;tlv_seq_num</td><td align="left">Sequence Number<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_CRCGC Regs Table</A></p>
+<p>
+  <b><a ID="CR_CRCGC_history_buffer_part1_1">CR_CRCGC_history_buffer_part1_1 - History Buffer 1</a></b><br>
+  Offset (byte space) = 32'h2c<br>
+  Verilog Macro Address = `CR_CRCGC_HISTORY_BUFFER_PART1_1<br>
+  Reset Value = 32'h0000_0000<br>
+  Access = RO (32-bit only)<br>
+</p>
+upper 32 bits of CRC value<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;crc_up</td><td align="left">Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_CRCGC Regs Table</A></p>
+<p>
+  <b><a ID="CR_CRCGC_history_buffer_part0_1">CR_CRCGC_history_buffer_part0_1 - History Buffer 1</a></b><br>
+  Offset (byte space) = 32'h30<br>
+  Verilog Macro Address = `CR_CRCGC_HISTORY_BUFFER_PART0_1<br>
+  Reset Value = 32'h0000_0000<br>
+  Access = RO (32-bit only)<br>
+</p>
+lower 32 bits of CRC value<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;crc_low</td><td align="left">Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_CRCGC Regs Table</A></p>
+<p>
+  <b><a ID="CR_CRCGC_history_buffer_part2_2">CR_CRCGC_history_buffer_part2_2 - History Buffer 2</a></b><br>
+  Offset (byte space) = 32'h34<br>
+  Verilog Macro Address = `CR_CRCGC_HISTORY_BUFFER_PART2_2<br>
+  Reset Value = 32'h0000_0000<br>
+  Access = RO (32-bit only)<br>
+</p>
+<table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:22</td><td valign="top"></td><td align="left" valign="top">&nbsp;rsvd</td><td align="left">Reserved<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">21</td><td valign="top"></td><td align="left" valign="top">&nbsp;valid</td><td align="left">CRC Check Error<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">20</td><td valign="top"></td><td align="left" valign="top">&nbsp;error</td><td align="left">CRC Check Error<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">19</td><td valign="top"></td><td align="left" valign="top">&nbsp;checken</td><td align="left">Check Enable<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">18:08</td><td valign="top"></td><td align="left" valign="top">&nbsp;tlv_frame_num</td><td align="left">Frame Number<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">07:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;tlv_seq_num</td><td align="left">Sequence Number<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_CRCGC Regs Table</A></p>
+<p>
+  <b><a ID="CR_CRCGC_history_buffer_part1_2">CR_CRCGC_history_buffer_part1_2 - History Buffer 2</a></b><br>
+  Offset (byte space) = 32'h38<br>
+  Verilog Macro Address = `CR_CRCGC_HISTORY_BUFFER_PART1_2<br>
+  Reset Value = 32'h0000_0000<br>
+  Access = RO (32-bit only)<br>
+</p>
+upper 32 bits of CRC value<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;crc_up</td><td align="left">Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_CRCGC Regs Table</A></p>
+<p>
+  <b><a ID="CR_CRCGC_history_buffer_part0_2">CR_CRCGC_history_buffer_part0_2 - History Buffer 2</a></b><br>
+  Offset (byte space) = 32'h3c<br>
+  Verilog Macro Address = `CR_CRCGC_HISTORY_BUFFER_PART0_2<br>
+  Reset Value = 32'h0000_0000<br>
+  Access = RO (32-bit only)<br>
+</p>
+lower 32 bits of CRC value<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;crc_low</td><td align="left">Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_CRCGC Regs Table</A></p>
+<p>
+  <b><a ID="CR_CRCGC_history_buffer_part2_3">CR_CRCGC_history_buffer_part2_3 - History Buffer 3</a></b><br>
+  Offset (byte space) = 32'h40<br>
+  Verilog Macro Address = `CR_CRCGC_HISTORY_BUFFER_PART2_3<br>
+  Reset Value = 32'h0000_0000<br>
+  Access = RO (32-bit only)<br>
+</p>
+<table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:22</td><td valign="top"></td><td align="left" valign="top">&nbsp;rsvd</td><td align="left">Reserved<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">21</td><td valign="top"></td><td align="left" valign="top">&nbsp;valid</td><td align="left">CRC Check Error<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">20</td><td valign="top"></td><td align="left" valign="top">&nbsp;error</td><td align="left">CRC Check Error<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">19</td><td valign="top"></td><td align="left" valign="top">&nbsp;checken</td><td align="left">Check Enable<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">18:08</td><td valign="top"></td><td align="left" valign="top">&nbsp;tlv_frame_num</td><td align="left">Frame Number<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">07:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;tlv_seq_num</td><td align="left">Sequence Number<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_CRCGC Regs Table</A></p>
+<p>
+  <b><a ID="CR_CRCGC_history_buffer_part1_3">CR_CRCGC_history_buffer_part1_3 - History Buffer 3</a></b><br>
+  Offset (byte space) = 32'h44<br>
+  Verilog Macro Address = `CR_CRCGC_HISTORY_BUFFER_PART1_3<br>
+  Reset Value = 32'h0000_0000<br>
+  Access = RO (32-bit only)<br>
+</p>
+upper 32 bits of CRC value<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;crc_up</td><td align="left">Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_CRCGC Regs Table</A></p>
+<p>
+  <b><a ID="CR_CRCGC_history_buffer_part0_3">CR_CRCGC_history_buffer_part0_3 - History Buffer 3</a></b><br>
+  Offset (byte space) = 32'h48<br>
+  Verilog Macro Address = `CR_CRCGC_HISTORY_BUFFER_PART0_3<br>
+  Reset Value = 32'h0000_0000<br>
+  Access = RO (32-bit only)<br>
+</p>
+lower 32 bits of CRC value<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;crc_low</td><td align="left">Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_CRCGC Regs Table</A></p>
+<p>
+  <b><a ID="CR_CRCGC_history_buffer_part2_4">CR_CRCGC_history_buffer_part2_4 - History Buffer 4</a></b><br>
+  Offset (byte space) = 32'h4c<br>
+  Verilog Macro Address = `CR_CRCGC_HISTORY_BUFFER_PART2_4<br>
+  Reset Value = 32'h0000_0000<br>
+  Access = RO (32-bit only)<br>
+</p>
+<table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:22</td><td valign="top"></td><td align="left" valign="top">&nbsp;rsvd</td><td align="left">Reserved<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">21</td><td valign="top"></td><td align="left" valign="top">&nbsp;valid</td><td align="left">CRC Check Error<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">20</td><td valign="top"></td><td align="left" valign="top">&nbsp;error</td><td align="left">CRC Check Error<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">19</td><td valign="top"></td><td align="left" valign="top">&nbsp;checken</td><td align="left">Check Enable<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">18:08</td><td valign="top"></td><td align="left" valign="top">&nbsp;tlv_frame_num</td><td align="left">Frame Number<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">07:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;tlv_seq_num</td><td align="left">Sequence Number<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_CRCGC Regs Table</A></p>
+<p>
+  <b><a ID="CR_CRCGC_history_buffer_part1_4">CR_CRCGC_history_buffer_part1_4 - History Buffer 4</a></b><br>
+  Offset (byte space) = 32'h50<br>
+  Verilog Macro Address = `CR_CRCGC_HISTORY_BUFFER_PART1_4<br>
+  Reset Value = 32'h0000_0000<br>
+  Access = RO (32-bit only)<br>
+</p>
+upper 32 bits of CRC value<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;crc_up</td><td align="left">Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_CRCGC Regs Table</A></p>
+<p>
+  <b><a ID="CR_CRCGC_history_buffer_part0_4">CR_CRCGC_history_buffer_part0_4 - History Buffer 4</a></b><br>
+  Offset (byte space) = 32'h54<br>
+  Verilog Macro Address = `CR_CRCGC_HISTORY_BUFFER_PART0_4<br>
+  Reset Value = 32'h0000_0000<br>
+  Access = RO (32-bit only)<br>
+</p>
+lower 32 bits of CRC value<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;crc_low</td><td align="left">Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_CRCGC Regs Table</A></p>
+<p>
+  <b><a ID="CR_CRCGC_history_buffer_part2_5">CR_CRCGC_history_buffer_part2_5 - History Buffer 5</a></b><br>
+  Offset (byte space) = 32'h58<br>
+  Verilog Macro Address = `CR_CRCGC_HISTORY_BUFFER_PART2_5<br>
+  Reset Value = 32'h0000_0000<br>
+  Access = RO (32-bit only)<br>
+</p>
+<table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:22</td><td valign="top"></td><td align="left" valign="top">&nbsp;rsvd</td><td align="left">Reserved<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">21</td><td valign="top"></td><td align="left" valign="top">&nbsp;valid</td><td align="left">CRC Check Error<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">20</td><td valign="top"></td><td align="left" valign="top">&nbsp;error</td><td align="left">CRC Check Error<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">19</td><td valign="top"></td><td align="left" valign="top">&nbsp;checken</td><td align="left">Check Enable<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">18:08</td><td valign="top"></td><td align="left" valign="top">&nbsp;tlv_frame_num</td><td align="left">Frame Number<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">07:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;tlv_seq_num</td><td align="left">Sequence Number<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_CRCGC Regs Table</A></p>
+<p>
+  <b><a ID="CR_CRCGC_history_buffer_part1_5">CR_CRCGC_history_buffer_part1_5 - History Buffer 5</a></b><br>
+  Offset (byte space) = 32'h5c<br>
+  Verilog Macro Address = `CR_CRCGC_HISTORY_BUFFER_PART1_5<br>
+  Reset Value = 32'h0000_0000<br>
+  Access = RO (32-bit only)<br>
+</p>
+upper 32 bits of CRC value<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;crc_up</td><td align="left">Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_CRCGC Regs Table</A></p>
+<p>
+  <b><a ID="CR_CRCGC_history_buffer_part0_5">CR_CRCGC_history_buffer_part0_5 - History Buffer 5</a></b><br>
+  Offset (byte space) = 32'h60<br>
+  Verilog Macro Address = `CR_CRCGC_HISTORY_BUFFER_PART0_5<br>
+  Reset Value = 32'h0000_0000<br>
+  Access = RO (32-bit only)<br>
+</p>
+lower 32 bits of CRC value<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;crc_low</td><td align="left">Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_CRCGC Regs Table</A></p>
+<p>
+  <b><a ID="CR_CRCGC_history_buffer_part2_6">CR_CRCGC_history_buffer_part2_6 - History Buffer 6</a></b><br>
+  Offset (byte space) = 32'h64<br>
+  Verilog Macro Address = `CR_CRCGC_HISTORY_BUFFER_PART2_6<br>
+  Reset Value = 32'h0000_0000<br>
+  Access = RO (32-bit only)<br>
+</p>
+<table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:22</td><td valign="top"></td><td align="left" valign="top">&nbsp;rsvd</td><td align="left">Reserved<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">21</td><td valign="top"></td><td align="left" valign="top">&nbsp;valid</td><td align="left">CRC Check Error<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">20</td><td valign="top"></td><td align="left" valign="top">&nbsp;error</td><td align="left">CRC Check Error<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">19</td><td valign="top"></td><td align="left" valign="top">&nbsp;checken</td><td align="left">Check Enable<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">18:08</td><td valign="top"></td><td align="left" valign="top">&nbsp;tlv_frame_num</td><td align="left">Frame Number<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">07:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;tlv_seq_num</td><td align="left">Sequence Number<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_CRCGC Regs Table</A></p>
+<p>
+  <b><a ID="CR_CRCGC_history_buffer_part1_6">CR_CRCGC_history_buffer_part1_6 - History Buffer 6</a></b><br>
+  Offset (byte space) = 32'h68<br>
+  Verilog Macro Address = `CR_CRCGC_HISTORY_BUFFER_PART1_6<br>
+  Reset Value = 32'h0000_0000<br>
+  Access = RO (32-bit only)<br>
+</p>
+upper 32 bits of CRC value<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;crc_up</td><td align="left">Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_CRCGC Regs Table</A></p>
+<p>
+  <b><a ID="CR_CRCGC_history_buffer_part0_6">CR_CRCGC_history_buffer_part0_6 - History Buffer 6</a></b><br>
+  Offset (byte space) = 32'h6c<br>
+  Verilog Macro Address = `CR_CRCGC_HISTORY_BUFFER_PART0_6<br>
+  Reset Value = 32'h0000_0000<br>
+  Access = RO (32-bit only)<br>
+</p>
+lower 32 bits of CRC value<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;crc_low</td><td align="left">Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_CRCGC Regs Table</A></p>
+<p>
+  <b><a ID="CR_CRCGC_history_buffer_part2_7">CR_CRCGC_history_buffer_part2_7 - History Buffer 7</a></b><br>
+  Offset (byte space) = 32'h70<br>
+  Verilog Macro Address = `CR_CRCGC_HISTORY_BUFFER_PART2_7<br>
+  Reset Value = 32'h0000_0000<br>
+  Access = RO (32-bit only)<br>
+</p>
+<table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:22</td><td valign="top"></td><td align="left" valign="top">&nbsp;rsvd</td><td align="left">Reserved<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">21</td><td valign="top"></td><td align="left" valign="top">&nbsp;valid</td><td align="left">CRC Check Error<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">20</td><td valign="top"></td><td align="left" valign="top">&nbsp;error</td><td align="left">CRC Check Error<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">19</td><td valign="top"></td><td align="left" valign="top">&nbsp;checken</td><td align="left">Check Enable<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">18:08</td><td valign="top"></td><td align="left" valign="top">&nbsp;tlv_frame_num</td><td align="left">Frame Number<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">07:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;tlv_seq_num</td><td align="left">Sequence Number<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_CRCGC Regs Table</A></p>
+<p>
+  <b><a ID="CR_CRCGC_history_buffer_part1_7">CR_CRCGC_history_buffer_part1_7 - History Buffer 7</a></b><br>
+  Offset (byte space) = 32'h74<br>
+  Verilog Macro Address = `CR_CRCGC_HISTORY_BUFFER_PART1_7<br>
+  Reset Value = 32'h0000_0000<br>
+  Access = RO (32-bit only)<br>
+</p>
+upper 32 bits of CRC value<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;crc_up</td><td align="left">Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_CRCGC Regs Table</A></p>
+<p>
+  <b><a ID="CR_CRCGC_history_buffer_part0_7">CR_CRCGC_history_buffer_part0_7 - History Buffer 7</a></b><br>
+  Offset (byte space) = 32'h78<br>
+  Verilog Macro Address = `CR_CRCGC_HISTORY_BUFFER_PART0_7<br>
+  Reset Value = 32'h0000_0000<br>
+  Access = RO (32-bit only)<br>
+</p>
+lower 32 bits of CRC value<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:00</td><td valign="top"></td><td align="left" valign="top">&nbsp;crc_low</td><td align="left">Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_CRCGC Regs Table</A></p>
+<p>
+  <b><a ID="CR_CRCGC_regs_crcgc_ctrl">CR_CRCGC_regs_crcgc_ctrl - CRC Generator Checker Control</a></b><br>
+  Offset (byte space) = 32'h7c<br>
+  Verilog Macro Address = `CR_CRCGC_REGS_CRCGC_CTRL<br>
+  Reset Value = 32'h0000_0003<br>
+  Access = RW (32-bit only)<br>
+</p>
+CRC Generator Checker Control Register<br><br><table border=1 align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#C0CFF0"><th align="center" width="5%">Bit Field</th><th align="center" width="8%">Flags</th><th align="center" width="25%">Field Name</th><th align="center" width="52%">Description</th><th align="center" width="10%">Properties/Attributes</th></tr>
+  <tr><td align="center" valign="top">31:02</td><td valign="top"></td><td align="left" valign="top">&nbsp;resvd</td><td align="left">reserved<br>Reset value is <i>0</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">01</td><td valign="top"></td><td align="left" valign="top">&nbsp;regs_crc_gen_en</td><td align="left">CRC generation enabled<br>Reset value is <i>1</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+  <tr><td align="center" valign="top">00</td><td valign="top"></td><td align="left" valign="top">&nbsp;regs_crc_chk_en</td><td align="left">CRC checking enabled<br>Reset value is <i>1</i> decimal.<br></td><td align="left">&nbsp;</td></tr>
+</table>
+<p><A HREF="#Regs_Registers">Return to CR_CRCGC Regs Table</A></p>
+</body>
+</html>

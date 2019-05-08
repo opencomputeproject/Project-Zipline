@@ -1,0 +1,15 @@
+
+# *************************************************************************
+#
+# Copyright © Microsoft Corporation. All rights reserved.
+# Copyright © Broadcom Inc. All rights reserved.
+# Licensed under the MIT License.
+#
+# *************************************************************************
+
+-f $RTL_ROOT/cr_cddip/cr_cddip.vlist
+
++incdir+$DV_ROOT/agents/apb
++incdir+$DV_ROOT/CDD_64/tb_top
+$DV_ROOT/agents/apb/apb_xactor.v
+./zipline_tb.v

@@ -1,0 +1,83 @@
+/*************************************************************************
+*
+* Copyright © Microsoft Corporation. All rights reserved.
+* Copyright © Broadcom Inc. All rights reserved.
+* Licensed under the MIT License.
+*
+*************************************************************************/
+
++define+ENA_BIMC+
++libext+.v
++libext+.sv
++libext+.svp
++libext+.vh
++incdir+$RTL_ROOT/common/include
++incdir+$RTL_ROOT/cr_kme
++incdir+$RTL_ROOT/common/nx_library
++incdir+$RTL_ROOT/mem_wrappers/bimc_master/top
++incdir+$RTL_ROOT/common/fifo
++incdir+$RTL_ROOT/common/cr_tlvp
++incdir+$RTL_ROOT/common/axi
+
+-y $RTL_ROOT/common
+-y $RTL_ROOT/common/nx_library
+-y $RTL_ROOT/common/fifo
+-y $RTL_ROOT/mem_wrappers/bimc_master/top
+
+$RTL_ROOT/cr_kme/cr_kme.v
+$RTL_ROOT/cr_kme/cr_kme_core.v
+$RTL_ROOT/cr_kme/cr_kme_core_glue.v
+$RTL_ROOT/cr_kme/cr_kme_regfile.v
+$RTL_ROOT/cr_kme/cr_kme_int_handler.v
+$RTL_ROOT/cr_kme/cr_kme_drbg_reggen.v
+$RTL_ROOT/cr_cceip_64_sa/cr_sa_counter.v
+$RTL_ROOT/cr_kme/cr_kme_regs.sv
+
+$RTL_ROOT/cr_kme/cr_kme_fifo.v
+$RTL_ROOT/cr_kme/cr_kme_ram_fifo.v
+$RTL_ROOT/cr_kme/cr_kme_ckv_pipeline.v
+$RTL_ROOT/cr_kme/cr_kme_guid_stitcher.v
+$RTL_ROOT/cr_kme/cr_kme_tlv_parser.v
+$RTL_ROOT/cr_kme/cr_kme_kim_drng_reader.v
+$RTL_ROOT/cr_kme/cr_kme_ckv_reader.v
+$RTL_ROOT/cr_kme/cr_kme_kop_assigner.v
+$RTL_ROOT/cr_kme/cr_kme_regfile_glue.v
+$RTL_ROOT/cr_kme/cr_kme_key_tlv_compare_split.v
+
+//KME_MODIFICATION_NOTE: Line commented out because module no longer used
+// $RTL_ROOT/cr_kme/cr_kme_key_tlv_split.v
+
+
+$RTL_ROOT/cr_kme/cr_kme_key_tlv_rsm.v
+
+$RTL_ROOT/cr_kme/cr_kme_kop.v
+$RTL_ROOT/cr_kme/cr_kme_kop_tlv_inspector.v
+$RTL_ROOT/cr_kme/cr_kme_kop_upsizer_x2.v
+$RTL_ROOT/cr_kme/cr_kme_kop_gcm.v
+$RTL_ROOT/cr_kme/cr_kme_kop_kdf.v
+$RTL_ROOT/cr_kme/cr_kme_kop_kdf_keyfilter.v
+$RTL_ROOT/cr_kme/cr_kme_kop_kdf_merger.v
+$RTL_ROOT/cr_kme/cr_kme_hmac_sha256_stub.v
+$RTL_ROOT/cr_kme/cr_kme_kop_kdf_stream_gen.v
+$RTL_ROOT/cr_kme/cr_kme_kop_kdf_stream_pipe.v
+$RTL_ROOT/cr_kme/cr_kme_kop_keybuilder.v
+
+$RTL_ROOT/cr_kme/cr_kme_drng.v
+$RTL_ROOT/cr_kme/cr_kme_aes_256_drng.v
+
+
+
+$RTL_ROOT/common/cr_tlvp/cr_axi4s_mstr.v
+$RTL_ROOT/common/cr_tlvp/cr_axi4s2_slv.v
+$RTL_ROOT/common/cr_tlvp/cr_tlvp2_rsm.v
+$RTL_ROOT/common/cr_tlvp/cr_tlvp2_rsm_core.v
+-v $RTL_ROOT/common/fifo/cr_fifo_wrap1.v
+-v $RTL_ROOT/common/fifo/cr_fifo_wrap2.v
+$RTL_ROOT/common/axi/axi_reg_slice_defs.vh
+$RTL_ROOT/common/axi/axi_channel_reg_slice.v
+
+
+$RTL_ROOT/AesSecI/AesSecIStub.v
+
+
+$RTL_ROOT/common/cr_crc/cr_crc.v

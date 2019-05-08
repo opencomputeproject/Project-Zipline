@@ -1,0 +1,651 @@
+/*************************************************************************
+*
+* Copyright © Microsoft Corporation. All rights reserved.
+* Copyright © Broadcom Inc. All rights reserved.
+* Licensed under the MIT License.
+*
+*************************************************************************/
+`ifndef __CR_PREFIX_ATTACH_REGSPKG_SVP
+`define __CR_PREFIX_ATTACH_REGSPKG_SVP
+package cr_prefix_attach_regsPKG;
+
+
+
+
+typedef enum logic [1:0]
+       {ENET  = 2'h0, 
+	IPV4  = 2'h1, 
+	IPV6  = 2'h2, 
+	MPLS  = 2'h3} pkt_hdr_e;
+
+
+
+typedef enum logic [3:0]
+       {CMD_SIMPLE  = 4'h0, 
+	COMPND_4K   = 4'h5, 
+	COMPND_8K   = 4'h6, 
+	COMPND_RSV  = 4'hf} cmd_compound_cmd_frm_size_e;
+
+
+
+typedef enum logic 
+       {GUID_NOT_PRESENT  = 1'h0, 
+	GUID_PRESENT      = 1'h1} cmd_guid_present_e;
+
+
+
+typedef enum logic 
+       {CRC_NOT_PRESENT  = 1'h0, 
+	CRC_PRESENT      = 1'h1} cmd_frmd_crc_in_e;
+
+
+
+typedef enum logic [6:0]
+       {CCEIP_FRMD_USER_NULL  = 7'hb, 
+	CCEIP_FRMD_USER_PI16  = 7'hc, 
+	CCEIP_FRMD_USER_PI64  = 7'hd, 
+	CCEIP_FRMD_USER_VM    = 7'he, 
+	CCEIP_TYPE_IN_RSV     = 7'h7f} cceip_cmd_frmd_in_type_e;
+
+
+
+typedef enum logic [6:0]
+       {CDDIP_FRMD_INT_APP       = 7'hf, 
+	CDDIP_FRMD_INT_SIP       = 7'h10, 
+	CDDIP_FRMD_INT_LIP       = 7'h11, 
+	CDDIP_FRMD_INT_VM        = 7'h12, 
+	CDDIP_FRMD_INT_VM_SHORT  = 7'h16, 
+	CDDIP_TYPE_IN_RSV        = 7'h7f} cddip_cmd_frmd_in_type_e;
+
+
+
+typedef enum logic [6:0]
+       {CCEIP_FRMD_INT_APP       = 7'hf, 
+	CCEIP_FRMD_INT_SIP       = 7'h10, 
+	CCEIP_FRMD_INT_LIP       = 7'h11, 
+	CCEIP_FRMD_INT_VM        = 7'h12, 
+	CCEIP_FRMD_INT_VM_SHORT  = 7'h16, 
+	CCEIP_TYPE_OUT_RSV       = 7'h7f} cceip_cmd_frmd_out_type_e;
+
+
+
+typedef enum logic [6:0]
+       {CDDIP_FRMD_USER_NULL  = 7'hb, 
+	CDDIP_FRMD_USER_PI16  = 7'hc, 
+	CDDIP_FRMD_USER_PI64  = 7'hd, 
+	CDDIP_FRMD_USER_VM    = 7'he, 
+	CDDIP_TYPE_OUT_RSV    = 7'h7f} cddip_cmd_frmd_out_type_e;
+
+
+
+typedef enum logic 
+       {NOT_GEN  = 1'h0, 
+	GEN      = 1'h1} cmd_frmd_out_crc_e;
+
+
+
+typedef enum logic [1:0]
+       {FRMD_T10_DIX  = 2'h0, 
+	FRMD_CRC64    = 2'h1, 
+	FRMD_CRC64E   = 2'h2, 
+	FRMD_CRC_RSV  = 2'h3} cmd_frmd_out_crc_type_e;
+
+
+
+typedef enum logic [1:0]
+       {NO_CRC         = 2'h0, 
+	CRC_8B_CRC64   = 2'h1, 
+	CRC_8B_CRC64E  = 2'h2, 
+	MD_TYPE_RSV    = 2'h3} cmd_md_type_e;
+
+
+
+typedef enum logic [1:0]
+       {CRC_GEN_VERIFY  = 2'h0, 
+	CRC_RSV1        = 2'h1, 
+	CRC_RSV2        = 2'h2, 
+	CRC_RSV3        = 2'h3} cmd_md_op_e;
+
+
+
+typedef enum logic 
+       {FRMD_MAC_NOP  = 1'h0, 
+	FRMD_MAC_CAL  = 1'h1} cmd_frmd_raw_mac_sel_e;
+
+
+
+typedef enum logic 
+       {CHU_NORMAL  = 1'h0, 
+	CHU_APPEND  = 1'h1} cmd_chu_append_e;
+
+
+
+typedef enum logic [3:0]
+       {NONE      = 4'h0, 
+	ZLIB      = 4'h1, 
+	GZIP      = 4'h2, 
+	XP9       = 4'h3, 
+	XP10      = 4'h4, 
+	CHU4K     = 4'h5, 
+	CHU8K     = 4'h6, 
+	RSV_MODE  = 4'hf} cmd_comp_mode_e;
+
+
+
+typedef enum logic [3:0]
+       {WIN_32B  = 4'h0, 
+	WIN_4K   = 4'h1, 
+	WIN_8K   = 4'h2, 
+	WIN_16K  = 4'h3, 
+	WIN_32K  = 4'h4, 
+	WIN_64K  = 4'h5, 
+	RSV_WIN  = 4'hf} cmd_lz77_win_size_e;
+
+
+
+typedef enum logic [1:0]
+       {NO_MATCH  = 2'h0, 
+	CHAR_1    = 2'h1, 
+	CHAR_2    = 2'h2, 
+	RSV_DLY   = 2'h3} cmd_lz77_dly_match_win_e;
+
+
+
+typedef enum logic 
+       {CHAR_3  = 1'h0, 
+	CHAR_4  = 1'h1} cmd_lz77_min_match_len_e;
+
+
+
+typedef enum logic [1:0]
+       {LEN_LZ77_WIN  = 2'h0, 
+	LEN_256B      = 2'h1, 
+	MIN_MTCH_14   = 2'h2, 
+	LEN_64B       = 2'h3} cmd_lz77_max_symb_len_e;
+
+
+
+typedef enum logic [1:0]
+       {NO_PREFIX      = 2'h0, 
+	USER_PREFIX    = 2'h1, 
+	PREDEF_PREFIX  = 2'h2, 
+	PREDET_HUFF    = 2'h3} cmd_xp10_prefix_mode_e;
+
+
+
+typedef enum logic 
+       {CRC32  = 1'h0, 
+	CRC64  = 1'h1} cmd_xp10_crc_mode_e;
+
+
+
+typedef enum logic [1:0]
+       {FRM          = 2'h0, 
+	FRM_LESS_16  = 2'h1, 
+	INF          = 2'h2, 
+	RSV_THRSH    = 2'h3} cmd_chu_comp_thrsh_e;
+
+
+
+typedef enum logic [1:0]
+       {IV_NONE      = 2'h0, 
+	IV_AUX_CMD   = 2'h1, 
+	IV_KEYS      = 2'h2, 
+	IV_AUX_FRMD  = 2'h3} cmd_iv_src_e;
+
+
+
+typedef enum logic [1:0]
+       {IV_SRC  = 2'h0, 
+	IV_RND  = 2'h1, 
+	IV_INC  = 2'h2, 
+	IV_RSV  = 2'h3} cmd_iv_op_e;
+
+
+
+typedef enum logic 
+       {SIMPLE    = 1'h0, 
+	COMPOUND  = 1'h1} rqe_frame_type_e;
+
+
+
+typedef enum logic 
+       {TRACE_OFF  = 1'h0, 
+	TRACE_ON   = 1'h1} rqe_trace_e;
+
+
+
+typedef enum logic [3:0]
+       {RQE_SIMPLE          = 4'h0, 
+	RQE_COMPOUND_4K     = 4'h5, 
+	RQE_COMPOUND_8K     = 4'h6, 
+	RQE_RSV_FRAME_SIZE  = 4'hf} rqe_frame_size_e;
+
+
+
+typedef enum logic [1:0]
+       {RAW        = 2'h1, 
+	PARSEABLE  = 2'h0, 
+	XP10CFH4K  = 2'h2, 
+	XP10CFH8K  = 2'h3} frmd_coding_e;
+
+
+
+typedef enum logic [1:0]
+       {DIGEST_64B   = 2'h0, 
+	DIGEST_128B  = 2'h1, 
+	DIGEST_256B  = 2'h2, 
+	DIGEST_0B    = 2'h3} frmd_mac_size_e;
+
+
+
+typedef enum logic [1:0]
+       {REP     = 2'h0, 
+	PASS    = 2'h1, 
+	MODIFY  = 2'h2, 
+	DELETE  = 2'h3} tlv_parse_action_e;
+
+
+
+typedef enum logic 
+       {USER  = 1'h0, 
+	TLVP  = 1'h1} tlvp_corrupt_e;
+
+
+
+typedef enum logic 
+       {DATAPATH_CORRUPT  = 1'h0, 
+	FUNCTIONAL_ERROR  = 1'h1} cmd_type_e;
+
+
+
+typedef enum logic [1:0]
+       {SINGLE_ERR        = 2'h0, 
+	CONTINUOUS_ERROR  = 2'h1, 
+	STOP              = 2'h2, 
+	EOT               = 2'h3} cmd_mode_e;
+
+
+
+typedef enum logic [3:0]
+       {NOP             = 4'h0, 
+	READ            = 4'h1, 
+	WRITE           = 4'h2, 
+	ENABLE          = 4'h3, 
+	DISABLED        = 4'h4, 
+	RESET           = 4'h5, 
+	INITIALIZE      = 4'h6, 
+	INITIALIZE_INC  = 4'h7, 
+	SET_INI_START   = 4'h8, 
+	COMPARE         = 4'h9, 
+	SIM_TMO         = 4'he, 
+	ACK_ERROR       = 4'hf} ia_operation_e;
+
+
+
+typedef enum logic [2:0]
+       {READY  = 3'h0, 
+	BUSY   = 3'h1, 
+	TMO    = 3'h2, 
+	OVR    = 3'h3, 
+	NXM    = 3'h4, 
+	UOP    = 3'h5, 
+	PDN    = 3'h7} ia_status_e;
+
+
+
+typedef enum logic [3:0]
+       {SPRAM        = 4'h0, 
+	SRFRAM       = 4'h1, 
+	REG          = 4'h2, 
+	TCAM         = 4'h3, 
+	MEM_TYPE_4   = 4'h4, 
+	MEM_TYPE_5   = 4'h5, 
+	MEM_TYPE_6   = 4'h6, 
+	MEM_TYPE_7   = 4'h7, 
+	MEM_TYPE_8   = 4'h8, 
+	MEM_TYPE_9   = 4'h9, 
+	MEM_TYPE_10  = 4'ha, 
+	MEM_TYPE_11  = 4'hb, 
+	MEM_TYPE_12  = 4'hc, 
+	MEM_TYPE_13  = 4'hd, 
+	MEM_TYPE_14  = 4'he, 
+	MEM_TYPE_15  = 4'hf} mem_type_e;
+
+
+
+typedef enum logic [6:0]
+       {REVISION_CONFIG                = 7'h0, 
+	SPARE_CONFIG                   = 7'h4, 
+	REGS_CCEIP_TLV_PARSE_ACTION_0  = 7'hc, 
+	REGS_CCEIP_TLV_PARSE_ACTION_1  = 7'h10, 
+	PFDMEM_IA_CAPABILITY           = 7'h14, 
+	PFDMEM_IA_STATUS               = 7'h18, 
+	PFDMEM_IA_WDATA_PART0          = 7'h1c, 
+	PFDMEM_IA_WDATA_PART1          = 7'h20, 
+	PFDMEM_IA_CONFIG               = 7'h24, 
+	PFDMEM_IA_RDATA_PART0          = 7'h28, 
+	PFDMEM_IA_RDATA_PART1          = 7'h2c, 
+	PHDMEM_IA_CAPABILITY           = 7'h30, 
+	PHDMEM_IA_STATUS               = 7'h34, 
+	PHDMEM_IA_WDATA_PART0          = 7'h38, 
+	PHDMEM_IA_WDATA_PART1          = 7'h3c, 
+	PHDMEM_IA_CONFIG               = 7'h40, 
+	PHDMEM_IA_RDATA_PART0          = 7'h44, 
+	PHDMEM_IA_RDATA_PART1          = 7'h48, 
+	REGS_ERROR_CONTROL             = 7'h4c, 
+	REGS_CDDIP_TLV_PARSE_ACTION_0  = 7'h58, 
+	REGS_CDDIP_TLV_PARSE_ACTION_1  = 7'h5c} address_e;
+
+
+
+typedef struct packed {
+    logic [7:0]                    revid;                    
+} revid_t;
+localparam revid_t revid_t_reset 
+     = {8'h0};
+
+
+
+typedef struct packed {
+    logic [31:0]                   spare;                    
+} spare_t;
+localparam spare_t spare_t_reset 
+     = {32'h0};
+
+
+
+typedef struct packed {
+    logic [1:0]                    frmd_int_app;             
+    logic [1:0]                    frmd_user_vm;             
+    logic [1:0]                    frmd_user_pi64;           
+    logic [1:0]                    frmd_user_pi16;           
+    logic [1:0]                    frmd_user_null;           
+    logic [1:0]                    guid;                     
+    logic [1:0]                    cqe;                      
+    logic [1:0]                    stat;                     
+    logic [1:0]                    lz77;                     
+    logic [1:0]                    ftr;                      
+    logic [1:0]                    data_unk;                 
+    logic [1:0]                    pfd;                      
+    logic [1:0]                    phd;                      
+    logic [1:0]                    key;                      
+    logic [1:0]                    cmd;                      
+    logic [1:0]                    rqe;                      
+} regs_cceip_tlv_parse_action_31_0_t;
+localparam regs_cceip_tlv_parse_action_31_0_t regs_cceip_tlv_parse_action_31_0_t_reset 
+     = {2'h1, 
+	2'h1, 
+	2'h1, 
+	2'h1, 
+	2'h1, 
+	2'h1, 
+	2'h1, 
+	2'h1, 
+	2'h1, 
+	2'h2, 
+	2'h1, 
+	2'h2, 
+	2'h2, 
+	2'h1, 
+	2'h0, 
+	2'h1};
+
+
+
+typedef struct packed {
+    logic [1:0]                    unused_4;                 
+    logic [1:0]                    unused_3;                 
+    logic [1:0]                    unused_2;                 
+    logic [1:0]                    unused_1;                 
+    logic [1:0]                    unused_0;                 
+    logic [1:0]                    sch;                      
+    logic [1:0]                    aux_cmd_guid_iv;          
+    logic [1:0]                    aux_cmd_guid;             
+    logic [1:0]                    aux_cmd_iv;               
+    logic [1:0]                    frmd_int_vm_short;        
+    logic [1:0]                    aux_cmd;                  
+    logic [1:0]                    cr_iv;                    
+    logic [1:0]                    data;                     
+    logic [1:0]                    frmd_int_vm;              
+    logic [1:0]                    frmd_int_lip;             
+    logic [1:0]                    frmd_int_sip;             
+} regs_cceip_tlv_parse_action_63_32_t;
+localparam regs_cceip_tlv_parse_action_63_32_t regs_cceip_tlv_parse_action_63_32_t_reset 
+     = {2'h1, 
+	2'h1, 
+	2'h1, 
+	2'h1, 
+	2'h1, 
+	2'h1, 
+	2'h1, 
+	2'h1, 
+	2'h1, 
+	2'h1, 
+	2'h1, 
+	2'h1, 
+	2'h1, 
+	2'h1, 
+	2'h1, 
+	2'h1};
+
+
+
+typedef struct packed {
+    logic [1:0]                    frmd_int_app;             
+    logic [1:0]                    frmd_user_vm;             
+    logic [1:0]                    frmd_user_pi64;           
+    logic [1:0]                    frmd_user_pi16;           
+    logic [1:0]                    frmd_user_null;           
+    logic [1:0]                    guid;                     
+    logic [1:0]                    cqe;                      
+    logic [1:0]                    stat;                     
+    logic [1:0]                    lz77;                     
+    logic [1:0]                    ftr;                      
+    logic [1:0]                    data_unk;                 
+    logic [1:0]                    pfd;                      
+    logic [1:0]                    phd;                      
+    logic [1:0]                    key;                      
+    logic [1:0]                    cmd;                      
+    logic [1:0]                    rqe;                      
+} regs_cddip_tlv_parse_action_31_0_t;
+localparam regs_cddip_tlv_parse_action_31_0_t regs_cddip_tlv_parse_action_31_0_t_reset 
+     = {2'h0, 
+	2'h1, 
+	2'h1, 
+	2'h1, 
+	2'h1, 
+	2'h1, 
+	2'h1, 
+	2'h1, 
+	2'h1, 
+	2'h2, 
+	2'h2, 
+	2'h1, 
+	2'h1, 
+	2'h1, 
+	2'h1, 
+	2'h1};
+
+
+
+typedef struct packed {
+    logic [1:0]                    unused_4;                 
+    logic [1:0]                    unused_3;                 
+    logic [1:0]                    unused_2;                 
+    logic [1:0]                    unused_1;                 
+    logic [1:0]                    unused_0;                 
+    logic [1:0]                    sch;                      
+    logic [1:0]                    aux_cmd_guid_iv;          
+    logic [1:0]                    aux_cmd_guid;             
+    logic [1:0]                    aux_cmd_iv;               
+    logic [1:0]                    frmd_int_vm_short;        
+    logic [1:0]                    aux_cmd;                  
+    logic [1:0]                    cr_iv;                    
+    logic [1:0]                    data;                     
+    logic [1:0]                    frmd_int_vm;              
+    logic [1:0]                    frmd_int_lip;             
+    logic [1:0]                    frmd_int_sip;             
+} regs_cddip_tlv_parse_action_63_32_t;
+localparam regs_cddip_tlv_parse_action_63_32_t regs_cddip_tlv_parse_action_63_32_t_reset 
+     = {2'h1, 
+	2'h1, 
+	2'h1, 
+	2'h1, 
+	2'h1, 
+	2'h1, 
+	2'h1, 
+	2'h1, 
+	2'h1, 
+	2'h0, 
+	2'h1, 
+	2'h1, 
+	2'h2, 
+	2'h0, 
+	2'h0, 
+	2'h0};
+
+
+
+typedef struct packed {
+    logic [31:0]                   prefix_1;                 
+    logic [31:0]                   prefix_0;                 
+} pfd_t;
+localparam pfd_t pfd_t_reset 
+     = {32'h0, 
+	32'h0};
+
+
+
+typedef struct packed {
+    logic [3:0]                    op;                       
+    logic [12:0]                   addr;                     
+} pfdmem_ia_config_t;
+localparam pfdmem_ia_config_t pfdmem_ia_config_t_reset 
+     = {4'h0, 
+	13'h0};
+
+
+
+typedef struct packed {
+    logic [2:0]                    code;                     
+    logic [4:0]                    datawords;                
+    logic [12:0]                   addr;                     
+} pfdmem_ia_status_t;
+localparam pfdmem_ia_status_t pfdmem_ia_status_t_reset 
+     = {3'h1, 
+	5'h1, 
+	13'h1fff};
+
+
+
+typedef struct packed {
+    logic [3:0]                    mem_type;                 
+    logic                          ack_error;                
+    logic                          sim_tmo;                  
+    logic [3:0]                    reserved_op;              
+    logic                          compare;                  
+    logic                          set_init_start;           
+    logic                          initialize_inc;           
+    logic                          initialize;               
+    logic                          reset;                    
+    logic                          disabled;                 
+    logic                          enable;                   
+    logic                          write;                    
+    logic                          read;                     
+    logic                          nop;                      
+} pfdmem_ia_capability_t;
+localparam pfdmem_ia_capability_t pfdmem_ia_capability_t_reset 
+     = {4'h0, 
+	1'h0, 
+	1'h0, 
+	4'h0, 
+	1'h0, 
+	1'h0, 
+	1'h0, 
+	1'h0, 
+	1'h0, 
+	1'h0, 
+	1'h0, 
+	1'h0, 
+	1'h0, 
+	1'h0};
+
+
+
+typedef struct packed {
+    logic [31:0]                   huff_1;                   
+    logic [31:0]                   huff_0;                   
+} phd_t;
+localparam phd_t phd_t_reset 
+     = {32'h0, 
+	32'h0};
+
+
+
+typedef struct packed {
+    logic [3:0]                    op;                       
+    logic [11:0]                   addr;                     
+} phdmem_ia_config_t;
+localparam phdmem_ia_config_t phdmem_ia_config_t_reset 
+     = {4'h0, 
+	12'h0};
+
+
+
+typedef struct packed {
+    logic [2:0]                    code;                     
+    logic [4:0]                    datawords;                
+    logic [11:0]                   addr;                     
+} phdmem_ia_status_t;
+localparam phdmem_ia_status_t phdmem_ia_status_t_reset 
+     = {3'h1, 
+	5'h1, 
+	12'hfff};
+
+
+
+typedef struct packed {
+    logic [3:0]                    mem_type;                 
+    logic                          ack_error;                
+    logic                          sim_tmo;                  
+    logic [3:0]                    reserved_op;              
+    logic                          compare;                  
+    logic                          set_init_start;           
+    logic                          initialize_inc;           
+    logic                          initialize;               
+    logic                          reset;                    
+    logic                          disabled;                 
+    logic                          enable;                   
+    logic                          write;                    
+    logic                          read;                     
+    logic                          nop;                      
+} phdmem_ia_capability_t;
+localparam phdmem_ia_capability_t phdmem_ia_capability_t_reset 
+     = {4'h0, 
+	1'h0, 
+	1'h0, 
+	4'h0, 
+	1'h0, 
+	1'h0, 
+	1'h0, 
+	1'h0, 
+	1'h0, 
+	1'h0, 
+	1'h0, 
+	1'h0, 
+	1'h0, 
+	1'h0};
+
+
+
+typedef struct packed {
+    logic [30:0]                   resvd;                    
+    logic                          enable_ftr_error;         
+} prefix_attach_error_control_t;
+localparam prefix_attach_error_control_t prefix_attach_error_control_t_reset 
+     = {31'h0, 
+	1'h1};
+endpackage : cr_prefix_attach_regsPKG
+
+`endif 
