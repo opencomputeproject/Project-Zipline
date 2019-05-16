@@ -1,5 +1,8 @@
 ## Project Zipline - FAQ
     
+#### What is the quickest way to ramp on Project Zipline and the XP10 compression algorithm?
+    Please see .\Project_Zipine_Overview.pptx.
+
 #### Does the implementation only support the XP10 compression algorithm?
     The implementation supports XP10, Zlib, and Gzip. 
 

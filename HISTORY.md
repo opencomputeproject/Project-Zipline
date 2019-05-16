@@ -1,6 +1,13 @@
 ## Project Zipline - HISTORY
    
-#### May 08, 2019 (v2.0)
+#### May 16, 2019  (v2.1)
+    Modified
+        * HISTORY.md
+
+    Added
+        * .\Project-Zipline_Overview.pptx
+   
+#### May 08, 2019  (v2.0)
     Deleted
         * build.setup 
         * .\specs\*.*
@@ -30,12 +37,12 @@
         * .\rtl\*.*
         * .\syn\*.*  
 
-#### Apr 04, 2019 (v1.1)
+#### Apr 04, 2019  (v1.1)
     Added
         * FAQ.md
         * HISTORY.md 
 
-#### Feb 14, 2019 (v1.0)
+#### Feb 14, 2019  (v1.0)
     Initial release
         * Project XP10 Compression Specification
         * Project Zipline XP10 Huffman Encoder Micro Architecture Specification
