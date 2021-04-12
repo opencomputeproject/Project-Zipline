@@ -1,4 +1,4 @@
-﻿## Project Zipline
+## Project Zipline
 
 ## Introduction
 
@@ -100,7 +100,7 @@ Note: For synthesis, please edit syn/Makefile to choose an LSF or dedicated
 machine with at least 16G of memory.  Edit the contents of this line,
 before "dc_shell":
 
-**`bsub -Is -q irv-cpx-M16 -R "rusage [mem=16000]" dc_shell -f syn_example.tcl | tee ./LOGS/syn_eample.tcl.`date '+%m%d.%H:%M'`.log`**
+**``bsub -Is -q irv-cpx-M16 -R "rusage [mem=16000]" dc_shell -f syn_example.tcl | tee ./LOGS/syn_eample.tcl.`date '+%m%d.%H:%M'`.log``**
 
 To run synthesis for CDD
 
