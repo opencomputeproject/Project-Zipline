@@ -1,7 +1,7 @@
 /*************************************************************************
 *
-* Copyright © Microsoft Corporation. All rights reserved.
-* Copyright © Broadcom Inc. All rights reserved.
+* Copyright ï¿½ Microsoft Corporation. All rights reserved.
+* Copyright ï¿½ Broadcom Inc. All rights reserved.
 * Licensed under the MIT License.
 *
 *************************************************************************/
@@ -104,7 +104,7 @@ module nx_fifo_1r1w_indirect_access_debug_cntrl
   import nx_mem_typePKG::*;
   
    localparam capabilities_t capabilities_t_set
-     =  { init_inc     : (N_INIT_INC_BITS>0)? TRUE : FALSE, 
+     =  '{ init_inc     : (N_INIT_INC_BITS>0)? TRUE : FALSE, 
  	  compare      : FALSE,
           reserved_op  : 4'b0,
           default      : TRUE};   

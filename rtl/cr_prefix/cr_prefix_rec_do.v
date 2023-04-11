@@ -1,7 +1,7 @@
 /*************************************************************************
 *
-* Copyright © Microsoft Corporation. All rights reserved.
-* Copyright © Broadcom Inc. All rights reserved.
+* Copyright ï¿½ Microsoft Corporation. All rights reserved.
+* Copyright ï¿½ Broadcom Inc. All rights reserved.
 * Licensed under the MIT License.
 *
 *************************************************************************/
@@ -244,6 +244,7 @@ module cr_prefix_rec_do
   
   
  //synopsys translate_off 
+ /*
   covergroup cov_sort_result_grp @(posedge clk); 
     cov_sort: coverpoint rec_do_sort1_result.value{
       bins MIN = {-128};
@@ -261,7 +262,7 @@ module cr_prefix_rec_do
   endgroup 
 
   cov_sort_result_grp cov_sort_result_grp_inst = new();
-  
+*/  
 //synopsys translate_on  
   
         

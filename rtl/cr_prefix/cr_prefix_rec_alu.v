@@ -1,7 +1,7 @@
 /*************************************************************************
 *
-* Copyright © Microsoft Corporation. All rights reserved.
-* Copyright © Broadcom Inc. All rights reserved.
+* Copyright ï¿½ Microsoft Corporation. All rights reserved.
+* Copyright ï¿½ Broadcom Inc. All rights reserved.
 * Licensed under the MIT License.
 *
 *************************************************************************/
@@ -155,6 +155,7 @@ module cr_prefix_rec_alu
 
   assign mac_instr = (rec_us_ir3_opcode == MAC) ? 1'b1 : 1'b0;
 //synopsys translate_off
+/*
   covergroup cov_mac_result_grp @(negedge mac_instr);    
     cov_max_result: coverpoint rec_alu_acc{
       bins MIN = {-524288};
@@ -164,6 +165,7 @@ module cr_prefix_rec_alu
   endgroup 
 
   cov_mac_result_grp cov_mac_result_grp_inst = new();
+*/
 //synopsys translate_on   
   
       

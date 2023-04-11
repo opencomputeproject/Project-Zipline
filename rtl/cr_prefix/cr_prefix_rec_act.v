@@ -1,7 +1,7 @@
 /*************************************************************************
 *
-* Copyright © Microsoft Corporation. All rights reserved.
-* Copyright © Broadcom Inc. All rights reserved.
+* Copyright ï¿½ Microsoft Corporation. All rights reserved.
+* Copyright ï¿½ Broadcom Inc. All rights reserved.
 * Licensed under the MIT License.
 *
 *************************************************************************/
@@ -225,6 +225,7 @@ module cr_prefix_rec_act
   assign relu_instr = (rec_us_ir4_opcode == RELUP) ? 1'b1 : 1'b0;
   assign sigmoid_instr = (rec_us_ir4_opcode == SIGMOIDP) ? 1'b1 : 1'b0;
 //synopsys translate_off
+/*
   covergroup cov_relu_act_grp @(posedge relu_instr);    
     cov_acc_result: coverpoint rec_alu_acc{
       bins MIN = {-524288};
@@ -262,7 +263,7 @@ module cr_prefix_rec_act
    
   cov_relu_act_grp cov_relu_act_grp_inst = new();
   cov_sigmoid_act_grp cov_sigmoid_act_grp_inst = new();
-   
+*/   
 //synopsys translate_on
   
   

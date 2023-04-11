@@ -1,7 +1,7 @@
 /*************************************************************************
 *
-* Copyright © Microsoft Corporation. All rights reserved.
-* Copyright © Broadcom Inc. All rights reserved.
+* Copyright ï¿½ Microsoft Corporation. All rights reserved.
+* Copyright ï¿½ Broadcom Inc. All rights reserved.
 * Licensed under the MIT License.
 *
 *************************************************************************/
@@ -301,6 +301,7 @@ module cr_prefix_fe_counter
 
   
 //synopsys translate_off
+/*
   covergroup cov_prefix_feature_ctr_grp @(posedge clk);
     cov_feature_ctr: coverpoint fe_counter_match_sum{
       bins ZERO = {0};
@@ -310,6 +311,7 @@ module cr_prefix_fe_counter
   endgroup 
 
   cov_prefix_feature_ctr_grp cov_prefix_feature_ctr_grp_inst = new();
+*/  
 //synopsys translate_on   
   
 

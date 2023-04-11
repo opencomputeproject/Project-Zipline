@@ -1,7 +1,7 @@
 /*************************************************************************
 *
-* Copyright © Microsoft Corporation. All rights reserved.
-* Copyright © Broadcom Inc. All rights reserved.
+* Copyright ï¿½ Microsoft Corporation. All rights reserved.
+* Copyright ï¿½ Broadcom Inc. All rights reserved.
 * Licensed under the MIT License.
 *
 *************************************************************************/
@@ -747,7 +747,7 @@ module cr_prefix_rec_us
   end
   
 //synopsys translate_off  
-      
+/*      
   covergroup cov_prefix_rec_grp @(posedge clk);    
     cov_im_opcode: coverpoint rec_im_dout_opcode{
       bins VALID_OPCODE[] = {[0:10]};
@@ -870,7 +870,7 @@ module cr_prefix_rec_us
    cov_neuron_cnt_outer_layer_grp cov_neuron_cnt_outer_layer_grp_inst  = new();
    cov_neuron_cnt_inner_layer_grp cov_neuron_cnt_inner_layer_grp_inst  = new();
  
- 
+ */
 //synopsys translate_on
   
   

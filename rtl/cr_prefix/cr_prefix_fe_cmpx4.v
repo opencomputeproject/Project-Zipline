@@ -1,7 +1,7 @@
 /*************************************************************************
 *
-* Copyright © Microsoft Corporation. All rights reserved.
-* Copyright © Broadcom Inc. All rights reserved.
+* Copyright ï¿½ Microsoft Corporation. All rights reserved.
+* Copyright ï¿½ Broadcom Inc. All rights reserved.
 * Licensed under the MIT License.
 *
 *************************************************************************/
@@ -189,6 +189,7 @@ module cr_prefix_fe_cmpx4
    wire [3:0]        no_delay = {no_delay_a, no_delay_b, no_delay_c, no_delay_d};
 
 //synopsys translate_off
+/*
    covergroup cov_prefix_feature_config_grp @(posedge char_valid);
       cov_use_prior: coverpoint use_prior{
 	 bins SET1 = {0,1};
@@ -233,6 +234,7 @@ module cr_prefix_fe_cmpx4
 
    
    cov_prefix_feature_config_grp cov_prefix_feature_config_grp_inst = new();
+*/
 //synopsys translate_on 
 
 endmodule
